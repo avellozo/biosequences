@@ -1,0 +1,106 @@
+args:-m n3 -i 2 -g -5 -q -1 -r 1 -s -x xae1xcc2/xae1.seq -y xae1xcc2/xcc2.seq -a -l -b 
+Método utilizado: N^3 psi
+Seqüência s: xae com 140 símbolos obtida do arquivo: xae1xcc2/xae1.seq .
+Seqüência t: xcc com 140 símbolos obtida do arquivo: xae1xcc2/xcc2.seq .
+Peso de um match: 1
+Peso de um mismatch: -1
+Peso de um gap: -5
+Penalidade para inversão: 2
+Alinhamento local: s[37..138] x t[30..131]
+Total de símbolos na seqüência s: 140.
+Total de símbolos na seqüência t: 140.
+Total de símbolos alinhados na seqüência s: 102 (72,857%).
+Total de símbolos alinhados na seqüência t: 102 (72,857%).
+O valor total do bim é 20
+O tempo de execução foi de 14.015 ms
+Número de matches: 69 (67,647%)
+Número de mismatches: 33 (32,353%)
+Número de gaps: 0 (0%)
+Número de inversões: 8
+s[40..41] x t[33..34] : 2 símbolos (1,961%).
+s[47..51] x t[40..44] : 5 símbolos (4,902%).
+s[57..63] x t[50..56] : 7 símbolos (6,863%).
+s[64..73] x t[57..66] : 10 símbolos (9,804%).
+s[83..109] x t[76..102] : 27 símbolos (26,471%).
+s[115..118] x t[108..111] : 4 símbolos (3,922%).
+s[121..127] x t[114..120] : 7 símbolos (6,863%).
+s[128..131] x t[121..124] : 4 símbolos (3,922%).
+Total de símbolos invertidos em s: 66 (64,706%).
+Lista de matches:
+37 30 +
+38 31 +
+39 32 +
+41 33 -
+40 34 -
+43 36 +
+44 37 +
+50 41 -
+49 42 -
+48 43 -
+47 44 -
+52 45 +
+53 46 +
+55 48 +
+56 49 +
+63 50 -
+60 53 -
+59 54 -
+58 55 -
+57 56 -
+73 57 -
+71 59 -
+70 60 -
+68 62 -
+66 64 -
+65 65 -
+74 67 +
+75 68 +
+77 70 +
+79 72 +
+80 73 +
+81 74 +
+108 77 -
+107 78 -
+105 80 -
+104 81 -
+101 84 -
+99 86 -
+98 87 -
+97 88 -
+95 90 -
+94 91 -
+91 94 -
+89 96 -
+88 97 -
+87 98 -
+85 100 -
+84 101 -
+83 102 -
+110 103 +
+113 106 +
+114 107 +
+118 108 -
+117 109 -
+116 110 -
+120 113 +
+127 114 -
+126 115 -
+125 116 -
+123 118 -
+122 119 -
+130 122 -
+129 123 -
+128 124 -
+132 125 +
+134 127 +
+135 128 +
+137 130 +
+138 131 +
+Alinhamento do tipo blast:
+S : 37 cttGTatggaTTCGTggcccCTGTCGCTCTGCAAGGTcgaagccgaGTCCACACCTGTAG 96
+       ||||| ||   |||||| |||  ||||| || | || || | |||  || ||  | ||| 
+T : 30 cttCAttgttGAGCAggtccGCGAGCGATACCTGCCGcgcatccgcGAGTTGCTGGCATA 89
+
+S : 95 AAGCCCGCCCTTAgttgaCCAAccCGAACGTAAGCgatcgcg 138
+       ||  | ||| ||||  |||||  |||| ||  |||| || ||
+T : 90 TTTCGCCGGCAATggcgaGGTGgcGCTGGCGGTCGgctcccg 131

@@ -1,0 +1,40 @@
+# Filename:         hg-chr7-95119414-95120280.fasta
+# Frame:            100
+# Skip:             100
+# FinalSkip:        109
+# NumFrags:         8
+# display_id:       hg17_dna
+# accession_number: unknown
+# moltype:          DNA
+# length:           867
+# seq:              CTTCATTTGGCTTATTCTCCAAGCTTTGTCAAATATTCGT ... TTCTTCTCTC
+
+# Filename:         pantro-chr6-96726524-96727390.fasta
+# Frame:            100
+# Skip:             100
+# FinalSkip:        109
+# NumFrags:         8
+# display_id:       panTro1_dna
+# accession_number: unknown
+# moltype:          DNA
+# length:           867
+# seq:              AGACCTTCATTTGGCTTATTCTCCAAGCTTTGTCAAATAT ... TTCTCTCATC
+
+#Compmat2
+# MatchScore:     2
+# MismatchScore:  -1
+# GapOpen:        0
+# GapExtension:   10
+# window:         100
+# displacement:   100
+# threshold:      31
+# thresholdscore: 62
+# alignment:      semiglobal
++ 0 0 186
++ 1 1 189
++ 2 2 144
+- 3 4 194
+- 4 3 191
++ 5 5 154
++ 6 6 194
++ 7 7 194

@@ -1,0 +1,60 @@
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m dummy 
+O tempo de execução foi de 0 ms
+O valor total do bim é 0

@@ -1,0 +1,717 @@
+args:-m n3l -i 2 -s -a -x seqgen/n700-q70-g35-i5-l50.seqa -y seqgen/n700-q70-g35-i5-l50.seqb -g -5 -q -1 -r 1 -b -l 
+Método utilizado: N^3 log n
+Seqüência s:  Arquivo par:n700-q70-g35-i5-l50.seqb n=700 q=70 g=35 i=5 l=50 < 65-126 156-214 257-319 498-588 643-697 > com 697 símbolos obtida do arquivo: seqgen/n700-q70-g35-i5-l50.seqa .
+Seqüência t:  Arquivo par:n700-q70-g35-i5-l50.seqa n=700 q=70 g=35 i=5 l=50 < 65-126 156-214 257-319 498-588 643-697 > com 702 símbolos obtida do arquivo: seqgen/n700-q70-g35-i5-l50.seqb .
+Peso de uma identidade: 1
+Peso de um mismatch: -1
+Peso de um gap: -5
+Penalidade para inversão: 2
+Letras maiúsculas de seqüências indicam trecho invertido, assim como o símbolo '#' representa um fragmento num trecho invertido.
+Alinhamento local: s[2..697] x t[2..701]
+Total de símbolos na seqüência s: 697.
+Total de símbolos na seqüência t: 702.
+Total de símbolos alinhados na seqüência s: 696 (99,86%).
+Total de símbolos alinhados na seqüência t: 700 (99,72%).
+O valor total do bim é 408
+O tempo de execução foi de 3.223.719 ms
+Número de identidades: 607 (86,96%)
+Número de mismatches: 81 (11,6%)
+Número de gaps: 20 (2,87%)
+Número de inversões: 9
+1) s[65..126] x t[64..127] : 62 x 64 símbolos (8,91% x 9,14%). 
+   52 identidades (82,54%), 10 mismatches (15,87%) e 2 gaps (3,17%). Peso da inversão: 30. 
+   Peso de um alinhamento direto neste trecho invertido: -12. 30 identidades (47,62%), 32 mismatches (50,79%) e 2 gaps (3,17%).
+2) s[148..153] x t[149..154] : 6 x 6 símbolos (0,86% x 0,86%). 
+   5 identidades (83,33%), 1 mismatches (16,67%) e 0 gaps (0%). Peso da inversão: 2. 
+   Peso de um alinhamento direto neste trecho invertido: -2. 2 identidades (33,33%), 4 mismatches (66,67%) e 0 gaps (0%).
+3) s[154..214] x t[155..214] : 61 x 60 símbolos (8,76% x 8,57%). 
+   53 identidades (87,6%), 7 mismatches (11,57%) e 1 gaps (1,65%). Peso da inversão: 39. 
+   Peso de um alinhamento direto neste trecho invertido: -28. 23 identidades (38,02%), 36 mismatches (59,5%) e 3 gaps (4,96%).
+4) s[215..218] x t[215..218] : 4 x 4 símbolos (0,57% x 0,57%). 
+   2 identidades (50%), 2 mismatches (50%) e 0 gaps (0%). Peso da inversão: -2. 
+   Peso de um alinhamento direto neste trecho invertido: -4. 0 identidades (0%), 4 mismatches (100%) e 0 gaps (0%).
+5) s[220..223] x t[220..223] : 4 x 4 símbolos (0,57% x 0,57%). 
+   3 identidades (75%), 1 mismatches (25%) e 0 gaps (0%). Peso da inversão: 0. 
+   Peso de um alinhamento direto neste trecho invertido: -4. 0 identidades (0%), 4 mismatches (100%) e 0 gaps (0%).
+6) s[257..319] x t[259..321] : 63 x 63 símbolos (9,05% x 9%). 
+   57 identidades (90,48%), 5 mismatches (7,94%) e 2 gaps (3,17%). Peso da inversão: 40. 
+   Peso de um alinhamento direto neste trecho invertido: -9. 36 identidades (57,14%), 25 mismatches (39,68%) e 4 gaps (6,35%).
+7) s[364..366] x t[366..368] : 3 x 3 símbolos (0,43% x 0,43%). 
+   3 identidades (100%), 0 mismatches (0%) e 0 gaps (0%). Peso da inversão: 1. 
+   Peso de um alinhamento direto neste trecho invertido: -3. 0 identidades (0%), 3 mismatches (100%) e 0 gaps (0%).
+8) s[496..587] x t[500..591] : 92 x 92 símbolos (13,22% x 13,14%). 
+   70 identidades (76,09%), 22 mismatches (23,91%) e 0 gaps (0%). Peso da inversão: 46. 
+   Peso de um alinhamento direto neste trecho invertido: -41. 30 identidades (32,61%), 61 mismatches (66,3%) e 2 gaps (2,17%).
+9) s[644..697] x t[650..701] : 54 x 52 símbolos (7,76% x 7,43%). 
+   48 identidades (90,57%), 3 mismatches (5,66%) e 4 gaps (7,55%). Peso da inversão: 23. 
+   Peso de um alinhamento direto neste trecho invertido: -23. 24 identidades (45,28%), 27 mismatches (50,94%) e 4 gaps (7,55%).
+Total de símbolos invertidos em s: 349 (50,14%). Peso total das inversões: 179. Peso total dos alinhamentos diretos nos trechos invertidos: -126.
+Alinhamento do tipo blast:
+S : 2 ctccggataggcgtagcgggtcagataccggcgaaacttcccggtcgatccctatggagc 61
+      |||||||||||||||||||||||| |||||||| || ||||||| ||||||| |||||||
+T : 2 ctccggataggcgtagcgggtcaggtaccggcgtaa-ttcccggccgatcccgatggagc 60
+
+S : 62 cac 64
+         |
+T : 61 gcc 63
+
+S : 126 GGATTAAT-CAAGTGACGCGAACGCCGGATGACATACT-TAGTGCGGGTTTATTCCACAT 69
+        |||  |||  ||||||||||||||| ||||||| ||||  |||| |||| ||||||  ||
+T :  64 cctgcttactttcactgcgcttgcgccctactggatgatgtcactcccagataagggcta 123
+
+S :  68 AGCGttgtctgactccgttcatcggGATCTA 148
+        ||||| |||| | ||||||||||   |||||
+T : 124 tcgctggtcttattccgttcatccattagat 154
+
+S : 214 CCGTTCCAAGGCAGCCTCAGCAGAGGGTGAACTACGACATGGCAAGCTGCATGACATTCT 155
+        |||||||||||||||||||||||| | | |||||||||||||||||| |||| ||| |  
+T : 155 ggcaaggttccgtcggagtcgtct-ctagttgatgctgtaccgttcgccgtagtgttaag 213
+
+S : 154 ATCATcTGGTaacaag-acggacatttaaagtgcgctcgt-aaat 256
+        || |   ||||||||| |||| ||| ||||||||| |||| ||||
+T : 214 tactctgccaaacaagcacggtcatataaagtgcgttcgtgaaat 258
+
+S : 319 CGTCACTGGAGAACGAGTT-CATTTCGTGTGATCGGGCCGAAGGTGCCTGCTCTCTACTG 261
+        ||||||||||||||||||| ||||   |||||||||||||||||| ||||||||||  ||
+T : 259 gcagtgacctcttgctcaaggtaagtaacactagcccggcttcca-ggacgagagaacac 317
+
+S : 260 ATCAgttcgccaaagtagggttacgagtctctgctggaaaccttctaaATCtatgtcgca 375
+        ||||| ||||||||||||||||||||||||||||| |||| ||||||||||||| ||| |
+T : 318 tagtgctcgccaaagtagggttacgagtctctgctagaaaacttctaatagtatatcgta 377
+
+S : 376 gggatgcggggttcaacttaggtcggtacaagtaatgttgcgggtccaagccaagttctt 435
+        | |||||||||||||||||| ||||||||||||||||||||||||||| ||||||||| |
+T : 378 gagatgcggggttcaactta-gtcggtacaagtaatgttgcgggtccacgccaagttc-t 435
+
+S : 436 aggctataatatggacggccgcaatcaactcctgcgcttaagctac-aagtgggcgt-gt 493
+        || |||||||||||||||||||||||||||||| |||||||||||| |||||||||| ||
+T : 436 agcctataatatggacggccgcaatcaactcctccgcttaagctacaaagtgggcgtggt 495
+
+S : 494 c--g 495
+        |  |
+T : 496 catg 499
+
+S : 587 CTATGAACTCCATACTTGGTCACCCTCCGTTCAGCGACGGCCGGGGGCGTGTGGCCCTAT 528
+        ||||||    ||  | ||| |||||   |||   ||  | | |||||||| ||| |||||
+T : 500 gatactcacagttcgtacccgtgggcttcaacgggcgccggtcccccgcaaacccggata 559
+
+S : 527 ACAATCGAGCCTGTTACAAAAAACGCCATTCAcccgtcgtggatggcccatagcaagt-t 614
+        |||||||||||||||||||| ||||||| ||||  ||||||||||  ||||||||||| |
+T : 560 tgttagctcggacaatgtttgttgcggtcagtcaagtcgtggatgagccatagcaagtgt 619
+
+S : 615 agcggacag-taacctgccgcccgcccgtc 643
+         |||||||| ||||||||||||||||||| 
+T : 620 ggcggacagttaacctgccgcccgcccgtt 649
+
+S : 697 AGGCATCCA-TAAGCTTCAGAATTATGCCGGGTCCGTCTTAGTTCACAGAGCGCG 644
+         |||||||| ||||||| ||||||||||| ||| | ||||| |||||||||||||
+T : 650 cccgtaggtcattcgaa-tcttaatacggacca-g-agaattaagtgtctcgcgc 701
+
+Lista de identidades:
+2 2 +
+3 3 +
+4 4 +
+5 5 +
+6 6 +
+7 7 +
+8 8 +
+9 9 +
+10 10 +
+11 11 +
+12 12 +
+13 13 +
+14 14 +
+15 15 +
+16 16 +
+17 17 +
+18 18 +
+19 19 +
+20 20 +
+21 21 +
+22 22 +
+23 23 +
+24 24 +
+25 25 +
+27 27 +
+28 28 +
+29 29 +
+30 30 +
+31 31 +
+32 32 +
+33 33 +
+34 34 +
+36 36 +
+37 37 +
+39 38 +
+40 39 +
+41 40 +
+42 41 +
+43 42 +
+44 43 +
+45 44 +
+47 46 +
+48 47 +
+49 48 +
+50 49 +
+51 50 +
+52 51 +
+53 52 +
+55 54 +
+56 55 +
+57 56 +
+58 57 +
+59 58 +
+60 59 +
+61 60 +
+64 63 +
+126 64 -
+125 65 -
+124 66 -
+121 69 -
+120 70 -
+119 71 -
+117 74 -
+116 75 -
+115 76 -
+114 77 -
+113 78 -
+112 79 -
+111 80 -
+110 81 -
+109 82 -
+108 83 -
+107 84 -
+106 85 -
+105 86 -
+104 87 -
+103 88 -
+101 90 -
+100 91 -
+99 92 -
+98 93 -
+97 94 -
+96 95 -
+95 96 -
+93 98 -
+92 99 -
+91 100 -
+90 101 -
+88 104 -
+87 105 -
+86 106 -
+85 107 -
+83 109 -
+82 110 -
+81 111 -
+80 112 -
+78 114 -
+77 115 -
+76 116 -
+75 117 -
+74 118 -
+73 119 -
+70 122 -
+69 123 -
+68 124 -
+67 125 -
+66 126 -
+65 127 -
+127 128 +
+129 130 +
+130 131 +
+131 132 +
+132 133 +
+134 135 +
+136 137 +
+137 138 +
+138 139 +
+139 140 +
+140 141 +
+141 142 +
+142 143 +
+143 144 +
+144 145 +
+145 146 +
+152 150 -
+151 151 -
+150 152 -
+149 153 -
+148 154 -
+214 155 -
+213 156 -
+212 157 -
+211 158 -
+210 159 -
+209 160 -
+208 161 -
+207 162 -
+206 163 -
+205 164 -
+204 165 -
+203 166 -
+202 167 -
+201 168 -
+200 169 -
+199 170 -
+198 171 -
+197 172 -
+196 173 -
+195 174 -
+194 175 -
+193 176 -
+192 177 -
+191 178 -
+189 179 -
+187 181 -
+185 183 -
+184 184 -
+183 185 -
+182 186 -
+181 187 -
+180 188 -
+179 189 -
+178 190 -
+177 191 -
+176 192 -
+175 193 -
+174 194 -
+173 195 -
+172 196 -
+171 197 -
+170 198 -
+169 199 -
+168 200 -
+166 202 -
+165 203 -
+164 204 -
+163 205 -
+161 207 -
+160 208 -
+159 209 -
+157 211 -
+154 214 -
+218 215 -
+216 217 -
+222 221 -
+221 222 -
+220 223 -
+224 224 +
+225 225 +
+226 226 +
+227 227 +
+228 228 +
+229 229 +
+230 231 +
+231 232 +
+232 233 +
+233 234 +
+235 236 +
+236 237 +
+237 238 +
+239 240 +
+240 241 +
+241 242 +
+242 243 +
+243 244 +
+244 245 +
+245 246 +
+246 247 +
+247 248 +
+249 250 +
+250 251 +
+251 252 +
+252 253 +
+253 255 +
+254 256 +
+255 257 +
+256 258 +
+319 259 -
+318 260 -
+317 261 -
+316 262 -
+315 263 -
+314 264 -
+313 265 -
+312 266 -
+311 267 -
+310 268 -
+309 269 -
+308 270 -
+307 271 -
+306 272 -
+305 273 -
+304 274 -
+303 275 -
+302 276 -
+301 277 -
+300 279 -
+299 280 -
+298 281 -
+297 282 -
+293 286 -
+292 287 -
+291 288 -
+290 289 -
+289 290 -
+288 291 -
+287 292 -
+286 293 -
+285 294 -
+284 295 -
+283 296 -
+282 297 -
+281 298 -
+280 299 -
+279 300 -
+278 301 -
+277 302 -
+276 303 -
+274 304 -
+273 305 -
+272 306 -
+271 307 -
+270 308 -
+269 309 -
+268 310 -
+267 311 -
+266 312 -
+265 313 -
+262 316 -
+261 317 -
+260 318 -
+259 319 -
+258 320 -
+257 321 -
+320 322 +
+322 324 +
+323 325 +
+324 326 +
+325 327 +
+326 328 +
+327 329 +
+328 330 +
+329 331 +
+330 332 +
+331 333 +
+332 334 +
+333 335 +
+334 336 +
+335 337 +
+336 338 +
+337 339 +
+338 340 +
+339 341 +
+340 342 +
+341 343 +
+342 344 +
+343 345 +
+344 346 +
+345 347 +
+346 348 +
+347 349 +
+348 350 +
+349 351 +
+350 352 +
+352 354 +
+353 355 +
+354 356 +
+355 357 +
+357 359 +
+358 360 +
+359 361 +
+360 362 +
+361 363 +
+362 364 +
+363 365 +
+366 366 -
+365 367 -
+364 368 -
+367 369 +
+368 370 +
+369 371 +
+371 373 +
+372 374 +
+373 375 +
+375 377 +
+376 378 +
+378 380 +
+379 381 +
+380 382 +
+381 383 +
+382 384 +
+383 385 +
+384 386 +
+385 387 +
+386 388 +
+387 389 +
+388 390 +
+389 391 +
+390 392 +
+391 393 +
+392 394 +
+393 395 +
+394 396 +
+395 397 +
+397 398 +
+398 399 +
+399 400 +
+400 401 +
+401 402 +
+402 403 +
+403 404 +
+404 405 +
+405 406 +
+406 407 +
+407 408 +
+408 409 +
+409 410 +
+410 411 +
+411 412 +
+412 413 +
+413 414 +
+414 415 +
+415 416 +
+416 417 +
+417 418 +
+418 419 +
+419 420 +
+420 421 +
+421 422 +
+422 423 +
+423 424 +
+425 426 +
+426 427 +
+427 428 +
+428 429 +
+429 430 +
+430 431 +
+431 432 +
+432 433 +
+433 434 +
+435 435 +
+436 436 +
+437 437 +
+439 439 +
+440 440 +
+441 441 +
+442 442 +
+443 443 +
+444 444 +
+445 445 +
+446 446 +
+447 447 +
+448 448 +
+449 449 +
+450 450 +
+451 451 +
+452 452 +
+453 453 +
+454 454 +
+455 455 +
+456 456 +
+457 457 +
+458 458 +
+459 459 +
+460 460 +
+461 461 +
+462 462 +
+463 463 +
+464 464 +
+465 465 +
+466 466 +
+467 467 +
+468 468 +
+470 470 +
+471 471 +
+472 472 +
+473 473 +
+474 474 +
+475 475 +
+476 476 +
+477 477 +
+478 478 +
+479 479 +
+480 480 +
+481 481 +
+482 483 +
+483 484 +
+484 485 +
+485 486 +
+486 487 +
+487 488 +
+488 489 +
+489 490 +
+490 491 +
+491 492 +
+492 494 +
+493 495 +
+494 496 +
+495 499 +
+587 500 -
+586 501 -
+585 502 -
+584 503 -
+583 504 -
+582 505 -
+577 510 -
+576 511 -
+573 514 -
+571 516 -
+570 517 -
+569 518 -
+567 520 -
+566 521 -
+565 522 -
+564 523 -
+563 524 -
+559 528 -
+558 529 -
+557 530 -
+553 534 -
+552 535 -
+549 538 -
+547 540 -
+545 542 -
+544 543 -
+543 544 -
+542 545 -
+541 546 -
+540 547 -
+539 548 -
+538 549 -
+536 551 -
+535 552 -
+534 553 -
+532 555 -
+531 556 -
+530 557 -
+529 558 -
+528 559 -
+527 560 -
+526 561 -
+525 562 -
+524 563 -
+523 564 -
+522 565 -
+521 566 -
+520 567 -
+519 568 -
+518 569 -
+517 570 -
+516 571 -
+515 572 -
+514 573 -
+513 574 -
+512 575 -
+511 576 -
+510 577 -
+509 578 -
+508 579 -
+506 581 -
+505 582 -
+504 583 -
+503 584 -
+502 585 -
+501 586 -
+500 587 -
+498 589 -
+497 590 -
+496 591 -
+588 592 +
+591 595 +
+592 596 +
+593 597 +
+594 598 +
+595 599 +
+596 600 +
+597 601 +
+598 602 +
+599 603 +
+600 604 +
+603 607 +
+604 608 +
+605 609 +
+606 610 +
+607 611 +
+608 612 +
+609 613 +
+610 614 +
+611 615 +
+612 616 +
+613 617 +
+614 619 +
+616 621 +
+617 622 +
+618 623 +
+619 624 +
+620 625 +
+621 626 +
+622 627 +
+623 628 +
+624 630 +
+625 631 +
+626 632 +
+627 633 +
+628 634 +
+629 635 +
+630 636 +
+631 637 +
+632 638 +
+633 639 +
+634 640 +
+635 641 +
+636 642 +
+637 643 +
+638 644 +
+639 645 +
+640 646 +
+641 647 +
+642 648 +
+696 651 -
+695 652 -
+694 653 -
+693 654 -
+692 655 -
+691 656 -
+690 657 -
+689 658 -
+688 660 -
+687 661 -
+686 662 -
+685 663 -
+684 664 -
+683 665 -
+682 666 -
+680 667 -
+679 668 -
+678 669 -
+677 670 -
+676 671 -
+675 672 -
+674 673 -
+673 674 -
+672 675 -
+671 676 -
+670 677 -
+668 679 -
+667 680 -
+666 681 -
+664 682 -
+662 683 -
+661 684 -
+660 685 -
+659 686 -
+658 687 -
+656 689 -
+655 690 -
+654 691 -
+653 692 -
+652 693 -
+651 694 -
+650 695 -
+649 696 -
+648 697 -
+647 698 -
+646 699 -
+645 700 -
+644 701 -

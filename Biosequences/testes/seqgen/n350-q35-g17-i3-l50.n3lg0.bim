@@ -1,0 +1,377 @@
+args:-m n3l -i 2 -s -a -x seqgen/n350-q35-g17-i3-l50.seqa -y seqgen/n350-q35-g17-i3-l50.seqb -g 0 -q -1 -r 1 -b -l 
+Método utilizado: N^3 log n
+Seqüência s:  Arquivo par:n350-q35-g17-i3-l50.seqb n=350 q=35 g=17 i=3 l=50 < 20-73 98-169 193-303 > com 347 símbolos obtida do arquivo: seqgen/n350-q35-g17-i3-l50.seqa .
+Seqüência t:  Arquivo par:n350-q35-g17-i3-l50.seqa n=350 q=35 g=17 i=3 l=50 < 20-73 98-169 193-303 > com 352 símbolos obtida do arquivo: seqgen/n350-q35-g17-i3-l50.seqb .
+Peso de uma identidade: 1
+Peso de um mismatch: -1
+Peso de um gap: 0
+Penalidade para inversão: 2
+Letras maiúsculas de seqüências indicam trecho invertido, assim como o símbolo '#' representa um fragmento num trecho invertido.
+Alinhamento local: s[1..346] x t[1..352]
+Total de símbolos na seqüência s: 347.
+Total de símbolos na seqüência t: 352.
+Total de símbolos alinhados na seqüência s: 346 (99,71%).
+Total de símbolos alinhados na seqüência t: 352 (100%).
+O valor total do bim é 307
+O tempo de execução foi de 266.828 ms
+Número de identidades: 313 (89,68%)
+Número de mismatches: 0 (0%)
+Número de gaps: 72 (20,63%)
+Número de inversões: 3
+1) s[20..73] x t[19..76] : 54 x 58 símbolos (15,61% x 16,48%). 
+   51 identidades (91,07%), 0 mismatches (0%) e 10 gaps (17,86%). Peso da inversão: 49. 
+   Peso de um alinhamento direto neste trecho invertido: 35. 35 identidades (62,5%), 0 mismatches (0%) e 42 gaps (75%).
+2) s[98..169] x t[101..174] : 72 x 74 símbolos (20,81% x 21,02%). 
+   65 identidades (89,04%), 0 mismatches (0%) e 16 gaps (21,92%). Peso da inversão: 63. 
+   Peso de um alinhamento direto neste trecho invertido: 41. 41 identidades (56,16%), 0 mismatches (0%) e 64 gaps (87,67%).
+3) s[194..299] x t[198..306] : 106 x 109 símbolos (30,64% x 30,97%). 
+   100 identidades (93,02%), 0 mismatches (0%) e 15 gaps (13,95%). Peso da inversão: 98. 
+   Peso de um alinhamento direto neste trecho invertido: 66. 66 identidades (61,4%), 0 mismatches (0%) e 83 gaps (77,21%).
+Total de símbolos invertidos em s: 232 (67,05%). Peso total das inversões: 210. Peso total dos alinhamentos diretos nos trechos invertidos: 142.
+Alinhamento do tipo blast:
+S : 1 aatg-c-tccag-gaggtcatg 19
+      || | |  ||||  |||||| |
+T : 1 aa-gacg-ccagt-aggtca-g 18
+
+S : 73 TTAT-GAC-AACGGGTAGGTCGAGAACAGC-GGCTCTCACAAAGGTC--CGCGGA-GATA 20
+       ||||  || |||||||||||||||||||||  |||||||||||||||   ||||| ||||
+T : 19 aatat-tgtttgcccatccagctcttgtcga-cgagagtgtttccagaa-cgcctgctat 75
+
+S : 20 -aggtac-gtggttaggacttt-cgag 97
+        | |||| |||||||||||||| | ||
+T : 76 aa-gtacggtggttaggactttcc-ag 100
+
+S : 170 -GTAAAACT-AAGC-CGTACGCG-C-CTACT-CTGTGCGTCAAGAAATCAAGTAATT-CA 117
+         | |||||| ||||  ||||||| | | |||  ||||||||||||||||||||||||  |
+T : 101 cc-ttttgagttcga-catgcgctgcg-tgac-acacgcagttctttagttcattaac-t 155
+
+S : 116 AGCG-TCTCCAGAAAACGA-Acgt-tgatctaatgtcaccc-gtgta 193
+        |||| | | |||||||||| | ||  ||||||||||||||| || ||
+T : 156 tcgcaa-a-gtcttttgctct-gta-gatctaatgtcacccggt-ta 197
+
+S : 299 TT-TGGGGTAGGAC-A-GCTGGAAACAGTGCTGCTCGTCAACGTGTCGTTTCTGACGCAA 243
+        || ||||||||||| | |  ||||||||||||||||||||||||||||||||||||||||
+T : 198 aagaccccatcctgttgc--cctttgtcacgacgagcagttgcacagcaaagactgcgtt 255
+
+S : 242 TTC-GACTCTTA-CGCCCGGAGCGGTG-ATGAA-TA-CGAGCGGCACAA-TCAACttgat 304
+        ||| ||||||||  |||||| |||||| ||||| || | ||||||||||  |||||| ||
+T : 256 aagactgagaatc-cgggcc-cgccacatacttgatgg-tcgccgtgttc-gttgtt-at 310
+
+S : 305 atat-aa-aaccatcgtaa-gatcacct-cc-a-acaggaggtcagc-g 346
+        || | ||    |||||||| |||||||| || | || || || |||| |
+T : 311 at-tcaat---catcgtaaggatcacctgccaagac-gg-gg-cagcag 352
+
+Lista de identidades:
+1 1 +
+2 2 +
+4 3 +
+5 5 +
+7 7 +
+8 8 +
+9 9 +
+10 10 +
+12 12 +
+13 13 +
+14 14 +
+15 15 +
+16 16 +
+17 17 +
+19 18 +
+73 19 -
+72 20 -
+71 21 -
+70 22 -
+68 24 -
+67 25 -
+66 27 -
+65 28 -
+64 29 -
+63 30 -
+62 31 -
+61 32 -
+60 33 -
+59 34 -
+58 35 -
+57 36 -
+56 37 -
+55 38 -
+54 39 -
+53 40 -
+52 41 -
+51 42 -
+50 43 -
+49 44 -
+48 45 -
+47 46 -
+46 47 -
+44 49 -
+43 50 -
+42 51 -
+41 52 -
+40 53 -
+39 54 -
+38 55 -
+37 56 -
+36 57 -
+35 58 -
+34 59 -
+33 60 -
+32 61 -
+31 62 -
+30 63 -
+28 66 -
+27 67 -
+26 68 -
+25 69 -
+24 70 -
+23 72 -
+22 73 -
+21 74 -
+20 75 -
+74 77 +
+76 78 +
+77 79 +
+78 80 +
+79 81 +
+80 83 +
+81 84 +
+82 85 +
+83 86 +
+84 87 +
+85 88 +
+86 89 +
+87 90 +
+88 91 +
+89 92 +
+90 93 +
+91 94 +
+92 95 +
+93 96 +
+94 98 +
+96 99 +
+97 100 +
+169 102 -
+167 103 -
+166 104 -
+165 105 -
+164 106 -
+163 107 -
+162 108 -
+161 110 -
+160 111 -
+159 112 -
+158 113 -
+156 115 -
+155 116 -
+154 117 -
+153 118 -
+152 119 -
+151 120 -
+150 121 -
+149 123 -
+148 125 -
+146 126 -
+145 127 -
+144 128 -
+142 130 -
+141 131 -
+140 132 -
+139 133 -
+138 134 -
+137 135 -
+136 136 -
+135 137 -
+134 138 -
+133 139 -
+132 140 -
+131 141 -
+130 142 -
+129 143 -
+128 144 -
+127 145 -
+126 146 -
+125 147 -
+124 148 -
+123 149 -
+122 150 -
+121 151 -
+120 152 -
+119 153 -
+117 155 -
+116 156 -
+115 157 -
+114 158 -
+113 159 -
+112 161 -
+110 162 -
+108 163 -
+107 164 -
+106 165 -
+105 166 -
+104 167 -
+103 168 -
+102 169 -
+101 170 -
+100 171 -
+99 172 -
+98 174 -
+171 175 +
+172 176 +
+174 178 +
+175 179 +
+176 180 +
+177 181 +
+178 182 +
+179 183 +
+180 184 +
+181 185 +
+182 186 +
+183 187 +
+184 188 +
+185 189 +
+186 190 +
+187 191 +
+188 192 +
+189 194 +
+190 195 +
+192 196 +
+193 197 +
+299 198 -
+298 199 -
+297 201 -
+296 202 -
+295 203 -
+294 204 -
+293 205 -
+292 206 -
+291 207 -
+290 208 -
+289 209 -
+288 210 -
+287 211 -
+286 213 -
+285 215 -
+282 216 -
+281 217 -
+280 218 -
+279 219 -
+278 220 -
+277 221 -
+276 222 -
+275 223 -
+274 224 -
+273 225 -
+272 226 -
+271 227 -
+270 228 -
+269 229 -
+268 230 -
+267 231 -
+266 232 -
+265 233 -
+264 234 -
+263 235 -
+262 236 -
+261 237 -
+260 238 -
+259 239 -
+258 240 -
+257 241 -
+256 242 -
+255 243 -
+254 244 -
+253 245 -
+252 246 -
+251 247 -
+250 248 -
+249 249 -
+248 250 -
+247 251 -
+246 252 -
+245 253 -
+244 254 -
+243 255 -
+242 256 -
+241 257 -
+240 258 -
+239 260 -
+238 261 -
+237 262 -
+236 263 -
+235 264 -
+234 265 -
+233 266 -
+232 267 -
+230 269 -
+229 270 -
+228 271 -
+227 272 -
+226 273 -
+225 274 -
+223 275 -
+222 276 -
+221 277 -
+220 278 -
+219 279 -
+218 280 -
+217 282 -
+216 283 -
+215 284 -
+214 285 -
+213 286 -
+212 288 -
+211 289 -
+210 291 -
+208 292 -
+207 293 -
+206 294 -
+205 295 -
+204 296 -
+203 297 -
+202 298 -
+201 299 -
+200 300 -
+199 301 -
+197 303 -
+196 304 -
+195 305 -
+194 306 -
+300 307 +
+301 308 +
+303 309 +
+304 310 +
+305 311 +
+306 312 +
+308 313 +
+309 315 +
+310 316 +
+314 318 +
+315 319 +
+316 320 +
+317 321 +
+318 322 +
+319 323 +
+320 324 +
+321 325 +
+322 327 +
+323 328 +
+324 329 +
+325 330 +
+326 331 +
+327 332 +
+328 333 +
+329 334 +
+330 336 +
+331 337 +
+332 339 +
+333 341 +
+334 342 +
+336 343 +
+337 344 +
+339 345 +
+340 346 +
+342 347 +
+343 348 +
+344 349 +
+345 350 +
+346 352 +

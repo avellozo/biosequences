@@ -1,0 +1,60 @@
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 106.141 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 106.123 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.339 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 105.707 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 105.902 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 105.909 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 106.379 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 105.986 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 106.252 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.006 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.084 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.069 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.036 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.043 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.315 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.445 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.314 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.241 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 106.856 ms
+O valor total do bim é 3.820
+args:-i 2 -t 45 -b --time -f testes/XF02270239-PA47274746-window100-displacement100-r2-q1-G0-E10.compmat -m n4 -w testes/weights100 
+O tempo de execução foi de 107.005 ms
+O valor total do bim é 3.820

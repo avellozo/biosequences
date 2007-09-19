@@ -1,0 +1,152 @@
+args:-m n3l -i 2 -g -2 -q -1 -r 1 -s -x xae1xcc2/xae1.seq -y xae1xcc2/xcc2.seq -a -l -b 
+Método utilizado: N^3 log n
+Seqüência s: xae com 140 símbolos obtida do arquivo: xae1xcc2/xae1.seq .
+Seqüência t: xcc com 140 símbolos obtida do arquivo: xae1xcc2/xcc2.seq .
+Peso de uma identidade: 1
+Peso de um mismatch: -1
+Peso de um gap: -2
+Penalidade para inversão: 2
+Letras maiúsculas de seqüências indicam trecho invertido, assim como o símbolo '#' representa um fragmento num trecho invertido.
+Alinhamento local: s[9..138] x t[5..131]
+Total de símbolos na seqüência s: 140.
+Total de símbolos na seqüência t: 140.
+Total de símbolos alinhados na seqüência s: 130 (92,86%).
+Total de símbolos alinhados na seqüência t: 127 (90,71%).
+O valor total do bim é 26
+O tempo de execução foi de 19.954 ms
+Número de identidades: 90 (70,04%)
+Número de mismatches: 36 (28,02%)
+Número de gaps: 5 (3,89%)
+Número de inversões: 9
+1) s[11..29] x t[7..23] : 19 x 17 símbolos (14,62% x 13,39%). 
+   13 identidades (72,22%), 4 mismatches (22,22%) e 2 gaps (11,11%). Peso da inversão: 3. 
+   Peso de um alinhamento direto neste trecho invertido: -7. 7 identidades (38,89%), 10 mismatches (55,56%) e 2 gaps (11,11%).
+2) s[34..46] x t[28..39] : 13 x 12 símbolos (10% x 9,45%). 
+   8 identidades (64%), 4 mismatches (32%) e 1 gaps (8%). Peso da inversão: 0. 
+   Peso de um alinhamento direto neste trecho invertido: -4. 5 identidades (40%), 7 mismatches (56%) e 1 gaps (8%).
+3) s[47..51] x t[40..44] : 5 x 5 símbolos (3,85% x 3,94%). 
+   4 identidades (80%), 1 mismatches (20%) e 0 gaps (0%). Peso da inversão: 1. 
+   Peso de um alinhamento direto neste trecho invertido: -4. 2 identidades (40%), 2 mismatches (40%) e 2 gaps (40%).
+4) s[57..63] x t[50..56] : 7 x 7 símbolos (5,38% x 5,51%). 
+   5 identidades (71,43%), 2 mismatches (28,57%) e 0 gaps (0%). Peso da inversão: 1. 
+   Peso de um alinhamento direto neste trecho invertido: -4. 3 identidades (42,86%), 3 mismatches (42,86%) e 2 gaps (28,57%).
+5) s[64..73] x t[57..66] : 10 x 10 símbolos (7,69% x 7,87%). 
+   6 identidades (60%), 4 mismatches (40%) e 0 gaps (0%). Peso da inversão: 0. 
+   Peso de um alinhamento direto neste trecho invertido: -5. 4 identidades (40%), 5 mismatches (50%) e 2 gaps (20%).
+6) s[83..109] x t[76..102] : 27 x 27 símbolos (20,77% x 21,26%). 
+   19 identidades (70,37%), 7 mismatches (25,93%) e 2 gaps (7,41%). Peso da inversão: 6. 
+   Peso de um alinhamento direto neste trecho invertido: -9. 12 identidades (44,44%), 13 mismatches (48,15%) e 4 gaps (14,81%).
+7) s[115..118] x t[108..111] : 4 x 4 símbolos (3,08% x 3,15%). 
+   3 identidades (75%), 1 mismatches (25%) e 0 gaps (0%). Peso da inversão: 0. 
+   Peso de um alinhamento direto neste trecho invertido: -4. 0 identidades (0%), 4 mismatches (100%) e 0 gaps (0%).
+8) s[121..127] x t[114..120] : 7 x 7 símbolos (5,38% x 5,51%). 
+   5 identidades (71,43%), 2 mismatches (28,57%) e 0 gaps (0%). Peso da inversão: 1. 
+   Peso de um alinhamento direto neste trecho invertido: -2. 4 identidades (57,14%), 2 mismatches (28,57%) e 2 gaps (28,57%).
+9) s[128..131] x t[121..124] : 4 x 4 símbolos (3,08% x 3,15%). 
+   3 identidades (75%), 1 mismatches (25%) e 0 gaps (0%). Peso da inversão: 0. 
+   Peso de um alinhamento direto neste trecho invertido: -4. 0 identidades (0%), 4 mismatches (100%) e 0 gaps (0%).
+Total de símbolos invertidos em s: 96 (73,85%). Peso total das inversões: 12. Peso total dos alinhamentos diretos nos trechos invertidos: -43.
+Lista de identidades:
+9 5 +
+10 6 +
+29 7 -
+28 8 -
+27 9 -
+25 10 -
+23 11 -
+22 12 -
+21 13 -
+20 14 -
+19 15 -
+15 19 -
+14 20 -
+13 21 -
+11 23 -
+30 24 +
+31 25 +
+33 27 +
+45 29 -
+44 30 -
+42 32 -
+41 33 -
+40 34 -
+37 37 -
+36 38 -
+34 39 -
+50 41 -
+49 42 -
+48 43 -
+47 44 -
+52 45 +
+53 46 +
+55 48 +
+56 49 +
+63 50 -
+60 53 -
+59 54 -
+58 55 -
+57 56 -
+73 57 -
+71 59 -
+70 60 -
+68 62 -
+66 64 -
+65 65 -
+74 67 +
+75 68 +
+77 70 +
+79 72 +
+80 73 +
+81 74 +
+108 77 -
+107 78 -
+105 80 -
+104 81 -
+103 83 -
+102 84 -
+101 85 -
+99 86 -
+98 87 -
+97 88 -
+95 90 -
+94 91 -
+91 94 -
+89 96 -
+88 97 -
+87 98 -
+85 100 -
+84 101 -
+83 102 -
+110 103 +
+113 106 +
+114 107 +
+118 108 -
+117 109 -
+116 110 -
+120 113 +
+127 114 -
+126 115 -
+125 116 -
+123 118 -
+122 119 -
+130 122 -
+129 123 -
+128 124 -
+132 125 +
+134 127 +
+135 128 +
+137 130 +
+138 131 +
+Alinhamento do tipo blast:
+S : 9 gcTAGACAACGACCGACGCCGgatcAGGTAGTTTCATATTCGTggcccCTGTCGC 57
+      ||||| | |||||   ||| ||| | || |||  || | |||||| |||  ||||
+T : 5 gcatc-g-tgctgtacgcgccgaacgccttcattgt-tgagcaggtccgcgagcg 56
+
+S : 73 TCTGCAAGGTcgaagccgaGTCCAC-ACCTGTAGAAGCCCGCCCTTAgttgaCCAAcc 120
+       | || | || || | |||  || || ||| ||| ||  | ||| ||||  |||||  |
+T : 57 atacctgccgcgcatccgcgagttgctgg-catatttcgccggcaatggcgaggtggc 113
+
+S : 127 CGAACGTAAGCgatcgcg 138
+        ||| ||  |||| || ||
+T : 114 gctggcggtcggctcccg 131
+

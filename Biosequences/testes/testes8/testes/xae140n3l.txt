@@ -1,0 +1,60 @@
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.574 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.535 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.549 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.525 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.502 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.517 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.503 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.519 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.521 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.517 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.532 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.539 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.541 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.519 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.529 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.501 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.506 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.507 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.618 ms
+O valor total do bim é 92
+args:-i 2 -t 45 -b --time -x testes/xae1.seq -y testes/xcc2.seq -m n3l 
+O tempo de execução foi de 13.505 ms
+O valor total do bim é 92
