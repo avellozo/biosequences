@@ -55,4 +55,8 @@ public interface EditGraph
 
 	public EditGraph getSegment(Vertex beginVertex, Vertex endVertex) throws ExceptionInvalidVertex;
 
+	// Retorna true se a aresta diagonal terminada em endVertex representa um match
+	// Retorna falso caso contrário
+	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex;
+
 }

@@ -9,33 +9,31 @@ import java.util.List;
 
 import sequences.common.Score;
 
-public class WeighterDiagonalArcsScores extends WeighterArcsSimple
+public class ArcFactoryDiagonalScores extends ArcFactorySimple
 {
 
 	int							scoreThresholdForMatch;
 	List<Score>					scores;
 	HashMap<String, Integer>	matches;
 
-	public WeighterDiagonalArcsScores(List<Score> scores, int scoreThresholdForMatch, int match, int mismatch, int gap)
+	public ArcFactoryDiagonalScores(List<Score> scores, int scoreThresholdForMatch, int match, int mismatch, int gap)
 	{
 		super(match, mismatch, gap);
 		this.scoreThresholdForMatch = scoreThresholdForMatch;
 		this.scores = scores;
 	}
 
-	@Override
-	protected boolean isMatch(int row, int col)
+	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
 	{
+		if (!existsDiagonalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex);
+		}
 		if (matches == null)
 		{
 			buildMatches();
 		}
-		return (matches.get(transformRowColToString(row, col)) != null);
-	}
-
-	protected String transformRowColToString(int row, int col)
-	{
-		return row + "," + col;
+		return (matches.get(endVertex.toString()) != null);
 	}
 
 	protected void buildMatches()
@@ -45,7 +43,7 @@ public class WeighterDiagonalArcsScores extends WeighterArcsSimple
 		{
 			if (score.getScore() >= scoreThresholdForMatch)
 			{
-				matches.put(transformRowColToString(score.getRow() + 1, score.getCol() + 1),
+				matches.put(new Vertex(score.getRow() + 1, score.getCol() + 1).toString(),
 					transformScoreToWeight(score));
 			}
 		}
@@ -87,6 +85,11 @@ public class WeighterDiagonalArcsScores extends WeighterArcsSimple
 	protected int transformScoreToWeight(Score score)
 	{
 		return (score.getScore() >= scoreThresholdForMatch ? match : mismatch);
+	}
+
+	public boolean existsDiagonalArc(Vertex endVertex)
+	{
+		return true;
 	}
 
 }

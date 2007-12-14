@@ -14,8 +14,8 @@ import sequences.MaxPathNaive;
 import sequences.common.FileFastaSequence;
 import sequences.common.Sequence;
 import sequences.editgraph.EditGraphOld;
-import sequences.editgraph.WeighterArcsSimpleSequences;
-import sequences.editgraph.WeighterArcsRandom;
+import sequences.editgraph.ArcFactorySimpleSequences;
+import sequences.editgraph.ArcFactoryRandom;
 import sequences.util.ByteArrayOutputStream;
 import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
@@ -117,7 +117,7 @@ public class MaxPath
 		{
 			if (seedRandom)
 			{
-				editGraph = new WeighterArcsRandom(seq1.getLength() + 1, seq2
+				editGraph = new ArcFactoryRandom(seq1.getLength() + 1, seq2
 					.getLength() + 1, new Random(seed), false, 128);
 				Object[] a = {new Long(seed)};
 				System.out.println(MessageFormat.format(Messages
@@ -132,7 +132,7 @@ public class MaxPath
 					mismatch = -random.nextInt(128);
 					gap = -random.nextInt(128);
 				}
-				editGraph = new WeighterArcsSimpleSequences(seq1, seq2, match, mismatch,
+				editGraph = new ArcFactorySimpleSequences(seq1, seq2, match, mismatch,
 					gap, false);
 				Object[] a = {new Integer(match), new Integer(mismatch),
 					new Integer(gap)};

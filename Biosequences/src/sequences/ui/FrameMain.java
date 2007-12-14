@@ -32,7 +32,7 @@ import sequences.bim.n4.BimN4;
 import sequences.common.FileFastaSequence;
 import sequences.common.ListOfSequences;
 import sequences.common.Sequence;
-import sequences.editgraph.WeighterArcsSimpleSequences;
+import sequences.editgraph.ArcFactorySimpleSequences;
 import sequences.editgraph.EditGraphOld;
 import sequences.lcs.ALCS;
 import sequences.lcs.LCS;
@@ -262,7 +262,7 @@ public class FrameMain extends JFrame implements ListSelectionListener
 			Sequence seq1 = sequences.getSequence(selectedSequences[0]);
 			Sequence seq2 = sequences.getSequence(selectedSequences[1]);
 			(new FrameMaxPathMatrix(new MaxPathJeanette(
-				new WeighterArcsSimpleSequences(seq1, seq2, 1, -1 ,0, false), panelDebug
+				new ArcFactorySimpleSequences(seq1, seq2, 1, -1 ,0, false), panelDebug
 					.getPrintStream()))).show();
 			System.gc();
 		}
@@ -280,7 +280,7 @@ public class FrameMain extends JFrame implements ListSelectionListener
 			Sequence seq1 = sequences.getSequence(selectedSequences[0]);
 			Sequence seq2 = sequences.getSequence(selectedSequences[1]);
 			(new FrameMaxPathMatrix(new MaxPathNaive(
-				new WeighterArcsSimpleSequences(seq1, seq2, 1, -1 ,0, false), panelDebug
+				new ArcFactorySimpleSequences(seq1, seq2, 1, -1 ,0, false), panelDebug
 					.getPrintStream()))).show();
 			System.gc();
 		}
@@ -321,9 +321,9 @@ public class FrameMain extends JFrame implements ListSelectionListener
 		{
 			Sequence seq1 = sequences.getSequence(selectedSequences[0]);
 			Sequence seq2 = sequences.getSequence(selectedSequences[1]);
-			EditGraphOld editGraph = new WeighterArcsSimpleSequences(
+			EditGraphOld editGraph = new ArcFactorySimpleSequences(
 				seq1, seq2, 1, -1, 0, false);
-			EditGraphOld editGraphInverted = new WeighterArcsSimpleSequences(
+			EditGraphOld editGraphInverted = new ArcFactorySimpleSequences(
 				seq1, seq2, 1, -1, 0, true);
 			BimN4 bim = new BimN3lgn(editGraph, editGraphInverted, 2);
 			String nameSeq1 = seq1.getName();

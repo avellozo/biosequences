@@ -10,19 +10,23 @@ import java.util.Random;
 /**
  * @author Augusto
  */
-public class WeighterArcsRandom implements WeighterArcs
+public class ArcFactoryRandom implements ArcFactory
 {
 	int	rows, cols;
 	int[][]	horizontal, vertical, diagonal;
+	int		threshold;
 
 	// Os valores das arestas vão de -maxValue a +maxValue
-	public WeighterArcsRandom(int rows, int cols, Random random, int maxValue)
+	// vai até cols-1 e rows-1
+	// toda diagonal com valor maior ou igual a threshold é um match
+	public ArcFactoryRandom(int rows, int cols, Random random, int maxValue, int threshold)
 	{
 		this.cols = cols;
 		this.rows = rows;
 		vertical = new int[rows][cols];
 		diagonal = new int[rows][cols];
 		horizontal = new int[rows][cols];
+		this.threshold = threshold;
 
 		int i, j;
 		i = 0;
@@ -80,24 +84,25 @@ public class WeighterArcsRandom implements WeighterArcs
 		}
 	}
 
-	public int getWeightHorizontal(int row, int col)
+	protected int getWeightHorizontal(int row, int col)
 	{
 		return horizontal[row][col];
 	}
 
-	public int getWeightVertical(int row, int col)
+	protected int getWeightVertical(int row, int col)
 	{
 		return vertical[row][col];
 	}
 
-	public int getWeightDiagonal(int row, int col)
+	protected int getWeightDiagonal(int row, int col)
 	{
 		return diagonal[row][col];
 	}
 
 	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs(EditGraph eg)
 	{
-		int i, j, w;
+		int i, j;
+		ArcDiagonal arc;
 		LinkedList<ArcDiagonal> list = new LinkedList<ArcDiagonal>();
 		try
 		{
@@ -105,9 +110,10 @@ public class WeighterArcsRandom implements WeighterArcs
 			{
 				for (j = eg.getColMin() + 1; j <= eg.getColMax(); j++)
 				{
-					if ((w = getWeightDiagonal(i, j)) != 0)
+					arc = getDiagonalArc(eg.getVertex(i, j));
+					if (arc.getWeight() != 0)
 					{
-						list.addLast(new ArcDiagonal(eg.getVertex(i, j), w));
+						list.addLast(arc);
 					}
 				}
 			}
@@ -122,7 +128,8 @@ public class WeighterArcsRandom implements WeighterArcs
 
 	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs(EditGraph eg)
 	{
-		int i, j, w;
+		int i, j;
+		ArcHorizontal arc;
 		LinkedList<ArcHorizontal> list = new LinkedList<ArcHorizontal>();
 		try
 		{
@@ -130,9 +137,10 @@ public class WeighterArcsRandom implements WeighterArcs
 			{
 				for (j = eg.getColMin() + 1; j <= eg.getColMax(); j++)
 				{
-					if ((w = getWeightHorizontal(i, j)) != 0)
+					arc = getHorizontalArc(eg.getVertex(i, j));
+					if (arc.getWeight() != 0)
 					{
-						list.addLast(new ArcHorizontal(eg.getVertex(i, j), w));
+						list.addLast(arc);
 					}
 				}
 			}
@@ -147,17 +155,19 @@ public class WeighterArcsRandom implements WeighterArcs
 
 	public List< ? extends ArcVertical> getNonZeroVerticalArcs(EditGraph eg)
 	{
-		int i, j, w;
+		int i, j;
+		ArcVertical arc;
 		LinkedList<ArcVertical> list = new LinkedList<ArcVertical>();
 		try
 		{
 			for (i = eg.getRowMin() + 1; i <= eg.getRowMax(); i++)
 			{
-				for (j = eg.getColMin(); j <= eg.getColMax(); j++)
+				for (j = eg.getColMin() + 1; j <= eg.getColMax(); j++)
 				{
-					if ((w = getWeightVertical(i, j)) != 0)
+					arc = getVerticalArc(eg.getVertex(i, j));
+					if (arc.getWeight() != 0)
 					{
-						list.addLast(new ArcVertical(eg.getVertex(i, j), w));
+						list.addLast(arc);
 					}
 				}
 			}
@@ -168,6 +178,53 @@ public class WeighterArcsRandom implements WeighterArcs
 			throw new ExceptionInternalEG();
 		}
 		return list;
+	}
+
+	public boolean existsDiagonalArc(Vertex endVertex)
+	{
+		return ((endVertex.getRow() < rows) && (endVertex.getCol() < cols) && (endVertex.getRow() > 0) && (endVertex.getCol() > 0));
+	}
+
+	public boolean existsHorizontalArc(Vertex endVertex)
+	{
+		return ((endVertex.getRow() < rows) && (endVertex.getCol() < cols) && (endVertex.getRow() >= 0) && (endVertex.getCol() > 0));
+	}
+
+	public boolean existsVerticalArc(Vertex endVertex)
+	{
+		return ((endVertex.getRow() < rows) && (endVertex.getCol() < cols) && (endVertex.getRow() > 0) && (endVertex.getCol() >= 0));
+	}
+
+	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		if (!existsDiagonalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex);
+		}
+		return new ArcDiagonal(endVertex, getWeightDiagonal(endVertex.getRow(), endVertex.getCol()));
+	}
+
+	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		if (!existsHorizontalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex);
+		}
+		return new ArcHorizontal(endVertex, getWeightHorizontal(endVertex.getRow(), endVertex.getCol()));
+	}
+
+	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		if (!existsVerticalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex);
+		}
+		return new ArcVertical(endVertex, getWeightVertical(endVertex.getRow(), endVertex.getCol()));
+	}
+
+	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		return getWeightDiagonal(endVertex.getRow(), endVertex.getCol()) >= threshold;
 	}
 
 }

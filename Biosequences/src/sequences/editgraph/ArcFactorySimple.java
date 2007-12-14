@@ -10,7 +10,7 @@ import java.util.List;
  * @author Augusto
  * @data 09/08/2004
  */
-public abstract class WeighterArcsSimple implements WeighterArcs
+public abstract class ArcFactorySimple implements ArcFactory
 {
 	// Os arcos e vértices não existem realmente, existem representações que
 	// respondem se há ou não um match em um vértice. Desta forma os pesos das
@@ -20,33 +20,54 @@ public abstract class WeighterArcsSimple implements WeighterArcs
 
 	protected int	match, mismatch, gap;
 
-	public WeighterArcsSimple(int match, int mismatch, int gap)
+	public ArcFactorySimple(int match, int mismatch, int gap)
 	{
 		this.match = match;
 		this.mismatch = mismatch;
 		this.gap = gap;
 	}
 
-	public int getWeightHorizontal(int row, int col)
+	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		return gap;
+		if (!existsDiagonalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex);
+		}
+		return new ArcDiagonal(endVertex, (isMatch(endVertex)) ? match : mismatch);
 	}
 
-	public int getWeightVertical(int row, int col)
+	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		return gap;
+		if (!existsHorizontalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex);
+		}
+		return new ArcHorizontal(endVertex, gap);
 	}
 
-	public int getWeightDiagonal(int row, int col)
+	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		return (isMatch(row, col)) ? match : mismatch;
+		if (!existsVerticalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex);
+		}
+		return new ArcVertical(endVertex, gap);
 	}
 
-	protected abstract boolean isMatch(int row, int col);
+	public boolean existsHorizontalArc(Vertex endVertex)
+	{
+		return true;
+	}
+
+	public boolean existsVerticalArc(Vertex endVertex)
+	{
+		return true;
+	}
 
 	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs(EditGraph eg)
 	{
-		int i, j, w;
+		int i, j;
+		ArcDiagonal arc;
 		LinkedList<ArcDiagonal> list = new LinkedList<ArcDiagonal>();
 		try
 		{
@@ -54,9 +75,10 @@ public abstract class WeighterArcsSimple implements WeighterArcs
 			{
 				for (j = eg.getColMin() + 1; j <= eg.getColMax(); j++)
 				{
-					if ((w = getWeightDiagonal(i, j)) != 0)
+					arc = getDiagonalArc(eg.getVertex(i, j));
+					if (arc.getWeight() != 0)
 					{
-						list.addLast(new ArcDiagonal(eg.getVertex(i, j), w));
+						list.addLast(arc);
 					}
 				}
 			}
@@ -81,7 +103,7 @@ public abstract class WeighterArcsSimple implements WeighterArcs
 				{
 					for (j = eg.getColMin() + 1; j <= eg.getColMax(); j++)
 					{
-						list.addLast(new ArcHorizontal(eg.getVertex(i, j), gap));
+						list.addLast(getHorizontalArc(eg.getVertex(i, j)));
 					}
 				}
 			}
@@ -106,7 +128,7 @@ public abstract class WeighterArcsSimple implements WeighterArcs
 				{
 					for (j = eg.getColMin(); j <= eg.getColMax(); j++)
 					{
-						list.addLast(new ArcVertical(eg.getVertex(i, j), gap));
+						list.addLast(getVerticalArc(eg.getVertex(i, j)));
 					}
 				}
 			}

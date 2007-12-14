@@ -8,10 +8,10 @@ import java.util.List;
 /**
  * @author Augusto F. Vellozo
  */
-public interface OptimumPath<E extends EditGraph<E, ? extends Extender>>
+public interface OptimumPath
 {
 	public List<Arc> getArcs();
-	
+
 	public Arc getFirst();
 
 	public Arc getLast();
@@ -20,9 +20,7 @@ public interface OptimumPath<E extends EditGraph<E, ? extends Extender>>
 
 	public boolean addFirst(Arc arc);
 
-	public E getEditGraph();
-
-	public EditGraphSegment getVertexRange();
+	public EditGraph getEditGraph();
 
 	public int getScore();
 
@@ -30,19 +28,20 @@ public interface OptimumPath<E extends EditGraph<E, ? extends Extender>>
 
 	public long time();
 
-	public long finishTime();
-	
+	//	public long finishTime();
+
 	public int getQttyArcs();
+
+	public int getQttyVerticalArcs();
+
+	public int getQttyHorizontalArcs();
+
+	public int getQttyMatches();
+
+	public int getQttyMismatches();
 
 	public int getQttyExtendedArcs();
 
-	public int getQttyHorizontalArcs();
-	
-	public int getQttyMatches();
-	
-	public int getQttyMismatches();
-	
-	public int getQttyVerticalArcs();
-	
 	public List<ArcExtended> getArcsExtended();
+
 }

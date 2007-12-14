@@ -21,7 +21,7 @@ import sequences.common.ComplementReverseSequence;
 import sequences.common.SequenceByteArray;
 import sequences.editgraph.Arc;
 import sequences.editgraph.ArcExtendedOverEGExtender;
-import sequences.editgraph.WeighterArcsSimpleSequences;
+import sequences.editgraph.ArcFactorySimpleSequences;
 import sequences.editgraph.ExceptionGeneralEG;
 import sequences.editgraph.ExceptionInvalidArc;
 import sequences.editgraph.ExceptionInvalidEditGraph;
@@ -301,9 +301,9 @@ public class GenerateSequences
 			EditGraph eg = null, egInverted = null;
 			PathBimDummyFactory pathBimDummyFactory = new PathBimDummyFactory();
 			OptimumPathDummyFactory optimumPathDummyFactory = new OptimumPathDummyFactory();
-			egInverted = new WeighterArcsSimpleSequences(new ComplementReverseSequence(seq1), seq2, 1, -1, -2,
+			egInverted = new ArcFactorySimpleSequences(new ComplementReverseSequence(seq1), seq2, 1, -1, -2,
 				optimumPathDummyFactory, null);
-			eg = new WeighterArcsSimpleSequences(seq1, seq2, 1, -1, -2, pathBimDummyFactory, new ExtenderUsingEGInvertedRows(
+			eg = new ArcFactorySimpleSequences(seq1, seq2, 1, -1, -2, pathBimDummyFactory, new ExtenderUsingEGInvertedRows(
 				egInverted, 2));
 			OptimumPath path = eg.getOptimumPath(false);
 			OptimumPath pathInverted;

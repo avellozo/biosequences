@@ -12,22 +12,20 @@ import java.util.List;
 /**
  * @author Augusto F. Vellozo
  */
-public class EditGraphBasic implements EditGraph
+public class EditGraphBasic implements EditGraph, Cloneable
 {
-	int				rowMin, rowMax, colMin, colMax;
+	int			rowMin, rowMax, colMin, colMax;
 
-	WeighterArcs	weighter;
+	ArcFactory	arcFactory;
 
-	// OptimumPathFactory<E, ? extends OptimumPath> optimumPathFactory;
-
-	public EditGraphBasic(int rowMin, int rowMax, int colMin, int colMax, WeighterArcs weighter)
+	public EditGraphBasic(int rowMin, int rowMax, int colMin, int colMax, ArcFactory arcFactory)
 	{
 		super();
 		this.rowMin = rowMin;
 		this.rowMax = rowMax;
 		this.colMin = colMin;
 		this.colMax = colMax;
-		this.weighter = weighter;
+		this.arcFactory = arcFactory;
 	}
 
 	public int getRowMin()
@@ -50,9 +48,9 @@ public class EditGraphBasic implements EditGraph
 		return colMax;
 	}
 
-	public WeighterArcs getWeighter()
+	public ArcFactory getArcFactory()
 	{
-		return weighter;
+		return arcFactory;
 	}
 
 	public boolean existsVertex(int row, int col)
@@ -94,48 +92,6 @@ public class EditGraphBasic implements EditGraph
 		return new Vertex(row, col);
 	}
 
-	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
-	{
-		if (!existsDiagonalArc(endVertex))
-		{
-			throw new ExceptionInvalidVertex(endVertex);
-		}
-		return new ArcDiagonal(endVertex, getWeighter().getWeightDiagonal(endVertex.getRow(), endVertex.getCol()));
-	}
-
-	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex
-	{
-		if (!existsHorizontalArc(endVertex))
-		{
-			throw new ExceptionInvalidVertex(endVertex);
-		}
-		return new ArcHorizontal(endVertex, getWeighter().getWeightHorizontal(endVertex.getRow(), endVertex.getCol()));
-	}
-
-	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
-	{
-		if (!existsVerticalArc(endVertex))
-		{
-			throw new ExceptionInvalidVertex(endVertex);
-		}
-		return new ArcVertical(endVertex, getWeighter().getWeightVertical(endVertex.getRow(), endVertex.getCol()));
-	}
-
-	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs()
-	{
-		return weighter.getNonZeroDiagonalArcs(this);
-	}
-
-	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs()
-	{
-		return weighter.getNonZeroHorizontalArcs(this);
-	}
-
-	public List< ? extends ArcVertical> getNonZeroVerticalArcs()
-	{
-		return weighter.getNonZeroVerticalArcs(this);
-	}
-
 	public EditGraph getSegment(Vertex beginVertex, Vertex endVertex) throws ExceptionInvalidVertex
 	{
 		if (isValidVertexParam(beginVertex) && isValidVertexParam(endVertex) && beginVertex.dominates(endVertex))
@@ -160,6 +116,41 @@ public class EditGraphBasic implements EditGraph
 			throw new ExceptionInvalidVertex(endVertex,
 				"It's impossible to create a edit graph's segment with begin vertex:" + beginVertex);
 		}
+	}
+
+	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		return arcFactory.getDiagonalArc(endVertex);
+	}
+
+	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		return arcFactory.getHorizontalArc(endVertex);
+	}
+
+	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		return arcFactory.getVerticalArc(endVertex);
+	}
+
+	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs()
+	{
+		return arcFactory.getNonZeroDiagonalArcs(this);
+	}
+
+	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs()
+	{
+		return arcFactory.getNonZeroHorizontalArcs(this);
+	}
+
+	public List< ? extends ArcVertical> getNonZeroVerticalArcs()
+	{
+		return arcFactory.getNonZeroVerticalArcs(this);
+	}
+
+	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		return arcFactory.isMatch(endVertex);
 	}
 
 	/*	public <P extends OptimumPath> P getOptimumPath(VertexRange range, boolean local,

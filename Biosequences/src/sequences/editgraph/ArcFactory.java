@@ -5,13 +5,19 @@ package sequences.editgraph;
 
 import java.util.List;
 
-public interface WeighterArcs
+public interface ArcFactory
 {
-	public int getWeightHorizontal(int row, int col);
+	public boolean existsVerticalArc(Vertex endVertex);
 
-	public int getWeightVertical(int row, int col);
+	public boolean existsHorizontalArc(Vertex endVertex);
 
-	public int getWeightDiagonal(int row, int col);
+	public boolean existsDiagonalArc(Vertex endVertex);
+
+	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex;
+
+	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex;
+
+	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex;
 
 	// Cria uma lista somente com arcos diagonais que são positivos no grafo
 	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs(EditGraph eg);
@@ -21,5 +27,7 @@ public interface WeighterArcs
 
 	// Cria uma lista somente com arcos horizontais que são positivos no grafo
 	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs(EditGraph eg);
+
+	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex;
 
 }

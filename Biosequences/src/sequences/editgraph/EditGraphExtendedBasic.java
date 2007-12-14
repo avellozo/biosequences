@@ -10,13 +10,13 @@ package sequences.editgraph;
 public class EditGraphExtendedBasic extends EditGraphBasic implements EditGraphExtended
 {
 
-	WeighterExtendedArcs	weighterExtended;
+	ArcExtendedFactory	arcExtendedFactory;
 
-	public EditGraphExtendedBasic(int rowMin, int rowMax, int colMin, int colMax, WeighterArcs weighter,
-			WeighterExtendedArcs weighterExtended)
+	public EditGraphExtendedBasic(int rowMin, int rowMax, int colMin, int colMax, ArcFactory arcFactory,
+			ArcExtendedFactory arcExtendedFactory)
 	{
-		super(rowMin, rowMax, colMin, colMax, weighter);
-		this.weighterExtended = weighterExtended;
+		super(rowMin, rowMax, colMin, colMax, arcFactory);
+		this.arcExtendedFactory = arcExtendedFactory;
 	}
 
 	public boolean existsExtendedArc(Vertex beginVertex, Vertex endVertex)
@@ -36,8 +36,7 @@ public class EditGraphExtendedBasic extends EditGraphBasic implements EditGraphE
 	{
 		if (existsExtendedArc(beginVertex, endVertex))
 		{
-			return new ArcExtended(beginVertex, endVertex, weighterExtended.getWeightExtended(beginVertex.getRow(),
-				beginVertex.getCol(), endVertex.getRow(), endVertex.getCol()));
+			return arcExtendedFactory.getExtendedArc(beginVertex, endVertex);
 		}
 		else
 		{
@@ -45,4 +44,13 @@ public class EditGraphExtendedBasic extends EditGraphBasic implements EditGraphE
 				+ beginVertex);
 		}
 	}
+
+	/**
+	 * @return Returns the arcExtendedFactory.
+	 */
+	public ArcExtendedFactory getArcExtendedFactory()
+	{
+		return arcExtendedFactory;
+	}
+
 }
