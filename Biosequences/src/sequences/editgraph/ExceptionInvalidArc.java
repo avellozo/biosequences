@@ -6,20 +6,20 @@ package sequences.editgraph;
 /**
  * @author Augusto F. Vellozo
  */
-public class EGInvalidArcException extends EGException
+public class ExceptionInvalidArc extends ExceptionEG
 {
 
-	public EGInvalidArcException(char type)
+	public ExceptionInvalidArc(char type)
 	{
 		super("Arc: " + type);
 	}
 
-	public EGInvalidArcException(char type, String msg)
+	public ExceptionInvalidArc(char type, String msg)
 	{
 		super("Arc: " + type + System.getProperty("line.separator") + msg);
 	}
 
-	public EGInvalidArcException(String msg)
+	public ExceptionInvalidArc(String msg)
 	{
 		super(msg);
 	}

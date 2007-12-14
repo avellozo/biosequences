@@ -6,30 +6,30 @@ package sequences.editgraph;
 /**
  * @author Augusto F. Vellozo
  */
-public abstract class EGException extends Exception
+public abstract class ExceptionEG extends Exception
 {
 
-	public EGException(EditGraph eg)
+	public ExceptionEG(EditGraph eg)
 	{
 		super();
 	}
 
-	public EGException()
+	public ExceptionEG()
 	{
 		super();
 	}
 
-	public EGException(String message)
+	public ExceptionEG(String message)
 	{
 		super(message);
 	}
 
-	public EGException(String message, Throwable cause)
+	public ExceptionEG(String message, Throwable cause)
 	{
 		super(message, cause);
 	}
 
-	public EGException(Throwable cause)
+	public ExceptionEG(Throwable cause)
 	{
 		super(cause);
 	}

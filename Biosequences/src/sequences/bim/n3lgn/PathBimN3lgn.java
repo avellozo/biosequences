@@ -2,12 +2,12 @@ package sequences.bim.n3lgn;
 
 import sequences.bim.ExtenderUsingEGInvertedRows;
 import sequences.bim.PathBimDP;
-import sequences.editgraph.EGInternalException;
-import sequences.editgraph.EGInvalidArcException;
-import sequences.editgraph.EGInvalidEditGraphException;
-import sequences.editgraph.EGInvalidRangeException;
+import sequences.editgraph.ExceptionInternalEG;
+import sequences.editgraph.ExceptionInvalidArc;
+import sequences.editgraph.ExceptionInvalidEditGraph;
+import sequences.editgraph.EGInvalidVertexesOfExtensionException;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntComposite;
 import sequences.matrix.MatrixIntTreeJeanette;
@@ -15,10 +15,10 @@ import sequences.matrix.RowInt;
 import sequences.matrix.TMMatrixInt;
 
 public class PathBimN3lgn<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, ? extends EditGraph>>>
-		extends PathBimDP<E>
+		extends PathBimDP
 {
 
-	public PathBimN3lgn(VertexRange<E> range, boolean local) throws EGInvalidRangeException, EGInvalidEditGraphException
+	public PathBimN3lgn(EditGraphSegment range, boolean local) throws EGInvalidVertexesOfExtensionException, ExceptionInvalidEditGraph
 	{
 		super(range, local);
 	}
@@ -160,10 +160,10 @@ public class PathBimN3lgn<E extends EditGraph<E, ? extends ExtenderUsingEGInvert
 				}
 			}
 		}
-		catch (EGInvalidArcException e)
+		catch (ExceptionInvalidArc e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 	}
 

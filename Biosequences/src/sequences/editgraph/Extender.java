@@ -6,15 +6,15 @@ package sequences.editgraph;
 /**
  * @author Augusto F. Vellozo
  */
-public interface Extender<E extends EditGraph<E, ? extends Extender<E>>>
+public interface Extender<E extends EditGraph<E, ? extends Extender>>
 {
-	public int getWeightExtended(VertexRange<E> range)
-			throws EGInvalidRangeException;
+	public int getWeightExtended(EditGraphSegment range)
+			throws EGInvalidVertexesOfExtensionException;
 
-	public boolean existsExtendedArc(VertexRange<E> range);
+	public boolean existsExtendedArc(EditGraphSegment range);
 
-	public ArcExtended<E> getExtendedArc(VertexRange<E> range)
-			throws EGInvalidRangeException;
+	public ArcExtended getExtendedArc(EditGraphSegment range)
+			throws EGInvalidVertexesOfExtensionException;
 
 }
 // public Arc getExtendedArc(Vertex beginVertex)

@@ -7,7 +7,7 @@ import sequences.editgraph.EditGraph;
 import sequences.editgraph.Extender;
 import sequences.editgraph.VertexRange;
 
-public class ExtenderDup<E extends EditGraph<E, ? extends ExtenderDup<E>>> implements Extender<E>
+public class ExtenderDup<E extends EditGraph<E, ? extends ExtenderDup>> implements Extender
 {
 	DupPenaltyCalculator	dupPenalty;
 	boolean					onlyRetroactive;
@@ -29,7 +29,7 @@ public class ExtenderDup<E extends EditGraph<E, ? extends ExtenderDup<E>>> imple
 		this.dupPenalty = dupPenalty;
 	}
 
-	public boolean existsExtendedArc(VertexRange<E> range)
+	public boolean existsExtendedArc(VertexRange range)
 	{
 		if (range == null)
 		{
@@ -40,7 +40,7 @@ public class ExtenderDup<E extends EditGraph<E, ? extends ExtenderDup<E>>> imple
 		return ((c == 1) || (r == 1)) && ((c != 1) || (r != 1));
 	}
 
-	public ArcExtended<E> getExtendedArc(VertexRange<E> range) throws EGInvalidRangeException
+	public ArcExtended getExtendedArc(VertexRange range) throws EGInvalidRangeException
 	{
 		if (range == null)
 		{
@@ -48,7 +48,7 @@ public class ExtenderDup<E extends EditGraph<E, ? extends ExtenderDup<E>>> imple
 		}
 		try
 		{
-			return new ArcExtendedDup<E>(range, getWeightExtended(range));
+			return new ArcExtendedDup(range, getWeightExtended(range));
 		}
 		catch (EGInvalidVertexException e)
 		{
@@ -62,7 +62,7 @@ public class ExtenderDup<E extends EditGraph<E, ? extends ExtenderDup<E>>> imple
 		return dupPenalty;
 	}
 
-	public int getWeightExtended(VertexRange<E> range) throws EGInvalidRangeException
+	public int getWeightExtended(VertexRange range) throws EGInvalidRangeException
 	{
 		if (!existsExtendedArc(range))
 		{

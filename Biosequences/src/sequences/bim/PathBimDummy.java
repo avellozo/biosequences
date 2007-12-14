@@ -3,10 +3,10 @@
  */
 package sequences.bim;
 
-import sequences.editgraph.EGInvalidRangeException;
-import sequences.editgraph.EGInvalidEditGraphException;
+import sequences.editgraph.EGInvalidVertexesOfExtensionException;
+import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntPrimitive;
 
@@ -14,11 +14,11 @@ import sequences.matrix.MatrixIntPrimitive;
  * @author Augusto F. Vellozo
  */
 public class PathBimDummy<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, ? extends EditGraph>>>
-		extends PathBimDP<E>
+		extends PathBimDP
 {
 
-	public PathBimDummy(VertexRange<E> range, boolean local)
-			throws EGInvalidRangeException, EGInvalidEditGraphException
+	public PathBimDummy(EditGraphSegment range, boolean local)
+			throws EGInvalidVertexesOfExtensionException, ExceptionInvalidEditGraph
 	{
 		super(range, local);
 	}

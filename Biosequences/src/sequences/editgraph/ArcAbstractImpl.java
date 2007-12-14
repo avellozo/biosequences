@@ -3,24 +3,22 @@
  */
 package sequences.editgraph;
 
-public abstract class ArcAbstractImpl<E extends EditGraph<E, ? extends Extender<E>>>
-		implements Arc<E>
+public abstract class ArcAbstractImpl implements Arc
 {
-	Vertex<E>	endVertex;
-	int			weight;
+	Vertex	endVertex;
+	int		weight;
 
-	public ArcAbstractImpl(Vertex<E> endVertex, int weight)
-			throws EGInvalidVertexException
+	public ArcAbstractImpl(Vertex endVertex, int weight) throws ExceptionInvalidVertex
 	{
 		if (endVertex == null)
 		{
-			throw new EGInvalidVertexException(endVertex);
+			throw new ExceptionInvalidVertex(endVertex);
 		}
 		this.endVertex = endVertex;
 		this.weight = weight;
 	}
 
-	public Vertex<E> getEndVertex()
+	public Vertex getEndVertex()
 	{
 		return this.endVertex;
 	}
@@ -35,7 +33,7 @@ public abstract class ArcAbstractImpl<E extends EditGraph<E, ? extends Extender<
 	// this.weight = weight;
 	// }
 	//
-	public E getEditGraph()
+	public EditGraph getEditGraph()
 	{
 		return getEndVertex().getEditGraph();
 	}

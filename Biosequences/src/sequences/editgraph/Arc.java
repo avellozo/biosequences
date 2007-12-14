@@ -6,14 +6,14 @@ package sequences.editgraph;
 /**
  * @author Augusto F. Vellozo
  */
-public interface Arc<E extends EditGraph<E, ? extends Extender<E>>>
+public interface Arc
 {
-	public Vertex<E> getBeginVertex();
+	public Vertex getBeginVertex();
 
-	public Vertex<E> getEndVertex();
+	public Vertex getEndVertex();
 
 	public int getWeight();
 
-	public E getEditGraph();
+	public EditGraph getEditGraph();
 
 }

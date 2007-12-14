@@ -1,7 +1,7 @@
 package sequences.editgraph;
 
 public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E, EGExtender>>, EGExtender extends EditGraph<EGExtender, ? extends Extender<EGExtender>>>
-		implements Extender<E>
+		implements Extender
 {
 
 	// egExtender: edit graph over which an extension is got. The vertexes of
@@ -11,15 +11,15 @@ public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E,
 	final EGExtender	egExtender;
 	final int			extensionPenalty;
 
-	public ExtenderUsingEG(EGExtender egExtender, int extensionPenalty) throws EGInvalidEditGraphException
+	public ExtenderUsingEG(EGExtender egExtender, int extensionPenalty) throws ExceptionInvalidEditGraph
 	{
 		if (egExtender == null)
 		{
-			throw new EGInvalidEditGraphException("Can't create extender over an edit graph without edit graph extender.");
+			throw new ExceptionInvalidEditGraph("Can't create extender over an edit graph without edit graph extender.");
 		}
 		if (egExtender.getOptimumPathFactory() == null)
 		{
-			throw new EGInvalidEditGraphException("Edit graph extender without path factory: impossible to create extender.");
+			throw new ExceptionInvalidEditGraph("Edit graph extender without path factory: impossible to create extender.");
 		}
 		this.egExtender = egExtender;
 		this.extensionPenalty = extensionPenalty;
@@ -36,27 +36,27 @@ public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E,
 	}
 
 	// range: vertices in extended edit graph
-	public final int getWeightExtended(VertexRange<E> range) throws EGInvalidRangeException
+	public final int getWeightExtended(EditGraphSegment range) throws EGInvalidVertexesOfExtensionException
 	{
 		try
 		{
 			return getOptimumPathEGExtender(range).getScore() - getExtensionPenalty();
 		}
-		catch (EGInvalidEditGraphException e)
+		catch (ExceptionInvalidEditGraph e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 	}
 
 	// range: beginVertex and endVertex in extended edit graph
-	public final boolean existsExtendedArc(VertexRange<E> range)
+	public final boolean existsExtendedArc(EditGraphSegment range)
 	{
 		try
 		{
 			transformVertexRange(range);
 		}
-		catch (EGInvalidRangeException e)
+		catch (EGInvalidVertexesOfExtensionException e)
 		{
 			// e.printStackTrace();
 			return false;
@@ -64,49 +64,49 @@ public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E,
 		return !range.getBeginVertex().equals(range.getEndVertex());
 	}
 
-	public final ArcExtendedOverEGExtender<E, EGExtender> getExtendedArc(VertexRange<E> range)
-			throws EGInvalidRangeException
+	public final ArcExtendedOverEGExtender<E, EGExtender> getExtendedArc(EditGraphSegment range)
+			throws EGInvalidVertexesOfExtensionException
 	{
 		if (range == null)
 		{
-			throw new EGInvalidRangeException("Invalid range: null");
+			throw new EGInvalidVertexesOfExtensionException("Invalid range: null");
 		}
 		try
 		{
 			return new ArcExtendedOverEGExtender<E, EGExtender>(range);
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
-			throw new EGInvalidRangeException(range, "Invalid range");			
+			throw new EGInvalidVertexesOfExtensionException(range, "Invalid range");			
 		}
-		catch (EGInvalidEditGraphException e)
+		catch (ExceptionInvalidEditGraph e)
 		{
 			e.printStackTrace();
-			throw new EGInvalidRangeException(range, "Invalid range");			
+			throw new EGInvalidVertexesOfExtensionException(range, "Invalid range");			
 		}
 	}
 
 	// rangeExtended is a range in an extended graph
-	public final OptimumPath<EGExtender> getOptimumPathEGExtender(VertexRange<E> rangeExtended)
-			throws EGInvalidRangeException, EGInvalidEditGraphException
+	public final OptimumPath<EGExtender> getOptimumPathEGExtender(EditGraphSegment rangeExtended)
+			throws EGInvalidVertexesOfExtensionException, ExceptionInvalidEditGraph
 	{
 		return getEGExtender().getOptimumPath(transformVertexRange(rangeExtended), false);
 	}
 
 	// return weight of the vertical arc on the extender edit graph which
 	// corresponds to the row,col on the extended graph
-	public final int getEGExtenderWeightVerticalArc(int row, int col) throws EGInvalidArcException
+	public final int getEGExtenderWeightVerticalArc(int row, int col) throws ExceptionInvalidArc
 	{
 		return getEGExtender().getWeightVerticalArc(transformRow(row), transformCol(col));
 	}
 
-	public final int getEGExtenderWeightHorizontalArc(int row, int col) throws EGInvalidArcException
+	public final int getEGExtenderWeightHorizontalArc(int row, int col) throws ExceptionInvalidArc
 	{
 		return getEGExtender().getWeightHorizontalArc(transformRow(row), transformCol(col));
 	}
 
-	public final int getEGExtenderWeightDiagonalArc(int row, int col) throws EGInvalidArcException
+	public final int getEGExtenderWeightDiagonalArc(int row, int col) throws ExceptionInvalidArc
 	{
 		return getEGExtender().getWeightDiagonalArc(transformRow(row), transformCol(col));
 	}
@@ -134,32 +134,32 @@ public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E,
 		return colEGExtender;
 	}
 
-	public Vertex<E> transformVertexEGExtender(Vertex<EGExtender> vEGExtender, E eg) throws EGInvalidVertexException
+	public Vertex transformVertexEGExtender(Vertex<EGExtender> vEGExtender, E eg) throws ExceptionInvalidVertex
 	{
 		if (vEGExtender == null)
 		{
-			throw new EGInvalidVertexException("Invalid vertex: null");
+			throw new ExceptionInvalidVertex("Invalid vertex: null");
 		}
-		Vertex<E> v = eg.getVertex(transformRowEGExtender(vEGExtender.getI()), transformColEGExtender(vEGExtender
+		Vertex v = eg.getVertex(transformRowEGExtender(vEGExtender.getI()), transformColEGExtender(vEGExtender
 			.getJ()));
 		return v;
 	}
 
-	public Vertex<EGExtender> transformVertex(Vertex<E> v) throws EGInvalidVertexException
+	public Vertex<EGExtender> transformVertex(Vertex v) throws ExceptionInvalidVertex
 	{
 		if (v == null)
 		{
-			throw new EGInvalidVertexException("Invalid vertex: null");
+			throw new ExceptionInvalidVertex("Invalid vertex: null");
 		}
 		return getEGExtender().getVertex(transformRow(v.getI()), transformCol(v.getJ()));
 	}
 
 	// beginVertex, endVertex: vertices in extended edit graph
-	public VertexRange<EGExtender> transformVertexRange(VertexRange<E> range) throws EGInvalidRangeException
+	public EditGraphSegment<EGExtender> transformVertexRange(EditGraphSegment range) throws EGInvalidVertexesOfExtensionException
 	{
 		if (range == null)
 		{
-			throw new EGInvalidRangeException("Invalid range: null");
+			throw new EGInvalidVertexesOfExtensionException("Invalid range: null");
 		}
 		try
 		{
@@ -167,17 +167,17 @@ public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E,
 				transformCol(range.getBeginVertex().getJ()));
 			Vertex<EGExtender> evEGExtender = getEGExtender().getVertex(transformRow(range.getEndVertex().getI()),
 				transformCol(range.getEndVertex().getJ()));
-			return new VertexRange<EGExtender>(bvEGExtender, evEGExtender);
+			return new EditGraphSegment<EGExtender>(bvEGExtender, evEGExtender);
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
-			throw new EGInvalidRangeException(range, "Invalid range to transform.");
+			throw new EGInvalidVertexesOfExtensionException(range, "Invalid range to transform.");
 		}
 	}
 
 	// //beginVertex, endVertex: vertices in extended edit graph
-	// public VertexRange<E>
+	// public VertexRange
 	// transformVertexRangeExtender(VertexRange<EGExtender> rangeEGExtender, E
 	// eg) throws EGInvalidVertexException
 	// {
@@ -185,13 +185,13 @@ public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E,
 	// {
 	// throw new EGInvalidVertexException("Invalid range: null");
 	// }
-	// Vertex<E> bv =
+	// Vertex bv =
 	// eg.getVertex(transformRowExtender(rangeEGExtender.getBeginVertex().getI()),
 	// rangeEGExtender.getBeginVertex().getJ());
-	// Vertex<E> ev =
+	// Vertex ev =
 	// eg.getVertex(transformRowExtender(rangeEGExtender.getEndVertex().getI()),
 	// rangeEGExtender.getEndVertex().getJ());
-	// return new VertexRange<E>(bv, ev);
+	// return new VertexRange(bv, ev);
 	// }
 
 }

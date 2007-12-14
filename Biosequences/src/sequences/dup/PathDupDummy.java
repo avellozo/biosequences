@@ -5,22 +5,22 @@ package sequences.dup;
 
 import java.util.LinkedList;
 
-import sequences.editgraph.EGGeneralException;
-import sequences.editgraph.EGInvalidVertexException;
+import sequences.editgraph.ExceptionGeneralEG;
+import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntPrimitive;
 
 /**
  * @author Augusto F. Vellozo
  */
-public class PathDupDummy<E extends EditGraph<E, ? extends ExtenderDup<E>>>
-		extends PathDupDP<E>
+public class PathDupDummy<E extends EditGraph<E, ? extends ExtenderDup>>
+		extends PathDupDP
 {
 
-	public PathDupDummy(VertexRange<E> range, boolean local)
-			throws EGInvalidVertexException, EGGeneralException
+	public PathDupDummy(EditGraphSegment range, boolean local)
+			throws ExceptionInvalidVertex, ExceptionGeneralEG
 	{
 		super(range, local);
 	}

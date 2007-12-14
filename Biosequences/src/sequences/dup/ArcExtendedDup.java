@@ -1,15 +1,15 @@
 package sequences.dup;
 
 import sequences.editgraph.ArcExtended;
-import sequences.editgraph.EGInvalidRangeException;
-import sequences.editgraph.EGInvalidVertexException;
+import sequences.editgraph.EGInvalidVertexesOfExtensionException;
+import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 
-public class ArcExtendedDup<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends ArcExtended<E>
+public class ArcExtendedDup<E extends EditGraph<E, ? extends ExtenderDup>> extends ArcExtended
 {
 
-	public ArcExtendedDup(VertexRange<E> range, int weight) throws EGInvalidVertexException, EGInvalidRangeException
+	public ArcExtendedDup(EditGraphSegment range, int weight) throws ExceptionInvalidVertex, EGInvalidVertexesOfExtensionException
 	{
 		super(range, weight);
 	}

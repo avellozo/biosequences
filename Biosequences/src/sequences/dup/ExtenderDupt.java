@@ -3,11 +3,11 @@
  */
 package sequences.dup;
 
-import sequences.editgraph.EGInvalidVertexException;
+import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 
-public class ExtenderDupt<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends ExtenderDup<E>
+public class ExtenderDupt<E extends EditGraph<E, ? extends ExtenderDup>> extends ExtenderDup
 {
 
 	public ExtenderDupt(boolean onlyInTheSeq)
@@ -16,7 +16,7 @@ public class ExtenderDupt<E extends EditGraph<E, ? extends ExtenderDup<E>>> exte
 	}
 
 	@Override
-	public int getWeightExtended(VertexRange<E> range) throws EGInvalidRangeException
+	public int getWeightExtended(EditGraphSegment range) throws EGInvalidVertexesOfExtensionException
 	{
 		// TODO Auto-generated method stub
 		return super.getWeightExtended(range);

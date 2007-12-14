@@ -3,28 +3,66 @@
  */
 package sequences.editgraph;
 
-public class ArcExtended<E extends EditGraph<E, ? extends Extender<E>>> extends ArcAbstractImpl<E>
+public class ArcExtended extends ArcAbstractImpl
 {
-	VertexRange<E>	range;
+	Vertex				beginVertex;
+	EditGraphExtended	eg;
 
-	public ArcExtended(VertexRange<E> range, int weight) throws EGInvalidVertexException, EGInvalidRangeException
+	public ArcExtended(Vertex beginVertex, Vertex endVertex, int weight) throws ExceptionInvalidVertex
 	{
-		super(range.getEndVertex(), weight);
-		if (!getEditGraph().existsExtendedArc(range))
+		super(endVertex, weight);
+		if (beginVertex == null)
 		{
-			throw new EGInvalidRangeException("Can not create extended arc on the range "
-				+ this.range);
+			throw new ExceptionInvalidVertex(beginVertex);
+		}
+		if (endVertex == null)
+		{
+			throw new ExceptionInvalidVertex(endVertex);
+		}
+		if (endVertex.getEditGraph() instanceof EditGraphExtended)
+		{
+			eg = (EditGraphExtended) endVertex.getEditGraph();
+		}
+		else
+		{
+			throw new ExceptionInvalidVertex(endVertex,
+				"This vertex isn't of an extended edit graph. Couldn't create a extended arc.");
+		}
+		if (beginVertex.getEditGraph() != endVertex.getEditGraph())
+		{
+			throw new ExceptionInvalidVertex(endVertex, "Can't create extended arc of diferents graphes: "
+				+ beginVertex);
+		}
+		if (!getEditGraph().dominates(beginVertex, endVertex))
+		{
+			throw new ExceptionInvalidVertex(beginVertex, "Begin vertex is invalid to end vertex: " + endVertex);
+		}
+		if (!getEditGraph().existsExtendedArc(beginVertex.getI(), beginVertex.getJ(), endVertex.getI(),
+			endVertex.getJ()))
+		{
+			throw new ExceptionInvalidVertex(endVertex, "Can't create extended arc from " + beginVertex);
 		}
 	}
 
-	public Vertex<E> getBeginVertex()
+	public Vertex getBeginVertex()
 	{
-		return range.getBeginVertex();
+		return beginVertex;
 	}
 
-	public VertexRange<E> getRange()
+	@Override
+	public EditGraphExtended getEditGraph()
 	{
-		return range;
+		return eg;
+	}
+
+	public int getRowsOfExtension()
+	{
+		return (getEndVertex().getI() - getBeginVertex().getI() + 1);
+	}
+
+	public int getColsOfExtension()
+	{
+		return (getEndVertex().getJ() - getBeginVertex().getJ() + 1);
 	}
 
 	@Override

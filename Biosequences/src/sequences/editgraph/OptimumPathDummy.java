@@ -3,11 +3,11 @@
  */
 package sequences.editgraph;
 
-public class OptimumPathDummy <E extends EditGraph<E, ? extends Extender<E>>>
-extends OptimumPathImpl<E>
+public class OptimumPathDummy <E extends EditGraph<E, ? extends Extender>>
+extends OptimumPathImpl
 {
 
-	public OptimumPathDummy(VertexRange<E> range, boolean local) throws EGInvalidRangeException
+	public OptimumPathDummy(EditGraphSegment range, boolean local) throws EGInvalidVertexesOfExtensionException
 	{
 		super(range, local);
 	}

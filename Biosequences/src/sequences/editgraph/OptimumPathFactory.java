@@ -1,9 +1,9 @@
 package sequences.editgraph;
 
-public interface OptimumPathFactory<E extends EditGraph<E, ? extends Extender<E>>, P extends OptimumPath<E>>
+public interface OptimumPathFactory<E extends EditGraph<E, ? extends Extender>, P extends OptimumPath>
 {
-	public P createPath(VertexRange<E> range, boolean local)
-			throws EGInvalidRangeException, EGInvalidEditGraphException;
+	public P createPath(EditGraphSegment range, boolean local)
+			throws EGInvalidVertexesOfExtensionException, ExceptionInvalidEditGraph;
 	
 	public String getName();
 }

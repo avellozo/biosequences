@@ -1,25 +1,25 @@
 package sequences.bim;
 
-import sequences.editgraph.EGInvalidRangeException;
-import sequences.editgraph.EGInvalidEditGraphException;
+import sequences.editgraph.EGInvalidVertexesOfExtensionException;
+import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathImpl;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 
 public class PathBim<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, ? extends EditGraph>>>
-		extends OptimumPathImpl<E>
+		extends OptimumPathImpl
 {
 
 	protected int							inversionPenalty;
 	protected ExtenderUsingEGInvertedRows	extender;
 
-	public PathBim(VertexRange<E> range, boolean local)
-			throws EGInvalidEditGraphException, EGInvalidRangeException
+	public PathBim(EditGraphSegment range, boolean local)
+			throws ExceptionInvalidEditGraph, EGInvalidVertexesOfExtensionException
 	{
 		super(range, local);
 		if (!getEditGraph().isExtended())
 		{
-			throw new EGInvalidEditGraphException("Edit graph must be extended to calculate a bim path.");
+			throw new ExceptionInvalidEditGraph("Edit graph must be extended to calculate a bim path.");
 		}
 		extender = getEditGraph().getExtender();
 		inversionPenalty = extender.getExtensionPenalty();

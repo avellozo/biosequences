@@ -1,23 +1,23 @@
 package sequences.dup;
 
-import sequences.editgraph.EGGeneralException;
-import sequences.editgraph.EGInternalException;
-import sequences.editgraph.EGInvalidVertexException;
+import sequences.editgraph.ExceptionGeneralEG;
+import sequences.editgraph.ExceptionInternalEG;
+import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathImpl;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 
-public class PathDup<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends OptimumPathImpl<E>
+public class PathDup<E extends EditGraph<E, ? extends ExtenderDup>> extends OptimumPathImpl
 {
 
 	protected ExtenderDup	extender;
 
-	public PathDup(VertexRange<E> range, boolean local) throws EGInvalidVertexException, EGGeneralException
+	public PathDup(EditGraphSegment range, boolean local) throws ExceptionInvalidVertex, ExceptionGeneralEG
 	{
 		super(range, local);
 		if (!getEditGraph().isExtended())
 		{
-			throw new EGGeneralException("Edit graph must be extended to calculate a dup path.");
+			throw new ExceptionGeneralEG("Edit graph must be extended to calculate a dup path.");
 		}
 		extender = getEditGraph().getExtender();
 		finishTime();

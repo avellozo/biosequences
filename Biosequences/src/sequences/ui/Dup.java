@@ -17,12 +17,12 @@ import sequences.common.MatchesWeight;
 import sequences.common.Sequence;
 import sequences.dup.ExtenderDup;
 import sequences.dup.PathDup;
-import sequences.editgraph.EGAlignmentSequences;
-import sequences.editgraph.EGGeneralException;
-import sequences.editgraph.EGInternalException;
-import sequences.editgraph.EGInvalidArcException;
-import sequences.editgraph.EGInvalidVertexException;
-import sequences.editgraph.EGScoresThreshold;
+import sequences.editgraph.WeighterArcsSimpleSequences;
+import sequences.editgraph.ExceptionGeneralEG;
+import sequences.editgraph.ExceptionInternalEG;
+import sequences.editgraph.ExceptionInvalidArc;
+import sequences.editgraph.ExceptionInvalidVertex;
+import sequences.editgraph.EGSparseWithDiagonals;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathFactory;
 import sequences.editgraph.OptimumPathSimpleFactory;
@@ -221,7 +221,7 @@ public class Dup
 		{
 			if (fragmentsScores != null)
 			{
-				eg = new EGScoresThreshold(fragmentsScores.getDirectScores(), threshold, match, mismatch, gap,
+				eg = new EGSparseWithDiagonals(fragmentsScores.getDirectScores(), threshold, match, mismatch, gap,
 					fragmentsScores.getNumFragsSeq1() + 1, fragmentsScores.getNumFragsSeq2() + 1, matchesWeight, false,
 					pathDupFactory, new ExtenderDup());
 			}
@@ -229,7 +229,7 @@ public class Dup
 			{
 				if (seq1 != null && seq2 != null)
 				{
-					eg = new EGAlignmentSequences(seq1, seq2, match, mismatch, gap, pathDupFactory,
+					eg = new WeighterArcsSimpleSequences(seq1, seq2, match, mismatch, gap, pathDupFactory,
 						new ExtenderDup());
 				}
 				else
@@ -240,17 +240,17 @@ public class Dup
 			}
 
 		}
-		catch (EGInvalidArcException e)
+		catch (ExceptionInvalidArc e)
 		{
 			e.printStackTrace();
 			System.exit(-1);
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
 			System.exit(-1);
 		}
-		catch (EGGeneralException e)
+		catch (ExceptionGeneralEG e)
 		{
 			e.printStackTrace();
 			System.exit(-1);
@@ -260,10 +260,10 @@ public class Dup
 		{
 			path = (PathDup) eg.getOptimumPath(local);
 		}
-		catch (EGGeneralException e1)
+		catch (ExceptionGeneralEG e1)
 		{
 			e1.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 
 		if (statistics)

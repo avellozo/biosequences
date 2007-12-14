@@ -1,19 +1,19 @@
 package sequences.dup;
 
-import sequences.editgraph.EGGeneralException;
-import sequences.editgraph.EGInvalidVertexException;
+import sequences.editgraph.ExceptionGeneralEG;
+import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathFactory;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 
-public class PathDupDummyFactory<E extends EditGraph<E, ? extends ExtenderDup<E>>>
-		implements OptimumPathFactory<E, PathDupDummy<E>>
+public class PathDupDummyFactory<E extends EditGraph<E, ? extends ExtenderDup>>
+		implements OptimumPathFactory<E, PathDupDummy>
 {
 
-	public PathDupDummy<E> createPath(VertexRange<E> range, boolean local)
-			throws EGInvalidVertexException, EGGeneralException
+	public PathDupDummy createPath(EditGraphSegment range, boolean local)
+			throws ExceptionInvalidVertex, ExceptionGeneralEG
 	{
-		return new PathDupDummy<E>(range, local);
+		return new PathDupDummy(range, local);
 	}
 
 	public String getName()

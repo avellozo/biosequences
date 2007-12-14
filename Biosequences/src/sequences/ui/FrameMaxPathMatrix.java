@@ -10,7 +10,7 @@ import javax.swing.WindowConstants;
 
 import sequences.MaxPath;
 import sequences.common.Sequence;
-import sequences.editgraph.EGAlignmentSequences;
+import sequences.editgraph.WeighterArcsSimpleSequences;
 
 /**
  * @author Augusto
@@ -26,8 +26,8 @@ public class FrameMaxPathMatrix extends javax.swing.JFrame
 	public FrameMaxPathMatrix(MaxPath maxPathMatrix)
 	{
 		this.maxPath = maxPathMatrix;
-		seq1 = ((EGAlignmentSequences) maxPathMatrix.getEditGraph()).getSeq1();
-		seq2 = ((EGAlignmentSequences) maxPathMatrix.getEditGraph()).getSeq2();
+		seq1 = ((WeighterArcsSimpleSequences) maxPathMatrix.getEditGraph()).getSeq1();
+		seq2 = ((WeighterArcsSimpleSequences) maxPathMatrix.getEditGraph()).getSeq2();
 		setFrameProperties();
 		createComponents();
 		addComponents();

@@ -21,13 +21,13 @@ import sequences.common.FileFastaSequence;
 import sequences.common.FragmentsScores;
 import sequences.common.MatchesWeight;
 import sequences.common.Sequence;
-import sequences.editgraph.EGAlignmentSequences;
-import sequences.editgraph.EGGeneralException;
-import sequences.editgraph.EGInternalException;
-import sequences.editgraph.EGInvalidArcException;
-import sequences.editgraph.EGInvalidEditGraphException;
-import sequences.editgraph.EGInvalidVertexException;
-import sequences.editgraph.EGScoresThreshold;
+import sequences.editgraph.WeighterArcsSimpleSequences;
+import sequences.editgraph.ExceptionGeneralEG;
+import sequences.editgraph.ExceptionInternalEG;
+import sequences.editgraph.ExceptionInvalidArc;
+import sequences.editgraph.ExceptionInvalidEditGraph;
+import sequences.editgraph.ExceptionInvalidVertex;
+import sequences.editgraph.EGSparseWithDiagonals;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathFactory;
 import sequences.editgraph.OptimumPathSimpleFactory;
@@ -246,10 +246,10 @@ public class Bim
 		{
 			if (fragmentsScores != null)
 			{
-				egInverted = new EGScoresThreshold(fragmentsScores.getInvertedScores(), threshold, match, mismatch,
+				egInverted = new EGSparseWithDiagonals(fragmentsScores.getInvertedScores(), threshold, match, mismatch,
 					gap, fragmentsScores.getNumFragsSeq1() + 1, fragmentsScores.getNumFragsSeq2() + 1, matchesWeight,
 					true, pathSimpleFactory, null);
-				eg = new EGScoresThreshold(fragmentsScores.getDirectScores(), threshold, match, mismatch, gap,
+				eg = new EGSparseWithDiagonals(fragmentsScores.getDirectScores(), threshold, match, mismatch, gap,
 					fragmentsScores.getNumFragsSeq1() + 1, fragmentsScores.getNumFragsSeq2() + 1, matchesWeight, false,
 					pathBimFactory, new ExtenderUsingEGInvertedRows(egInverted, inversion));
 			}
@@ -257,9 +257,9 @@ public class Bim
 			{
 				if (seq1 != null && seq2 != null)
 				{
-					egInverted = new EGAlignmentSequences(new ComplementReverseSequence(seq1), seq2, match, mismatch,
+					egInverted = new WeighterArcsSimpleSequences(new ComplementReverseSequence(seq1), seq2, match, mismatch,
 						gap, pathSimpleFactory, null);
-					eg = new EGAlignmentSequences(seq1, seq2, match, mismatch, gap, pathBimFactory,
+					eg = new WeighterArcsSimpleSequences(seq1, seq2, match, mismatch, gap, pathBimFactory,
 						new ExtenderUsingEGInvertedRows(egInverted, inversion));
 				}
 				else
@@ -270,17 +270,17 @@ public class Bim
 			}
 
 		}
-		catch (EGInvalidArcException e)
+		catch (ExceptionInvalidArc e)
 		{
 			e.printStackTrace();
 			System.exit(-1);
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
 			System.exit(-1);
 		}
-		catch (EGInvalidEditGraphException e)
+		catch (ExceptionInvalidEditGraph e)
 		{
 			e.printStackTrace();
 			System.exit(-1);
@@ -290,10 +290,10 @@ public class Bim
 		{
 			path = (PathBim) eg.getOptimumPath(local);
 		}
-		catch (EGInvalidEditGraphException e)
+		catch (ExceptionInvalidEditGraph e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 
 		if (statistics)

@@ -6,8 +6,8 @@ import sequences.matrix.MatrixIntDP;
 import sequences.matrix.MatrixIntPrimitive;
 import sequences.matrix.MatrixIntRange;
 
-public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender<E>>>
-		extends OptimumPathImpl<E>
+public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender>>
+		extends OptimumPathImpl
 {
 
 	protected char[][]		arcsType;
@@ -16,8 +16,8 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender<E>>>
 	// algorithm
 	protected MatrixIntDP	matrixDP;
 
-	public OptimumPathSimple(VertexRange<E> range, boolean local)
-			throws EGInvalidRangeException
+	public OptimumPathSimple(EditGraphSegment range, boolean local)
+			throws EGInvalidVertexesOfExtensionException
 	{
 		super(range, local);
 		// TODO melhorar memória usando matrizes range
@@ -81,10 +81,10 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender<E>>>
 				}
 			}
 		}
-		catch (EGInvalidArcException e)
+		catch (ExceptionInvalidArc e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 	}
 
@@ -93,14 +93,14 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender<E>>>
 		// construir o path
 		try
 		{
-			Vertex<E> v = getVertexRange().getEndVertex();
+			Vertex v = getVertexRange().getEndVertex();
 			if (isLocal())
 			{
 				v = eg.getVertex(matrixDP.getRowMaxValue(), matrixDP
 					.getColMaxValue());
 			}
 			char c;
-			Arc<E> arc;
+			Arc arc;
 			while (!((v.equals(getVertexRange().getBeginVertex())) || (isLocal() && (matrixDP
 				.getValue(v.getI(), v.getJ()) == 0))))
 			{
@@ -123,12 +123,12 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender<E>>>
 				v = arc.getBeginVertex();
 			}
 		}
-		catch (EGInvalidArcException e)
+		catch (ExceptionInvalidArc e)
 		{
 			e.printStackTrace();
 			throw new SequenceInternalException();
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
 			throw new SequenceInternalException();

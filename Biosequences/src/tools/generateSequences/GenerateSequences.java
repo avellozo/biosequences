@@ -21,17 +21,17 @@ import sequences.common.ComplementReverseSequence;
 import sequences.common.SequenceByteArray;
 import sequences.editgraph.Arc;
 import sequences.editgraph.ArcExtendedOverEGExtender;
-import sequences.editgraph.EGAlignmentSequences;
-import sequences.editgraph.EGGeneralException;
-import sequences.editgraph.EGInvalidArcException;
-import sequences.editgraph.EGInvalidEditGraphException;
-import sequences.editgraph.EGInvalidRangeException;
-import sequences.editgraph.EGInvalidVertexException;
+import sequences.editgraph.WeighterArcsSimpleSequences;
+import sequences.editgraph.ExceptionGeneralEG;
+import sequences.editgraph.ExceptionInvalidArc;
+import sequences.editgraph.ExceptionInvalidEditGraph;
+import sequences.editgraph.EGInvalidVertexesOfExtensionException;
+import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPath;
 import sequences.editgraph.OptimumPathDummyFactory;
 import sequences.editgraph.Vertex;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 import sequences.ui.PrinterPath;
 
 /**
@@ -301,9 +301,9 @@ public class GenerateSequences
 			EditGraph eg = null, egInverted = null;
 			PathBimDummyFactory pathBimDummyFactory = new PathBimDummyFactory();
 			OptimumPathDummyFactory optimumPathDummyFactory = new OptimumPathDummyFactory();
-			egInverted = new EGAlignmentSequences(new ComplementReverseSequence(seq1), seq2, 1, -1, -2,
+			egInverted = new WeighterArcsSimpleSequences(new ComplementReverseSequence(seq1), seq2, 1, -1, -2,
 				optimumPathDummyFactory, null);
-			eg = new EGAlignmentSequences(seq1, seq2, 1, -1, -2, pathBimDummyFactory, new ExtenderUsingEGInvertedRows(
+			eg = new WeighterArcsSimpleSequences(seq1, seq2, 1, -1, -2, pathBimDummyFactory, new ExtenderUsingEGInvertedRows(
 				egInverted, 2));
 			OptimumPath path = eg.getOptimumPath(false);
 			OptimumPath pathInverted;
@@ -343,7 +343,7 @@ public class GenerateSequences
 						}
 					}
 					v1 = eg.getVertex(inversions[inversionIndex + 1] + 1, vj);
-					arcExtended = (ArcExtendedOverEGExtender) eg.getExtendedArc(new VertexRange(v, v1));// new
+					arcExtended = (ArcExtendedOverEGExtender) eg.getExtendedArc(new EditGraphSegment(v, v1));// new
 					// ArcExtendedOverEGExtender(v,
 					// v1);
 					pathInverted = arcExtended.getPathEGExtender();
@@ -397,11 +397,11 @@ public class GenerateSequences
 			PrinterPath.printBlast(path, ps, 60);
 			PrinterPath.printMatches(path, ps);
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
 		}
-		catch (EGInvalidArcException e)
+		catch (ExceptionInvalidArc e)
 		{
 			e.printStackTrace();
 		}
@@ -409,11 +409,11 @@ public class GenerateSequences
 		{
 			e.printStackTrace();
 		}
-		catch (EGInvalidEditGraphException e)
+		catch (ExceptionInvalidEditGraph e)
 		{
 			e.printStackTrace();
 		}
-		catch (EGInvalidRangeException e)
+		catch (EGInvalidVertexesOfExtensionException e)
 		{
 			e.printStackTrace();
 		}

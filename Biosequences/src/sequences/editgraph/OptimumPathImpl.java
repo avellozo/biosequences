@@ -9,12 +9,12 @@ import sequences.ui.Messages;
 import sequences.ui.PrinterPath;
 
 // TODO OptimumPath extend LinkedList
-public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender<E>>> implements OptimumPath<E>
+public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender>> implements OptimumPath
 {
 
-	LinkedList<Arc<E>>			arcs				= new LinkedList<Arc<E>>();
-	LinkedList<ArcExtended<E>>	arcsExtended;
-	VertexRange<E>				range;
+	LinkedList<Arc>			arcs				= new LinkedList<Arc>();
+	LinkedList<ArcExtended>	arcsExtended;
+	EditGraphSegment				range;
 	long						finishTime;
 	long						startTime;
 	boolean						local;
@@ -31,12 +31,12 @@ public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender<E>>> impl
 	protected E					eg;
 	protected int				iMin, iMax, jMin, jMax, rows, cols;
 
-	public OptimumPathImpl(VertexRange<E> range, boolean local) throws EGInvalidRangeException
+	public OptimumPathImpl(EditGraphSegment range, boolean local) throws EGInvalidVertexesOfExtensionException
 	{
 		startTime();
 		if (range == null)
 		{
-			throw new EGInvalidRangeException("Invalid range: null");
+			throw new EGInvalidVertexesOfExtensionException("Invalid range: null");
 		}
 		this.range = range;
 		this.local = local;
@@ -50,27 +50,27 @@ public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender<E>>> impl
 		finishTime();
 	}
 
-	public LinkedList<Arc<E>> getArcs()
+	public LinkedList<Arc> getArcs()
 	{
 		return arcs;
 	}
 
-	public Arc<E> getFirst()
+	public Arc getFirst()
 	{
 		return arcs.getFirst();
 	}
 
-	public Arc<E> getLast()
+	public Arc getLast()
 	{
 		return arcs.getLast();
 	}
 
-	public boolean add(Arc<E> arc)
+	public boolean add(Arc arc)
 	{
 		return (changedArcs = arcs.add(arc));
 	}
 
-	public boolean addFirst(Arc<E> arc)
+	public boolean addFirst(Arc arc)
 	{
 		arcs.addFirst(arc);
 		return (changedArcs = true);
@@ -84,13 +84,13 @@ public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender<E>>> impl
 	// public List<ArcDiagonal> getMatches() {
 	// if (matches == null){
 	// matches = new LinkedList<ArcDiagonal >();
-	// for (Arc<E> arc : getArcs())
+	// for (Arc arc : getArcs())
 	// {
 	// try {
 	// if ((arc instanceof ArcDiagonal) && (getEditGraph().isMatch((ArcDiagonal
-	// <E>)arc)))
+	// )arc)))
 	// {
-	// matches.add((ArcDiagonal <E>)arc);
+	// matches.add((ArcDiagonal )arc);
 	// }
 	// if (arc instanceof ArcExtendedOverInversion)
 	// {
@@ -131,8 +131,8 @@ public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender<E>>> impl
 		score = 0;
 		qttyExtendedArcs = 0;
 		qttyArcs = 0;
-		arcsExtended = new LinkedList<ArcExtended<E>>();
-		for (Arc<E> arc : arcs)
+		arcsExtended = new LinkedList<ArcExtended>();
+		for (Arc arc : arcs)
 		{
 			score += arc.getWeight();
 			qttyArcs++;
@@ -147,7 +147,7 @@ public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender<E>>> impl
 			else if (arc instanceof ArcExtendedOverEGExtender)
 			{
 				qttyExtendedArcs++;
-				arcsExtended.add((ArcExtended<E>) arc);
+				arcsExtended.add((ArcExtended) arc);
 				if (arc instanceof ArcExtendedOverEGExtender)
 				{
 					pathEGExtender = ((ArcExtendedOverEGExtender) arc).getPathEGExtender();
@@ -162,7 +162,7 @@ public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender<E>>> impl
 			{
 				try
 				{
-					if (getEditGraph().isMatch((ArcDiagonal<E>) arc))
+					if (getEditGraph().isMatch((ArcDiagonal) arc))
 					{
 						qttyMatches++;
 					}
@@ -171,16 +171,16 @@ public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender<E>>> impl
 						qttyMismatches++;
 					}
 				}
-				catch (EGInvalidArcException e)
+				catch (ExceptionInvalidArc e)
 				{
 					e.printStackTrace();
-					throw new EGInternalException();
+					throw new ExceptionInternalEG();
 				}
 			}
 		}
 	}
 
-	public VertexRange<E> getVertexRange()
+	public EditGraphSegment getVertexRange()
 	{
 		return range;
 	}
@@ -260,7 +260,7 @@ public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender<E>>> impl
 		return qttyVerticalArcs;
 	}
 
-	public LinkedList<ArcExtended<E>> getArcsExtended()
+	public LinkedList<ArcExtended> getArcsExtended()
 	{
 		if (changedArcs)
 		{

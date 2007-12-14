@@ -3,45 +3,29 @@
  */
 package sequences.editgraph;
 
-public class ArcDiagonal<E extends EditGraph<E, ? extends Extender<E>>> extends
-		ArcAbstractImpl<E>
+public class ArcDiagonal extends ArcAbstractImpl
 {
-	public ArcDiagonal(Vertex<E> endVertex, int weight)
-			throws EGInvalidArcException, EGInvalidVertexException
+	public ArcDiagonal(Vertex endVertex, int weight) throws ExceptionInvalidVertex
 	{
 		super(endVertex, weight);
-		if (!getEditGraph().existsDiagonalArc(endVertex.getI(),
-			endVertex.getJ()))
+		if (!getEditGraph().existsDiagonalArc(endVertex.getI(), endVertex.getJ()))
 		{
-			throw new EGInvalidArcException(EditGraph.DIAGONAL,
-				"Can not create diagonal arc on the vertex " + this.endVertex);
+			throw new ExceptionInvalidVertex(this.endVertex, "Can not create diagonal arc on the vertex "
+				+ this.endVertex);
 		}
 	}
 
-	public Vertex<E> getBeginVertex()
+	public Vertex getBeginVertex()
 	{
 		try
 		{
-			return getEditGraph().getVertex(getEndVertex().getI() - 1,
-				getEndVertex().getJ() - 1);
+			return getEditGraph().getVertex(getEndVertex().getI() - 1, getEndVertex().getJ() - 1);
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 	}
 
-	public boolean isMatch()
-	{
-		try
-		{
-			return getEditGraph().isMatch(this);
-		}
-		catch (EGInvalidArcException e)
-		{
-			e.printStackTrace();
-			throw new EGInternalException();
-		}
-	}
 }

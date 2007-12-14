@@ -3,32 +3,28 @@
  */
 package sequences.editgraph;
 
-public class ArcHorizontal<E extends EditGraph<E, ? extends Extender<E>>>
-		extends ArcAbstractImpl<E>
+public class ArcHorizontal extends ArcAbstractImpl
 {
-	public ArcHorizontal(Vertex<E> endVertex, int weight)
-			throws EGInvalidArcException, EGInvalidVertexException
+	public ArcHorizontal(Vertex endVertex, int weight) throws ExceptionInvalidVertex
 	{
 		super(endVertex, weight);
-		if (!getEditGraph().existsHorizontalArc(endVertex.getI(),
-			endVertex.getJ()))
+		if (!getEditGraph().existsHorizontalArc(endVertex.getI(), endVertex.getJ()))
 		{
-			throw new EGInvalidArcException(EditGraph.HORIZONTAL,
-				"Can not create horizontal arc on the vertex " + this.endVertex);
+			throw new ExceptionInvalidVertex(this.endVertex, "Can not create horizontal arc on the vertex "
+				+ this.endVertex);
 		}
 	}
 
-	public Vertex<E> getBeginVertex()
+	public Vertex getBeginVertex()
 	{
 		try
 		{
-			return getEditGraph().getVertex(getEndVertex().getI(),
-				getEndVertex().getJ() - 1);
+			return getEditGraph().getVertex(getEndVertex().getI(), getEndVertex().getJ() - 1);
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 	}
 }

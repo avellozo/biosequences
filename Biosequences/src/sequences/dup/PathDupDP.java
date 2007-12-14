@@ -2,19 +2,19 @@ package sequences.dup;
 
 import sequences.common.SequenceInternalException;
 import sequences.editgraph.Arc;
-import sequences.editgraph.EGGeneralException;
-import sequences.editgraph.EGInternalException;
-import sequences.editgraph.EGInvalidArcException;
-import sequences.editgraph.EGInvalidVertexException;
+import sequences.editgraph.ExceptionGeneralEG;
+import sequences.editgraph.ExceptionInternalEG;
+import sequences.editgraph.ExceptionInvalidArc;
+import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.Vertex;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntDP;
 import sequences.matrix.MatrixIntPrimitive;
 
-public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends
-		PathDup<E>
+public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup>> extends
+		PathDup
 {
 	protected int[][]		mij;
 
@@ -30,7 +30,7 @@ public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends
 	// algorithm
 	protected MatrixIntDP	dup;
 
-	public PathDupDP(VertexRange<E> range, boolean local) throws EGInvalidVertexException, EGGeneralException
+	public PathDupDP(EditGraphSegment range, boolean local) throws ExceptionInvalidVertex, ExceptionGeneralEG
 	{
 		super(range, local);
 		init();
@@ -93,10 +93,10 @@ public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends
 				}
 			}
 		}
-		catch (EGInvalidArcException e)
+		catch (ExceptionInvalidArc e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 	}
 
@@ -149,10 +149,10 @@ public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends
 				}
 			}
 		}
-		catch (EGInvalidArcException e)
+		catch (ExceptionInvalidArc e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 	}
 
@@ -205,13 +205,13 @@ public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends
 		// construir o path
 		try
 		{
-			Vertex<E> v = getVertexRange().getEndVertex();
+			Vertex v = getVertexRange().getEndVertex();
 			if (isLocal())
 			{
 				v = eg.getVertex(dup.getRowMaxValue(), dup.getColMaxValue());
 			}
 			char c;
-			Arc<E> arc;
+			Arc arc;
 			while (!((v.equals(getVertexRange().getBeginVertex())) || (isLocal() && (dup.getValue(v.getI(), v.getJ()) == 0))))
 			{
 				c = arcsType[v.getI()][v.getJ()];
@@ -229,10 +229,10 @@ public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends
 				case EditGraph.EXTENDED:
 					try
 					{
-						arc = eg.getExtendedArc(new VertexRange<E>(eg.getVertex(inversionsI[v.getI()][v.getJ()],
+						arc = eg.getExtendedArc(new EditGraphSegment(eg.getVertex(inversionsI[v.getI()][v.getJ()],
 							inversionsJ[v.getI()][v.getJ()]), v));
 					}
-					catch (EGGeneralException e)
+					catch (ExceptionGeneralEG e)
 					{
 						e.printStackTrace();
 						throw new SequenceInternalException();
@@ -245,12 +245,12 @@ public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup<E>>> extends
 				v = arc.getBeginVertex();
 			}
 		}
-		catch (EGInvalidArcException e)
+		catch (ExceptionInvalidArc e)
 		{
 			e.printStackTrace();
 			throw new SequenceInternalException();
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
 			throw new SequenceInternalException();

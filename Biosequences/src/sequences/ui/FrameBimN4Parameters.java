@@ -18,7 +18,7 @@ import sequences.bim.n3lgn.BimN3lgn;
 import sequences.bim.n4.BimN4;
 import sequences.bim.sN4.BimSN4;
 import sequences.common.FragmentsScores;
-import sequences.editgraph.EGScoresThreshold;
+import sequences.editgraph.EGSparseWithDiagonals;
 import sequences.editgraph.EditGraphOld;
 
 public class FrameBimN4Parameters extends JFrame
@@ -152,8 +152,8 @@ public class FrameBimN4Parameters extends JFrame
 		{
 			int threshold = ((Number)spinMinValue.getValue()).intValue();
 			int inversionPenalty = ((Number)spinInversionPenalty.getValue()).intValue();
-			EditGraphOld eg = new EGScoresThreshold(fragments.getDirectScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, false, null);
-			EditGraphOld egInverted = new EGScoresThreshold(fragments.getInvertedScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, true, null);
+			EditGraphOld eg = new EGSparseWithDiagonals(fragments.getDirectScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, false, null);
+			EditGraphOld egInverted = new EGSparseWithDiagonals(fragments.getInvertedScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, true, null);
 			BimN4 bim = new BimN4(eg, egInverted, inversionPenalty);
 			String nameSeq1 = fragments.getNameSeq1();
 			String nameSeq2 = fragments.getNameSeq2();
@@ -175,8 +175,8 @@ public class FrameBimN4Parameters extends JFrame
 		{
 			int threshold = ((Number)spinMinValue.getValue()).intValue();
 			int inversionPenalty = ((Number)spinInversionPenalty.getValue()).intValue();
-			EditGraphOld eg = new EGScoresThreshold(fragments.getDirectScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, false, null);
-			EditGraphOld egInverted = new EGScoresThreshold(fragments.getInvertedScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, true, null);
+			EditGraphOld eg = new EGSparseWithDiagonals(fragments.getDirectScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, false, null);
+			EditGraphOld egInverted = new EGSparseWithDiagonals(fragments.getInvertedScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, true, null);
 			BimN4 bim = new BimSN4(eg, egInverted, inversionPenalty);
 			String nameSeq1 = fragments.getNameSeq1();
 			String nameSeq2 = fragments.getNameSeq2();
@@ -198,8 +198,8 @@ public class FrameBimN4Parameters extends JFrame
 		{
 			int threshold = ((Number)spinMinValue.getValue()).intValue();
 			int inversionPenalty = ((Number)spinInversionPenalty.getValue()).intValue();
-			EditGraphOld eg = new EGScoresThreshold(fragments.getDirectScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, false, null);
-			EditGraphOld egInverted = new EGScoresThreshold(fragments.getInvertedScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, true, null);
+			EditGraphOld eg = new EGSparseWithDiagonals(fragments.getDirectScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, false, null);
+			EditGraphOld egInverted = new EGSparseWithDiagonals(fragments.getInvertedScores(), threshold, 1, -1, fragments.getNumFragsSeq1()+1, fragments.getNumFragsSeq2()+1, true, null);
 			BimN4 bim = new BimN3lgn(eg, egInverted, inversionPenalty);
 			String nameSeq1 = fragments.getNameSeq1();
 			String nameSeq2 = fragments.getNameSeq2();

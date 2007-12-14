@@ -1,20 +1,20 @@
 package sequences.bim;
 
-import sequences.editgraph.EGInvalidRangeException;
-import sequences.editgraph.EGInvalidVertexException;
-import sequences.editgraph.EGInvalidEditGraphException;
+import sequences.editgraph.EGInvalidVertexesOfExtensionException;
+import sequences.editgraph.ExceptionInvalidVertex;
+import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.Extender;
 import sequences.editgraph.ExtenderUsingEG;
 import sequences.editgraph.Vertex;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 
 public class ExtenderUsingEGInvertedRows<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, EGInvertedRows>>, EGInvertedRows extends EditGraph<EGInvertedRows, ? extends Extender<EGInvertedRows>>>
 		extends ExtenderUsingEG<E, EGInvertedRows>
 {
 
 	public ExtenderUsingEGInvertedRows(EGInvertedRows egInvertedRows,
-			int extensionPenalty) throws EGInvalidEditGraphException
+			int extensionPenalty) throws ExceptionInvalidEditGraph
 	{
 		super(egInvertedRows, extensionPenalty);
 	}
@@ -48,12 +48,12 @@ public class ExtenderUsingEGInvertedRows<E extends EditGraph<E, ? extends Extend
 
 	// beginVertex, endVertex: vertices in extended edit graph
 	@Override
-	public VertexRange<EGInvertedRows> transformVertexRange(VertexRange<E> range)
-			throws EGInvalidRangeException
+	public EditGraphSegment<EGInvertedRows> transformVertexRange(EditGraphSegment range)
+			throws EGInvalidVertexesOfExtensionException
 	{
 		if (range == null)
 		{
-			throw new EGInvalidRangeException("Invalid range: null");
+			throw new EGInvalidVertexesOfExtensionException("Invalid range: null");
 		}
 		try
 		{
@@ -63,17 +63,17 @@ public class ExtenderUsingEGInvertedRows<E extends EditGraph<E, ? extends Extend
 			Vertex<EGInvertedRows> evEGExtender = getEGExtender().getVertex(
 				transformRow(range.getBeginVertex().getI() + 1),
 				transformCol(range.getEndVertex().getJ()));
-			return new VertexRange<EGInvertedRows>(bvEGExtender, evEGExtender);
+			return new EditGraphSegment<EGInvertedRows>(bvEGExtender, evEGExtender);
 		}
-		catch (EGInvalidVertexException e)
+		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
-			throw new EGInvalidRangeException(range, "Invalid range to transform.");			
+			throw new EGInvalidVertexesOfExtensionException(range, "Invalid range to transform.");			
 		}
 	}
 
 	// //beginVertex, endVertex: vertices in extended edit graph
-	// public VertexRange<E>
+	// public VertexRange
 	// transformVertexRangeExtender(VertexRange<EGExtender> range, E eg) throws
 	// EGInvalidVertexException
 	// {
@@ -81,13 +81,13 @@ public class ExtenderUsingEGInvertedRows<E extends EditGraph<E, ? extends Extend
 	// {
 	// throw new EGInvalidVertexException("Invalid range: null");
 	// }
-	// Vertex<E> bv =
+	// Vertex bv =
 	// eg.getVertex(transformRowExtender(range.getEndVertex().getI()+1),
 	// range.getBeginVertex().getJ());
-	// Vertex<E> ev =
+	// Vertex ev =
 	// eg.getVertex(transformRowExtender(range.getBeginVertex().getI()+1),
 	// range.getEndVertex().getJ());
-	// return new VertexRange<E>(bv, ev);
+	// return new VertexRange(bv, ev);
 	// }
 	//
 }

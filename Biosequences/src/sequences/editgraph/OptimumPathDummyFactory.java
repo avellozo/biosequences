@@ -1,13 +1,13 @@
 package sequences.editgraph;
 
-public class OptimumPathDummyFactory<E extends EditGraph<E, ? extends Extender<E>>>
-		implements OptimumPathFactory<E, OptimumPathDummy<E>>
+public class OptimumPathDummyFactory<E extends EditGraph<E, ? extends Extender>>
+		implements OptimumPathFactory<E, OptimumPathDummy>
 {
 
-	public OptimumPathDummy<E> createPath(VertexRange<E> range, boolean local)
-			throws EGInvalidRangeException
+	public OptimumPathDummy createPath(EditGraphSegment range, boolean local)
+			throws EGInvalidVertexesOfExtensionException
 	{
-		return new OptimumPathDummy<E>(range, local);
+		return new OptimumPathDummy(range, local);
 	}
 
 	public String getName()

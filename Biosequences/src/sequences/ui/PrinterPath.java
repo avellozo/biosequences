@@ -14,12 +14,12 @@ import sequences.editgraph.ArcExtended;
 import sequences.editgraph.ArcExtendedOverEGExtender;
 import sequences.editgraph.ArcHorizontal;
 import sequences.editgraph.ArcVertical;
-import sequences.editgraph.EGAlignmentSequences;
-import sequences.editgraph.EGGeneralException;
-import sequences.editgraph.EGInternalException;
-import sequences.editgraph.EGInvalidEditGraphException;
-import sequences.editgraph.EGInvalidRangeException;
-import sequences.editgraph.EGInvalidVertexException;
+import sequences.editgraph.WeighterArcsSimpleSequences;
+import sequences.editgraph.ExceptionGeneralEG;
+import sequences.editgraph.ExceptionInternalEG;
+import sequences.editgraph.ExceptionInvalidEditGraph;
+import sequences.editgraph.EGInvalidVertexesOfExtensionException;
+import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPath;
 import sequences.editgraph.OptimumPathFactory;
@@ -68,10 +68,10 @@ public class PrinterPath
 						v = ((ArcExtendedOverEGExtender) arc).transformVertexEGExtender(arcPathEGExtender
 							.getEndVertex());
 					}
-					catch (EGInvalidVertexException e)
+					catch (ExceptionInvalidVertex e)
 					{
 						e.printStackTrace();
-						throw new EGInternalException();
+						throw new ExceptionInternalEG();
 					}
 					if (arcPathEGExtender instanceof ArcDiagonal)
 					{
@@ -94,7 +94,7 @@ public class PrinterPath
 					}
 					else
 					{
-						throw new EGInternalException();
+						throw new ExceptionInternalEG();
 					}
 					posC1 = v.getI();
 					posC3 = v.getJ();
@@ -123,7 +123,7 @@ public class PrinterPath
 				}
 				else
 				{
-					throw new EGInternalException();
+					throw new ExceptionInternalEG();
 				}
 				posC1 = arc.getEndVertex().getI();
 				posC3 = arc.getEndVertex().getJ();
@@ -161,7 +161,7 @@ public class PrinterPath
 							out.println(MessageFormat.format(Messages.getString("Bim.msgMatch1") //$NON-NLS-1$
 								, v.getI(), v.getJ()));
 						}
-						catch (EGInvalidVertexException e)
+						catch (ExceptionInvalidVertex e)
 						{
 							e.printStackTrace();
 						}
@@ -281,23 +281,23 @@ public class PrinterPath
 				, totLengthExtended, (totLengthExtended * 100 / pathILength), totWeightExtended, totScoreDirect));
 
 		}
-		catch (EGInvalidRangeException e)
+		catch (EGInvalidVertexesOfExtensionException e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
-		catch (EGInvalidEditGraphException e)
+		catch (ExceptionInvalidEditGraph e)
 		{
 			e.printStackTrace();
-			throw new EGInternalException();
+			throw new ExceptionInternalEG();
 		}
 	}
 
 	private static char getLetterI(EditGraph eg, int i)
 	{
-		if (eg instanceof EGAlignmentSequences)
+		if (eg instanceof WeighterArcsSimpleSequences)
 		{
-			return toLowerCase(((EGAlignmentSequences) eg).getSeq1().getLetter(i));
+			return toLowerCase(((WeighterArcsSimpleSequences) eg).getSeq1().getLetter(i));
 		}
 		else
 		{
@@ -307,9 +307,9 @@ public class PrinterPath
 
 	private static char getLetterJ(EditGraph eg, int j)
 	{
-		if (eg instanceof EGAlignmentSequences)
+		if (eg instanceof WeighterArcsSimpleSequences)
 		{
-			return toLowerCase(((EGAlignmentSequences) eg).getSeq2().getLetter(j));
+			return toLowerCase(((WeighterArcsSimpleSequences) eg).getSeq2().getLetter(j));
 		}
 		else
 		{
@@ -319,9 +319,9 @@ public class PrinterPath
 
 	private static char getLetterIExtended(EditGraph eg, int i)
 	{
-		if (eg instanceof EGAlignmentSequences)
+		if (eg instanceof WeighterArcsSimpleSequences)
 		{
-			return toUpperCase(((EGAlignmentSequences) eg).getSeq1().getLetter(i));
+			return toUpperCase(((WeighterArcsSimpleSequences) eg).getSeq1().getLetter(i));
 		}
 		else
 		{
@@ -331,9 +331,9 @@ public class PrinterPath
 
 	private static char getLetterJExtended(EditGraph eg, int j)
 	{
-		if (eg instanceof EGAlignmentSequences)
+		if (eg instanceof WeighterArcsSimpleSequences)
 		{
-			return toLowerCase(((EGAlignmentSequences) eg).getSeq2().getLetter(j));
+			return toLowerCase(((WeighterArcsSimpleSequences) eg).getSeq2().getLetter(j));
 		}
 		else
 		{

@@ -6,18 +6,16 @@ package sequences.editgraph;
 /**
  * @author Augusto F. Vellozo
  */
-public final class Vertex<E extends EditGraph<E, ? extends Extender<E>>>
-		implements Comparable<Vertex<E>>
+public final class Vertex implements Comparable<Vertex>
 {
-	final int	i, j;
-	final E		eg;
+	final int		i, j;
+	final EditGraph	eg;
 
-	public Vertex(int i, int j, E eg) throws EGInvalidVertexException
+	public Vertex(int i, int j, EditGraph eg) throws ExceptionInvalidVertex
 	{
 		if (!eg.existsVertex(i, j))
 		{
-			throw new EGInvalidVertexException(i, j,
-				"Can not create this vertex");
+			throw new ExceptionInvalidVertex(i, j, "Can not create this vertex");
 		}
 		this.i = i;
 		this.j = j;
@@ -34,12 +32,13 @@ public final class Vertex<E extends EditGraph<E, ? extends Extender<E>>>
 		return j;
 	}
 
-	public boolean dominates(Vertex<E> v) throws EGInvalidVertexException
-	{
-		return getEditGraph().dominates(this, v);
-	}
-
-	public boolean equals(Vertex<E> v)
+	//	//return true if this vertex object dominates v
+	//	public boolean dominates(Vertex v) throws EGInvalidVertexException
+	//	{
+	//		return getEditGraph().dominates(this, v);
+	//	}
+	//
+	public boolean equals(Vertex v)
 	{
 		if (v == null)
 		{
@@ -53,74 +52,97 @@ public final class Vertex<E extends EditGraph<E, ? extends Extender<E>>>
 		return i + " " + j;
 	}
 
-	public E getEditGraph()
+	public EditGraph getEditGraph()
 	{
 		return eg;
 	}
 
 	// basic order: by i and after j
-	public int compareTo(Vertex<E> v)
+	public int compareTo(Vertex v)
 	{
 		if (v == null)
 		{
 			return 1;
 		}
-		return (i < v.getI() ? -1 : (i == v.getI() ? (j < v.getJ() ? -1
-			: (j == v.getJ() ? 0 : 1)) : 1));
+		return (i < v.getI() ? -1 : (i == v.getI() ? (j < v.getJ() ? -1 : (j == v.getJ() ? 0 : 1)) : 1));
 	}
 
-	public ArcDiagonal<E> getDiagonalArc() throws EGInvalidArcException
-	{
-		try
-		{
-			return getEditGraph().getDiagonalArc(this);
-		}
-		catch (EGInvalidVertexException e)
-		{
-			e.printStackTrace();
-			throw new EGInternalException();
-		}
-	}
-
-	public ArcHorizontal<E> getHorizontalArc() throws EGInvalidArcException
-	{
-		try
-		{
-			return getEditGraph().getHorizontalArc(this);
-		}
-		catch (EGInvalidVertexException e)
-		{
-			e.printStackTrace();
-			throw new EGInternalException();
-		}
-	}
-
-	public ArcVertical<E> getVerticalArc() throws EGInvalidArcException
-	{
-		try
-		{
-			return getEditGraph().getVerticalArc(this);
-		}
-		catch (EGInvalidVertexException e)
-		{
-			e.printStackTrace();
-			throw new EGInternalException();
-		}
-	}
-
-	public boolean existsVerticalArc()
-	{
-		return getEditGraph().existsVerticalArc(i, j);
-	}
-
-	public boolean existsHorizontalArc()
-	{
-		return getEditGraph().existsHorizontalArc(i, j);
-	}
-
-	public boolean existsDiagonalArc()
-	{
-		return getEditGraph().existsDiagonalArc(i, j);
-	}
-
+	//	public ArcDiagonal getDiagonalArc() throws EGInvalidArcException
+	//	{
+	//		try
+	//		{
+	//			return getEditGraph().getDiagonalArc(this);
+	//		}
+	//		catch (EGInvalidVertexException e)
+	//		{
+	//			e.printStackTrace();
+	//			throw new EGInternalException();
+	//		}
+	//	}
+	//
+	//	public ArcHorizontal getHorizontalArc() throws EGInvalidArcException
+	//	{
+	//		try
+	//		{
+	//			return getEditGraph().getHorizontalArc(this);
+	//		}
+	//		catch (EGInvalidVertexException e)
+	//		{
+	//			e.printStackTrace();
+	//			throw new EGInternalException();
+	//		}
+	//	}
+	//
+	//	public ArcVertical getVerticalArc() throws EGInvalidArcException
+	//	{
+	//		try
+	//		{
+	//			return getEditGraph().getVerticalArc(this);
+	//		}
+	//		catch (EGInvalidVertexException e)
+	//		{
+	//			e.printStackTrace();
+	//			throw new EGInternalException();
+	//		}
+	//	}
+	//
+	//	public boolean existsVerticalArc()
+	//	{
+	//		try
+	//		{
+	//			return getEditGraph().existsVerticalArc(i, j);
+	//		}
+	//		catch (EGInvalidVertexException e)
+	//		{
+	//			e.printStackTrace();
+	//			throw new EGInternalException();
+	//		}
+	//	}
+	//
+	//	public boolean existsHorizontalArc()
+	//	{
+	//		try
+	//		{
+	//			return getEditGraph().existsHorizontalArc(i, j);
+	//		}
+	//		catch (EGInvalidVertexException e)
+	//		{
+	//			e.printStackTrace();
+	//			throw new EGInternalException();
+	//		}
+	//	}
+	//
+	//	public boolean existsDiagonalArc()
+	//	{
+	//		try
+	//		{
+	//			return getEditGraph().existsDiagonalArc(i, j);
+	//		}
+	//		catch (EGInvalidVertexException e)
+	//		{
+	//			e.printStackTrace();
+	//			throw new EGInternalException();
+	//		}
+	//	}
+	//
 }

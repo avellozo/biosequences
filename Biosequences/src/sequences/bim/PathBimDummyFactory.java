@@ -1,19 +1,19 @@
 package sequences.bim;
 
-import sequences.editgraph.EGInvalidRangeException;
-import sequences.editgraph.EGInvalidEditGraphException;
+import sequences.editgraph.EGInvalidVertexesOfExtensionException;
+import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathFactory;
-import sequences.editgraph.VertexRange;
+import sequences.editgraph.EditGraphSegment;
 
 public class PathBimDummyFactory<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, ? extends EditGraph>>>
-		implements OptimumPathFactory<E, PathBimDummy<E>>
+		implements OptimumPathFactory<E, PathBimDummy>
 {
 
-	public PathBimDummy<E> createPath(VertexRange<E> range, boolean local)
-			throws EGInvalidRangeException, EGInvalidEditGraphException
+	public PathBimDummy createPath(EditGraphSegment range, boolean local)
+			throws EGInvalidVertexesOfExtensionException, ExceptionInvalidEditGraph
 	{
-		return new PathBimDummy<E>(range, local);
+		return new PathBimDummy(range, local);
 	}
 
 	public String getName()
