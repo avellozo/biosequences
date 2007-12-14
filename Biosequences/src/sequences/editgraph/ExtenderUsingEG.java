@@ -140,8 +140,8 @@ public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E,
 		{
 			throw new ExceptionInvalidVertex("Invalid vertex: null");
 		}
-		Vertex v = eg.getVertex(transformRowEGExtender(vEGExtender.getI()), transformColEGExtender(vEGExtender
-			.getJ()));
+		Vertex v = eg.getVertex(transformRowEGExtender(vEGExtender.getRow()), transformColEGExtender(vEGExtender
+			.getCol()));
 		return v;
 	}
 
@@ -151,7 +151,7 @@ public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E,
 		{
 			throw new ExceptionInvalidVertex("Invalid vertex: null");
 		}
-		return getEGExtender().getVertex(transformRow(v.getI()), transformCol(v.getJ()));
+		return getEGExtender().getVertex(transformRow(v.getRow()), transformCol(v.getCol()));
 	}
 
 	// beginVertex, endVertex: vertices in extended edit graph
@@ -163,10 +163,10 @@ public class ExtenderUsingEG<E extends EditGraph<E, ? extends ExtenderUsingEG<E,
 		}
 		try
 		{
-			Vertex<EGExtender> bvEGExtender = getEGExtender().getVertex(transformRow(range.getBeginVertex().getI()),
-				transformCol(range.getBeginVertex().getJ()));
-			Vertex<EGExtender> evEGExtender = getEGExtender().getVertex(transformRow(range.getEndVertex().getI()),
-				transformCol(range.getEndVertex().getJ()));
+			Vertex<EGExtender> bvEGExtender = getEGExtender().getVertex(transformRow(range.getBeginVertex().getRow()),
+				transformCol(range.getBeginVertex().getCol()));
+			Vertex<EGExtender> evEGExtender = getEGExtender().getVertex(transformRow(range.getEndVertex().getRow()),
+				transformCol(range.getEndVertex().getCol()));
 			return new EditGraphSegment<EGExtender>(bvEGExtender, evEGExtender);
 		}
 		catch (ExceptionInvalidVertex e)

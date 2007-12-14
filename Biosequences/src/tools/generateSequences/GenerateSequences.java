@@ -316,13 +316,13 @@ public class GenerateSequences
 			Vertex v = eg.getVertex(0, 0); // end vertex of the last arc
 			for (int i = 0; i < na; i++)
 			{
-				if ((inversionIndex < inversions.length) && ((v.getI()) == inversions[inversionIndex])
+				if ((inversionIndex < inversions.length) && ((v.getRow()) == inversions[inversionIndex])
 					&& (flags[i] != 'G'))
 				{
 					ArcExtendedOverEGExtender arcExtended;
 					// find the last vertex
-					vj = v.getJ();
-					vi = v.getI();
+					vj = v.getCol();
+					vi = v.getRow();
 					for (iExtended = i; (vi < (inversions[inversionIndex + 1] + 1)) && (iExtended < na); iExtended++)
 					{
 						if (flags[iExtended] == 'g') // gap on the second
@@ -347,21 +347,21 @@ public class GenerateSequences
 					// ArcExtendedOverEGExtender(v,
 					// v1);
 					pathInverted = arcExtended.getPathEGExtender();
-					vj = v.getJ();
-					vi = v.getI();
+					vj = v.getCol();
+					vi = v.getRow();
 					for (; (vi < (inversions[inversionIndex + 1] + 1)) && (i < na); i++)
 					{
 						if (flags[i] == 'g') // gap on the second sequence
 						{
 							vi++;
 							pathInverted.add(egInverted.getVerticalArc(arcExtended.transformVertex(eg.getVertex(
-								v1.getI() - vi + v.getI() + 1, vj))));
+								v1.getRow() - vi + v.getRow() + 1, vj))));
 						}
 						else if (flags[i] == 'G')// gap on the first sequence
 						{
 							vj++;
 							pathInverted.add(egInverted.getHorizontalArc(arcExtended.transformVertex(eg.getVertex(
-								v1.getI() - vi + v.getI() + 1, vj))));
+								v1.getRow() - vi + v.getRow() + 1, vj))));
 						}
 						else
 						// match or mismatch
@@ -369,7 +369,7 @@ public class GenerateSequences
 							vj++;
 							vi++;
 							pathInverted.add(egInverted.getDiagonalArc(arcExtended.transformVertex(eg.getVertex(
-								v1.getI() - vi + v.getI() + 1, vj))));
+								v1.getRow() - vi + v.getRow() + 1, vj))));
 						}
 					}
 					i--;
@@ -379,16 +379,16 @@ public class GenerateSequences
 				}
 				else if (flags[i] == 'g') // gap on the second sequence
 				{
-					path.add(eg.getVerticalArc(v = eg.getVertex(v.getI() + 1, v.getJ())));
+					path.add(eg.getVerticalArc(v = eg.getVertex(v.getRow() + 1, v.getCol())));
 				}
 				else if (flags[i] == 'G') // gap on the first sequence
 				{
-					path.add(eg.getHorizontalArc(v = eg.getVertex(v.getI(), v.getJ() + 1)));
+					path.add(eg.getHorizontalArc(v = eg.getVertex(v.getRow(), v.getCol() + 1)));
 				}
 				else
 				// match or mismatch
 				{
-					path.add(eg.getDiagonalArc(v = eg.getVertex(v.getI() + 1, v.getJ() + 1)));
+					path.add(eg.getDiagonalArc(v = eg.getVertex(v.getRow() + 1, v.getCol() + 1)));
 				}
 			}
 			PrintStream ps = new PrintStream(fBim);

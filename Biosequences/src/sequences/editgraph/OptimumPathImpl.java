@@ -41,10 +41,10 @@ public class OptimumPathImpl<E extends EditGraph<E, ? extends Extender>> impleme
 		this.range = range;
 		this.local = local;
 		eg = getEditGraph();
-		iMin = getVertexRange().getBeginVertex().getI();
-		jMin = getVertexRange().getBeginVertex().getJ();
-		iMax = getVertexRange().getEndVertex().getI();
-		jMax = getVertexRange().getEndVertex().getJ();
+		iMin = getVertexRange().getBeginVertex().getRow();
+		jMin = getVertexRange().getBeginVertex().getCol();
+		iMax = getVertexRange().getEndVertex().getRow();
+		jMax = getVertexRange().getEndVertex().getCol();
 		rows = getVertexRange().getRows();
 		cols = getVertexRange().getCols();
 		finishTime();

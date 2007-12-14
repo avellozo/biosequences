@@ -75,8 +75,8 @@ public class BimSN4 extends BimN4
 				&& ((arc1 == null) || (arc2.getEndVertex().compareTo(
 					arc1.getEndVertex()) <= 0)))
 			{
-				m.addLast(new Match(arc2.getEndVertex().getI(), arc2
-					.getEndVertex().getJ(), true, arc2.getWeight()));
+				m.addLast(new Match(arc2.getEndVertex().getRow(), arc2
+					.getEndVertex().getCol(), true, arc2.getWeight()));
 				if (invertedArcsIterator.hasNext())
 				{
 					arc2 = (Arc) invertedArcsIterator.next();
@@ -88,8 +88,8 @@ public class BimSN4 extends BimN4
 			}
 			else
 			{
-				m.addLast(new Match(arc1.getEndVertex().getI(), arc1
-					.getEndVertex().getJ(), false, arc1.getWeight()));
+				m.addLast(new Match(arc1.getEndVertex().getRow(), arc1
+					.getEndVertex().getCol(), false, arc1.getWeight()));
 				if (arcsIterator.hasNext())
 				{
 					arc1 = (Arc) arcsIterator.next();
@@ -184,13 +184,13 @@ public class BimSN4 extends BimN4
 		endVertex = r.getRankVertex(new Vertex(sLength, tLength));
 		while ((endVertex != null) && (!endVertex.equals(new Vertex(0, 0))))
 		{
-			i = endVertex.getI();
-			j = endVertex.getJ();
+			i = endVertex.getRow();
+			j = endVertex.getCol();
 			if (endVertex instanceof InvertedVertex)
 			{
 				beginVertex = ((InvertedVertex) endVertex).getBeginVertex();
-				i1 = beginVertex.getI();
-				j1 = beginVertex.getJ();
+				i1 = beginVertex.getRow();
+				j1 = beginVertex.getCol();
 				addInvertedPath(i + 1, j1, i1 + 1, j);
 			}
 			else
@@ -223,14 +223,14 @@ public class BimSN4 extends BimN4
 		Vertex vBegin, vEnd;
 		int reflectionI, reflectionJ, rank, rank1;
 		while ((currentInvArc != null)
-			&& ((vEnd = currentInvArc.getEndVertex()).getI() >= iEnd))
+			&& ((vEnd = currentInvArc.getEndVertex()).getRow() >= iEnd))
 		{
 			vBegin = currentInvArc.getBeginVertex();
-			if ((vBegin.getI() <= iBegin) && (vBegin.getJ() >= jBegin)
-				&& (vEnd.getJ() <= jEnd))
+			if ((vBegin.getRow() <= iBegin) && (vBegin.getCol() >= jBegin)
+				&& (vEnd.getCol() <= jEnd))
 			{
-				reflectionI = iBegin - vEnd.getI();
-				reflectionJ = vEnd.getJ();
+				reflectionI = iBegin - vEnd.getRow();
+				reflectionJ = vEnd.getCol();
 				rank = r.getRankNumber(reflectionI - 1, reflectionJ - 1)
 					+ currentInvArc.getWeight();
 				rank1 = r.getRankNumber(reflectionI, reflectionJ);
@@ -253,13 +253,13 @@ public class BimSN4 extends BimN4
 		v = r.getRankVertex(new Vertex(iBegin - iEnd, jEnd));
 		while ((v != null) && (!v.equals(new Vertex(0, 0))))
 		{
-			i = iBegin - v.getI();
-			j = v.getJ();
+			i = iBegin - v.getRow();
+			j = v.getCol();
 			beginVertex = new Vertex(i + 1, j - 1);
 			endVertex = new Vertex(i, j);
 			getPath().addFirst(
 				new Arc(beginVertex, endVertex, arcDiagonalInverted, 0));
-			v = r.getRankVertex(new Vertex(v.getI() - 1, v.getJ() - 1));
+			v = r.getRankVertex(new Vertex(v.getRow() - 1, v.getCol() - 1));
 		}
 	}
 
@@ -430,7 +430,7 @@ public class BimSN4 extends BimN4
 
 		InvertedVertex(Vertex beginVertex, Vertex endVertex)
 		{
-			super(endVertex.getI(), endVertex.getJ());
+			super(endVertex.getRow(), endVertex.getCol());
 			this.beginVertex = beginVertex;
 		}
 
@@ -480,9 +480,9 @@ public class BimSN4 extends BimN4
 				}
 				else
 				{
-					if (v.getI() > vertex.getI())
+					if (v.getRow() > vertex.getRow())
 					{
-						if (v.getJ() >= vertex.getJ())
+						if (v.getCol() >= vertex.getCol())
 						{
 							//não pode haver dominado e dominante numa mesma
 							// coleção de vértices
@@ -504,10 +504,10 @@ public class BimSN4 extends BimN4
 			//os dominados devem estar na mesma linha (i) de vertex
 			Vertex v;
 			TreeMap.Entry entryV = lastEntry();
-			int vertexI = vertex.getI();
+			int vertexI = vertex.getRow();
 			Entry entryAux;
 			while ((entryV != null)
-				&& ((v = (Vertex) entryV.getKey()).getI() >= vertexI))
+				&& ((v = (Vertex) entryV.getKey()).getRow() >= vertexI))
 			{
 				if (vertex.dominates(v))
 				{

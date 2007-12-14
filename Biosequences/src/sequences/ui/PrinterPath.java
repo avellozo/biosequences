@@ -75,20 +75,20 @@ public class PrinterPath
 					}
 					if (arcPathEGExtender instanceof ArcDiagonal)
 					{
-						c1 = getLetterIExtended(eg, v.getI());
+						c1 = getLetterIExtended(eg, v.getRow());
 						c2 = (((ArcDiagonal) arcPathEGExtender).isMatch() ? MATCH_LINE2_EXTENDED
 							: MISMATCH_LINE2_EXTENDED);
-						c3 = getLetterJExtended(eg, v.getJ());
+						c3 = getLetterJExtended(eg, v.getCol());
 					}
 					else if (arcPathEGExtender instanceof ArcHorizontal)
 					{
 						c1 = GAP_LINE1_EXTENDED;
 						c2 = GAP_LINE2_EXTENDED;
-						c3 = getLetterJExtended(eg, v.getJ());
+						c3 = getLetterJExtended(eg, v.getCol());
 					}
 					else if (arcPathEGExtender instanceof ArcVertical)
 					{
-						c1 = getLetterIExtended(eg, v.getI());
+						c1 = getLetterIExtended(eg, v.getRow());
 						c2 = GAP_LINE2_EXTENDED;
 						c3 = GAP_LINE3_EXTENDED;
 					}
@@ -96,8 +96,8 @@ public class PrinterPath
 					{
 						throw new ExceptionInternalEG();
 					}
-					posC1 = v.getI();
-					posC3 = v.getJ();
+					posC1 = v.getRow();
+					posC3 = v.getCol();
 					p.print(c1, c2, c3, posC1, posC3);
 				}
 			}
@@ -105,19 +105,19 @@ public class PrinterPath
 			{
 				if (arc instanceof ArcDiagonal)
 				{
-					c1 = getLetterI(eg, arc.getEndVertex().getI());
+					c1 = getLetterI(eg, arc.getEndVertex().getRow());
 					c2 = (((ArcDiagonal) arc).isMatch() ? MATCH_LINE2 : MISMATCH_LINE2);
-					c3 = getLetterJ(eg, arc.getEndVertex().getJ());
+					c3 = getLetterJ(eg, arc.getEndVertex().getCol());
 				}
 				else if (arc instanceof ArcHorizontal)
 				{
 					c1 = GAP_LINE1;
 					c2 = GAP_LINE2;
-					c3 = getLetterJ(eg, arc.getEndVertex().getJ());
+					c3 = getLetterJ(eg, arc.getEndVertex().getCol());
 				}
 				else if (arc instanceof ArcVertical)
 				{
-					c1 = getLetterI(eg, arc.getEndVertex().getI());
+					c1 = getLetterI(eg, arc.getEndVertex().getRow());
 					c2 = GAP_LINE2;
 					c3 = GAP_LINE3;
 				}
@@ -125,8 +125,8 @@ public class PrinterPath
 				{
 					throw new ExceptionInternalEG();
 				}
-				posC1 = arc.getEndVertex().getI();
-				posC3 = arc.getEndVertex().getJ();
+				posC1 = arc.getEndVertex().getRow();
+				posC3 = arc.getEndVertex().getCol();
 				p.print(c1, c2, c3, posC1, posC3);
 			}
 		}
@@ -144,7 +144,7 @@ public class PrinterPath
 			if ((arc instanceof ArcDiagonal) && (((ArcDiagonal) arc).isMatch()))
 			{
 				out.println(MessageFormat.format(Messages.getString("Bim.msgMatch0") //$NON-NLS-1$
-					, arc.getEndVertex().getI(), arc.getEndVertex().getJ()));
+					, arc.getEndVertex().getRow(), arc.getEndVertex().getCol()));
 			}
 			else if (arc instanceof ArcExtendedOverEGExtender)
 			{
@@ -159,7 +159,7 @@ public class PrinterPath
 							v = ((ArcExtendedOverEGExtender) arc).transformVertexEGExtender(arcPathEGExtender
 								.getEndVertex());
 							out.println(MessageFormat.format(Messages.getString("Bim.msgMatch1") //$NON-NLS-1$
-								, v.getI(), v.getJ()));
+								, v.getRow(), v.getCol()));
 						}
 						catch (ExceptionInvalidVertex e)
 						{
@@ -179,25 +179,25 @@ public class PrinterPath
 			if (path.isLocal())
 			{
 				out.println(MessageFormat.format(Messages.getString("Bim.msgLocalAlignment"), path.getFirst()
-					.getBeginVertex().getI() + 1, path.getFirst().getBeginVertex().getJ() + 1, path.getLast()
-					.getEndVertex().getI(), path.getLast().getEndVertex().getJ())); //$NON-NLS-1$
+					.getBeginVertex().getRow() + 1, path.getFirst().getBeginVertex().getCol() + 1, path.getLast()
+					.getEndVertex().getRow(), path.getLast().getEndVertex().getCol())); //$NON-NLS-1$
 			}
 			else
 			{
 				out.println(MessageFormat.format(Messages.getString("Bim.msgGlobalAlignment"), path.getVertexRange()
-					.getBeginVertex().getI() + 1, path.getVertexRange().getBeginVertex().getJ() + 1, path
-					.getVertexRange().getEndVertex().getI(), path.getVertexRange().getEndVertex().getJ())); //$NON-NLS-1$
+					.getBeginVertex().getRow() + 1, path.getVertexRange().getBeginVertex().getCol() + 1, path
+					.getVertexRange().getEndVertex().getRow(), path.getVertexRange().getEndVertex().getCol())); //$NON-NLS-1$
 			}
 
-			int lengthSeq1 = path.getVertexRange().getEndVertex().getI()
-				- path.getVertexRange().getBeginVertex().getI();
-			int lengthSeq2 = path.getVertexRange().getEndVertex().getJ()
-				- path.getVertexRange().getBeginVertex().getJ();
+			int lengthSeq1 = path.getVertexRange().getEndVertex().getRow()
+				- path.getVertexRange().getBeginVertex().getRow();
+			int lengthSeq2 = path.getVertexRange().getEndVertex().getCol()
+				- path.getVertexRange().getBeginVertex().getCol();
 			out.println(MessageFormat.format(Messages.getString("Bim.msgLengthSeq1"), lengthSeq1)); //$NON-NLS-1$
 			out.println(MessageFormat.format(Messages.getString("Bim.msgLengthSeq2"), lengthSeq2)); //$NON-NLS-1$
 
-			double pathILength = path.getLast().getEndVertex().getI() - path.getFirst().getBeginVertex().getI();
-			double pathJLength = path.getLast().getEndVertex().getJ() - path.getFirst().getBeginVertex().getJ();
+			double pathILength = path.getLast().getEndVertex().getRow() - path.getFirst().getBeginVertex().getRow();
+			double pathJLength = path.getLast().getEndVertex().getCol() - path.getFirst().getBeginVertex().getCol();
 			double lengthAverage = (pathILength + pathJLength) / 2;
 			int qttyGaps = path.getQttyHorizontalArcs() + path.getQttyVerticalArcs();
 			int qttyMatches = path.getQttyMatches();
@@ -233,8 +233,8 @@ public class PrinterPath
 			for (ArcExtended arc : arcsExtended)
 			{
 				count++;
-				lengthIExtended = arc.getEndVertex().getI() - arc.getBeginVertex().getI();
-				lengthJExtended = arc.getEndVertex().getJ() - arc.getBeginVertex().getJ();
+				lengthIExtended = arc.getEndVertex().getRow() - arc.getBeginVertex().getRow();
+				lengthJExtended = arc.getEndVertex().getCol() - arc.getBeginVertex().getCol();
 				lengthExtendedAverage = (lengthIExtended + lengthJExtended) / 2;
 				weightExtended = arc.getWeight();
 				pathDirectExtendedRange = arc.getEditGraph().getOptimumPath(arc.getRange(), false, pathSimpleFactory);
@@ -251,8 +251,8 @@ public class PrinterPath
 					qttyGapsExtended = pathEgExtender.getQttyHorizontalArcs() + pathEgExtender.getQttyVerticalArcs();
 					out.println(MessageFormat.format(
 						Messages.getString("Bim.msgInversion") //$NON-NLS-1$
-						, arc.getBeginVertex().getI() + 1, arc.getBeginVertex().getJ() + 1, arc.getEndVertex().getI(),
-						arc.getEndVertex().getJ(), lengthIExtended, (lengthIExtended * 100) / pathILength,
+						, arc.getBeginVertex().getRow() + 1, arc.getBeginVertex().getCol() + 1, arc.getEndVertex().getRow(),
+						arc.getEndVertex().getCol(), lengthIExtended, (lengthIExtended * 100) / pathILength,
 						lengthJExtended, (lengthJExtended * 100) / pathJLength, qttyMatchesExtended,
 						(qttyMatchesExtended * 100) / lengthExtendedAverage, qttyMismatchesExtended,
 						(qttyMismatchesExtended * 100) / lengthExtendedAverage, qttyGapsExtended,
@@ -265,8 +265,8 @@ public class PrinterPath
 				{
 					out.println(MessageFormat.format(
 						Messages.getString("Bim.msgInversion1") //$NON-NLS-1$
-						, arc.getBeginVertex().getI() + 1, arc.getBeginVertex().getJ() + 1, arc.getEndVertex().getI(),
-						arc.getEndVertex().getJ(), lengthIExtended, (lengthIExtended * 100) / pathILength,
+						, arc.getBeginVertex().getRow() + 1, arc.getBeginVertex().getCol() + 1, arc.getEndVertex().getRow(),
+						arc.getEndVertex().getCol(), lengthIExtended, (lengthIExtended * 100) / pathILength,
 						lengthJExtended, (lengthJExtended * 100) / pathJLength, weightExtended, count, scoreDirect,
 						matchesDirect, (matchesDirect * 100) / lengthExtendedAverage, mismatchesDirect,
 						(mismatchesDirect * 100) / lengthExtendedAverage, gapsDirect, (gapsDirect * 100)

@@ -58,11 +58,11 @@ public class ExtenderUsingEGInvertedRows<E extends EditGraph<E, ? extends Extend
 		try
 		{
 			Vertex<EGInvertedRows> bvEGExtender = getEGExtender().getVertex(
-				transformRow(range.getEndVertex().getI() + 1),
-				transformCol(range.getBeginVertex().getJ()));
+				transformRow(range.getEndVertex().getRow() + 1),
+				transformCol(range.getBeginVertex().getCol()));
 			Vertex<EGInvertedRows> evEGExtender = getEGExtender().getVertex(
-				transformRow(range.getBeginVertex().getI() + 1),
-				transformCol(range.getEndVertex().getJ()));
+				transformRow(range.getBeginVertex().getRow() + 1),
+				transformCol(range.getEndVertex().getCol()));
 			return new EditGraphSegment<EGInvertedRows>(bvEGExtender, evEGExtender);
 		}
 		catch (ExceptionInvalidVertex e)

@@ -213,9 +213,9 @@ public class PathBimDP<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedR
 			}
 			char c;
 			Arc arc;
-			while (!((v.equals(getVertexRange().getBeginVertex())) || (isLocal() && (bim.getValue(v.getI(), v.getJ()) == 0))))
+			while (!((v.equals(getVertexRange().getBeginVertex())) || (isLocal() && (bim.getValue(v.getRow(), v.getCol()) == 0))))
 			{
-				c = arcsType[v.getI()][v.getJ()];
+				c = arcsType[v.getRow()][v.getCol()];
 				switch (c)
 				{
 				case EditGraph.VERTICAL:
@@ -230,8 +230,8 @@ public class PathBimDP<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedR
 				case EditGraph.EXTENDED:
 					try
 					{
-						arc = eg.getExtendedArc(new EditGraphSegment(eg.getVertex(inversionsI[v.getI()][v.getJ()],
-							inversionsJ[v.getI()][v.getJ()]), v));
+						arc = eg.getExtendedArc(new EditGraphSegment(eg.getVertex(inversionsI[v.getRow()][v.getCol()],
+							inversionsJ[v.getRow()][v.getCol()]), v));
 					}
 					catch (ExceptionInvalidVertex e)
 					{

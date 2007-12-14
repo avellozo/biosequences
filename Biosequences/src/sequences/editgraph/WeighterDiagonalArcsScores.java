@@ -52,13 +52,12 @@ public class WeighterDiagonalArcsScores extends WeighterArcsSimple
 	}
 
 	@Override
-	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs(EditGraphSegment segment)
+	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs(EditGraph eg)
 	{
-		EditGraph eg = segment.getEditGraph();
-		int iMin = segment.getRowMin();
-		int iMax = segment.getRowMax();
-		int jMin = segment.getColMin();
-		int jMax = segment.getColMax();
+		int iMin = eg.getRowMin();
+		int iMax = eg.getRowMax();
+		int jMin = eg.getColMin();
+		int jMax = eg.getColMax();
 		int i, j, w;
 		LinkedList<ArcDiagonal> nonZeroArcs = new LinkedList<ArcDiagonal>();
 		for (Score score : scores)

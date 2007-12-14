@@ -212,9 +212,9 @@ public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup>> extends
 			}
 			char c;
 			Arc arc;
-			while (!((v.equals(getVertexRange().getBeginVertex())) || (isLocal() && (dup.getValue(v.getI(), v.getJ()) == 0))))
+			while (!((v.equals(getVertexRange().getBeginVertex())) || (isLocal() && (dup.getValue(v.getRow(), v.getCol()) == 0))))
 			{
-				c = arcsType[v.getI()][v.getJ()];
+				c = arcsType[v.getRow()][v.getCol()];
 				switch (c)
 				{
 				case EditGraph.VERTICAL:
@@ -229,8 +229,8 @@ public class PathDupDP<E extends EditGraph<E, ? extends ExtenderDup>> extends
 				case EditGraph.EXTENDED:
 					try
 					{
-						arc = eg.getExtendedArc(new EditGraphSegment(eg.getVertex(inversionsI[v.getI()][v.getJ()],
-							inversionsJ[v.getI()][v.getJ()]), v));
+						arc = eg.getExtendedArc(new EditGraphSegment(eg.getVertex(inversionsI[v.getRow()][v.getCol()],
+							inversionsJ[v.getRow()][v.getCol()]), v));
 					}
 					catch (ExceptionGeneralEG e)
 					{

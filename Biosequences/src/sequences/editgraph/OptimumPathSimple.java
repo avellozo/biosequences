@@ -102,9 +102,9 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender>>
 			char c;
 			Arc arc;
 			while (!((v.equals(getVertexRange().getBeginVertex())) || (isLocal() && (matrixDP
-				.getValue(v.getI(), v.getJ()) == 0))))
+				.getValue(v.getRow(), v.getCol()) == 0))))
 			{
-				c = arcsType[v.getI()][v.getJ()];
+				c = arcsType[v.getRow()][v.getCol()];
 				switch (c)
 				{
 				case EditGraph.VERTICAL:

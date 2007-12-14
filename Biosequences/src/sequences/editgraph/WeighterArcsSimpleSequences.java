@@ -20,16 +20,6 @@ public class WeighterArcsSimpleSequences extends WeighterArcsSimple
 		this.seq2 = seq2;
 	}
 
-	//	public int getRowMax()
-	//	{
-	//		return seq1.getLength();
-	//	}
-	//
-	//	public int getColMax()
-	//	{
-	//		return seq2.getLength();
-	//	}
-	//
 	public Sequence getSeq1()
 	{
 		return seq1;

@@ -28,16 +28,6 @@ public abstract class ArcAbstractImpl implements Arc
 		return this.weight;
 	}
 
-	// private void setWeight(int weight)
-	// {
-	// this.weight = weight;
-	// }
-	//
-	public EditGraph getEditGraph()
-	{
-		return getEndVertex().getEditGraph();
-	}
-
 	public String toString()
 	{
 		return "Arc: endVertex:" + getEndVertex() + " weight " + weight;

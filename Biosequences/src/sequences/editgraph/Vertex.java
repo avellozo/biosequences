@@ -8,55 +8,49 @@ package sequences.editgraph;
  */
 public final class Vertex implements Comparable<Vertex>
 {
-	final int		i, j;
-	final EditGraph	eg;
+	final int	row, col;
 
-	public Vertex(int i, int j, EditGraph eg) throws ExceptionInvalidVertex
+	public Vertex(int i, int j)
 	{
-		if (!eg.existsVertex(i, j))
+		this.row = i;
+		this.col = j;
+	}
+
+	public int getRow()
+	{
+		return row;
+	}
+
+	public int getCol()
+	{
+		return col;
+	}
+
+	//return true if this vertex object dominates v
+	public boolean dominates(Vertex v) throws ExceptionInvalidVertex
+	{
+		if (v == null)
 		{
-			throw new ExceptionInvalidVertex(i, j, "Can not create this vertex");
+			throw new ExceptionInvalidVertex(v);
 		}
-		this.i = i;
-		this.j = j;
-		this.eg = eg;
+		return ((getRow() <= v.getRow()) && (getCol() <= v.getCol()));
 	}
 
-	public int getI()
-	{
-		return i;
-	}
-
-	public int getJ()
-	{
-		return j;
-	}
-
-	//	//return true if this vertex object dominates v
-	//	public boolean dominates(Vertex v) throws EGInvalidVertexException
-	//	{
-	//		return getEditGraph().dominates(this, v);
-	//	}
-	//
 	public boolean equals(Vertex v)
 	{
 		if (v == null)
 		{
 			return false;
 		}
-		return ((i == v.getI()) && (j == v.getJ()));
+		return ((row == v.getRow()) && (col == v.getCol()));
 	}
 
 	public String toString()
 	{
-		return i + " " + j;
+		return row + "," + col;
 	}
 
-	public EditGraph getEditGraph()
-	{
-		return eg;
-	}
-
+	//
 	// basic order: by i and after j
 	public int compareTo(Vertex v)
 	{
@@ -64,7 +58,12 @@ public final class Vertex implements Comparable<Vertex>
 		{
 			return 1;
 		}
-		return (i < v.getI() ? -1 : (i == v.getI() ? (j < v.getJ() ? -1 : (j == v.getJ() ? 0 : 1)) : 1));
+		return (row < v.getRow() ? -1 : (row == v.getRow() ? (col < v.getCol() ? -1 : (col == v.getCol() ? 0 : 1)) : 1));
+	}
+
+	protected boolean verifyDominates(int row1, int col1, int row2, int col2)
+	{
+		return ((row1 <= row2) && (col1 <= col2));
 	}
 
 	//	public ArcDiagonal getDiagonalArc() throws EGInvalidArcException

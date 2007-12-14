@@ -19,31 +19,29 @@ public class EditGraphExtendedBasic extends EditGraphBasic implements EditGraphE
 		this.weighterExtended = weighterExtended;
 	}
 
-	public boolean existsExtendedArc(int rowBeginVertex, int colBeginVertex, int rowEndVertex, int colEndVertex)
-			throws ExceptionInvalidVertex
+	public boolean existsExtendedArc(Vertex beginVertex, Vertex endVertex)
 	{
-		if (existsVertex(rowBeginVertex, colBeginVertex) && existsVertex(rowEndVertex, colEndVertex))
+		try
 		{
-			return dominates(rowBeginVertex, colBeginVertex, rowEndVertex, colEndVertex);
+			return (isValidVertexParam(beginVertex) && isValidVertexParam(endVertex) && beginVertex.dominates(endVertex));
 		}
-		else
+		catch (ExceptionInvalidVertex e)
 		{
-			throw new ExceptionInvalidVertex("Vertex " + rowBeginVertex + "," + colBeginVertex + "or vertex "
-				+ rowEndVertex + "," + colEndVertex + " doesn't exist in this edit graph.");
+			e.printStackTrace();
+			throw new ExceptionInternalEG();
 		}
 	}
 
 	public ArcExtended getExtendedArc(Vertex beginVertex, Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (isValidVertexParam(beginVertex) && isValidVertexParam(endVertex)
-			&& existsExtendedArc(beginVertex.getI(), beginVertex.getJ(), endVertex.getI(), endVertex.getJ()))
+		if (existsExtendedArc(beginVertex, endVertex))
 		{
-			return new ArcExtended(beginVertex, endVertex, weighterExtended.getWeightExtended(beginVertex.getI(),
-				beginVertex.getJ(), endVertex.getI(), endVertex.getJ()));
+			return new ArcExtended(beginVertex, endVertex, weighterExtended.getWeightExtended(beginVertex.getRow(),
+				beginVertex.getCol(), endVertex.getRow(), endVertex.getCol()));
 		}
 		else
 		{
-			throw new ExceptionInvalidVertex(endVertex, "It's impossible to create an extended arc with vertex:"
+			throw new ExceptionInvalidVertex(endVertex, "It's impossible to create an extended arc with begin vertex:"
 				+ beginVertex);
 		}
 	}

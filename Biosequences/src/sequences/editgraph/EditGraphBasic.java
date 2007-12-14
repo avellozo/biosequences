@@ -60,109 +60,108 @@ public class EditGraphBasic implements EditGraph
 		return ((row >= getRowMin()) && (row <= getRowMax()) && (col >= getColMin()) && (col <= getColMax()));
 	}
 
-	public boolean existsDiagonalArc(int row, int col)
+	public boolean existsVertex(Vertex v)
 	{
-		return existsVertex(row - 1, col - 1);
+		return (existsVertex(v.getRow(), v.getCol()));
 	}
 
-	public boolean existsHorizontalArc(int row, int col)
+	public boolean existsDiagonalArc(Vertex endVertex)
 	{
-		return existsVertex(row, col - 1);
+		return (isValidVertexParam(endVertex) && existsVertex(endVertex.getRow() - 1, endVertex.getCol() - 1));
 	}
 
-	public boolean existsVerticalArc(int row, int col)
+	public boolean existsHorizontalArc(Vertex endVertex)
 	{
-		return existsVertex(row - 1, col);
+		return (isValidVertexParam(endVertex) && existsVertex(endVertex.getRow(), endVertex.getCol() - 1));
 	}
 
-	public Vertex getVertex(int row, int col) throws ExceptionInvalidVertex
+	public boolean existsVerticalArc(Vertex endVertex)
 	{
-		return new Vertex(row, col, this);
+		return (isValidVertexParam(endVertex) && existsVertex(endVertex.getRow() - 1, endVertex.getCol()));
 	}
 
 	protected boolean isValidVertexParam(Vertex v)
 	{
-		return ((v != null) && (v.getEditGraph() == this));
+		return ((v != null) && existsVertex(v));
+	}
+
+	public Vertex getVertex(int row, int col) throws ExceptionInvalidVertex
+	{
+		if (!existsVertex(row, col))
+		{
+			throw new ExceptionInvalidVertex(row, col);
+		}
+		return new Vertex(row, col);
 	}
 
 	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (!isValidVertexParam(endVertex))
+		if (!existsDiagonalArc(endVertex))
 		{
 			throw new ExceptionInvalidVertex(endVertex);
 		}
-		return new ArcDiagonal(endVertex, getWeighter().getWeightDiagonal(endVertex.getI(), endVertex.getJ()));
+		return new ArcDiagonal(endVertex, getWeighter().getWeightDiagonal(endVertex.getRow(), endVertex.getCol()));
 	}
 
 	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (!isValidVertexParam(endVertex))
+		if (!existsHorizontalArc(endVertex))
 		{
 			throw new ExceptionInvalidVertex(endVertex);
 		}
-		return new ArcHorizontal(endVertex, getWeighter().getWeightHorizontal(endVertex.getI(), endVertex.getJ()));
+		return new ArcHorizontal(endVertex, getWeighter().getWeightHorizontal(endVertex.getRow(), endVertex.getCol()));
 	}
 
 	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (!isValidVertexParam(endVertex))
+		if (!existsVerticalArc(endVertex))
 		{
 			throw new ExceptionInvalidVertex(endVertex);
 		}
-		return new ArcVertical(endVertex, getWeighter().getWeightVertical(endVertex.getI(), endVertex.getJ()));
+		return new ArcVertical(endVertex, getWeighter().getWeightVertical(endVertex.getRow(), endVertex.getCol()));
 	}
 
-	// returns true if v1 dominates v2
-	public boolean dominates(Vertex v1, Vertex v2) throws ExceptionInvalidVertex
+	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs()
 	{
-		if ((!isValidVertexParam(v1)) || (!isValidVertexParam(v2)))
+		return weighter.getNonZeroDiagonalArcs(this);
+	}
+
+	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs()
+	{
+		return weighter.getNonZeroHorizontalArcs(this);
+	}
+
+	public List< ? extends ArcVertical> getNonZeroVerticalArcs()
+	{
+		return weighter.getNonZeroVerticalArcs(this);
+	}
+
+	public EditGraph getSegment(Vertex beginVertex, Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		if (isValidVertexParam(beginVertex) && isValidVertexParam(endVertex) && beginVertex.dominates(endVertex))
 		{
-			throw new ExceptionInvalidVertex(v1, "Can't do the dominate comparation to vertex " + v2);
+			try
+			{
+				EditGraphBasic eg = (EditGraphBasic) this.clone();
+				eg.colMax = endVertex.getCol();
+				eg.colMin = beginVertex.getCol();
+				eg.rowMax = endVertex.getRow();
+				eg.rowMin = beginVertex.getRow();
+				return eg;
+			}
+			catch (CloneNotSupportedException e)
+			{
+				e.printStackTrace();
+				throw new ExceptionInternalEG();
+			}
 		}
-		return verifyDominates(v1.getI(), v1.getJ(), v2.getI(), v2.getJ());
-	}
-
-	public boolean dominates(int row1, int col1, int row2, int col2) throws ExceptionInvalidVertex
-	{
-		if ((!existsVertex(row1, col1)) || (!existsVertex(row2, col2)))
+		else
 		{
-			throw new ExceptionInvalidVertex(row1, col1, "Can't do dominate comparation to vertex " + row2 + " " + col2);
-		}
-		return verifyDominates(row1, col1, row2, col2);
-	}
-
-	protected boolean verifyDominates(int row1, int col1, int row2, int col2)
-	{
-		return ((row1 <= row2) && (col1 <= col2));
-	}
-
-	public List< ? extends ArcDiagonal> getPositiveDiagonalArcs()
-	{
-		return weighter.getNonZeroDiagonalArcs(getFullSegment());
-	}
-
-	public List< ? extends ArcHorizontal> getPositiveHorizontalArcs()
-	{
-		return weighter.getNonZeroHorizontalArcs(getFullSegment());
-	}
-
-	public List< ? extends ArcVertical> getPositiveVerticalArcs()
-	{
-		return weighter.getNonZeroVerticalArcs(getFullSegment());
-	}
-
-	public EditGraphSegment getFullSegment()
-	{
-		try
-		{
-			return new EditGraphSegment(getVertex(getRowMin(), getColMin()), getVertex(getRowMax(), getColMax()));
-		}
-		catch (ExceptionInvalidVertex e)
-		{
-			e.printStackTrace();
-			throw new ExceptionInternalEG();
+			throw new ExceptionInvalidVertex(endVertex,
+				"It's impossible to create a edit graph's segment with begin vertex:" + beginVertex);
 		}
 	}
+
 	/*	public <P extends OptimumPath> P getOptimumPath(VertexRange range, boolean local,
 	OptimumPathFactory<E, P> pathFactory) throws EGInvalidRangeException, EGInvalidEditGraphException
 	{

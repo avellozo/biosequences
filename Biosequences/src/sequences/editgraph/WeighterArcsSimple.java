@@ -44,16 +44,15 @@ public abstract class WeighterArcsSimple implements WeighterArcs
 
 	protected abstract boolean isMatch(int row, int col);
 
-	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs(EditGraphSegment segment)
+	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs(EditGraph eg)
 	{
 		int i, j, w;
-		EditGraph eg = segment.getEditGraph();
 		LinkedList<ArcDiagonal> list = new LinkedList<ArcDiagonal>();
 		try
 		{
-			for (i = segment.getRowMin() + 1; i <= segment.getRowMax(); i++)
+			for (i = eg.getRowMin() + 1; i <= eg.getRowMax(); i++)
 			{
-				for (j = segment.getColMin() + 1; j <= segment.getColMax(); j++)
+				for (j = eg.getColMin() + 1; j <= eg.getColMax(); j++)
 				{
 					if ((w = getWeightDiagonal(i, j)) != 0)
 					{
@@ -70,18 +69,17 @@ public abstract class WeighterArcsSimple implements WeighterArcs
 		return list;
 	}
 
-	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs(EditGraphSegment segment)
+	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs(EditGraph eg)
 	{
 		int i, j;
-		EditGraph eg = segment.getEditGraph();
 		LinkedList<ArcHorizontal> list = new LinkedList<ArcHorizontal>();
 		if (gap != 0)
 		{
 			try
 			{
-				for (i = segment.getRowMin(); i <= segment.getRowMax(); i++)
+				for (i = eg.getRowMin(); i <= eg.getRowMax(); i++)
 				{
-					for (j = segment.getColMin() + 1; j <= segment.getColMax(); j++)
+					for (j = eg.getColMin() + 1; j <= eg.getColMax(); j++)
 					{
 						list.addLast(new ArcHorizontal(eg.getVertex(i, j), gap));
 					}
@@ -96,18 +94,17 @@ public abstract class WeighterArcsSimple implements WeighterArcs
 		return list;
 	}
 
-	public List< ? extends ArcVertical> getNonZeroVerticalArcs(EditGraphSegment segment)
+	public List< ? extends ArcVertical> getNonZeroVerticalArcs(EditGraph eg)
 	{
 		int i, j;
-		EditGraph eg = segment.getEditGraph();
 		LinkedList<ArcVertical> list = new LinkedList<ArcVertical>();
 		if (gap != 0)
 		{
 			try
 			{
-				for (i = segment.getRowMin() + 1; i <= segment.getRowMax(); i++)
+				for (i = eg.getRowMin() + 1; i <= eg.getRowMax(); i++)
 				{
-					for (j = segment.getColMin(); j <= segment.getColMax(); j++)
+					for (j = eg.getColMin(); j <= eg.getColMax(); j++)
 					{
 						list.addLast(new ArcVertical(eg.getVertex(i, j), gap));
 					}
