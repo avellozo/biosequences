@@ -24,7 +24,7 @@ import sequences.editgraph.ExceptionInvalidArc;
 import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EGSparseWithDiagonals;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.OptimumPathFactory;
+import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.OptimumPathSimpleFactory;
 
 /**
@@ -187,7 +187,7 @@ public class Dup
 			}
 		}
 
-		OptimumPathFactory pathDupFactory = null;
+		OptimumPathMethod pathDupFactory = null;
 
 		if (method.equals("n3")) //$NON-NLS-1$
 		{

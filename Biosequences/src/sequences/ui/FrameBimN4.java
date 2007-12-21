@@ -5,7 +5,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.WindowConstants;
 
 import sequences.bim.n4.BimN4;
-import sequences.matrix.MatrixIntDiagonal;
+import sequences.matrix.MatrixIntEditGraph;
 
 public class FrameBimN4 extends javax.swing.JFrame
 {
@@ -46,8 +46,8 @@ public class FrameBimN4 extends javax.swing.JFrame
 	{
 		tabbedPane = new JTabbedPane();
 		MatrixIntCellRenderer renderer = new MatrixIntCellRenderer(true, false);
-		panelGraph = new PanelMatrix(new MatrixIntDiagonal(bim.getEditGraph()), renderer);
-		panelGraphInverted = new PanelMatrix(new MatrixIntDiagonal(bim.getEditGraphInverted()), renderer);
+		panelGraph = new PanelMatrix(new MatrixIntEditGraph(bim.getEditGraph()), renderer);
+		panelGraphInverted = new PanelMatrix(new MatrixIntEditGraph(bim.getEditGraphInverted()), renderer);
 		panelInversionsI = new PanelMatrix(bim.getInversionsI(), renderer);
 		panelInversionsJ = new PanelMatrix(bim.getInversionsJ(), renderer);
 		renderer = new MatrixIntCellRenderer(true, true);

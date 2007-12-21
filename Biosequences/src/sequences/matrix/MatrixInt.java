@@ -9,21 +9,49 @@ package sequences.matrix;
  */
 public interface MatrixInt
 {
+	//Representa uma matriz M[iMin..iMax][jMin..jMax] de inteiros
+
 	public int getValue(int row, int col);
 
 	public void setValue(int row, int col, int value);
+
+	//retorna iEnd
+	public int getIndexEndRow();
+
+	//retorna iBegin
+	public int getIndexBeginRow();
+
+	//retorna jEnd
+	public int getIndexEndCol();
+
+	//retorna jBegin
+	public int getIndexBeginCol();
 
 	public int getRowsQtty();
 
 	public int getColsQtty();
 
-	public int[] getMaxRowValues();
+	public ElementInt getMaxValue();
 
-	public int[] getIndexMaxRowValues();
+	public ElementInt getMinValue();
 
-	public int[] getMaxColValues();
+	//Retorna o maior valor de um elemento para cada linha
+	public ArrayInt getMaxRowValues();
 
-	public int[] getIndexMaxColValues();
+	//Retorna o índice do elemento de maior valor para cada linha
+	public ArrayInt getIndexMaxRowValues();
+
+	public ArrayInt getMaxColValues();
+
+	public ArrayInt getIndexMinColValues();
+
+	public ArrayInt getMinRowValues();
+
+	public ArrayInt getIndexMinRowValues();
+
+	public ArrayInt getMinColValues();
+
+	public ArrayInt getIndexMaxColValues();
 
 	// public void print(PrintStream out);
 	//	
@@ -33,6 +61,16 @@ public interface MatrixInt
 	//	
 	// public boolean equals(MatrixInt m);
 
-	public RowInt[] getRows();
+	public ArrayInt[] getRows();
+
+	public ArrayInt getRow(int row);
+
 	// public MatrixInt getInvertedMatrix();
+
+	//Retorna uma matriz indexada a partir do zero
+	public int[][] getMatrixPrimitive();
+
+	public String toString();
+
+	public boolean isValidRowCol(int row, int col);
 }

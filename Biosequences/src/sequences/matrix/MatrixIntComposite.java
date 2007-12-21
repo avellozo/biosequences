@@ -9,32 +9,33 @@ package sequences.matrix;
 public class MatrixIntComposite extends MatrixIntImpl
 {
 	MatrixInt	m;
-	int[]		rowsValue, colsValue;
+	ArrayInt	rowsValue, colsValue;
 
-	public MatrixIntComposite(MatrixInt m, int[] rowsValue, int[] colsValue)
+	public MatrixIntComposite(MatrixInt m, ArrayInt rowsValue, ArrayInt colsValue)
 	{
-		super();
 		this.m = m;
-		if (rowsValue == null)
-		{
-			rowsValue = new int[getRowsQtty()];
-		}
-		if (colsValue == null)
-		{
-			colsValue = new int[getColsQtty()];
-		}
 		this.rowsValue = rowsValue;
 		this.colsValue = colsValue;
 	}
 
 	public int getValue(int row, int col)
 	{
-		return (m.getValue(row, col) + rowsValue[row] + colsValue[col]);
+		int rowValue = 0;
+		int colValue = 0;
+		if (rowsValue != null && rowsValue.isValidIndex(row))
+		{
+			rowValue = rowsValue.getValue(row);
+		}
+		if (colsValue != null && colsValue.isValidIndex(col))
+		{
+			colValue = colsValue.getValue(col);
+		}
+		return (m.getValue(row, col) + rowValue + colValue);
 	}
 
 	public void setValue(int row, int col, int value)
 	{
-		throw new RuntimeException("Só é possível ler os valores desta matriz.");
+		throw new RuntimeException("It's inpossible to write in this matrix.");
 	}
 
 	public int getRowsQtty()
@@ -45,6 +46,26 @@ public class MatrixIntComposite extends MatrixIntImpl
 	public int getColsQtty()
 	{
 		return m.getColsQtty();
+	}
+
+	public int getIndexBeginCol()
+	{
+		return m.getIndexBeginCol();
+	}
+
+	public int getIndexBeginRow()
+	{
+		return m.getIndexBeginRow();
+	}
+
+	public int getIndexEndCol()
+	{
+		return m.getIndexEndCol();
+	}
+
+	public int getIndexEndRow()
+	{
+		return m.getIndexEndRow();
 	}
 
 }

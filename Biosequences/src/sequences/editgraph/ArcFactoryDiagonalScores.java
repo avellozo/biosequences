@@ -23,19 +23,6 @@ public class ArcFactoryDiagonalScores extends ArcFactorySimple
 		this.scores = scores;
 	}
 
-	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
-	{
-		if (!existsDiagonalArc(endVertex))
-		{
-			throw new ExceptionInvalidVertex(endVertex);
-		}
-		if (matches == null)
-		{
-			buildMatches();
-		}
-		return (matches.get(endVertex.toString()) != null);
-	}
-
 	protected void buildMatches()
 	{
 		matches = new HashMap<String, Integer>(scores.size(), 1);
@@ -69,7 +56,8 @@ public class ArcFactoryDiagonalScores extends ArcFactorySimple
 				{
 					try
 					{
-						nonZeroArcs.addLast(new ArcDiagonal(eg.getVertex(i, j), w));
+						nonZeroArcs.addLast(new ArcDiagonal(eg.getVertex(i, j), w,
+							score.getScore() >= scoreThresholdForMatch));
 					}
 					catch (ExceptionInvalidVertex e)
 					{
@@ -87,7 +75,21 @@ public class ArcFactoryDiagonalScores extends ArcFactorySimple
 		return (score.getScore() >= scoreThresholdForMatch ? match : mismatch);
 	}
 
-	public boolean existsDiagonalArc(Vertex endVertex)
+	@Override
+	public boolean isMatch(int i, int j) throws ExceptionInvalidVertex
+	{
+		if (!canCreateDiagonalArc(i, j))
+		{
+			throw new ExceptionInvalidVertex(i, j);
+		}
+		if (matches == null)
+		{
+			buildMatches();
+		}
+		return (matches.get(new Vertex(i, j).toString()) != null);
+	}
+
+	public boolean canCreateDiagonalArc(int i, int j)
 	{
 		return true;
 	}

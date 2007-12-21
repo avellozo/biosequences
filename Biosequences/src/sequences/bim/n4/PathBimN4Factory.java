@@ -5,11 +5,11 @@ import sequences.bim.PathBimDP;
 import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EGInvalidVertexesOfExtensionException;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.OptimumPathFactory;
+import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.EditGraphSegment;
 
 public class PathBimN4Factory<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, ? extends EditGraph>>>
-		implements OptimumPathFactory<E, PathBimDP>
+		implements OptimumPathMethod<E, PathBimDP>
 {
 
 	public PathBimDP createPath(EditGraphSegment range, boolean local) throws EGInvalidVertexesOfExtensionException, ExceptionInvalidEditGraph

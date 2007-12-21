@@ -14,18 +14,35 @@ import java.util.List;
  */
 public class EditGraphBasic implements EditGraph, Cloneable
 {
-	int			rowMin, rowMax, colMin, colMax;
+	int					rowMin, rowMax, colMin, colMax;
 
-	ArcFactory	arcFactory;
+	ArcFactory			arcFactory;
+	ArcFactoryExtended	arcExtendedFactory;
 
-	public EditGraphBasic(int rowMin, int rowMax, int colMin, int colMax, ArcFactory arcFactory)
+	public EditGraphBasic(int rowMin, int rowMax, int colMin, int colMax, ArcFactory arcFactory,
+			ArcFactoryExtended arcExtendedFactory)
 	{
-		super();
 		this.rowMin = rowMin;
 		this.rowMax = rowMax;
 		this.colMin = colMin;
 		this.colMax = colMax;
 		this.arcFactory = arcFactory;
+		this.arcExtendedFactory = arcExtendedFactory;
+	}
+
+	public EditGraphBasic(int rowMax, int colMax, ArcFactory arcFactory, ArcFactoryExtended arcExtendedFactory)
+	{
+		this(0, rowMax, 0, colMax, arcFactory, arcExtendedFactory);
+	}
+
+	public EditGraphBasic(int rowMin, int rowMax, int colMin, int colMax, ArcFactory arcFactory)
+	{
+		this(rowMin, rowMax, colMin, colMax, arcFactory, null);
+	}
+
+	public EditGraphBasic(int rowMax, int colMax, ArcFactory arcFactory)
+	{
+		this(0, rowMax, 0, colMax, arcFactory);
 	}
 
 	public int getRowMin()
@@ -53,6 +70,11 @@ public class EditGraphBasic implements EditGraph, Cloneable
 		return arcFactory;
 	}
 
+	public ArcFactoryExtended getArcExtendedFactory()
+	{
+		return arcExtendedFactory;
+	}
+
 	public boolean existsVertex(int row, int col)
 	{
 		return ((row >= getRowMin()) && (row <= getRowMax()) && (col >= getColMin()) && (col <= getColMax()));
@@ -60,7 +82,7 @@ public class EditGraphBasic implements EditGraph, Cloneable
 
 	public boolean existsVertex(Vertex v)
 	{
-		return (existsVertex(v.getRow(), v.getCol()));
+		return ((v != null) && (existsVertex(v.getRow(), v.getCol())));
 	}
 
 	public boolean existsDiagonalArc(Vertex endVertex)
@@ -78,6 +100,11 @@ public class EditGraphBasic implements EditGraph, Cloneable
 		return (isValidVertexParam(endVertex) && existsVertex(endVertex.getRow() - 1, endVertex.getCol()));
 	}
 
+	public boolean existsExtendedArc(VertexRange vertexRange)
+	{
+		return (isValidVertexParam(vertexRange.getBeginVertex()) && isValidVertexParam(vertexRange.getEndVertex()));
+	}
+
 	protected boolean isValidVertexParam(Vertex v)
 	{
 		return ((v != null) && existsVertex(v));
@@ -92,17 +119,17 @@ public class EditGraphBasic implements EditGraph, Cloneable
 		return new Vertex(row, col);
 	}
 
-	public EditGraph getSegment(Vertex beginVertex, Vertex endVertex) throws ExceptionInvalidVertex
+	public EditGraph getSegment(VertexRange vertexRange) throws ExceptionInvalidVertex
 	{
-		if (isValidVertexParam(beginVertex) && isValidVertexParam(endVertex) && beginVertex.dominates(endVertex))
+		if (isValidVertexParam(vertexRange.getBeginVertex()) && isValidVertexParam(vertexRange.getEndVertex()))
 		{
 			try
 			{
 				EditGraphBasic eg = (EditGraphBasic) this.clone();
-				eg.colMax = endVertex.getCol();
-				eg.colMin = beginVertex.getCol();
-				eg.rowMax = endVertex.getRow();
-				eg.rowMin = beginVertex.getRow();
+				eg.colMax = vertexRange.getEndVertex().getCol();
+				eg.colMin = vertexRange.getBeginVertex().getCol();
+				eg.rowMax = vertexRange.getEndVertex().getRow();
+				eg.rowMin = vertexRange.getBeginVertex().getRow();
 				return eg;
 			}
 			catch (CloneNotSupportedException e)
@@ -113,24 +140,52 @@ public class EditGraphBasic implements EditGraph, Cloneable
 		}
 		else
 		{
-			throw new ExceptionInvalidVertex(endVertex,
-				"It's impossible to create a edit graph's segment with begin vertex:" + beginVertex);
+			throw new ExceptionInvalidVertex(vertexRange.getEndVertex(),
+				"It's impossible to create a edit graph's segment with begin vertex:" + vertexRange.getBeginVertex());
 		}
 	}
 
 	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
+		if (!existsDiagonalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex,
+				"It's impossible to create an diagonal arc with this end vertex:" + endVertex);
+		}
 		return arcFactory.getDiagonalArc(endVertex);
 	}
 
 	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
+		if (!existsHorizontalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex,
+				"It's impossible to create an horizontal arc with this end vertex:" + endVertex);
+		}
 		return arcFactory.getHorizontalArc(endVertex);
 	}
 
 	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
+		if (!existsVerticalArc(endVertex))
+		{
+			throw new ExceptionInvalidVertex(endVertex,
+				"It's impossible to create an vertical arc with this end vertex:" + endVertex);
+		}
 		return arcFactory.getVerticalArc(endVertex);
+	}
+
+	public ArcExtended getExtendedArc(VertexRange vertexRange) throws ExceptionInvalidVertex
+	{
+		if (existsExtendedArc(vertexRange))
+		{
+			return arcExtendedFactory.getExtendedArc(vertexRange);
+		}
+		else
+		{
+			throw new ExceptionInvalidVertex(vertexRange.getEndVertex(),
+				"It's impossible to create an extended arc with begin vertex:" + vertexRange.getBeginVertex());
+		}
 	}
 
 	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs()
@@ -148,11 +203,26 @@ public class EditGraphBasic implements EditGraph, Cloneable
 		return arcFactory.getNonZeroVerticalArcs(this);
 	}
 
-	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
+	public int getWeightDiagonalArc(int i, int j) throws ExceptionInvalidVertex
 	{
-		return arcFactory.isMatch(endVertex);
+		return arcFactory.getWeightDiagonalArc(i, j);
 	}
 
+	public int getWeightHorizontalArc(int i, int j) throws ExceptionInvalidVertex
+	{
+		return arcFactory.getWeightHorizontalArc(i, j);
+	}
+
+	public int getWeightVerticalArc(int i, int j) throws ExceptionInvalidVertex
+	{
+		return arcFactory.getWeightVerticalArc(i, j);
+	}
+
+	//	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
+	//	{
+	//		return arcFactory.isMatch(endVertex);
+	//	}
+	//
 	/*	public <P extends OptimumPath> P getOptimumPath(VertexRange range, boolean local,
 	OptimumPathFactory<E, P> pathFactory) throws EGInvalidRangeException, EGInvalidEditGraphException
 	{

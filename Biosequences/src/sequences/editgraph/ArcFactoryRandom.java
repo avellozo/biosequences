@@ -84,18 +84,30 @@ public class ArcFactoryRandom implements ArcFactory
 		}
 	}
 
-	protected int getWeightHorizontal(int row, int col)
+	public int getWeightHorizontalArc(int row, int col) throws ExceptionInvalidVertex
 	{
+		if (!canCreateHorizontalArc(row, col))
+		{
+			throw new ExceptionInvalidVertex(new Vertex(row, col));
+		}
 		return horizontal[row][col];
 	}
 
-	protected int getWeightVertical(int row, int col)
+	public int getWeightVerticalArc(int row, int col) throws ExceptionInvalidVertex
 	{
+		if (!canCreateVerticalArc(row, col))
+		{
+			throw new ExceptionInvalidVertex(new Vertex(row, col));
+		}
 		return vertical[row][col];
 	}
 
-	protected int getWeightDiagonal(int row, int col)
+	public int getWeightDiagonalArc(int row, int col) throws ExceptionInvalidVertex
 	{
+		if (!canCreateDiagonalArc(row, col))
+		{
+			throw new ExceptionInvalidVertex(new Vertex(row, col));
+		}
 		return diagonal[row][col];
 	}
 
@@ -180,51 +192,64 @@ public class ArcFactoryRandom implements ArcFactory
 		return list;
 	}
 
-	public boolean existsDiagonalArc(Vertex endVertex)
+	public boolean canCreateDiagonalArc(Vertex endVertex)
 	{
-		return ((endVertex.getRow() < rows) && (endVertex.getCol() < cols) && (endVertex.getRow() > 0) && (endVertex.getCol() > 0));
+		return (endVertex != null && canCreateDiagonalArc(endVertex.getRow(), endVertex.getCol()));
 	}
 
-	public boolean existsHorizontalArc(Vertex endVertex)
+	public boolean canCreateHorizontalArc(Vertex endVertex)
 	{
-		return ((endVertex.getRow() < rows) && (endVertex.getCol() < cols) && (endVertex.getRow() >= 0) && (endVertex.getCol() > 0));
+		return (endVertex != null && (endVertex.getRow() < rows) && (endVertex.getCol() < cols)
+			&& (endVertex.getRow() >= 0) && (endVertex.getCol() > 0));
 	}
 
-	public boolean existsVerticalArc(Vertex endVertex)
+	public boolean canCreateVerticalArc(Vertex endVertex)
 	{
-		return ((endVertex.getRow() < rows) && (endVertex.getCol() < cols) && (endVertex.getRow() > 0) && (endVertex.getCol() >= 0));
+		return (endVertex != null && (endVertex.getRow() < rows) && (endVertex.getCol() < cols)
+			&& (endVertex.getRow() > 0) && (endVertex.getCol() >= 0));
+	}
+
+	public boolean canCreateDiagonalArc(int i, int j)
+	{
+		return ((i < rows) && (j < cols) && (i > 0) && (j > 0));
+	}
+
+	public boolean canCreateHorizontalArc(int i, int j)
+	{
+		return ((i < rows) && (j < cols) && (i >= 0) && (j > 0));
+	}
+
+	public boolean canCreateVerticalArc(int i, int j)
+	{
+		return ((i < rows) && (j < cols) && (i > 0) && (j >= 0));
 	}
 
 	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (!existsDiagonalArc(endVertex))
+		if (!canCreateDiagonalArc(endVertex))
 		{
 			throw new ExceptionInvalidVertex(endVertex);
 		}
-		return new ArcDiagonal(endVertex, getWeightDiagonal(endVertex.getRow(), endVertex.getCol()));
+		int w = getWeightDiagonalArc(endVertex.getRow(), endVertex.getCol());
+		return new ArcDiagonal(endVertex, w, w >= threshold);
 	}
 
 	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (!existsHorizontalArc(endVertex))
+		if (!canCreateHorizontalArc(endVertex))
 		{
 			throw new ExceptionInvalidVertex(endVertex);
 		}
-		return new ArcHorizontal(endVertex, getWeightHorizontal(endVertex.getRow(), endVertex.getCol()));
+		return new ArcHorizontal(endVertex, getWeightHorizontalArc(endVertex.getRow(), endVertex.getCol()));
 	}
 
 	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (!existsVerticalArc(endVertex))
+		if (!canCreateVerticalArc(endVertex))
 		{
 			throw new ExceptionInvalidVertex(endVertex);
 		}
-		return new ArcVertical(endVertex, getWeightVertical(endVertex.getRow(), endVertex.getCol()));
-	}
-
-	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
-	{
-		return getWeightDiagonal(endVertex.getRow(), endVertex.getCol()) >= threshold;
+		return new ArcVertical(endVertex, getWeightVerticalArc(endVertex.getRow(), endVertex.getCol()));
 	}
 
 }

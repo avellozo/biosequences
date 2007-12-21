@@ -3,11 +3,11 @@ package sequences.dup;
 import sequences.editgraph.ExceptionGeneralEG;
 import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.OptimumPathFactory;
+import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.EditGraphSegment;
 
 public class PathDupDummyFactory<E extends EditGraph<E, ? extends ExtenderDup>>
-		implements OptimumPathFactory<E, PathDupDummy>
+		implements OptimumPathMethod<E, PathDupDummy>
 {
 
 	public PathDupDummy createPath(EditGraphSegment range, boolean local)

@@ -29,7 +29,7 @@ import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EGSparseWithDiagonals;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.OptimumPathFactory;
+import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.OptimumPathSimpleFactory;
 
 /**
@@ -192,8 +192,8 @@ public class Bim
 			}
 		}
 
-		OptimumPathFactory pathBimFactory = null;
-		OptimumPathFactory pathSimpleFactory = new OptimumPathSimpleFactory();
+		OptimumPathMethod pathBimFactory = null;
+		OptimumPathMethod pathSimpleFactory = new OptimumPathSimpleFactory();
 
 		if (method.equals("n4")) //$NON-NLS-1$
 		{

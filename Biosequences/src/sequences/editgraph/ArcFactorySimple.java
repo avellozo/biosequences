@@ -29,39 +29,77 @@ public abstract class ArcFactorySimple implements ArcFactory
 
 	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (!existsDiagonalArc(endVertex))
-		{
-			throw new ExceptionInvalidVertex(endVertex);
-		}
-		return new ArcDiagonal(endVertex, (isMatch(endVertex)) ? match : mismatch);
+		return new ArcDiagonal(endVertex, getWeightDiagonalArc(endVertex.getRow(), endVertex.getCol()),
+			isMatch(endVertex));
 	}
+
+	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
+	{
+		return isMatch(endVertex.getRow(), endVertex.getCol());
+	}
+
+	public abstract boolean isMatch(int i, int j) throws ExceptionInvalidVertex;
 
 	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (!existsHorizontalArc(endVertex))
-		{
-			throw new ExceptionInvalidVertex(endVertex);
-		}
-		return new ArcHorizontal(endVertex, gap);
+		return new ArcHorizontal(endVertex, getWeightHorizontalArc(endVertex.getRow(), endVertex.getCol()));
 	}
 
 	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
 	{
-		if (!existsVerticalArc(endVertex))
+		return new ArcVertical(endVertex, getWeightVerticalArc(endVertex.getRow(), endVertex.getCol()));
+	}
+
+	public boolean canCreateHorizontalArc(Vertex endVertex)
+	{
+		return (endVertex != null && (canCreateHorizontalArc(endVertex.getRow(), endVertex.getCol())));
+	}
+
+	public boolean canCreateVerticalArc(Vertex endVertex)
+	{
+		return (endVertex != null && (canCreateVerticalArc(endVertex.getRow(), endVertex.getCol())));
+	}
+
+	public boolean canCreateDiagonalArc(Vertex endVertex)
+	{
+		return (endVertex != null && (canCreateDiagonalArc(endVertex.getRow(), endVertex.getCol())));
+	}
+
+	public boolean canCreateHorizontalArc(int i, int j)
+	{
+		return true;
+	}
+
+	public boolean canCreateVerticalArc(int i, int j)
+	{
+		return true;
+	}
+
+	public int getWeightDiagonalArc(int i, int j) throws ExceptionInvalidVertex
+	{
+		if (!canCreateDiagonalArc(i, j))
 		{
-			throw new ExceptionInvalidVertex(endVertex);
+			throw new ExceptionInvalidVertex(i, j);
 		}
-		return new ArcVertical(endVertex, gap);
+		return isMatch(i, j) ? match : mismatch;
 	}
 
-	public boolean existsHorizontalArc(Vertex endVertex)
+	public int getWeightHorizontalArc(int i, int j) throws ExceptionInvalidVertex
 	{
-		return true;
+		if (!canCreateHorizontalArc(i, j))
+		{
+			throw new ExceptionInvalidVertex(i, j);
+		}
+		return gap;
 	}
 
-	public boolean existsVerticalArc(Vertex endVertex)
+	public int getWeightVerticalArc(int i, int j) throws ExceptionInvalidVertex
 	{
-		return true;
+		if (!canCreateVerticalArc(i, j))
+		{
+			throw new ExceptionInvalidVertex(i, j);
+		}
+		return gap;
 	}
 
 	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs(EditGraph eg)

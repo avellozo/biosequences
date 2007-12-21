@@ -22,7 +22,7 @@ import sequences.editgraph.EGInvalidVertexesOfExtensionException;
 import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPath;
-import sequences.editgraph.OptimumPathFactory;
+import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.OptimumPathSimpleFactory;
 import sequences.editgraph.Vertex;
 
@@ -229,7 +229,7 @@ public class PrinterPath
 			int scoreDirect, totScoreDirect = 0, matchesDirect, mismatchesDirect, gapsDirect;
 
 			int count = 0;
-			OptimumPathFactory pathSimpleFactory = new OptimumPathSimpleFactory();
+			OptimumPathMethod pathSimpleFactory = new OptimumPathSimpleFactory();
 			for (ArcExtended arc : arcsExtended)
 			{
 				count++;

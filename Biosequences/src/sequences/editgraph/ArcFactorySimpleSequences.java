@@ -31,18 +31,19 @@ public class ArcFactorySimpleSequences extends ArcFactorySimple
 		return seq2;
 	}
 
-	public boolean existsDiagonalArc(Vertex endVertex)
+	@Override
+	public boolean isMatch(int i, int j) throws ExceptionInvalidVertex
 	{
-		return ((endVertex.getRow() <= getSeq1().getLength()) && (endVertex.getCol() <= getSeq2().getLength())
-			&& (endVertex.getRow() > 0) && (endVertex.getCol() > 0));
+		if (!canCreateDiagonalArc(i, j))
+		{
+			throw new ExceptionInvalidVertex(i, j);
+		}
+		return (getSeq1().getLetter(i) == getSeq2().getLetter(j));
 	}
 
-	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
+	public boolean canCreateDiagonalArc(int i, int j)
 	{
-		if (!existsDiagonalArc(endVertex))
-		{
-			throw new ExceptionInvalidVertex(endVertex);
-		}
-		return (getSeq1().getLetter(endVertex.getRow()) == getSeq2().getLetter(endVertex.getCol()));
+		return ((i <= getSeq1().getLength()) && (j <= getSeq2().getLength()) && (i > 0) && (j > 0));
+
 	}
 }

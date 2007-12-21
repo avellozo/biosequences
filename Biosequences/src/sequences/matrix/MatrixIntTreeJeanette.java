@@ -11,30 +11,32 @@ import sequences.bim.n3lgn.TreeJeanette;
 public class MatrixIntTreeJeanette extends MatrixIntImpl
 {
 	TreeJeanette[]	trees;
+	int				defaultValue;
 
-	public MatrixIntTreeJeanette(TreeJeanette[] trees)
+	//Normalmente dafaultValue é Integer.MIN_VALUE ou Integer.MAX_VALUE
+	//As árvores são as colunas da matriz
+	public MatrixIntTreeJeanette(TreeJeanette[] trees, int defaultValue)
 	{
-		super();
 		this.trees = trees;
+		this.defaultValue = defaultValue;
 	}
 
 	public int getValue(int row, int col)
 	{
-		if (row < 0 || row >= getRowsQtty() || col < 0 || col >= getColsQtty())
+		if (!isValidRowCol(row, col))
 		{
-			throw new IndexOutOfBoundsException("Não existe o índice " + row
-				+ ", " + col);
+			throw new IndexOutOfBoundsException("Row " + row + " col " + col);
 		}
 		if (row >= trees[col].getNumLeafs())
 		{
-			return Integer.MIN_VALUE;
+			return defaultValue;
 		}
 		return trees[col].getScoringPath(row);
 	}
 
 	public void setValue(int row, int col, int value)
 	{
-		throw new RuntimeException("Só é possível ler os valores desta matriz.");
+		throw new RuntimeException("It's impossible to write in this matrix.");
 	}
 
 	public int getRowsQtty()
@@ -45,6 +47,36 @@ public class MatrixIntTreeJeanette extends MatrixIntImpl
 	public int getColsQtty()
 	{
 		return trees.length;
+	}
+
+	public int getIndexBeginCol()
+	{
+		return 0;
+	}
+
+	public int getIndexBeginRow()
+	{
+		return 0;
+	}
+
+	public int getIndexEndCol()
+	{
+		return trees.length - 1;
+	}
+
+	public int getIndexEndRow()
+	{
+		return trees[getColsQtty() - 1].getNumLeafs() - 1;
+	}
+
+	public int getDefaultValue()
+	{
+		return defaultValue;
+	}
+
+	public void setDefaultValue(int defaultValue)
+	{
+		this.defaultValue = defaultValue;
 	}
 
 }

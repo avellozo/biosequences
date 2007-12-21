@@ -3,11 +3,11 @@ package sequences.bim;
 import sequences.editgraph.EGInvalidVertexesOfExtensionException;
 import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.OptimumPathFactory;
+import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.EditGraphSegment;
 
 public class PathBimDummyFactory<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, ? extends EditGraph>>>
-		implements OptimumPathFactory<E, PathBimDummy>
+		implements OptimumPathMethod<E, PathBimDummy>
 {
 
 	public PathBimDummy createPath(EditGraphSegment range, boolean local)

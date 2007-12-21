@@ -5,41 +5,34 @@ package sequences.editgraph;
 
 public class ArcExtended extends ArcAbstractImpl
 {
-	Vertex	beginVertex;
+	VertexRange	vertexRange;
 
 	//	EditGraphExtended	eg;
 
-	public ArcExtended(Vertex beginVertex, Vertex endVertex, int weight) throws ExceptionInvalidVertex
+	public ArcExtended(VertexRange vertexRange, int weight) throws ExceptionInvalidVertex
 	{
-		super(endVertex, weight);
-		if (beginVertex == null)
-		{
-			throw new ExceptionInvalidVertex(beginVertex);
-		}
-		if (!beginVertex.dominates(endVertex))
-		{
-			throw new ExceptionInvalidVertex(beginVertex, "Begin vertex is invalid to end vertex: " + endVertex);
-		}
+		super(vertexRange.getEndVertex(), weight);
+		this.vertexRange = vertexRange;
 	}
 
 	public Vertex getBeginVertex()
 	{
-		return beginVertex;
+		return vertexRange.getBeginVertex();
 	}
 
 	public int getRowsOfExtension()
 	{
-		return (getEndVertex().getRow() - getBeginVertex().getRow() + 1);
+		return vertexRange.getRowsQtty();
 	}
 
 	public int getColsOfExtension()
 	{
-		return (getEndVertex().getCol() - getBeginVertex().getCol() + 1);
+		return vertexRange.getColsQtty();
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Extended " + super.toString();
+		return "Extended of Vertex " + vertexRange.getBeginVertex() + " " + super.toString();
 	}
 }

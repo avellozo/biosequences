@@ -26,22 +26,35 @@ public class ArcFactoryDiagonalScoresWithScale extends ArcFactoryDiagonalScores
 			: mismatch);
 	}
 
-	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
+	//	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex
+	//	{
+	//		if (!canCreateDiagonalArc(endVertex))
+	//		{
+	//			throw new ExceptionInvalidVertex(endVertex);
+	//		}
+	//		if (matches == null)
+	//		{
+	//			buildMatches();
+	//		}
+	//		Integer matchVal = matches.get(endVertex.toString());
+	//		return new ArcDiagonal(endVertex, ((matchVal != null) ? matchVal : mismatch), (matchVal != null));
+	//	}
+	//
+	@Override
+	public int getWeightDiagonalArc(int i, int j) throws ExceptionInvalidVertex
 	{
-		if (!existsDiagonalArc(endVertex))
+		if (!canCreateDiagonalArc(i, j))
 		{
-			throw new ExceptionInvalidVertex(endVertex);
+			throw new ExceptionInvalidVertex(i, j);
 		}
-		return new ArcDiagonal(endVertex, getWeightDiagonal(endVertex));
-	}
-
-	public int getWeightDiagonal(Vertex endVertex)
-	{
 		if (matches == null)
 		{
 			buildMatches();
 		}
+		Vertex endVertex = new Vertex(i, j);
 		Integer matchVal = matches.get(endVertex.toString());
 		return ((matchVal != null) ? matchVal : mismatch);
+		//		return new ArcDiagonal(endVertex, ((matchVal != null) ? matchVal : mismatch), (matchVal != null));
 	}
+
 }

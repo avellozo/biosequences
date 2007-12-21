@@ -1,13 +1,10 @@
 package sequences.editgraph;
 
 import sequences.common.SequenceInternalException;
-import sequences.matrix.MatrixCharRange;
 import sequences.matrix.MatrixIntDP;
 import sequences.matrix.MatrixIntPrimitive;
-import sequences.matrix.MatrixIntRange;
 
-public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender>>
-		extends OptimumPathImpl
+public class OptimumPathSimple extends OptimumPathImpl
 {
 
 	protected char[][]		arcsType;
@@ -16,8 +13,7 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender>>
 	// algorithm
 	protected MatrixIntDP	matrixDP;
 
-	public OptimumPathSimple(EditGraphSegment range, boolean local)
-			throws EGInvalidVertexesOfExtensionException
+	public OptimumPathSimple(VertexRange range, boolean local) throws ExceptionInvalidVertex
 	{
 		super(range, local);
 		// TODO melhorar memória usando matrizes range
@@ -25,8 +21,7 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender>>
 		// matrixDP = new MatrixIntRange(new MatrixIntDP(new
 		// MatrixIntPrimitive(rows, cols), isLocal()), iMin, jMin);
 		arcsType = new char[iMax + 1][jMax + 1];
-		matrixDP = new MatrixIntDP(new MatrixIntPrimitive(iMax + 1, jMax + 1),
-			isLocal());
+		matrixDP = new MatrixIntDP(new MatrixIntPrimitive(iMax + 1, jMax + 1), isLocal());
 		buildBimMatrix();
 		buildPath();
 		finishTime();
@@ -44,8 +39,7 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender>>
 			// Calcula o Bim da linha zero
 			for (j = jMin + 1; j <= jMax; j++)
 			{
-				matrixDP.setValue(iMin, j, matrixDP.getValue(iMin, j - 1)
-					+ eg.getWeightHorizontalArc(iMin, j));
+				matrixDP.setValue(iMin, j, matrixDP.getValue(iMin, j - 1) + eg.getWeightHorizontalArc(iMin, j));
 				arcsType[iMin][j] = EditGraph.HORIZONTAL;
 			}
 			for (i = iMin + 1; i <= iMax; i++)
@@ -54,14 +48,11 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender>>
 				// b[i][0] = b[i - 1][0] + eg.getWeightVertical(i, 0);
 				for (j = jMin; j <= jMax; j++)
 				{
-					wv = matrixDP.getValue(i - 1, j)
-						+ eg.getWeightVerticalArc(i, j);
+					wv = matrixDP.getValue(i - 1, j) + eg.getWeightVerticalArc(i, j);
 					if (j != jMin)
 					{
-						wh = matrixDP.getValue(i, j - 1)
-							+ eg.getWeightHorizontalArc(i, j);
-						wd = matrixDP.getValue(i - 1, j - 1)
-							+ eg.getWeightDiagonalArc(i, j);
+						wh = matrixDP.getValue(i, j - 1) + eg.getWeightHorizontalArc(i, j);
+						wd = matrixDP.getValue(i - 1, j - 1) + eg.getWeightDiagonalArc(i, j);
 					}
 					if ((j == jMin) || ((wv > wd) && (wv >= wh)))
 					{
@@ -96,28 +87,27 @@ public class OptimumPathSimple<E extends EditGraph<E, ? extends Extender>>
 			Vertex v = getVertexRange().getEndVertex();
 			if (isLocal())
 			{
-				v = eg.getVertex(matrixDP.getRowMaxValue(), matrixDP
-					.getColMaxValue());
+				v = eg.getVertex(matrixDP.getRowMaxValue(), matrixDP.getColMaxValue());
 			}
 			char c;
 			Arc arc;
-			while (!((v.equals(getVertexRange().getBeginVertex())) || (isLocal() && (matrixDP
-				.getValue(v.getRow(), v.getCol()) == 0))))
+			while (!((v.equals(getVertexRange().getBeginVertex())) || (isLocal() && (matrixDP.getValue(v.getRow(),
+				v.getCol()) == 0))))
 			{
 				c = arcsType[v.getRow()][v.getCol()];
 				switch (c)
 				{
-				case EditGraph.VERTICAL:
-					arc = eg.getVerticalArc(v);
-					break;
-				case EditGraph.HORIZONTAL:
-					arc = eg.getHorizontalArc(v);
-					break;
-				case EditGraph.DIAGONAL:
-					arc = eg.getDiagonalArc(v);
-					break;
-				default:
-					throw new RuntimeException("Tipo de arco inválido: " + c);
+					case EditGraph.VERTICAL:
+						arc = eg.getVerticalArc(v);
+						break;
+					case EditGraph.HORIZONTAL:
+						arc = eg.getHorizontalArc(v);
+						break;
+					case EditGraph.DIAGONAL:
+						arc = eg.getDiagonalArc(v);
+						break;
+					default:
+						throw new RuntimeException("Tipo de arco inválido: " + c);
 				}
 				addFirst(arc);
 				v = arc.getBeginVertex();

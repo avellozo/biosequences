@@ -18,7 +18,7 @@ public interface OptimumPath
 
 	public boolean add(Arc arc);
 
-	public boolean addFirst(Arc arc);
+	public void addFirst(Arc arc);
 
 	public EditGraph getEditGraph();
 
@@ -26,7 +26,7 @@ public interface OptimumPath
 
 	public boolean isLocal();
 
-	public long time();
+	//	public long time();
 
 	//	public long finishTime();
 

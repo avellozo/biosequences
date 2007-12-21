@@ -11,8 +11,8 @@ import sequences.editgraph.EditGraphSegment;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntComposite;
 import sequences.matrix.MatrixIntTreeJeanette;
-import sequences.matrix.RowInt;
-import sequences.matrix.TMMatrixInt;
+import sequences.matrix.ArrayInt;
+import sequences.matrix.TMColMatrixInt;
 
 public class PathBimN3lgn<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, ? extends EditGraph>>>
 		extends PathBimDP
@@ -116,12 +116,12 @@ public class PathBimN3lgn<E extends EditGraph<E, ? extends ExtenderUsingEGInvert
 					}
 					r = new MatrixIntTreeJeanette(trees);
 					r = new MatrixIntComposite(r, t, null);
-					r = new TMMatrixInt(r);
-					RowInt[] rowsMax = ((TMMatrixInt) r).getRowsMaxValueColumns();
+					r = new TMColMatrixInt(r);
+					ArrayInt[] rowsMax = ((TMColMatrixInt) r).getRowsMaxValueColumns();
 					// rowsMax[j] = linha que contém o valor máximo da coluna j
-					t = ((TMMatrixInt) r).getMaxColValues(rowsMax);
+					t = ((TMColMatrixInt) r).getMaxColValues(rowsMax);
 					// t[j] = o valor máximo da coluna j
-					tIndex = ((TMMatrixInt) r).getIndexMaxColValues(rowsMax);
+					tIndex = ((TMColMatrixInt) r).getIndexMaxColValues(rowsMax);
 					// tIndex[j] = índice da linha que contém o valor máximo da coluna j
 					for (j = jMin; j <= jMax; j++)
 					{
