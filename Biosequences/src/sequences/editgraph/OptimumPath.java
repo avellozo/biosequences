@@ -24,9 +24,9 @@ public interface OptimumPath
 
 	public int getScore();
 
-	public boolean isLocal();
-
-	//	public long time();
+	//	public boolean isLocal();
+	//
+	//	public long getTimeToConstruct();
 
 	//	public long finishTime();
 

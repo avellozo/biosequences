@@ -5,9 +5,9 @@ import java.util.LinkedList;
 public class OptimumPathImpl implements OptimumPath
 {
 
-	VertexRange				range;
+	//	VertexRange				range;
 	EditGraph				eg;
-	boolean					local;
+	//	boolean					local;
 
 	LinkedList<Arc>			arcs				= new LinkedList<Arc>();
 	LinkedList<ArcExtended>	arcsExtended		= new LinkedList<ArcExtended>();
@@ -19,19 +19,20 @@ public class OptimumPathImpl implements OptimumPath
 	int						qttyMatches			= 0;
 	int						qttyMismatches		= 0;
 
-	protected int			iMin, iMax, jMin, jMax, rows, cols;
+	//	protected int			iMin, iMax, jMin, jMax, rows, cols;
 
-	public OptimumPathImpl(VertexRange range, EditGraph eg, boolean local)
+	//	public OptimumPathImpl(VertexRange range, EditGraph eg, boolean local)
+	public OptimumPathImpl(EditGraph eg)
 	{
-		this.range = range;
+		//		this.range = range;
 		this.eg = eg;
-		this.local = local;
-		iMin = getVertexRange().getBeginVertex().getRow();
-		jMin = getVertexRange().getBeginVertex().getCol();
-		iMax = getVertexRange().getEndVertex().getRow();
-		jMax = getVertexRange().getEndVertex().getCol();
-		rows = getVertexRange().getRowsQtty();
-		cols = getVertexRange().getColsQtty();
+		//		this.local = local;
+		//		iMin = getVertexRange().getBeginVertex().getRow();
+		//		jMin = getVertexRange().getBeginVertex().getCol();
+		//		iMax = getVertexRange().getEndVertex().getRow();
+		//		jMax = getVertexRange().getEndVertex().getCol();
+		//		rows = getVertexRange().getRowsQtty();
+		//		cols = getVertexRange().getColsQtty();
 	}
 
 	public EditGraph getEditGraph()
@@ -39,16 +40,16 @@ public class OptimumPathImpl implements OptimumPath
 		return eg;
 	}
 
-	public VertexRange getVertexRange()
-	{
-		return range;
-	}
+	//	public VertexRange getVertexRange()
+	//	{
+	//		return range;
+	//	}
 
-	public boolean isLocal()
-	{
-		return local;
-	}
-
+	//	public boolean isLocal()
+	//	{
+	//		return local;
+	//	}
+	//
 	public LinkedList<Arc> getArcs()
 	{
 		return arcs;

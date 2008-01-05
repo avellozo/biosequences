@@ -8,7 +8,7 @@ package sequences.matrix;
  * @author Augusto
  * @data 09/06/2004
  */
-public class TMColMatrixInt extends MatrixIntImpl
+public class TMColMatrixInt implements MatrixInt
 {
 	MatrixInt			m;
 	private ArrayInt[]	rows;
@@ -292,7 +292,7 @@ public class TMColMatrixInt extends MatrixIntImpl
 	public ArrayInt getIndexMinColValues()
 	{
 		// TODO Auto-generated method stub
-		return super.getIndexMinColValues();
+		return m.getIndexMinColValues();
 	}
 
 	public int[][] getMatrixPrimitive()
@@ -324,7 +324,7 @@ public class TMColMatrixInt extends MatrixIntImpl
 	public ArrayInt getMinColValues()
 	{
 		// TODO Auto-generated method stub
-		return super.getMinColValues();
+		return m.getMinColValues();
 	}
 
 	public ElementInt getMinValue()
@@ -346,6 +346,31 @@ public class TMColMatrixInt extends MatrixIntImpl
 			}
 		}
 		return new ElementInt(minVal, minRow, minCol);
+	}
+
+	public ArrayInt getIndexMaxRowValues()
+	{
+		return m.getIndexMaxRowValues();
+	}
+
+	public ArrayInt getIndexMinRowValues()
+	{
+		return m.getIndexMinRowValues();
+	}
+
+	public ArrayInt getMaxRowValues()
+	{
+		return m.getMaxRowValues();
+	}
+
+	public ArrayInt getMinRowValues()
+	{
+		return m.getMinRowValues();
+	}
+
+	public boolean isValidRowCol(int row, int col)
+	{
+		return m.isValidRowCol(row, col);
 	}
 
 	// public void setRow(int rowIndex, int[] row)

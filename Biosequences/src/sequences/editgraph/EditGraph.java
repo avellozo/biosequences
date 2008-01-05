@@ -61,8 +61,14 @@ public interface EditGraph
 
 	public int getWeightDiagonalArc(int i, int j) throws ExceptionInvalidVertex;
 
+	public VertexRange getFullRange();
+
 	// Retorna true se a aresta diagonal terminada em endVertex representa um match
 	// Retorna falso caso contrário
 	//	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex;
 
+	//	public String getNameRows();
+	//
+	//	public String getNameCols();
+	//
 }

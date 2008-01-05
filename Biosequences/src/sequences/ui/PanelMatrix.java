@@ -5,6 +5,7 @@
 package sequences.ui;
 
 import java.awt.Dimension;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
@@ -15,14 +16,14 @@ import javax.swing.table.TableModel;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntPrimitive;
 
-
 /**
- * @author Augusto @data 02/06/2004
+ * @author Augusto
+ * @data 02/06/2004
  */
 public class PanelMatrix extends JScrollPane
 {
 	MatrixInt	matrix;
-	JTable				table;
+	JTable		table;
 
 	public PanelMatrix(int[] a, TableCellRenderer cellRenderer)
 	{
@@ -53,12 +54,12 @@ public class PanelMatrix extends JScrollPane
 
 			public Object getValueAt(int row, int col)
 			{
-				return String.valueOf(matrix.getValue(row, col));
+				return String.valueOf(matrix.getValue(row + matrix.getIndexBeginRow(), col + matrix.getIndexBeginCol()));
 			}
 
 			public String getColumnName(int columnIndex)
 			{
-				return String.valueOf(columnIndex);
+				return String.valueOf(columnIndex + matrix.getIndexBeginCol());
 			}
 		};
 		table = new JTable(0, 0);

@@ -4,13 +4,15 @@ public class MatrixCharRange
 {
 
 	char[][]	a;
-	int			iMin, jMin;
+	int			iMin, jMin, iMax, jMax;
 
-	public MatrixCharRange(char[][] a, int iMin, int jMin)
+	public MatrixCharRange(int iMin, int jMin, int iMax, int jMax)
 	{
-		this.a = a;
-		this.jMin = jMin;
+		this.a = new char[iMax - iMin + 1][jMax - jMin + 1];
 		this.iMin = iMin;
+		this.jMin = jMin;
+		this.iMax = iMax;
+		this.jMax = jMax;
 	}
 
 	public char getValue(int row, int col)

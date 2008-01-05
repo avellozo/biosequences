@@ -78,7 +78,7 @@ public class MatrixIntPrimitive extends MatrixIntImpl
 	{
 		int maxRow = 0;
 		int maxCol = 0;
-		int max = matrix[0][0];
+		int max = getValue(0, 0);
 		int iEnd = getIndexEndRow();
 		int jEnd = getIndexEndCol();
 		int val;
@@ -102,7 +102,7 @@ public class MatrixIntPrimitive extends MatrixIntImpl
 	{
 		int minRow = 0;
 		int minCol = 0;
-		int min = matrix[0][0];
+		int min = getValue(0, 0);
 		int iEnd = getIndexEndRow();
 		int jEnd = getIndexEndCol();
 		int val;

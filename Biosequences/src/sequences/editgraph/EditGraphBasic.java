@@ -218,6 +218,18 @@ public class EditGraphBasic implements EditGraph, Cloneable
 		return arcFactory.getWeightVerticalArc(i, j);
 	}
 
+	public VertexRange getFullRange()
+	{
+		try
+		{
+			return new VertexRange(getVertex(getRowMin(), getColMin()), getVertex(getRowMax(), getColMax()));
+		}
+		catch (ExceptionInvalidVertex e)
+		{
+			e.printStackTrace();
+			throw new ExceptionInternalEG();
+		}
+	}
 	//	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
 	//	{
 	//		return arcFactory.isMatch(endVertex);

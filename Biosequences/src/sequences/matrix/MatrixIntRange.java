@@ -9,7 +9,6 @@ public class MatrixIntRange extends MatrixIntImpl
 	public MatrixIntRange(MatrixInt m, int rowBegin, int colBegin, int rowEnd, int colEnd, int rowBeginMapped,
 			int colBeginMapped)
 	{
-		super();
 		this.m = m;
 		this.rowBegin = rowBegin;
 		this.rowEnd = rowEnd;

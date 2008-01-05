@@ -16,6 +16,8 @@ public interface Arc
 
 	public static final char	EXTENDED	= 'E';
 
+	public static final char	INVALID		= 'I';
+
 	public Vertex getBeginVertex();
 
 	public Vertex getEndVertex();
