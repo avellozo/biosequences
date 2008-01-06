@@ -183,7 +183,7 @@ public class OptimumPathMethodClassic implements OptimumPathMethod
 
 	public String getName()
 	{
-		return "Global/Local Classic";
+		return "Classic Alignment";
 	}
 
 	public boolean isLocal()

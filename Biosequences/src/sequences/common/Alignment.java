@@ -20,4 +20,6 @@ public interface Alignment
 
 	public OptimumPath getPath();
 
+	public String getParametersToPrint();
+
 }

@@ -25,10 +25,11 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import sequences.common.AlignmentClassic;
 import sequences.common.FileFastaSequence;
 import sequences.common.ListOfSequences;
 import sequences.common.Sequence;
-import sequences.lcs.ALCS;
+import sequences.editgraph.ExceptionInvalidEditGraph;
 
 /**
  * @author Augusto
@@ -372,7 +373,17 @@ public class FrameMain extends JFrame implements ListSelectionListener
 		{
 			Sequence seq1 = sequences.getSequence(selectedSequences[0]);
 			Sequence seq2 = sequences.getSequence(selectedSequences[1]);
-			(new FrameALCS(new ALCS(seq1, seq2))).show();
+			try
+			{
+				AlignmentClassic align = new AlignmentClassic(seq1, seq2, 1, 0, 0, false);
+				System.out.println(align.getPath().getScore());
+			}
+			catch (ExceptionInvalidEditGraph e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//			(new FrameALCS(new ALCS(seq1, seq2))).show();
 		}
 	}
 
