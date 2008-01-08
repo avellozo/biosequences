@@ -3,7 +3,7 @@
  */
 package sequences.editgraph;
 
-public interface ArcFactoryExtended
+public interface ArcExtendedFactory
 {
 
 	public ArcExtended getExtendedArc(VertexRange vertexRange) throws ExceptionInvalidVertex;

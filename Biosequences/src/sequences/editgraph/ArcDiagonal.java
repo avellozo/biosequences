@@ -27,4 +27,8 @@ public class ArcDiagonal extends ArcAbstractImpl
 		return isMatch;
 	}
 
+	public String toString()
+	{
+		return "Arc Diagonal: endVertex:" + getEndVertex() + " weight " + weight;
+	}
 }

@@ -17,7 +17,7 @@ import sequences.common.MatchesWeight;
 import sequences.common.Sequence;
 import sequences.dup.ExtenderDup;
 import sequences.dup.PathDup;
-import sequences.editgraph.ArcFactorySimpleSequences;
+import sequences.editgraph.ArcDiagonalFactorySequences;
 import sequences.editgraph.ExceptionGeneralEG;
 import sequences.editgraph.ExceptionInternalEG;
 import sequences.editgraph.ExceptionInvalidArc;
@@ -229,7 +229,7 @@ public class Dup
 			{
 				if (seq1 != null && seq2 != null)
 				{
-					eg = new ArcFactorySimpleSequences(seq1, seq2, match, mismatch, gap, pathDupFactory,
+					eg = new ArcDiagonalFactorySequences(seq1, seq2, match, mismatch, gap, pathDupFactory,
 						new ExtenderDup());
 				}
 				else

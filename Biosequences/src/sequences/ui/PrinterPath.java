@@ -14,7 +14,7 @@ import sequences.editgraph.ArcExtended;
 import sequences.editgraph.ArcExtendedOverEGExtender;
 import sequences.editgraph.ArcHorizontal;
 import sequences.editgraph.ArcVertical;
-import sequences.editgraph.ArcFactorySimpleSequences;
+import sequences.editgraph.ArcDiagonalFactorySequences;
 import sequences.editgraph.ExceptionGeneralEG;
 import sequences.editgraph.ExceptionInternalEG;
 import sequences.editgraph.ExceptionInvalidEditGraph;
@@ -295,9 +295,9 @@ public class PrinterPath
 
 	private static char getLetterI(EditGraph eg, int i)
 	{
-		if (eg instanceof ArcFactorySimpleSequences)
+		if (eg instanceof ArcDiagonalFactorySequences)
 		{
-			return toLowerCase(((ArcFactorySimpleSequences) eg).getSeq1().getLetter(i));
+			return toLowerCase(((ArcDiagonalFactorySequences) eg).getSeq1().getLetter(i));
 		}
 		else
 		{
@@ -307,9 +307,9 @@ public class PrinterPath
 
 	private static char getLetterJ(EditGraph eg, int j)
 	{
-		if (eg instanceof ArcFactorySimpleSequences)
+		if (eg instanceof ArcDiagonalFactorySequences)
 		{
-			return toLowerCase(((ArcFactorySimpleSequences) eg).getSeq2().getLetter(j));
+			return toLowerCase(((ArcDiagonalFactorySequences) eg).getSeq2().getLetter(j));
 		}
 		else
 		{
@@ -319,9 +319,9 @@ public class PrinterPath
 
 	private static char getLetterIExtended(EditGraph eg, int i)
 	{
-		if (eg instanceof ArcFactorySimpleSequences)
+		if (eg instanceof ArcDiagonalFactorySequences)
 		{
-			return toUpperCase(((ArcFactorySimpleSequences) eg).getSeq1().getLetter(i));
+			return toUpperCase(((ArcDiagonalFactorySequences) eg).getSeq1().getLetter(i));
 		}
 		else
 		{
@@ -331,9 +331,9 @@ public class PrinterPath
 
 	private static char getLetterJExtended(EditGraph eg, int j)
 	{
-		if (eg instanceof ArcFactorySimpleSequences)
+		if (eg instanceof ArcDiagonalFactorySequences)
 		{
-			return toLowerCase(((ArcFactorySimpleSequences) eg).getSeq2().getLetter(j));
+			return toLowerCase(((ArcDiagonalFactorySequences) eg).getSeq2().getLetter(j));
 		}
 		else
 		{

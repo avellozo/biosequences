@@ -14,35 +14,30 @@ import java.util.List;
  */
 public class EditGraphBasic implements EditGraph, Cloneable
 {
-	int					rowMin, rowMax, colMin, colMax;
+	int						rowMin, rowMax, colMin, colMax;
 
-	ArcFactory			arcFactory;
-	ArcFactoryExtended	arcExtendedFactory;
+	ArcHorizontalFactory	arcHFactory;
+	ArcVerticalFactory		arcVFactory;
+	ArcDiagonalFactory		arcDFactory;
+	ArcExtendedFactory		arcEFactory;
 
-	public EditGraphBasic(int rowMin, int rowMax, int colMin, int colMax, ArcFactory arcFactory,
-			ArcFactoryExtended arcExtendedFactory)
+	public EditGraphBasic(int rowMin, int rowMax, int colMin, int colMax, ArcHorizontalFactory arcHFactory,
+			ArcVerticalFactory arcVFactory, ArcDiagonalFactory arcDFactory, ArcExtendedFactory arcEFactory)
 	{
 		this.rowMin = rowMin;
 		this.rowMax = rowMax;
 		this.colMin = colMin;
 		this.colMax = colMax;
-		this.arcFactory = arcFactory;
-		this.arcExtendedFactory = arcExtendedFactory;
+		this.arcHFactory = arcHFactory;
+		this.arcVFactory = arcVFactory;
+		this.arcDFactory = arcDFactory;
+		this.arcEFactory = arcEFactory;
 	}
 
-	public EditGraphBasic(int rowMax, int colMax, ArcFactory arcFactory, ArcFactoryExtended arcExtendedFactory)
+	public EditGraphBasic(int rowMax, int colMax, ArcHorizontalFactory arcHFactory, ArcVerticalFactory arcVFactory,
+			ArcDiagonalFactory arcDFactory, ArcExtendedFactory arcEFactory)
 	{
-		this(0, rowMax, 0, colMax, arcFactory, arcExtendedFactory);
-	}
-
-	public EditGraphBasic(int rowMin, int rowMax, int colMin, int colMax, ArcFactory arcFactory)
-	{
-		this(rowMin, rowMax, colMin, colMax, arcFactory, null);
-	}
-
-	public EditGraphBasic(int rowMax, int colMax, ArcFactory arcFactory)
-	{
-		this(0, rowMax, 0, colMax, arcFactory);
+		this(0, rowMax, 0, colMax, arcHFactory, arcVFactory, arcDFactory, arcEFactory);
 	}
 
 	public int getRowMin()
@@ -65,14 +60,24 @@ public class EditGraphBasic implements EditGraph, Cloneable
 		return colMax;
 	}
 
-	public ArcFactory getArcFactory()
+	public ArcHorizontalFactory getArcHorizontalFactory()
 	{
-		return arcFactory;
+		return arcHFactory;
 	}
 
-	public ArcFactoryExtended getArcExtendedFactory()
+	public ArcVerticalFactory getArcVerticalFactory()
 	{
-		return arcExtendedFactory;
+		return arcVFactory;
+	}
+
+	public ArcDiagonalFactory getArcDiagonalFactory()
+	{
+		return arcDFactory;
+	}
+
+	public ArcExtendedFactory getArcExtendedFactory()
+	{
+		return arcEFactory;
 	}
 
 	public boolean existsVertex(int row, int col)
@@ -119,7 +124,7 @@ public class EditGraphBasic implements EditGraph, Cloneable
 		return new Vertex(row, col);
 	}
 
-	public EditGraph getSegment(VertexRange vertexRange) throws ExceptionInvalidVertex
+	public EditGraphBasic getSegment(VertexRange vertexRange) throws ExceptionInvalidVertex
 	{
 		if (isValidVertexParam(vertexRange.getBeginVertex()) && isValidVertexParam(vertexRange.getEndVertex()))
 		{
@@ -152,7 +157,7 @@ public class EditGraphBasic implements EditGraph, Cloneable
 			throw new ExceptionInvalidVertex(endVertex,
 				"It's impossible to create an diagonal arc with this end vertex:" + endVertex);
 		}
-		return arcFactory.getDiagonalArc(endVertex);
+		return arcDFactory.getDiagonalArc(endVertex);
 	}
 
 	public ArcHorizontal getHorizontalArc(Vertex endVertex) throws ExceptionInvalidVertex
@@ -162,7 +167,7 @@ public class EditGraphBasic implements EditGraph, Cloneable
 			throw new ExceptionInvalidVertex(endVertex,
 				"It's impossible to create an horizontal arc with this end vertex:" + endVertex);
 		}
-		return arcFactory.getHorizontalArc(endVertex);
+		return arcHFactory.getHorizontalArc(endVertex);
 	}
 
 	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
@@ -172,14 +177,14 @@ public class EditGraphBasic implements EditGraph, Cloneable
 			throw new ExceptionInvalidVertex(endVertex,
 				"It's impossible to create an vertical arc with this end vertex:" + endVertex);
 		}
-		return arcFactory.getVerticalArc(endVertex);
+		return arcVFactory.getVerticalArc(endVertex);
 	}
 
 	public ArcExtended getExtendedArc(VertexRange vertexRange) throws ExceptionInvalidVertex
 	{
 		if (existsExtendedArc(vertexRange))
 		{
-			return arcExtendedFactory.getExtendedArc(vertexRange);
+			return arcEFactory.getExtendedArc(vertexRange);
 		}
 		else
 		{
@@ -190,32 +195,32 @@ public class EditGraphBasic implements EditGraph, Cloneable
 
 	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs()
 	{
-		return arcFactory.getNonZeroDiagonalArcs(this);
+		return arcDFactory.getNonZeroDiagonalArcs(this);
 	}
 
 	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs()
 	{
-		return arcFactory.getNonZeroHorizontalArcs(this);
+		return arcHFactory.getNonZeroHorizontalArcs(this);
 	}
 
 	public List< ? extends ArcVertical> getNonZeroVerticalArcs()
 	{
-		return arcFactory.getNonZeroVerticalArcs(this);
+		return arcVFactory.getNonZeroVerticalArcs(this);
 	}
 
 	public int getWeightDiagonalArc(int i, int j) throws ExceptionInvalidVertex
 	{
-		return arcFactory.getWeightDiagonalArc(i, j);
+		return arcDFactory.getWeightDiagonalArc(i, j);
 	}
 
 	public int getWeightHorizontalArc(int i, int j) throws ExceptionInvalidVertex
 	{
-		return arcFactory.getWeightHorizontalArc(i, j);
+		return arcHFactory.getWeightHorizontalArc(i, j);
 	}
 
 	public int getWeightVerticalArc(int i, int j) throws ExceptionInvalidVertex
 	{
-		return arcFactory.getWeightVerticalArc(i, j);
+		return arcVFactory.getWeightVerticalArc(i, j);
 	}
 
 	public VertexRange getFullRange()
@@ -230,6 +235,7 @@ public class EditGraphBasic implements EditGraph, Cloneable
 			throw new ExceptionInternalEG();
 		}
 	}
+
 	//	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
 	//	{
 	//		return arcFactory.isMatch(endVertex);
@@ -293,4 +299,23 @@ public class EditGraphBasic implements EditGraph, Cloneable
 	//}
 	//}
 	//
+	public ArcHorizontalFactory getArcHFactory()
+	{
+		return arcHFactory;
+	}
+
+	public ArcVerticalFactory getArcVFactory()
+	{
+		return arcVFactory;
+	}
+
+	public ArcDiagonalFactory getArcDFactory()
+	{
+		return arcDFactory;
+	}
+
+	public ArcExtendedFactory getArcEFactory()
+	{
+		return arcEFactory;
+	}
 }

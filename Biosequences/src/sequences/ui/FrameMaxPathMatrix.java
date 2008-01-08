@@ -10,7 +10,7 @@ import javax.swing.WindowConstants;
 
 import sequences.MaxPath;
 import sequences.common.Sequence;
-import sequences.editgraph.ArcFactorySimpleSequences;
+import sequences.editgraph.ArcDiagonalFactorySequences;
 
 /**
  * @author Augusto
@@ -26,8 +26,8 @@ public class FrameMaxPathMatrix extends javax.swing.JFrame
 	public FrameMaxPathMatrix(MaxPath maxPathMatrix)
 	{
 		this.maxPath = maxPathMatrix;
-		seq1 = ((ArcFactorySimpleSequences) maxPathMatrix.getEditGraph()).getSeq1();
-		seq2 = ((ArcFactorySimpleSequences) maxPathMatrix.getEditGraph()).getSeq2();
+		seq1 = ((ArcDiagonalFactorySequences) maxPathMatrix.getEditGraph()).getSeq1();
+		seq2 = ((ArcDiagonalFactorySequences) maxPathMatrix.getEditGraph()).getSeq2();
 		setFrameProperties();
 		createComponents();
 		addComponents();

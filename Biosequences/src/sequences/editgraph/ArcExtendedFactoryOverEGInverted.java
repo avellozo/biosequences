@@ -3,7 +3,7 @@
  */
 package sequences.editgraph;
 
-public class ArcFactoryExtendedOverEGInverted implements ArcFactoryExtended
+public class ArcExtendedFactoryOverEGInverted implements ArcExtendedFactory
 {
 
 	// O peso de uma aresta estendida (i,j)(i', j') é o peso do caminho ótimo de (n-i'+k,j)(n-i+k,j') no grafo invertido (egInverted), 
@@ -14,13 +14,13 @@ public class ArcFactoryExtendedOverEGInverted implements ArcFactoryExtended
 	OptimumPathMethod	optimumPathMethod;
 	int					extensionPenalty;
 
-	public ArcFactoryExtendedOverEGInverted(EditGraph egInverted, OptimumPathMethod optimumPathMethod,
+	public ArcExtendedFactoryOverEGInverted(EditGraph egInverted, OptimumPathMethod optimumPathMethod,
 			int extensionPenalty) throws ExceptionInvalidEditGraph
 	{
 		this(egInverted, optimumPathMethod, egInverted.getRowMax(), egInverted.getRowMin(), extensionPenalty);
 	}
 
-	public ArcFactoryExtendedOverEGInverted(EditGraph egInverted, OptimumPathMethod optimumPathMethod,
+	public ArcExtendedFactoryOverEGInverted(EditGraph egInverted, OptimumPathMethod optimumPathMethod,
 			int extensionPenalty, int n, int k) throws ExceptionInvalidEditGraph
 	{
 		this.egInverted = egInverted;

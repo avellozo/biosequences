@@ -8,6 +8,7 @@ public class OptimumPathImpl implements OptimumPath
 	//	VertexRange				range;
 	EditGraph				eg;
 	//	boolean					local;
+	String					methodName;
 
 	LinkedList<Arc>			arcs				= new LinkedList<Arc>();
 	LinkedList<ArcExtended>	arcsExtended		= new LinkedList<ArcExtended>();
@@ -22,10 +23,11 @@ public class OptimumPathImpl implements OptimumPath
 	//	protected int			iMin, iMax, jMin, jMax, rows, cols;
 
 	//	public OptimumPathImpl(VertexRange range, EditGraph eg, boolean local)
-	public OptimumPathImpl(EditGraph eg)
+	public OptimumPathImpl(EditGraph eg, String methodName)
 	{
 		//		this.range = range;
 		this.eg = eg;
+		this.methodName = methodName;
 		//		this.local = local;
 		//		iMin = getVertexRange().getBeginVertex().getRow();
 		//		jMin = getVertexRange().getBeginVertex().getCol();

@@ -49,7 +49,7 @@ public abstract class AlignmentImpl implements Alignment
 		StringBuffer str = new StringBuffer();
 		str.append("Method: ");
 		str.append(getMethodName());
-		str.append();
+		str.append(System.getProperty("line.separator"));
 		return null;
 	}
 

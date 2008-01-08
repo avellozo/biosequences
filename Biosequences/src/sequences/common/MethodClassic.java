@@ -19,18 +19,21 @@ import sequences.matrix.MatrixIntPrimitive;
 import sequences.matrix.MatrixIntPrimitiveForMax;
 import sequences.matrix.MatrixIntRange;
 
-public class OptimumPathMethodClassic implements OptimumPathMethod
+public class MethodClassic implements OptimumPathMethod
 {
 
-	boolean			local;
+	final char		GAP_HOR		= 'R';
+	final char		GAP_VERT	= 'C';
+
+	char			type;
 
 	MatrixInt		m;
 
 	MatrixCharRange	arcsType;
 
-	public OptimumPathMethodClassic(boolean local)
+	public MethodClassic(char type)
 	{
-		this.local = local;
+		this.type = type;
 	}
 
 	public OptimumPath createPath(VertexRange vertexRange, EditGraph eg) throws ExceptionInvalidEditGraph
@@ -41,13 +44,13 @@ public class OptimumPathMethodClassic implements OptimumPathMethod
 		iMax = vertexRange.getEndVertex().getRow();
 		jMax = vertexRange.getEndVertex().getCol();
 
-		if (local)
+		if (isGlobal())
 		{
-			m = new MatrixIntPrimitiveForMax(vertexRange.getRowsQtty(), vertexRange.getColsQtty());
+			m = new MatrixIntPrimitive(vertexRange.getRowsQtty(), vertexRange.getColsQtty());
 		}
 		else
 		{
-			m = new MatrixIntPrimitive(vertexRange.getRowsQtty(), vertexRange.getColsQtty());
+			m = new MatrixIntPrimitiveForMax(vertexRange.getRowsQtty(), vertexRange.getColsQtty());
 		}
 
 		if (iMin != 0 || jMin != 0)
@@ -70,7 +73,7 @@ public class OptimumPathMethodClassic implements OptimumPathMethod
 			for (j = jMin + 1; j <= jMax; j++)
 			{
 				w = m.getValue(i, j - 1) + eg.getWeightHorizontalArc(i, j);
-				if (local && (w < 0))
+				if (!isGlobal() && (w < 0))
 				{
 					m.setValue(i, j, 0);
 					arcsType.setValue(i, j, Arc.INVALID);
@@ -93,7 +96,7 @@ public class OptimumPathMethodClassic implements OptimumPathMethod
 					}
 					if ((j == jMin) || ((wv > wd) && (wv >= wh)))
 					{
-						if (local && (wv < 0))
+						if (isLocal() && (wv < 0))
 						{
 							m.setValue(i, j, 0);
 							arcsType.setValue(i, j, Arc.INVALID);
@@ -106,7 +109,7 @@ public class OptimumPathMethodClassic implements OptimumPathMethod
 					}
 					else if (wh > wd)
 					{
-						if (local && (wh < 0))
+						if (isLocal() && (wh < 0))
 						{
 							m.setValue(i, j, 0);
 							arcsType.setValue(i, j, Arc.INVALID);
@@ -119,7 +122,7 @@ public class OptimumPathMethodClassic implements OptimumPathMethod
 					}
 					else
 					{
-						if (local && (wd < 0))
+						if (isLocal() && (wd < 0))
 						{
 							m.setValue(i, j, 0);
 							arcsType.setValue(i, j, Arc.INVALID);
@@ -138,14 +141,18 @@ public class OptimumPathMethodClassic implements OptimumPathMethod
 			e.printStackTrace();
 			throw new SequenceInternalException();
 		}
-		OptimumPathImpl path = new OptimumPathImpl(eg);
+		OptimumPathImpl path = new OptimumPathImpl(eg, getName());
 		try
 		{
 			Vertex v;
-			if (local)
+			if (isLocal())
 			{
 				ElementInt e = m.getMaxValue();
 				v = eg.getVertex(e.getRow(), e.getCol());
+			}
+			else if (isSemiGlobal())
+			{
+				v = eg.getVertex(iMax, m.getIndexMaxRowValues().getValue(iMax));
 			}
 			else
 			{
@@ -183,12 +190,34 @@ public class OptimumPathMethodClassic implements OptimumPathMethod
 
 	public String getName()
 	{
+		if (isLocal())
+		{
+			return "Classic Local Alignment";
+		}
+		else if (isGlobal())
+		{
+			return "Classic Global Alignment";
+		}
+		else if (isSemiGlobal())
+		{
+			return "Classic Semiglobal Alignment";
+		}
 		return "Classic Alignment";
 	}
 
 	public boolean isLocal()
 	{
-		return local;
+		return type == OptimumPathMethod.LOCAL;
+	}
+
+	public boolean isGlobal()
+	{
+		return type == OptimumPathMethod.GLOBAL;
+	}
+
+	public boolean isSemiGlobal()
+	{
+		return type == OptimumPathMethod.SEMIGLOBAL;
 	}
 
 }

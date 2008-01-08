@@ -30,6 +30,7 @@ import sequences.common.FileFastaSequence;
 import sequences.common.ListOfSequences;
 import sequences.common.Sequence;
 import sequences.editgraph.ExceptionInvalidEditGraph;
+import sequences.editgraph.OptimumPathMethod;
 
 /**
  * @author Augusto
@@ -375,7 +376,7 @@ public class FrameMain extends JFrame implements ListSelectionListener
 			Sequence seq2 = sequences.getSequence(selectedSequences[1]);
 			try
 			{
-				AlignmentClassic align = new AlignmentClassic(seq1, seq2, 1, 0, 0, false);
+				AlignmentClassic align = new AlignmentClassic(seq1, seq2, 1, 0, 0, -1, OptimumPathMethod.GLOBAL);
 				System.out.println(align.getPath().getScore());
 			}
 			catch (ExceptionInvalidEditGraph e)

@@ -9,14 +9,14 @@ import sequences.common.Sequence;
  * @author Augusto
  * @data 09/08/2004
  */
-public class ArcFactorySimpleSequences extends ArcFactorySimple
+public class ArcDiagonalFactorySequences extends ArcDiagonalFactoryMatchMismatch
 {
 	protected Sequence	seq1, seq2;
 
 	// Sequência 1 nas linhas e seq 2 nas colunas
-	public ArcFactorySimpleSequences(Sequence seq1, Sequence seq2, int match, int mismatch, int gap)
+	public ArcDiagonalFactorySequences(Sequence seq1, Sequence seq2, int match, int mismatch)
 	{
-		super(match, mismatch, gap);
+		super(match, mismatch);
 		this.seq1 = seq1;
 		this.seq2 = seq2;
 	}

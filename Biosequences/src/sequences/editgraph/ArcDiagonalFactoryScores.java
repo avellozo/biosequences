@@ -9,16 +9,16 @@ import java.util.List;
 
 import sequences.common.Score;
 
-public class ArcFactoryDiagonalScores extends ArcFactorySimple
+public class ArcDiagonalFactoryScores extends ArcDiagonalFactoryMatchMismatch
 {
 
 	int							scoreThresholdForMatch;
 	List<Score>					scores;
 	HashMap<String, Integer>	matches;
 
-	public ArcFactoryDiagonalScores(List<Score> scores, int scoreThresholdForMatch, int match, int mismatch, int gap)
+	public ArcDiagonalFactoryScores(List<Score> scores, int scoreThresholdForMatch, int match, int mismatch)
 	{
-		super(match, mismatch, gap);
+		super(match, mismatch);
 		this.scoreThresholdForMatch = scoreThresholdForMatch;
 		this.scores = scores;
 	}

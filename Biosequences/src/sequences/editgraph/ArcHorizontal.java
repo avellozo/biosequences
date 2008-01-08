@@ -14,4 +14,9 @@ public class ArcHorizontal extends ArcAbstractImpl
 	{
 		return new Vertex(getEndVertex().getRow(), getEndVertex().getCol() - 1);
 	}
+
+	public String toString()
+	{
+		return "Arc Horizontal: endVertex:" + getEndVertex() + " weight " + weight;
+	}
 }

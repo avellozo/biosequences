@@ -14,4 +14,9 @@ public class ArcVertical extends ArcAbstractImpl
 	{
 		return new Vertex(getEndVertex().getRow() - 1, getEndVertex().getCol());
 	}
+
+	public String toString()
+	{
+		return "Arc Vertical: endVertex:" + getEndVertex() + " weight " + weight;
+	}
 }

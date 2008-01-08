@@ -21,7 +21,7 @@ import sequences.common.FileFastaSequence;
 import sequences.common.FragmentsScores;
 import sequences.common.MatchesWeight;
 import sequences.common.Sequence;
-import sequences.editgraph.ArcFactorySimpleSequences;
+import sequences.editgraph.ArcDiagonalFactorySequences;
 import sequences.editgraph.ExceptionGeneralEG;
 import sequences.editgraph.ExceptionInternalEG;
 import sequences.editgraph.ExceptionInvalidArc;
@@ -257,9 +257,9 @@ public class Bim
 			{
 				if (seq1 != null && seq2 != null)
 				{
-					egInverted = new ArcFactorySimpleSequences(new ComplementReverseSequence(seq1), seq2, match, mismatch,
+					egInverted = new ArcDiagonalFactorySequences(new ComplementReverseSequence(seq1), seq2, match, mismatch,
 						gap, pathSimpleFactory, null);
-					eg = new ArcFactorySimpleSequences(seq1, seq2, match, mismatch, gap, pathBimFactory,
+					eg = new ArcDiagonalFactorySequences(seq1, seq2, match, mismatch, gap, pathBimFactory,
 						new ExtenderUsingEGInvertedRows(egInverted, inversion));
 				}
 				else

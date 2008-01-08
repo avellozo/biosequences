@@ -14,7 +14,7 @@ import sequences.MaxPathNaive;
 import sequences.common.FileFastaSequence;
 import sequences.common.Sequence;
 import sequences.editgraph.EditGraphOld;
-import sequences.editgraph.ArcFactorySimpleSequences;
+import sequences.editgraph.ArcDiagonalFactorySequences;
 import sequences.editgraph.ArcFactoryRandom;
 import sequences.util.ByteArrayOutputStream;
 import gnu.getopt.Getopt;
@@ -132,7 +132,7 @@ public class MaxPath
 					mismatch = -random.nextInt(128);
 					gap = -random.nextInt(128);
 				}
-				editGraph = new ArcFactorySimpleSequences(seq1, seq2, match, mismatch,
+				editGraph = new ArcDiagonalFactorySequences(seq1, seq2, match, mismatch,
 					gap, false);
 				Object[] a = {new Integer(match), new Integer(mismatch),
 					new Integer(gap)};

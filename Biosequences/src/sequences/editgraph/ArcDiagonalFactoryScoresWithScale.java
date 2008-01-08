@@ -8,14 +8,14 @@ import java.util.List;
 import sequences.common.MatchesWeight;
 import sequences.common.Score;
 
-public class ArcFactoryDiagonalScoresWithScale extends ArcFactoryDiagonalScores
+public class ArcDiagonalFactoryScoresWithScale extends ArcDiagonalFactoryScores
 {
 	MatchesWeight	matchesWeightScale;
 
-	public ArcFactoryDiagonalScoresWithScale(List<Score> scores, int scoreThresholdForMatch,
-			MatchesWeight matchesWeightScale, int mismatch, int gap)
+	public ArcDiagonalFactoryScoresWithScale(List<Score> scores, int scoreThresholdForMatch,
+			MatchesWeight matchesWeightScale, int mismatch)
 	{
-		super(scores, scoreThresholdForMatch, 0, mismatch, gap);
+		super(scores, scoreThresholdForMatch, 0, mismatch);
 		this.matchesWeightScale = matchesWeightScale;
 	}
 

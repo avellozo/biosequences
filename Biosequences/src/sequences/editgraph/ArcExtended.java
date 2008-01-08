@@ -33,6 +33,6 @@ public class ArcExtended extends ArcAbstractImpl
 	@Override
 	public String toString()
 	{
-		return "Extended of Vertex " + vertexRange.getBeginVertex() + " " + super.toString();
+		return "Arc Extended of Vertex " + vertexRange.getBeginVertex() + " to " + getEndVertex() + " weight " + weight;
 	}
 }
