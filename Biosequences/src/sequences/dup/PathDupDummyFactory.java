@@ -1,10 +1,10 @@
 package sequences.dup;
 
-import sequences.editgraph.ExceptionGeneralEG;
-import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.exception.ExceptionGeneralEG;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 
 public class PathDupDummyFactory<E extends EditGraph<E, ? extends ExtenderDup>>
 		implements OptimumPathMethod<E, PathDupDummy>

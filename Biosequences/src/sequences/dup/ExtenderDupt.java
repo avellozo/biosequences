@@ -3,9 +3,9 @@
  */
 package sequences.dup;
 
-import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 
 public class ExtenderDupt<E extends EditGraph<E, ? extends ExtenderDup>> extends ExtenderDup
 {

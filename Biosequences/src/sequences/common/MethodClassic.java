@@ -5,13 +5,13 @@ package sequences.common;
 
 import sequences.editgraph.Arc;
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.ExceptionInvalidEditGraph;
-import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.OptimumPath;
 import sequences.editgraph.OptimumPathImpl;
 import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.VertexRange;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 import sequences.matrix.ElementInt;
 import sequences.matrix.MatrixCharRange;
 import sequences.matrix.MatrixInt;

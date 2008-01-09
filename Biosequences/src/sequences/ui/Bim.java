@@ -21,16 +21,16 @@ import sequences.common.FileFastaSequence;
 import sequences.common.FragmentsScores;
 import sequences.common.MatchesWeight;
 import sequences.common.Sequence;
-import sequences.editgraph.ArcDiagonalFactorySequences;
-import sequences.editgraph.ExceptionGeneralEG;
-import sequences.editgraph.ExceptionInternalEG;
-import sequences.editgraph.ExceptionInvalidArc;
-import sequences.editgraph.ExceptionInvalidEditGraph;
-import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EGSparseWithDiagonals;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.OptimumPathSimpleFactory;
+import sequences.editgraph.arcs.factories.ArcDiagonalFactorySequences;
+import sequences.editgraph.exception.ExceptionGeneralEG;
+import sequences.editgraph.exception.ExceptionInternalEG;
+import sequences.editgraph.exception.ExceptionInvalidArc;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 
 /**
  * @author Augusto

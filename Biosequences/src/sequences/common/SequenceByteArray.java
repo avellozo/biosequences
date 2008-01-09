@@ -15,6 +15,7 @@ public class SequenceByteArray implements Sequence
 {
 	protected String	name;
 	protected byte[]	letters;
+	protected String	description;
 
 	public SequenceByteArray(String name, byte[] letters)
 	{
@@ -32,8 +33,7 @@ public class SequenceByteArray implements Sequence
 	{
 		int off = 0;
 		int bytesLidos = 0;
-		while ((bytesLidos = in.read(letters, off = off + bytesLidos, in
-			.available())) != 0)
+		while ((bytesLidos = in.read(letters, off = off + bytesLidos, in.available())) != 0)
 			;
 	}
 
@@ -89,5 +89,15 @@ public class SequenceByteArray implements Sequence
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 }

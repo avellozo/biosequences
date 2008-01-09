@@ -1,11 +1,11 @@
 package sequences.dup;
 
-import sequences.editgraph.ArcExtended;
 import sequences.editgraph.EGInvalidRangeException;
 import sequences.editgraph.EGInvalidVertexException;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.Extender;
 import sequences.editgraph.VertexRange;
+import sequences.editgraph.arcs.ArcExtended;
 
 public class ExtenderDup<E extends EditGraph<E, ? extends ExtenderDup>> implements Extender
 {

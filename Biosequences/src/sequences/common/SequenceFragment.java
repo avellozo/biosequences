@@ -11,6 +11,7 @@ public class SequenceFragment implements Sequence
 {
 	Sequence	seq;
 	int			begin, length;
+	String		description;
 
 	public SequenceFragment(Sequence seq, int begin, int length)
 	{
@@ -80,7 +81,7 @@ public class SequenceFragment implements Sequence
 
 	public void setName(String name)
 	{
-		seq.setName(name);
+		throw new SequenceInternalException("It's impossible to set the name of one sequence fragment.");
 	}
 
 	public void setLetters(byte[] letters)
@@ -93,4 +94,14 @@ public class SequenceFragment implements Sequence
 		throw new RuntimeException("Método não implementado.");
 	}
 
+	public String getDescription()
+	{
+		return "Fragment of " + begin + " to " + Integer.toString(begin + length - 1) + " of sequence: "
+			+ seq.getDescription();
+	}
+
+	public void setDescription(String description)
+	{
+		throw new SequenceInternalException("It's impossible to set the description of one sequence fragment.");
+	}
 }

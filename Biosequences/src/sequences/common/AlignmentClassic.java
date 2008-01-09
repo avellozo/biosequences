@@ -3,15 +3,15 @@
  */
 package sequences.common;
 
-import sequences.editgraph.ArcDiagonalFactorySequences;
-import sequences.editgraph.ArcExtendedFactoryForGapOpen;
-import sequences.editgraph.ArcExtendedFactoryNothing;
-import sequences.editgraph.ArcHorizontalFactoryConstant;
-import sequences.editgraph.ArcHorizontalFactoryNothing;
-import sequences.editgraph.ArcVerticalFactoryConstant;
-import sequences.editgraph.ArcVerticalFactoryNothing;
 import sequences.editgraph.EditGraphBasic;
-import sequences.editgraph.ExceptionInvalidEditGraph;
+import sequences.editgraph.arcs.factories.ArcDiagonalFactorySequences;
+import sequences.editgraph.arcs.factories.ArcExtendedFactoryForGapOpen;
+import sequences.editgraph.arcs.factories.ArcExtendedFactoryNothing;
+import sequences.editgraph.arcs.factories.ArcHorizontalFactoryConstant;
+import sequences.editgraph.arcs.factories.ArcHorizontalFactoryNothing;
+import sequences.editgraph.arcs.factories.ArcVerticalFactoryConstant;
+import sequences.editgraph.arcs.factories.ArcVerticalFactoryNothing;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 
 public class AlignmentClassic extends AlignmentImpl
 {

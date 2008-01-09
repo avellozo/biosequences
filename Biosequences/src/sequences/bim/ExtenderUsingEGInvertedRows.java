@@ -1,13 +1,13 @@
 package sequences.bim;
 
 import sequences.editgraph.EGInvalidVertexesOfExtensionException;
-import sequences.editgraph.ExceptionInvalidVertex;
-import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.Extender;
 import sequences.editgraph.ExtenderUsingEG;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 
 public class ExtenderUsingEGInvertedRows<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, EGInvertedRows>>, EGInvertedRows extends EditGraph<EGInvertedRows, ? extends Extender<EGInvertedRows>>>
 		extends ExtenderUsingEG<E, EGInvertedRows>

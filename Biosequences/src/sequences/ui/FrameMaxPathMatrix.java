@@ -10,7 +10,7 @@ import javax.swing.WindowConstants;
 
 import sequences.MaxPath;
 import sequences.common.Sequence;
-import sequences.editgraph.ArcDiagonalFactorySequences;
+import sequences.editgraph.arcs.factories.ArcDiagonalFactorySequences;
 
 /**
  * @author Augusto

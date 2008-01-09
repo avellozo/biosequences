@@ -3,6 +3,8 @@
  */
 package sequences.editgraph;
 
+import sequences.editgraph.exception.ExceptionInvalidVertex;
+
 /**
  * @author Augusto F. Vellozo
  */

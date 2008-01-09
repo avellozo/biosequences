@@ -5,10 +5,10 @@ package sequences.dup;
 
 import java.util.LinkedList;
 
-import sequences.editgraph.ExceptionGeneralEG;
-import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.exception.ExceptionGeneralEG;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntPrimitive;
 

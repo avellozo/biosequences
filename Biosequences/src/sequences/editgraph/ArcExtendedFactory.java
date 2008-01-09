@@ -3,6 +3,9 @@
  */
 package sequences.editgraph;
 
+import sequences.editgraph.arcs.ArcExtended;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
+
 public interface ArcExtendedFactory
 {
 

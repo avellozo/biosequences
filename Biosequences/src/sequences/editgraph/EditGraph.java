@@ -5,6 +5,12 @@ package sequences.editgraph;
 
 import java.util.List;
 
+import sequences.editgraph.arcs.ArcDiagonal;
+import sequences.editgraph.arcs.ArcExtended;
+import sequences.editgraph.arcs.ArcHorizontal;
+import sequences.editgraph.arcs.ArcVertical;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
+
 /**
  * @author Augusto F. Vellozo
  */

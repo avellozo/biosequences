@@ -34,7 +34,7 @@ public class ReverseSequence implements Sequence
 
 	public void setName(String name)
 	{
-		seq.setName(name);
+		throw new SequenceInternalException("It's impossible to set the name of one sequence reverse.");
 	}
 
 	public String toString()
@@ -56,5 +56,15 @@ public class ReverseSequence implements Sequence
 	public byte[] getLetters()
 	{
 		throw new RuntimeException("Método não implementado.");
+	}
+
+	public String getDescription()
+	{
+		return "Reverse sequence of " + seq.getDescription();
+	}
+
+	public void setDescription(String description)
+	{
+		throw new SequenceInternalException("It's impossible to set the description of one sequence reverse.");
 	}
 }

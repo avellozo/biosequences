@@ -2,12 +2,12 @@ package sequences.bim.n3lgn;
 
 import sequences.bim.ExtenderUsingEGInvertedRows;
 import sequences.bim.PathBimDP;
-import sequences.editgraph.ExceptionInternalEG;
-import sequences.editgraph.ExceptionInvalidArc;
-import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EGInvalidVertexesOfExtensionException;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.exception.ExceptionInternalEG;
+import sequences.editgraph.exception.ExceptionInvalidArc;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntComposite;
 import sequences.matrix.MatrixIntTreeJeanette;

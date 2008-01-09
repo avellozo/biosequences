@@ -4,9 +4,9 @@
 package sequences.common;
 
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.OptimumPath;
 import sequences.editgraph.OptimumPathMethod;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 
 public abstract class AlignmentImpl implements Alignment
 {

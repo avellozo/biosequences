@@ -20,11 +20,16 @@ public interface Sequence
 	// índice começa em 1
 	public void setLetter(byte b, int pos);
 
+	public void setLetters(byte[] letters);
+
+	public byte[] getLetters();
+
 	public String getName();
 
 	public void setName(String name);
 
-	public void setLetters(byte[] letters);
+	public String getDescription();
 
-	public byte[] getLetters();
+	public void setDescription(String description);
+
 }

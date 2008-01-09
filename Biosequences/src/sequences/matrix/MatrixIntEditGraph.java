@@ -4,8 +4,8 @@
 package sequences.matrix;
 
 import sequences.editgraph.EditGraph;
-import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.Vertex;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 
 /**
  * @author Augusto

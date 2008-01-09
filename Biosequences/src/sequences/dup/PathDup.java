@@ -1,11 +1,11 @@
 package sequences.dup;
 
-import sequences.editgraph.ExceptionGeneralEG;
-import sequences.editgraph.ExceptionInternalEG;
-import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathImpl;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.exception.ExceptionGeneralEG;
+import sequences.editgraph.exception.ExceptionInternalEG;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 
 public class PathDup<E extends EditGraph<E, ? extends ExtenderDup>> extends OptimumPathImpl
 {

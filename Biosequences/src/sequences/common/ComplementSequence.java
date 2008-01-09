@@ -27,30 +27,30 @@ public class ComplementSequence implements Sequence
 		char c = (char) seq.getLetter(pos);
 		switch (c)
 		{
-		case 'A':
-			c = 'T';
-			break;
-		case 'C':
-			c = 'G';
-			break;
-		case 'T':
-			c = 'A';
-			break;
-		case 'G':
-			c = 'C';
-			break;
-		case 'a':
-			c = 't';
-			break;
-		case 'c':
-			c = 'g';
-			break;
-		case 't':
-			c = 'a';
-			break;
-		case 'g':
-			c = 'c';
-			break;
+			case 'A':
+				c = 'T';
+				break;
+			case 'C':
+				c = 'G';
+				break;
+			case 'T':
+				c = 'A';
+				break;
+			case 'G':
+				c = 'C';
+				break;
+			case 'a':
+				c = 't';
+				break;
+			case 'c':
+				c = 'g';
+				break;
+			case 't':
+				c = 'a';
+				break;
+			case 'g':
+				c = 'c';
+				break;
 		}
 		return (byte) c;
 	}
@@ -61,30 +61,30 @@ public class ComplementSequence implements Sequence
 		char c = (char) b;
 		switch (c)
 		{
-		case 'A':
-			c = 'T';
-			break;
-		case 'C':
-			c = 'G';
-			break;
-		case 'T':
-			c = 'A';
-			break;
-		case 'G':
-			c = 'C';
-			break;
-		case 'a':
-			c = 't';
-			break;
-		case 'c':
-			c = 'g';
-			break;
-		case 't':
-			c = 'a';
-			break;
-		case 'g':
-			c = 'c';
-			break;
+			case 'A':
+				c = 'T';
+				break;
+			case 'C':
+				c = 'G';
+				break;
+			case 'T':
+				c = 'A';
+				break;
+			case 'G':
+				c = 'C';
+				break;
+			case 'a':
+				c = 't';
+				break;
+			case 'c':
+				c = 'g';
+				break;
+			case 't':
+				c = 'a';
+				break;
+			case 'g':
+				c = 'c';
+				break;
 		}
 		seq.setLetter((byte) c, pos);
 	}
@@ -96,7 +96,7 @@ public class ComplementSequence implements Sequence
 
 	public void setName(String name)
 	{
-		seq.setName(name);
+		throw new SequenceInternalException("It's impossible to set the name of one complementar sequence.");
 	}
 
 	public String toString()
@@ -118,5 +118,15 @@ public class ComplementSequence implements Sequence
 	public byte[] getLetters()
 	{
 		throw new RuntimeException("Método não implementado.");
+	}
+
+	public String getDescription()
+	{
+		return "Complementar sequence of " + seq.getDescription();
+	}
+
+	public void setDescription(String description)
+	{
+		throw new SequenceInternalException("It's impossible to set the description of one complementar sequence.");
 	}
 }

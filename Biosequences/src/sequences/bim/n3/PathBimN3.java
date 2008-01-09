@@ -2,12 +2,12 @@ package sequences.bim.n3;
 
 import sequences.bim.ExtenderUsingEGInvertedRows;
 import sequences.bim.PathBimDP;
-import sequences.editgraph.ExceptionInternalEG;
-import sequences.editgraph.ExceptionInvalidArc;
-import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EGInvalidVertexesOfExtensionException;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.exception.ExceptionInternalEG;
+import sequences.editgraph.exception.ExceptionInvalidArc;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 
 public class PathBimN3<E extends EditGraph<E, ? extends ExtenderUsingEGInvertedRows<E, ? extends EditGraph>>> extends
 		PathBimDP

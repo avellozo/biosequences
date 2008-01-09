@@ -4,9 +4,9 @@
 package sequences.bim;
 
 import sequences.editgraph.EGInvalidVertexesOfExtensionException;
-import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntPrimitive;
 

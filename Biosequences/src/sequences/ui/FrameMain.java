@@ -29,8 +29,8 @@ import sequences.common.AlignmentClassic;
 import sequences.common.FileFastaSequence;
 import sequences.common.ListOfSequences;
 import sequences.common.Sequence;
-import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.OptimumPathMethod;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 
 /**
  * @author Augusto
@@ -404,18 +404,18 @@ public class FrameMain extends JFrame implements ListSelectionListener
 
 	protected void showSequence(Sequence seq)
 	{
-		if (panelSeq == null)
-		{
-			panelSeq = new PanelSeq(seq, false, true);
-			panelRight.add(panelSeq);
-			this.pack();
-		}
-		else
-		{
-			panelSeq.setSequence(seq);
-			this.pack();
-		}
-	}
+		/*		if (panelSeq == null)
+				{
+					panelSeq = new PanelSeq(seq, false, true);
+					panelRight.add(panelSeq);
+					this.pack();
+				}
+				else
+				{
+					panelSeq.setSequence(seq);
+					this.pack();
+				}
+		*/}
 
 	public void valueChanged(ListSelectionEvent e)
 	{

@@ -2,6 +2,12 @@ package sequences.editgraph;
 
 import java.util.LinkedList;
 
+import sequences.editgraph.arcs.ArcDiagonal;
+import sequences.editgraph.arcs.ArcExtended;
+import sequences.editgraph.arcs.ArcExtendedOverEG;
+import sequences.editgraph.arcs.ArcHorizontal;
+import sequences.editgraph.arcs.ArcVertical;
+
 public class OptimumPathImpl implements OptimumPath
 {
 

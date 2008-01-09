@@ -21,17 +21,17 @@ import sequences.common.ComplementReverseSequence;
 import sequences.common.SequenceByteArray;
 import sequences.editgraph.Arc;
 import sequences.editgraph.ArcExtendedOverEGExtender;
-import sequences.editgraph.ArcDiagonalFactorySequences;
-import sequences.editgraph.ExceptionGeneralEG;
-import sequences.editgraph.ExceptionInvalidArc;
-import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EGInvalidVertexesOfExtensionException;
-import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPath;
 import sequences.editgraph.OptimumPathDummyFactory;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.arcs.factories.ArcDiagonalFactorySequences;
+import sequences.editgraph.exception.ExceptionGeneralEG;
+import sequences.editgraph.exception.ExceptionInvalidArc;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 import sequences.ui.PrinterPath;
 
 /**

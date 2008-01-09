@@ -5,6 +5,9 @@ package sequences.editgraph;
 
 import java.util.List;
 
+import sequences.editgraph.arcs.ArcDiagonal;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
+
 public interface ArcDiagonalFactory
 {
 

@@ -9,22 +9,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 import sequences.editgraph.Arc;
-import sequences.editgraph.ArcDiagonal;
-import sequences.editgraph.ArcExtended;
-import sequences.editgraph.ArcExtendedOverEGExtender;
-import sequences.editgraph.ArcHorizontal;
-import sequences.editgraph.ArcVertical;
-import sequences.editgraph.ArcDiagonalFactorySequences;
-import sequences.editgraph.ExceptionGeneralEG;
-import sequences.editgraph.ExceptionInternalEG;
-import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EGInvalidVertexesOfExtensionException;
-import sequences.editgraph.ExceptionInvalidVertex;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPath;
 import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.OptimumPathSimpleFactory;
 import sequences.editgraph.Vertex;
+import sequences.editgraph.arcs.ArcDiagonal;
+import sequences.editgraph.arcs.ArcExtended;
+import sequences.editgraph.arcs.ArcExtendedOverEGExtender;
+import sequences.editgraph.arcs.ArcHorizontal;
+import sequences.editgraph.arcs.ArcVertical;
+import sequences.editgraph.arcs.factories.ArcDiagonalFactorySequences;
+import sequences.editgraph.exception.ExceptionGeneralEG;
+import sequences.editgraph.exception.ExceptionInternalEG;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 
 public class PrinterPath
 {

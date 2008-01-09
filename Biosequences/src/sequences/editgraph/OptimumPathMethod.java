@@ -1,5 +1,7 @@
 package sequences.editgraph;
 
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
+
 public interface OptimumPathMethod
 {
 	final char	GLOBAL		= 'G';

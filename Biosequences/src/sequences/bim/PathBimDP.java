@@ -2,14 +2,14 @@ package sequences.bim;
 
 import sequences.common.SequenceInternalException;
 import sequences.editgraph.Arc;
-import sequences.editgraph.ExceptionInternalEG;
-import sequences.editgraph.ExceptionInvalidArc;
 import sequences.editgraph.EGInvalidVertexesOfExtensionException;
-import sequences.editgraph.ExceptionInvalidVertex;
-import sequences.editgraph.ExceptionInvalidEditGraph;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.exception.ExceptionInternalEG;
+import sequences.editgraph.exception.ExceptionInvalidArc;
+import sequences.editgraph.exception.ExceptionInvalidEditGraph;
+import sequences.editgraph.exception.ExceptionInvalidVertex;
 import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntDP;
 import sequences.matrix.MatrixIntPrimitive;

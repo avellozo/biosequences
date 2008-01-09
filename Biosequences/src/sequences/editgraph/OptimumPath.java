@@ -5,6 +5,8 @@ package sequences.editgraph;
 
 import java.util.List;
 
+import sequences.editgraph.arcs.ArcExtended;
+
 /**
  * @author Augusto F. Vellozo
  */
