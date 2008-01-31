@@ -373,6 +373,11 @@ public class TMColMatrixInt implements MatrixInt
 		return m.isValidRowCol(row, col);
 	}
 
+	public ElementInt getElement(int row, int col)
+	{
+		return new ElementInt(getValue(row, col), row, col);
+	}
+
 	// public void setRow(int rowIndex, int[] row)
 	// {
 	// setRow(rowIndex, new RowIntArray(row));

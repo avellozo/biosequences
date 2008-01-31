@@ -4,8 +4,6 @@
 package sequences.common;
 
 import sequences.editgraph.Arc;
-import sequences.editgraph.ArcHorizontalFactory;
-import sequences.editgraph.ArcVerticalFactory;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.EditGraphBasic;
 import sequences.editgraph.OptimumPath;
@@ -13,7 +11,6 @@ import sequences.editgraph.OptimumPathImpl;
 import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.VertexRange;
-import sequences.editgraph.arcs.factories.ArcExtendedFactoryForGapOpen;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 import sequences.matrix.ArrayInt;
@@ -28,9 +25,6 @@ import sequences.matrix.MatrixIntRange;
 
 public class MethodClassicWithGapOpen implements OptimumPathMethod
 {
-	final char		GAP_HOR		= 'R';
-	final char		GAP_VERT	= 'C';
-
 	char			type;
 
 	MatrixInt		m;
@@ -64,8 +58,7 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 		}
 
 		int gapOpenPenalty = arcEFactory.getGapOpenPenalty();
-		ArcHorizontalFactory arcHFactoryForGap = arcEFactory.getArcHorizontalFactory();
-		ArcVerticalFactory arcVFactoryForGap = arcEFactory.getArcVerticalFactory();
+		EditGraph egForGap = arcEFactory.getEditGraph();
 
 		if (isGlobal())
 		{
@@ -106,7 +99,7 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 			// Calcula a linha iMin
 			for (j = jMin + 1; j <= jMax; j++)
 			{
-				w = arcHFactoryForGap.getWeightHorizontalArc(i, j);
+				w = egForGap.getWeightHorizontalArc(i, j);
 				wNewGap = m.getValue(i, j - 1) + w + gapOpenPenalty;
 				wh = gapHor + w;
 				if (wNewGap > wh)
@@ -123,15 +116,15 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 				else
 				{
 					m.setValue(i, j, wh);
-					arcsType.setValue(i, j, GAP_HOR);
+					arcsType.setValue(i, j, Arc.GAP_HOR);
 				}
-				gapVert.setValue(j, m.getValue(iMin, j) + gapOpenPenalty);
+				gapVert.setValue(j, m.getValue(i, j) + gapOpenPenalty);
 			}
 			for (i = iMin + 1; i <= iMax; i++)
 			{
 				for (j = jMin; j <= jMax; j++)
 				{
-					w = arcVFactoryForGap.getWeightVerticalArc(i, j);
+					w = egForGap.getWeightVerticalArc(i, j);
 					wNewGap = m.getValue(i - 1, j) + w + gapOpenPenalty;
 					wv = gapVert.getValue(j) + w;
 					if (wv < wNewGap)
@@ -142,7 +135,7 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 
 					if (j != jMin)
 					{
-						w = arcHFactoryForGap.getWeightHorizontalArc(i, j);
+						w = egForGap.getWeightHorizontalArc(i, j);
 						wNewGap = m.getValue(i, j - 1) + w + gapOpenPenalty;
 						wh = gapHor + w;
 						if (wNewGap > wh)
@@ -163,7 +156,7 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 						else
 						{
 							m.setValue(i, j, wv);
-							arcsType.setValue(i, j, GAP_VERT);
+							arcsType.setValue(i, j, Arc.GAP_VERT);
 						}
 					}
 					else if (wh > wd)
@@ -176,7 +169,7 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 						else
 						{
 							m.setValue(i, j, wh);
-							arcsType.setValue(i, j, GAP_HOR);
+							arcsType.setValue(i, j, Arc.GAP_HOR);
 						}
 					}
 					else
@@ -194,7 +187,7 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 					}
 					if (j == jMin)
 					{
-						gapHor = m.getValue(i, jMin) + gapOpenPenalty;
+						gapHor = m.getValue(i, j) + gapOpenPenalty;
 					}
 				}
 			}
@@ -204,7 +197,6 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 			e.printStackTrace();
 			throw new SequenceInternalException();
 		}
-		OptimumPathImpl path = new OptimumPathImpl(eg, getName());
 		try
 		{
 			Vertex v;
@@ -221,56 +213,13 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 			{
 				v = vertexRange.getEndVertex();
 			}
-			char c;
-			Arc arc;
-			Vertex v1;
-			int mIJ, wGap;
-			while ((c = arcsType.getValue(i = v.getRow(), j = v.getCol())) != Arc.INVALID)
-			{
-				switch (c)
-				{
-					case GAP_VERT:
-						mIJ = m.getValue(i, j);
-						wGap = gapOpenPenalty;
-						arc = arcVFactoryForGap.getVerticalArc(v);
-						v1 = arc.getBeginVertex();
-						while (m.getValue(v1.getRow(), v1.getCol()) + arc.getWeight() + wGap != mIJ)
-						{
-							wGap += arc.getWeight();
-							arc = arcVFactoryForGap.getVerticalArc(v1);
-							v1 = arc.getBeginVertex();
-						}
-						arc = eg.getExtendedArc(new VertexRange(v1, v));
-						break;
-					case GAP_HOR:
-						mIJ = m.getValue(i, j);
-						wGap = gapOpenPenalty;
-						arc = arcHFactoryForGap.getHorizontalArc(v);
-						v1 = arc.getBeginVertex();
-						while (m.getValue(v1.getRow(), v1.getCol()) + arc.getWeight() + wGap != mIJ)
-						{
-							wGap += arc.getWeight();
-							arc = arcHFactoryForGap.getHorizontalArc(v1);
-							v1 = arc.getBeginVertex();
-						}
-						arc = eg.getExtendedArc(new VertexRange(v1, v));
-						break;
-					case Arc.DIAGONAL:
-						arc = eg.getDiagonalArc(v);
-						break;
-					default:
-						throw new RuntimeException("Tipo de arco inválido: " + c);
-				}
-				path.addFirst(arc);
-				v = arc.getBeginVertex();
-			}
+			return OptimumPathImpl.buildPath(m, arcsType, v, eg, getName(), gapOpenPenalty, egForGap);
 		}
 		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
 			throw new SequenceInternalException();
 		}
-		return path;
 	}
 
 	public String getName()

@@ -324,6 +324,11 @@ public abstract class MatrixIntImpl implements MatrixInt
 		return true;
 	}
 
+	public ElementInt getElement(int row, int col)
+	{
+		return new ElementInt(getValue(row, col), row, col);
+	}
+
 	//	int	indexEndCol, indexBeginCol, indexEndRow, indexBeginRow;
 	//
 	//	public MatrixIntImpl(int indexEndCol, int indexBeginCol, int indexEndRow, int indexBeginRow)

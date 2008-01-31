@@ -91,6 +91,7 @@ public class ArcExtendedFactoryOverEGInverted implements ArcExtendedFactory
 			vertexRange.getEndVertex().getCol()));
 	}
 
+	//Assume que se o vertexRange existe no grafo de edição invertido então um arco estendido pode ser criado
 	public boolean canCreateExtendedArc(VertexRange vertexRange)
 	{
 		try

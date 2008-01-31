@@ -73,4 +73,6 @@ public interface MatrixInt
 	public String toString();
 
 	public boolean isValidRowCol(int row, int col);
+
+	public ElementInt getElement(int row, int col);
 }

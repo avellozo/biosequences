@@ -114,12 +114,17 @@ public class EditGraphBasic implements EditGraph, Cloneable
 
 	public boolean existsExtendedArc(VertexRange vertexRange)
 	{
-		return (isValidVertexParam(vertexRange.getBeginVertex()) && isValidVertexParam(vertexRange.getEndVertex()));
+		return (isValidVertexParam(vertexRange));
 	}
 
 	protected boolean isValidVertexParam(Vertex v)
 	{
 		return ((v != null) && existsVertex(v));
+	}
+
+	protected boolean isValidVertexParam(VertexRange range)
+	{
+		return ((range != null) && existsVertex(range.getBeginVertex()) && existsVertex(range.getEndVertex()));
 	}
 
 	public Vertex getVertex(int row, int col) throws ExceptionInvalidVertex

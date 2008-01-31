@@ -18,6 +18,16 @@ public interface Arc
 
 	public static final char	INVALID		= 'I';
 
+	public static final char	GAP_HOR		= 'R';	//Gap estendido horizontal
+
+	public static final char	GAP_VERT	= 'C';	//Gap estendido vertical
+
+	public static final char	JUNCTION	= 'J';	//arco sem peso que junta dois vértices
+
+	public static final char	DUP_HOR		= 'U';	//arco estendido de uma duplicação horizontal
+
+	public static final char	DUP_VERT	= 'P';	//arco estendido de uma duplicação vertical
+
 	public Vertex getBeginVertex();
 
 	public Vertex getEndVertex();

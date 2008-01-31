@@ -8,7 +8,7 @@ public class ElementInt
 
 	int	value, row, col;
 
-	public ElementInt(int value, int row, int col)
+	protected ElementInt(int value, int row, int col)
 	{
 		super();
 		this.value = value;

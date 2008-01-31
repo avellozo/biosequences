@@ -141,7 +141,7 @@ public class MethodClassic implements OptimumPathMethod
 			e.printStackTrace();
 			throw new SequenceInternalException();
 		}
-		OptimumPathImpl path = new OptimumPathImpl(eg, getName());
+
 		try
 		{
 			Vertex v;
@@ -158,34 +158,13 @@ public class MethodClassic implements OptimumPathMethod
 			{
 				v = vertexRange.getEndVertex();
 			}
-			char c;
-			Arc arc;
-			while ((c = arcsType.getValue(v.getRow(), v.getCol())) != Arc.INVALID)
-			{
-				switch (c)
-				{
-					case Arc.VERTICAL:
-						arc = eg.getVerticalArc(v);
-						break;
-					case Arc.HORIZONTAL:
-						arc = eg.getHorizontalArc(v);
-						break;
-					case Arc.DIAGONAL:
-						arc = eg.getDiagonalArc(v);
-						break;
-					default:
-						throw new RuntimeException("Tipo de arco inválido: " + c);
-				}
-				path.addFirst(arc);
-				v = arc.getBeginVertex();
-			}
+			return OptimumPathImpl.buildPath(m, arcsType, v, eg, getName());
 		}
 		catch (ExceptionInvalidVertex e)
 		{
 			e.printStackTrace();
 			throw new SequenceInternalException();
 		}
-		return path;
 	}
 
 	public String getName()

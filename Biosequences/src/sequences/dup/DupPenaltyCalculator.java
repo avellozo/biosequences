@@ -3,9 +3,9 @@
  */
 package sequences.dup;
 
-import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.VertexRange;
 
 public interface DupPenaltyCalculator
 {
-	public int getExtensionPenalty(EditGraphSegment range, boolean seqBaseInTheSameSeq, int beginPosSeqBase, int endPosSeqBase);
+	public int getExtensionPenalty(VertexRange range, boolean seqBaseInTheSameSeq, boolean tandem);
 }

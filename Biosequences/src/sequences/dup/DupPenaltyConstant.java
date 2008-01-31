@@ -3,23 +3,18 @@
  */
 package sequences.dup;
 
-import sequences.editgraph.EditGraphSegment;
+import sequences.editgraph.VertexRange;
 
 public class DupPenaltyConstant implements DupPenaltyCalculator
 {
-	int penalty;
+	int	penalty;
 
-	/**
-	 * @param penalty
-	 */
 	public DupPenaltyConstant(int penalty)
 	{
-		super();
 		this.penalty = penalty;
 	}
 
-	public int getExtensionPenalty(EditGraphSegment range, boolean seqBaseInTheSameSeq, int beginPosSeqBase,
-			int endPosSeqBase)
+	public int getExtensionPenalty(VertexRange range, boolean seqBaseInTheSameSeq, boolean tandem)
 	{
 		return penalty;
 	}

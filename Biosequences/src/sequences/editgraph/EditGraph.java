@@ -32,6 +32,8 @@ public interface EditGraph
 
 	public boolean existsVertex(Vertex v);
 
+	public Vertex getVertex(int row, int col) throws ExceptionInvalidVertex;
+
 	public boolean existsVerticalArc(Vertex endVertex);
 
 	public boolean existsHorizontalArc(Vertex endVertex);
@@ -39,8 +41,6 @@ public interface EditGraph
 	public boolean existsDiagonalArc(Vertex endVertex);
 
 	public boolean existsExtendedArc(VertexRange vertexRange);
-
-	public Vertex getVertex(int row, int col) throws ExceptionInvalidVertex;
 
 	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex;
 
