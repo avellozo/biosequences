@@ -1,0 +1,102 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="6cm" height="4cm" 
+     viewBox="0 0 350 220" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <title>Edit Graph</title>
+  <path d="M 50 50 h 250 v 150 h -250 v -150"
+        fill="none" stroke="black" stroke-width="1" />
+        
+  <path id="a" d="M 100 50 l 100 150 "
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="5,2"/>
+  <path id="b" d="M 150 50 l 100 150 "
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="5,2"/>
+  <path id="c" d="M 100 50 l 75 75 "
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="5,2"/>
+  <path id="d" d="M 175 125 l 75 75 "
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="5,2"/>
+  <path id="e" d="M 150 50 l 25 75 "
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="5,2"/>
+  <path id="f" d="M 175 125 l 25 75"
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="5,2"/>
+        
+  <circle cx="175" cy="125" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+  <text x="177" y="123" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    v
+  </text>
+  <text font-family="Times new roman" font-size="15" fill="black" >
+  <textPath dy="10" startOffset="50%" xlink:href="#a">a</textPath>      
+  </text>
+        
+  <text font-family="Times new roman" font-size="15" fill="black" >
+  <textPath dy="-3" startOffset="50%" xlink:href="#b">b</textPath>      
+  </text>
+        
+  <text font-family="Times new roman" font-size="15" fill="black" >
+  <textPath dy="-3" startOffset="50%" xlink:href="#c">c</textPath>      
+  </text>
+        
+  <text font-family="Times new roman" font-size="15" fill="black" >
+  <textPath dy="-2" startOffset="30%" xlink:href="#d">d</textPath>      
+  </text>
+        
+  <text font-family="Times new roman" font-size="15" fill="black" >
+  <textPath dy="-3" startOffset="60%" xlink:href="#e">e</textPath>      
+  </text>
+        
+  <text font-family="Times new roman" font-size="15" fill="black" >
+  <textPath dy="-3" startOffset="50%" xlink:href="#f">f</textPath>      
+  </text>
+        
+  <text x="47" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    0
+  </text>
+  <text x="295" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    m
+  </text>
+  <text x="97" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j
+  </text>
+  <text x="100" y="48" 
+        font-family="Times new roman" font-size="09" fill="black" >
+    1
+  </text>
+  <text x="147" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j
+  </text>
+  <text x="150" y="48" 
+        font-family="Times new roman" font-size="09" fill="black" >
+    2
+  </text>
+  <text x="195" y="215" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j
+  </text>
+  <text x="198" y="218" 
+        font-family="Times new roman" font-size="09" fill="black" >
+    3
+  </text>
+  <text x="245" y="215" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j
+  </text>
+  <text x="248" y="218" 
+        font-family="Times new roman" font-size="09" fill="black" >
+    4
+  </text>
+  <text x="37" y="60" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    i'
+  </text>
+  <text x="37" y="200" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    i
+  </text>
+</svg>

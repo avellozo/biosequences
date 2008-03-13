@@ -1,0 +1,48 @@
+\BOOKMARK [0][-]{chapter.1}{Introdu\347\343o}{}
+\BOOKMARK [1][-]{section.1.1}{Um pouco de biologia: muta\347\365es}{chapter.1}
+\BOOKMARK [2][-]{subsection.1.1.1}{Repeti\347\365es}{section.1.1}
+\BOOKMARK [0][-]{chapter.2}{Defini\347\365es Gerais}{}
+\BOOKMARK [1][-]{section.2.1}{Combinat\363ria das palavras}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{Matriz monot\364nica}{chapter.2}
+\BOOKMARK [1][-]{section.2.3}{Matriz totalmente monot\364nica}{chapter.2}
+\BOOKMARK [1][-]{section.2.4}{Matriz de Monge}{chapter.2}
+\BOOKMARK [1][-]{section.2.5}{Opera\347\365es de edi\347\343o}{chapter.2}
+\BOOKMARK [1][-]{section.2.6}{Grafo de edi\347\343o}{chapter.2}
+\BOOKMARK [0][-]{chapter.3}{Alinhamento}{}
+\BOOKMARK [1][-]{section.3.1}{Alinhamento usual}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{Alinhamentos e opera\347\365es de edi\347\343o}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{Alinhamentos e grafos de edi\347\343o}{chapter.3}
+\BOOKMARK [1][-]{section.3.4}{Alinhamento global, semiglobal e local}{chapter.3}
+\BOOKMARK [0][-]{chapter.4}{Alinhamento com invers\365es}{}
+\BOOKMARK [1][-]{section.4.1}{Introdu\347\343o}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{Alinhamento com invers\365es n\343o sobrepostas}{chapter.4}
+\BOOKMARK [1][-]{section.4.3}{Caminhos \363timos em um grafo de edi\347\343o}{chapter.4}
+\BOOKMARK [1][-]{section.4.4}{\301rvores para armazenar \(\(i', j'\),\(i,j\)\)}{chapter.4}
+\BOOKMARK [1][-]{section.4.5}{Algoritmo O\(n3 logn\)}{chapter.4}
+\BOOKMARK [1][-]{section.4.6}{Algoritmo O\(n3\)}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{Alinhamento com duplica\347\365es}{}
+\BOOKMARK [1][-]{section.5.1}{Introdu\347\343o}{chapter.5}
+\BOOKMARK [1][-]{section.5.2}{Algoritmo para alinhamento com duplica\347\365es}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.2.1}{Fun\347\343o tA\(j',j\)}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.2}{Fun\347\343o tB\(j',j\)}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.3}{Fun\347\343o tC\(j',j\)}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.4}{Fun\347\343o t|sD\(j',j\)}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.5}{Fun\347\343o dup\(t,j',j\) e Mt[i,j]}{section.5.2}
+\BOOKMARK [2][-]{subsection.5.2.6}{Algoritmo DUP}{section.5.2}
+\BOOKMARK [1][-]{section.5.3}{Duplica\347\365es em tandem}{chapter.5}
+\BOOKMARK [1][-]{section.5.4}{Algoritmo para alinhamento de duplica\347\365es em tandem}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.4.1}{Fun\347\343o tE\(j',j\)}{section.5.4}
+\BOOKMARK [2][-]{subsection.5.4.2}{Fun\347\365es t|sF\(j',j,i\) e s|tF\(i',i,j\)}{section.5.4}
+\BOOKMARK [2][-]{subsection.5.4.3}{Fun\347\343o dupt\(t,j',j,s,i\) e Mt[i,j]}{section.5.4}
+\BOOKMARK [2][-]{subsection.5.4.4}{Algoritmo DUPTandem}{section.5.4}
+\BOOKMARK [0][-]{chapter.6}{Conclus\343o}{}
+\BOOKMARK [0][-]{chapter.7}{Trabalhos futuros}{}
+\BOOKMARK [1][-]{section.7.1}{Alinhamento com invers\365es n\343o sobrepostas e duplica\347\365es}{chapter.7}
+\BOOKMARK [1][-]{section.7.2}{Implementa\347\343o e testes para duplica\347\365es}{chapter.7}
+\BOOKMARK [1][-]{section.7.3}{Pesos para abertura de gaps}{chapter.7}
+\BOOKMARK [1][-]{section.7.4}{Fun\347\343o inv dependente do comprimento da invers\343o}{chapter.7}
+\BOOKMARK [1][-]{section.7.5}{Invers\343o com um n\355vel de sobreposi\347\343o}{chapter.7}
+\BOOKMARK [1][-]{section.7.6}{Rearranjos nas repeti\347\365es}{chapter.7}
+\BOOKMARK [1][-]{section.7.7}{Diminuir a mem\363ria utilizada}{chapter.7}
+\BOOKMARK [1][-]{section.7.8}{An\341lise e compara\347\343o dos tempos de execu\347\343o}{chapter.7}
+\BOOKMARK [1][-]{section.7.9}{Esparsidade}{chapter.7}

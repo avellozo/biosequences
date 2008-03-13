@@ -1,0 +1,118 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="4cm" height="4cm" 
+     viewBox="0 0 250 250" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <title>Edit Graph</title>
+  <defs>
+    <marker id="Triangle"
+      viewBox="0 0 10 10" refX="10" refY="2" 
+      markerUnits="strokeWidth"
+      markerWidth="20" markerHeight="20"
+      orient="auto">
+      <path d="M 0 0 L 10 2 L 0 4 z" />
+    </marker>
+  </defs>
+  <defs>
+    <marker id="TriangleRed"
+      viewBox="0 0 10 10" refX="10" refY="2" 
+      markerUnits="strokeWidth"
+      markerWidth="20" markerHeight="20" fill="red"
+      orient="auto">
+      <path d="M 0 0 L 10 2 L 0 4 z" stroke="red"/>
+    </marker>
+  </defs>
+  
+  <path d="M 50 50 q50,25 100,50"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="5,4"
+        marker-mid="url(#Triangle)"  marker-end="url(#TriangleRed)"/>
+  
+  <path d="M 100 50 q25,0 50,50"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="5,4"
+        marker-mid="url(#Triangle)"  marker-end="url(#TriangleRed)"/>
+  
+  <path d="M 150 50 q25,25 0,50"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="5,4"
+        marker-mid="url(#Triangle)"  marker-end="url(#TriangleRed)"/>
+  
+  <path d="M 50 100 q50,50 100,0"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="5,4"
+        marker-mid="url(#Triangle)"  marker-end="url(#TriangleRed)"/>
+  
+  <path d="M 100 100 q25,15 50,0"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="5,4"
+        marker-mid="url(#Triangle)"  marker-end="url(#TriangleRed)"/>
+  
+  <path d="M 50 50 h 50 h 50 h 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 50 100 h 50 h 50 h 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 50 150 h 50 h 50 h 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 50 200 h 50 h 50 h 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 50 50 v 50 v 50 v 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 100 50 v 50 v 50 v 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 150 50 v 50 v 50 v 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 200 50 v 50 v 50 v 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 50 50 l 50 50 l 50 50 l 50 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 100 50 l 50 50 l 50 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 150 50 l 50 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 50 100 l 50 50 l 50 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <path d="M 50 150 l 50 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-mid="url(#Triangle)"  marker-end="url(#Triangle)"/>
+  <text x="47" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    0
+  </text>
+  <text x="97" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    1
+  </text>
+  <text x="147" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    2
+  </text>
+  <text x="195" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    3
+  </text>
+  <text x="37" y="60" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    0
+  </text>
+  <text x="37" y="105" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    1
+  </text>
+  <text x="37" y="155" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    2
+  </text>
+  <text x="37" y="200" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    3
+  </text>
+</svg>

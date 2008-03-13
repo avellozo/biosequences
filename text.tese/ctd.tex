@@ -1,0 +1,1117 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[normalem]{ulem}
+\usepackage[portuguese]{alg}
+\usepackage{graphicx,color}
+\usepackage{enumerate}
+\usepackage{verbatim}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{ntheorem}
+% \renewcommand{\baselinestretch}{2}
+
+\usepackage{float}
+%%\floatstyle{boxed}
+\floatstyle{ruled}
+\newfloat{algorithm}{htbp}{loa}%[chapter]
+\newcommand{\listofalgorithms}{\listof{algorithm}{Lista de Algoritmos}}
+\floatname{algorithm}{Algoritmo}
+
+\usepackage{graphicx,url}
+\sloppy
+
+
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicao}[teorema]{Proposição}
+\newtheorem{observacao}[teorema]{Observação}
+\newtheorem{corolario}[teorema]{Corolário}
+\newtheorem{definicao}[teorema]{Definição}
+\newtheorem{exemplo}[teorema]{Exemplo}
+\newtheorem{problema}[teorema]{Problema}
+
+\newenvironment{prova}[1][Prova.]{\begin{trivlist}
+\item[\hskip \labelsep {\itshape #1}]}{\end{trivlist}}
+% \newenvironment{definicao}[1][Definição]{\begin{trivlist}
+% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+% \newenvironment{problema}[1][Problema]{\begin{trivlist}
+% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+% % \newenvironment{exemplo}[1][Exemplo]{\begin{trivlist}
+% % \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{comentario}[1][Comentário]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newcommand{\cqd}{\nobreak \ifvmode \relax \else \ifdim\lastskip<1.5em
+\hskip-\lastskip \hskip1.5em plus0em minus0.5em \fi \nobreak \vrule
+height0.75em width0.5em depth0.25em\fi}
+\newcommand{\tq}{\mathrel{|}}
+\newcommand{\invert}[1]{\mathord{\overline{{#1}}}}
+\newcommand{\invertsym}{\mathord{\overline{\ \ {\vspace{3 mm}}}}}
+\newcommand{\aplica}{\longrightarrow}
+\newcommand{\implica}{\Longrightarrow}
+\newcommand{\sse}{\Longleftrightarrow}
+\newcommand{\natset}{\ensuremath{\mathbb{N}}}
+\newcommand{\intset}{\ensuremath{\mathbb{Z}}}
+\newcommand{\realset}{\ensuremath{\mathbb{R}}}
+\newcommand{\tabenum}{\hspace{20 pt}}
+
+%alfabeto das seqeuncias
+\newcommand{\alfabeto}{\Sigma}
+%alfabeto de um alinhamento simples
+\newcommand{\alfabetoaligngap}{\alfabeto'}
+
+% símbolos das operações
+\newcommand{\opedsym}{\ensuremath{\gamma}}
+
+\newcommand{\opedseqsym}{\ensuremath{\Psi}}
+
+%operação composta
+\newcommand{\opedcompsym}[1]{\ensuremath{\phi_{#1}}}
+
+%operaçao de inserção
+\newcommand{\opedinssym}[2]{\ensuremath{\iota_{#1,#2}}}
+
+%operaçao de remoção
+\newcommand{\opeddelsym}[2]{\ensuremath{\rho_{#1,#2}}}
+
+%operaçao de substituição
+\newcommand{\opedsubsym}[3]{\ensuremath{\sigma_{#1,#2,#3}}}
+
+%operaçao de inversão
+\newcommand{\opedinvsym}[2]{\ensuremath{\pi_{#1,#2}}}
+
+%operaçao de duplicação
+\newcommand{\opeddupsym}[3]{\ensuremath{\delta_{#1,#2,#3}}}
+
+%operaçao de excisão
+\newcommand{\opedexcsym}[3]{\ensuremath{\varepsilon_{#1,#2,#3}}}
+
+% Conjunto das \opeds
+\newcommand{\opedset}{\ensuremath{\Gamma}}
+
+% Conjunto das \opeds pontuais
+\newcommand{\opedpontset}{\ensuremath{\opedset_P}}
+
+% Conjunto das \opeds de inversao
+\newcommand{\opedinvset}{\ensuremath{\widehat{\opedset}}}
+
+%peso para a oped de inversão
+\newcommand{\opedweiginv}{\ensuremath{\omega_{inv}}}
+
+%pontuação para uma oped
+\newcommand{\opedweigsym}{\ensuremath{\omega_{op}}}
+
+%concatenação de duas opeds
+\newcommand{\opedconcat}{\cdot}
+
+
+
+
+% Grafo de edição
+% vértice inicial de uma aresta
+\newcommand{\startedge}[1]{\ensuremath{\textrm{start}(#1)}}
+% vértice final de uma aresta
+\newcommand{\finishedge}[1]{\ensuremath{\textrm{end}(#1)}}
+%linha do 'vertice v
+\newcommand{\egrowv}[1]{\ensuremath{\textrm{row}(#1)}}
+%coluna do 'vertice v
+\newcommand{\egcolv}[1]{\ensuremath{\textrm{col}(#1)}}
+
+%conjunto dos caminhos de um grafo de edição de u a v
+\newcommand{\egpathset}[2]{\ensuremath{\Pi_{#1,#2}}}
+
+%conjunto dos caminhos de um grafo de edição de u a v
+\newcommand{\egepathset}[2]{\ensuremath{\widehat{\Pi}_{#1,#2}}}
+
+% aresta qualquer
+\newcommand{\egesym}{\ensuremath{\epsilon}}
+
+% aresta horizontal
+\newcommand{\egeh}[1]{\ensuremath{\egesym_H^{#1}}}
+
+% aresta vertical
+\newcommand{\egev}[1]{\ensuremath{\egesym_V^{#1}}}
+
+% aresta diagonal
+\newcommand{\eged}[1]{\ensuremath{\egesym_D^{#1}}}
+
+% aresta estendida
+\newcommand{\egex}[2]{\ensuremath{\egesym_{#1}^{#2}}}
+
+% função peso weight
+\newcommand{\egweigsym}{\ensuremath{\omega}}
+
+% peso de uma aresta
+\newcommand{\egweige}[1]{\ensuremath{\egweigsym(#1)}}
+
+% peso de uma caminho
+\newcommand{\egweigp}[2]{\ensuremath{\egweigsym(#1,#2)}}
+
+% aresta qualquer gred estendido para inversao
+\newcommand{\egesymi}{\ensuremath{\overline{\epsilon}}}
+
+% aresta horizontal gred estendido para inversao
+\newcommand{\egehi}[1]{\ensuremath{\egesymi_H^{#1}}}
+
+% aresta vertical gred estendido para inversao
+\newcommand{\egevi}[1]{\ensuremath{\egesymi_V^{#1}}}
+
+% aresta diagonal gred estendido para inversao
+\newcommand{\egedi}[1]{\ensuremath{\egesymi_D^{#1}}}
+
+% aresta estendida gred estendido para inversao
+\newcommand{\egexi}[2]{\ensuremath{\egesymi_{#1}^{#2}}}
+
+% função peso weight gred estendido para inversao
+\newcommand{\egweigsymi}{\ensuremath{\overline{\omega}}}
+
+% peso de uma aresta gred estendido para inversao
+\newcommand{\egweigei}[1]{\ensuremath{\egweigsymi(#1)}}
+
+% peso de uma caminho gred estendido para inversao
+\newcommand{\egweigpi}[2]{\ensuremath{\egweigsymi(#1,#2)}}
+
+%função que associa uma aresta de um \gred\ estendido a uma \oped
+\newcommand{\egeopedinvsym}[1]{\ensuremath{\widehat{\textrm{op}}}}
+
+%função que troca os índices de uma oped em \overline{G} para a oped em G
+\newcommand{\eginvert}[1]{\ensuremath{\textrm{add}_{#1}}}
+
+
+% gap em um alinhamento
+\newcommand{\aligngap}{\ensuremath{-}}
+
+% gap em um alinhamento com inversões
+\newcommand{\aligngapi}{\ensuremath{\_}}
+
+% gap em um alinhamento com inversões
+\newcommand{\aligngapd}{\ensuremath{-}}
+
+% prefixo de s ou t contido até a coluna k de um alinhamento A
+\newcommand{\alignprefixsym}{\ensuremath{\textrm{pref}}}
+\newcommand{\alignprefix}[3]{\ensuremath{\alignprefixsym(#1, #2, #3)}}
+
+% função score de um alinhamento
+\newcommand{\alignscore}{\ensuremath{\varphi}}
+
+%Conjunto dos alinhamentos de quaisquer s e t
+\newcommand{\alignset}{\ensuremath{\Lambda}}
+
+%Conjunto dos alinhamentos com inv de quaisquer s e t
+\newcommand{\alignseti}{\ensuremath{\widehat{\Lambda}}}
+
+%Conjunto dos alinhamentos com inv de quaisquer s e t
+\newcommand{\alignsetd}{\ensuremath{\Lambda_D}}
+
+%Conjunto dos alinhamentos de s e t
+\newcommand{\alignsetst}[2]{\ensuremath{\alignset_{#1,#2}}}
+
+%Conjunto dos alinhamentos de s
+\newcommand{\alignsets}[1]{\ensuremath{\alignset_{#1}}}
+
+%Função coluna de s[i]
+\newcommand{\aligncolsym}{\ensuremath{\textrm{col}}}
+\newcommand{\aligncol}[3]{\ensuremath{\aligncolsym(#1,#2,#3)}}
+
+%Função que associa uma coluna de A a uma \oped
+\newcommand{\alignopedsym}{\ensuremath{\textrm{op}}}
+\newcommand{\alignoped}[2]{\ensuremath{\alignopedsym(#1,#2)}}
+
+%Função que associa uma coluna de A a uma aresta
+\newcommand{\alignedgesym}{\ensuremath{\textrm{edge}}}
+\newcommand{\alignedge}[2]{\ensuremath{\alignedgesym(#1,$ $#2)}}
+
+%Função que associa uma coluna de A_inv a uma aresta num gred estendido
+\newcommand{\alignedgeinvsym}{\ensuremath{\textrm{edge}}}
+\newcommand{\alignedgeinv}[2]{\ensuremath{\alignedgesym(#1, #2)}}
+
+%Função que associa uma coluna de A a uma \oped
+\newcommand{\alignpathsym}{\ensuremath{\textrm{path}}}
+\newcommand{\alignpath}[1]{\ensuremath{\alignpathsym(#1)}}
+
+%símbolo de um alinhamento
+\newcommand{\alignsym}{\ensuremath{A}}
+
+%símbolo de um alinhamento com inversoes nao sobrepostas
+\newcommand{\aligninvsym}{\ensuremath{A}}
+
+%símbolo de um alinhamento com duplicacaoes
+\newcommand{\aligndupsym}{\ensuremath{A}}
+\newcommand{\aligndupdirectsym}{\ensuremath{+}}
+\newcommand{\aligndupinicdupsym}{\ensuremath{!}}
+\newcommand{\aligndupextdupsym}{\ensuremath{\#}}
+
+%conjunto com os símbolos s1,s2,\ldots,sn e t1,t2,\ldots,tm
+\newcommand{\aligndupsetgapdupsym}{\ensuremath{\Upsilon}}
+
+%função que associa uma caminho num \gred estendido a uma \seq\ de opeds
+\newcommand{\aligninvfunc}{\ensuremath{\textrm{transf}}}
+
+%Função que associa uma coluna de um \aligninvsym a um símbolo
+\newcommand{\alignsimbsym}{\ensuremath{\textrm{simb}}}
+\newcommand{\alignsimb}[3]{\ensuremath{\alignsimbsym(#1, #2, #3)}}
+
+%Função que associa uma coluna de um \aligninvsym a um símbolo
+\newcommand{\aligndsimbsym}{\ensuremath{\textrm{simb}}}
+\newcommand{\aligndsimb}[3]{\ensuremath{\aligndsimbsym(#1, #2, #3)}}
+
+%função que associa uma coluna de um alinh com \invnsobs a uma\oped
+\newcommand{\alignopedinvsym}{\ensuremath{\textrm{opi}}}
+\newcommand{\alignopedinv}[2]{\alignopedinvsym(#1,#2)}
+
+%função que retorna o final de um bloco em um alinh \invnsobs
+\newcommand{\alingblockinvsym}{\ensuremath{\textrm{end}}}
+\newcommand{\alingblockinv}[2]{\alingblockinvsym(#1,#2)}
+
+%transformação de A pela função opi
+\newcommand{\tranfbyopisym}{\ensuremath{\opedseqsym_{\alignopedinvsym}^{\aligninvsym}}}
+\newcommand{\tranfoptimumbyopisym}{\ensuremath{\opedseqsym_{\alignopedinvsym}^{\aligninvoptimumsym}}}
+
+\newcommand{\alignimaxind}{\ensuremath{\textrm{maxi}}}
+\newcommand{\aligniminind}{\ensuremath{\textrm{mini}}}
+
+%pontuação de um alinhamento com inv nao sobrepostas
+\newcommand{\aligninvscoresym}{\ensuremath{\omega^{\aligninvsym}}}
+\newcommand{\aligninvoptimumsym}{\ensuremath{\aligninvsym^*}}
+\newcommand{\aligninvoptimumscoresym}{\ensuremath{\omega^{\aligninvoptimumsym}}}
+
+%pontuação de um alinhamento com dups
+\newcommand{\aligndupscoresym}{\ensuremath{\omega^{\aligndupsym}}}
+\newcommand{\aligndupoptimumsym}{\ensuremath{\aligndupsym^*}}
+\newcommand{\aligndupoptimumscoresym}{\ensuremath{\omega^{\aligndupoptimumsym}}}
+
+\newcommand{\aligndupoptscore}[2]{\ensuremath{\omega_D(#1,#2)}}
+\newcommand{\aligndupoptscorest}[6]{\ensuremath{\aligndupoptscore{#1[#3\Rng #4]}{#2[#5\Rng #6]}}}
+\newcommand{\alignoptscore}[2]{\ensuremath{\omega^*(#1,#2)}}
+\newcommand{\alignoptscorest}[6]{\ensuremath{\alignoptscore{#1[#3\Rng #4]}{#2[#5\Rng #6]}}}
+\newcommand{\alignoptlocscore}[2]{\ensuremath{\omega_L(#1,#2)}}
+\newcommand{\alignoptlocscorest}[6]{\ensuremath{\alignoptlocscore{#1[#3\Rng #4]}{#2[#5\Rng #6]}}}
+\newcommand{\vomega}[2]{\ensuremath{\omega_v(#1[#2])}}
+\newcommand{\homega}[2]{\ensuremath{\omega_h(#1[#2])}}
+\newcommand{\domega}[4]{\ensuremath{\omega_d(#1[#3],#2[#4])}}
+\newcommand{\vomegad}[2]{\ensuremath{\omega_v(#1[#2])}}
+\newcommand{\homegad}[2]{\ensuremath{\omega_h(#1[#2])}}
+\newcommand{\domegad}[4]{\ensuremath{\omega_d(#1[#3],#2[#4])}}
+\newcommand{\xomega}[3]{\ensuremath{\omega_x(#1[#2 \Rng #3])}}
+\newcommand{\uomega}[3]{\ensuremath{\omega_u(#1[#2 \Rng #3])}}
+\newcommand{\romega}{\ensuremath{\omega_r}}
+
+%conjunto com os símbolos s1,s2,\ldots,sn e t1,t2,\ldots,tm
+\newcommand{\aligndupsetbase}[3]{\ensuremath{\Sigma_{base}^{#1,#2,#3}}}
+
+%Função de exclusão de símbolos de uma \seq\
+\newcommand{\excludefunc}{\ensuremath{\textrm{exclude}}}
+
+%grafo das duplicações de um alinhamento com duplicações
+\newcommand{\graphdup}[1]{\ensuremath{G_{#1}}}
+
+%função com peso máximo de um intrep
+\newcommand{\dupwsym}{\ensuremath{\textrm{dup}}}
+\newcommand{\dupw}[3]{\ensuremath{\dupwsym(#1,#2,#3)}}
+
+%função com peso máximo de um intrep em tandem
+\newcommand{\dupwtsym}{\ensuremath{\textrm{dupt}}}
+\newcommand{\dupwt}[5]{\ensuremath{\dupwtsym(#1,#2,#3,#4,#5)}}
+
+
+%Matriz W
+\newcommand{\matw}[3]{\ensuremath{W_{#2}^{#3}}}
+
+%função hdif, vdif e ddif
+\newcommand{\diffunc}[5]{\ensuremath{{#1}((#2,#3),(#4,#5))}}
+\newcommand{\difvec}[4]{\ensuremath{{#1}^{#2,#3,#4}}}
+
+\newcommand{\hdifsym}[1]{\ensuremath{\textrm{hDif}_{#1}}}
+\newcommand{\hdiffunc}[5]{\diffunc{\hdifsym{#1}}{#2}{#3}{#4}{#5}}
+\newcommand{\hdifvec}[4]{\difvec{\hdifsym{#1}}{#2}{#3}{#4}}
+
+\newcommand{\vdifsym}[1]{\ensuremath{\textrm{vDif}_{#1}}}
+\newcommand{\vdiffunc}[5]{\diffunc{\vdifsym{#1}}{#2}{#3}{#4}{#5}}
+\newcommand{\vdifvec}[4]{\difvec{\vdifsym{#1}}{#2}{#3}{#4}}
+
+\newcommand{\ddifsym}[1]{\ensuremath{\textrm{dDif}_{#1}}}
+\newcommand{\ddiffunc}[5]{\diffunc{\ddifsym{#1}}{#2}{#3}{#4}{#5}}
+\newcommand{\ddifvec}[4]{\difvec{\ddifsym{#1}}{#2}{#3}{#4}}
+
+%Árvore com os valores de pesos de caminhos ótimos
+\newcommand{\arvb}[4]{B_{#1}^{#2,#3,#4}}
+
+%Função Out para o alg n3
+\newcommand{\outsym}[1]{\ensuremath{\textrm{out}}}
+\newcommand{\outfunc}[5]{\ensuremath{\outsym{#1}((#2,#3),(#4,#5))}}
+\newcommand{\outvec}[4]{\ensuremath{\outsym{#1}^{#2,(#3,#4)}}}
+\newcommand{\outlist}[1]{\ensuremath{Out_{#1}}}
+\newcommand{\cl}[1]{\ensuremath{CL_{#1}}}
+
+%Função difOut para o alg n3
+\newcommand{\difoutsym}[1]{\ensuremath{\Delta \textrm{out}_{#1}}}
+\newcommand{\difoutfunc}[5]{\ensuremath{\difoutsym{#1}((#2,#3),(#4,#5))}}
+\newcommand{\difoutvec}[1]{\ensuremath{\Delta OUT_{#1}}}
+
+%Função psi para o alg n3
+\newcommand{\psihsym}[1]{\ensuremath{\psi_{#1}}}
+\newcommand{\psihfunc}[4]{\ensuremath{\psihsym{#1}(#2,#3,#4)}}
+
+%borderline
+% \newcommand{\blhsym}[1]{\ensuremath{bl_{#1}}}
+% \newcommand{\blhfunc}[5]{\ensuremath{\blhsym{#1}(#2,(#3,#4),#5)}}
+\newcommand{\blhvec}[4]{\ensuremath{BL_{#1}^{#2,#3,#4}}}
+\newcommand{\blhdeltavec}[1]{\ensuremath{\Delta BL_{#1}}}
+
+
+
+\newcommand{\inv}{in\-ver\-são}
+\newcommand{\invs}{in\-ver\-sões}
+\newcommand{\invnsob}{\inv\ não so\-bre\-pos\-ta}
+\newcommand{\invnsobs}{\invs\ não so\-bre\-pos\-tas}
+\newcommand{\oped}{o\-pe\-ra\-ção de e\-di\-ção}
+\newcommand{\opeds}{o\-pe\-ra\-ções de e\-di\-ção}
+\newcommand{\Oped}{O\-pe\-ra\-ção de e\-di\-ção}
+\newcommand{\Opeds}{O\-pe\-ra\-ções de e\-di\-ção}
+\newcommand{\seq}{se\-qüên\-cia}
+\newcommand{\seqs}{se\-qüên\-cias}
+\newcommand{\Seq}{Se\-qüên\-cia}
+\newcommand{\Seqs}{Se\-qüên\-cias}
+\newcommand{\bio}{bio\-ló\-gi\-co}
+\newcommand{\bioa}{bio\-ló\-gi\-ca}
+\newcommand{\bios}{bio\-ló\-gi\-cos}
+\newcommand{\bioas}{bio\-ló\-gi\-cas}
+\newcommand{\gred}{grafo de e\-di\-ção}
+\newcommand{\greds}{grafos de e\-di\-ção}
+\newcommand{\gredes}{grafo de e\-di\-ção estendido}
+\newcommand{\gredess}{grafos de e\-di\-ção estendido}
+\newcommand{\dup}{du\-pli\-ca\-ção}
+\newcommand{\dups}{du\-pli\-ca\-ções}
+\newcommand{\rep}{re\-pe\-ti\-ção}
+\newcommand{\reps}{re\-pe\-ti\-ções}
+\newcommand{\intrep}{intervalo de \rep}
+\newcommand{\intreps}{intervalos de \rep}
+
+
+\newcommand{\seqbaseLetter}{\ensuremath{x}}
+\newcommand{\seqbase}[3]{\ensuremath{\seqbaseLetter(#1,#2,#3)}}
+\newcommand{\seqbasei}[5]{\ensuremath{\seqbaseLetter_{#1[#3]}(#2[#4\Rng #5])}}
+\newcommand{\dupi}[5]{\ensuremath{\omega_{#2|#1}(#3,#4,#5)}}
+\newcommand{\wts}[2]{\ensuremath{W_{#2|#1}}}
+\newcommand{\wdupi}[5]{\ensuremath{\wts{#1}{#2}[#3,#4,#5]}}
+\newcommand{\bestScoreA}[3]{\ensuremath{\omega_{#1}^{A}(#2,#3)}}
+\newcommand{\bestScoreB}[3]{\ensuremath{\omega_{#1}^{B}(#2,#3)}}
+\newcommand{\bestScoreC}[3]{\ensuremath{\omega_{#1}^{C}(#2,#3)}}
+\newcommand{\bestScoreD}[4]{\ensuremath{\omega_{#1|#2}^{D}(#3,#4)}}
+\newcommand{\bestScoreE}[3]{\ensuremath{\omega_{#1}^{E}(#2,#3)}}
+\newcommand{\bestScoreF}[5]{\ensuremath{\omega_{#1|#4}^{F}(#2,#3,#5)}}
+\newcommand{\setA}[3]{\ensuremath{A_{#1}^{#2,#3}}}
+\newcommand{\setB}[3]{\ensuremath{B_{#1}^{#2,#3}}}
+\newcommand{\setC}[3]{\ensuremath{C_{#1}^{#2,#3}}}
+\newcommand{\setD}[1]{\ensuremath{D_{#1}}}
+\newcommand{\setE}[2]{\ensuremath{E^{#1,#2}}}
+
+\newcommand{\wbestScore}[1]{\ensuremath{W_{#1}}}
+\newcommand{\wbestScoreAjm}[1]{\ensuremath{\wbestScore{#1}^{A}}}
+\newcommand{\wbestScoreAj}[4]{\ensuremath{\wbestScoreAjm{#1}[#2,#3,#4]}}
+\newcommand{\wbestScoreBjm}[1]{\ensuremath{\wbestScore{#1}^{B}}}
+\newcommand{\wbestScoreBj}[4]{\ensuremath{\wbestScoreBjm{#1}[#2,#3,#4]}}
+\newcommand{\wbestScoreCjm}[1]{\ensuremath{\wbestScore{#1}^{C1}}}
+\newcommand{\wbestScoreCj}[3]{\ensuremath{\wbestScoreCjm{#1}[#2,#3]}}
+\newcommand{\wbestScoreCjjm}[1]{\ensuremath{\wbestScore{#1}^{C2}}}
+\newcommand{\wbestScoreCjj}[3]{\ensuremath{\wbestScoreCjjm{#1}[#2,#3]}}
+\newcommand{\wbestScoreDjm}[2]{\ensuremath{\wbestScore{#1|#2}^{D}}}
+\newcommand{\wbestScoreDj}[5]{\ensuremath{\wbestScoreDjm{#1}{#2}[#3,#4,#5]}}
+\newcommand{\wbestScoreEjm}[1]{\ensuremath{\wbestScore{#1}^{E}}}
+\newcommand{\wbestScoreEj}[4]{\ensuremath{\wbestScoreEjm{#1}[#2,#3,#4]}}
+\newcommand{\wbestScoreFjm}[2]{\ensuremath{\wbestScore{#1|#2}^{F}}}
+\newcommand{\wbestScoreFj}[5]{\ensuremath{\wbestScoreFjm{#1}{#4}[#2,#3,#5]}}
+
+\newcommand{\wbestScorem}[1]{\ensuremath{\widehat{#1}}}
+\newcommand{\wbestScoreAm}[1]{\ensuremath{\wbestScorem{\wbestScoreAjm{#1}}}}
+\newcommand{\wbestScoreA}[3]{\ensuremath{\wbestScoreAm{#1}[#2,#3]}}
+\newcommand{\wbestScoreBm}[1]{\ensuremath{\wbestScorem{\wbestScoreBjm{#1}}}}
+\newcommand{\wbestScoreB}[3]{\ensuremath{\wbestScoreBm{#1}[#2,#3]}}
+\newcommand{\wbestScoreCm}[1]{\ensuremath{\wbestScorem{\wbestScore{#1}^{C}}}}
+\newcommand{\wbestScoreC}[3]{\ensuremath{\wbestScoreCm{#1}[#2,#3]}}
+\newcommand{\wbestScoreDm}[2]{\ensuremath{\wbestScorem{\wbestScoreDjm{#1}{#2}}}}
+\newcommand{\wbestScoreD}[4]{\ensuremath{\wbestScoreDm{#1}{#2}[#3,#4]}}
+\newcommand{\wbestScoreEm}[1]{\ensuremath{\wbestScorem{\wbestScoreEjm{#1}}}}
+\newcommand{\wbestScoreE}[3]{\ensuremath{\wbestScoreEm{#1}[#2,#3]}}
+\newcommand{\wbestScoreFm}[2]{\ensuremath{\wbestScorem{\wbestScoreFjm{#1}{#2}}}}
+\newcommand{\wbestScoreF}[5]{\ensuremath{\wbestScoreFm{#1}{#4}[#2,#3,#5]}}
+
+% \newcommand{\fmia}[7]{\ensuremath{\delta_{m1}(#1,#2,#3,#4,#5,#6,#7)}}
+% \newcommand{\fmiia}[4]{\ensuremath{\omega_{#1}^{#4}(#2,#3)}}
+% \newcommand{\fmii}[3]{\ensuremath{\omega_{#1}(#2,#3)}}
+% \newcommand{\fmiiia}[4]{\ensuremath{\omega_{#1}^{#4}(#2,#3)}}
+% \newcommand{\fmiii}[3]{\ensuremath{\omega_{#1}(#2,#3)}}
+% \newcommand{\fmiv}[6]{\ensuremath{\omega_{#2|#1}^{#3}(#4,#5,#6)}}
+% \newcommand{\fmiva}[6]{\ensuremath{\underline{\omega_{#2|#1}^{#3}}(#4,#5,#6)}}
+% \newcommand{\fmivb}[6]{\ensuremath{\overline{\omega_{#2|#1}^{#3}}(#4,#5,#6)}}
+% \newcommand{\maxnew}[3]{\ensuremath{\max\left\{#3\textrm{; }\forall #1 \tq #2\right\}}}
+\newcommand{\maxnew}[3]{\ensuremath{\max_{\forall #1 \tq #2}\left(#3\right)}}
+%#1 variables, #2 restrictions and #3 expression
+\newcommand{\mtm}{\ensuremath{M_t}}
+\newcommand{\msm}{\ensuremath{M_s}}
+\newcommand{\mt}[2]{\ensuremath{\mtm[#1,#2]}}
+\newcommand{\ms}[2]{\ensuremath{\msm[#1,#2]}}
+
+\newcommand{\mtmtandem}{\ensuremath{M_t}}
+\newcommand{\msmtandem}{\ensuremath{M_s}}
+\newcommand{\mttandem}[2]{\ensuremath{\mtmtandem[#1,#2]}}
+\newcommand{\mstandem}[2]{\ensuremath{\msmtandem[#1,#2]}}
+
+\newcommand{\Wt}{\ensuremath{MAXW_t}}
+\newcommand{\Wtold}{\ensuremath{W_t^{old}}}
+\newcommand{\Ws}{\ensuremath{MAXW_s}}
+\newcommand{\Wsold}{\ensuremath{W_s^{old}}}
+\newcommand{\wt}[2]{\ensuremath{\Wt[#1,#2]}}
+\newcommand{\wtold}[2]{\ensuremath{\Wtold[#1,#2]}}
+\newcommand{\ws}[2]{\ensuremath{\Ws[#1,#2]}}
+\newcommand{\wsold}[2]{\ensuremath{\Wsold[#1,#2]}}
+
+\newcommand{\WA}{\wbestScoreAm{t}}
+\newcommand{\WAj}{\wbestScoreAjm{t}^{,j'}}
+\newcommand{\wA}[2]{\ensuremath{\WA[#1,#2]}}
+\newcommand{\wAj}[2]{\ensuremath{\WAj[#1,#2]}}
+
+\newcommand{\WB}{\wbestScoreBm{t}}
+\newcommand{\WBj}{\wbestScoreBjm{t}^{,j}}
+\newcommand{\wB}[2]{\ensuremath{\WB[#1,#2]}}
+\newcommand{\wBj}[2]{\ensuremath{\WBj[#1,#2]}}
+
+\newcommand{\WC}{\wbestScoreCm{t}}
+\newcommand{\WCj}{\wbestScoreCjm{t}}
+\newcommand{\WCjj}{\wbestScoreCjjm{t}}
+\newcommand{\wC}[2]{\ensuremath{\WC[#1,#2]}}
+\newcommand{\wCj}[2]{\ensuremath{\WCj[#1,#2]}}
+\newcommand{\wCjj}[2]{\ensuremath{\WCjj[#1,#2]}}
+
+\newcommand{\WD}{\wbestScoreDm{t}{s}}
+\newcommand{\WDj}{\wbestScoreDjm{t}{s}^{,j'}}
+\newcommand{\wD}[2]{\ensuremath{\WD[#1,#2]}}
+\newcommand{\wDj}[2]{\ensuremath{\WDj[#1,#2]}}
+
+\newcommand{\WE}[1]{\wbestScoreEm{#1}}
+\newcommand{\WEj}{\wbestScoreEjm{t}^{,j'}}
+\newcommand{\wE}[2]{\ensuremath{\WE{t}[#1,#2]}}
+\newcommand{\wEj}[2]{\ensuremath{\WEj[#1,#2]}}
+
+% \newcommand{\WF}{\wbestScoreFm{t}{s}}
+% \newcommand{\wF}[2]{\ensuremath{\WF[#1,#2]}}
+\newcommand{\WFi}[3]{\wbestScoreFjm{#1}{#2}^{,#3}}
+\newcommand{\wFi}[5]{\ensuremath{\WFi{#1}{#2}{#3}[#4,#5]}}
+
+
+\sloppy
+
+\title{Alinhamento de seqüências com rearranjos}
+
+\author{Augusto Fernandes Vellozo\inst{1}\\ Orientador: Alair Pereira do
+Lago\inst{1}}
+
+
+\address{Departamento de Ciência da Computação - Instituto de Matemática e
+Estatística \\ Universidade Estadual de São Paulo -- SP -- Brasil (DCC--
+IME -- USP)
+% \\http://www.teses.usp.br/teses/disponiveis/45/45134/tde-04052007-185842
+\email{vellozo@ime.usp.br} }
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Sequence comparison done by alignment algorithms is one of the most fundamental
+tasks in bioinformatics. The evolutive mutations considered in these alignments
+are insertions, deletions and substitutions of nucleotides. This work treats of
+generalizations introduced in alignment algorithms in such a way that other
+mutations known as rearrangements are also considered, more specifically, we
+consider non-over\-lapping inversions, duplications and duplications in tandem.
+The new algorithms presented in this work improve
+asymptotically the runt time of the algorithms known to solve the same problem.
+This paper is an extended abstract of \cite{tese.vellozo}.
+\end{abstract}
+
+\begin{resumo}
+Uma das tarefas mais básicas em bioinformática é a comparação de \seqs\ feita
+por algoritmos de alinhamento, que modelam as alterações evolutivas nas \seqs\
+\bioas\ através de mutações como inserção, remoção e substituições de
+nucleotídeos. Este trabalho trata de generalizações nos algoritmos de
+alinhamento que levam em consideração outras mutações conhecidas como rearranjos,
+mais especificamente, inversões não sobrepostas, \dups\ e \dups\ em
+\emph{tandem}. Os novos algoritmos apresentados neste trabalho melhoram
+assintoticamente o tempo de execução dos algoritmos conhecidos para
+resolver o mesmo problema. Este artigo é um resumo estendido de
+\cite{tese.vellozo}.
+\end{resumo}
+
+
+\section{Introdução}
+Atualmente, devido ao grande número de projetos de seqüenciamentos
+desenvolvidos e finalizados, temos uma enorme quantidade de dados moleculares
+disponíveis, principalmente de DNA, RNA e proteína. Processar estes dados para
+extrair informações relevantes é um grande desafio.
+
+Uma das maneiras de manipular, estudar e estruturar estes dados moleculares é
+através do uso de \seqs\ de símbolos. No caso do DNA os símbolos são as letras
+que representam as bases de nucleotídeos (A, C, T e G), no caso das proteínas
+os símbolos são letras que representam os 20 aminoácidos elementares.
+
+Na história da evolução vários eventos \bios\ introduzem mudanças nas \seqs\ do
+DNA. Quando duas seqüências tem alto grau de semelhança é esperado que elas se
+diferenciem apenas em alguns trechos. Normalmente as diferenças nestes
+trechos são con\seqs\ da ocorrência de alguns eventos \bios. Em geral, para a
+visualização destes eventos ocorridos, é feito um procedimento de alinhamento
+entre as duas \seqs. Procedimentos de alinhamento típicos tentam
+identificar que partes não mudam e, nas partes que mudam, quais os eventos
+\bios\ que ocasionaram as mudanças. Tipicamente os eventos biológicos
+considerados para um alinhamento são as \emph{substituições}, \emph{remoções} e
+\emph{inserções} de nucleotídeos.
+
+O alinhamento de \seqs\ \bioas\ é uma das principais técnicas utilizadas por
+biólogos para comparar \seqs\ \bioas.
+
+Um alinhamento pode ser associado a um conjunto de operações de edição que
+transformam uma \seq\ em outra. Normalmente, por motivos de performance, as
+únicas operações de edição consideradas para obtenção de um alinhamento ótimo são
+a \emph{substituição} de um símbolo em outro, a \emph{inserção} de um símbolo e a
+\emph{remoção} de um símbolo. Se associamos custos a cada operação de edição,
+existe um algoritmo clássico de programação dinâmica, que em tempo de execução
+$O(n^2)$~\cite{pmid5420325}\footnote{Nas análises das complexidades dos
+algoritmos, consideraremos neste texto que $n$ é o comprimento da maior \seq\
+analisada.}\footnote{O conhecido artigo de Needleman e Wunsch é geralmente
+considerado a primeira contribuição importante em procedimentos computacionais
+para a comparação de \seqs. O algoritmo proposto por eles neste artigo, apesar de
+não ter sido feita uma análise de tempo no artigo, é considerado cúbico, mas
+normalmente o nome "Algoritmo de Needleman e Wunsch" é utilizado para denominar o
+algoritmo quadrático clássico de programação dinâmica para
+alinhamentos~\cite{meidanissetubalbook}.}, computa um conjunto mínimo de
+operações de edição que tem o custo total ótimo e apresenta o alinhamento associado.
+
+Dadas duas \seqs\ $s$ e $t$ e pontuações fixas para cada \oped\ associada a uma
+mutação, o problema de \emph{obter uma transformação ótima com \invs\ de $s$ e
+$t$} é um problema de otimização que procura uma transformação com \invs\ de
+$s$ e $t$ tal que, a soma das pontuações das \opeds\ desta transformação é
+máxima.
+
+Além desses eventos que resultam em alterações em um único símbolo na \seq\
+biológica, iremos considerar também os rearranjos para a obtenção de
+alinhamentos. Os rearranjos agem sobre um fragmento da \seq. Consideraremos, além
+dos eventos de inserção, remoção e substituição de um símbolo, os eventos de
+\inv\ e de \dup\ de fragmentos para a obtenção de um alinhamento ótimo de duas
+\seqs. Estes não são os únicos tipos de rearranjos, mas são considerados muito
+importantes e são largamente estudados, como por exemplo em~\cite{pmid14764619},
+% em~\cite{pmid14764619,pmid15286789,pmid15918152,pmid12076675, pmid18039875},
+inclusive na associação de doenças humanas à rearranjos no DNA, como por exemplo
+em~\cite{pmid1710175}. Os novos resultados comparativos feitos por Sherer et
+al.~\cite{pmid16254605} nas \seqs\ de DNA do homem e do chimpanzé, mostram
+ a importância do estudo da \inv\ ao nível da \seq\ de DNA e reportaram 83 \seqs\
+ reversas que estão contidas dentro de genes.
+
+Consideraremos que $s=s_1s_2\ldots s_n=s[1\Rng n]$ e $t=t_1t_2\ldots t_m=t[1\Rng
+m]$ são as duas \seqs\ a serem comparadas e alinhadas.
+
+Chamaremos uma \seq\ de \opeds\ que transforma uma \seq\ $s$ em uma \seq\ $t$ de
+uma \emph{transformação de $s$ em $t$}. Consideraremos que cada \oped\ tem uma
+pontuação associada e que a pontuação de uma transformação é a soma das
+pontuações de suas \opeds. Consideraremos que uma transformação de $s$ em $t$ é
+ótima se não existir outra transformação de $s$ em $t$ com pontuação maior.
+
+Diremos que $\egweigp{(i',j')}{(i,j)}$ é a pontuação de uma transformação ótima
+de $s[i'+1 \Rng i]$ em $t[j'+1 \Rng j]$ considerando as operações de
+substituição, inserção e remoção.
+
+\section{Alinhamento com inversões}
+
+Quando possibilitamos a
+\oped\ de \inv\ para a obtenção de uma transformação diremos que a
+transformação obtida é uma \emph{transformação com \invs\ de $s$ em $t$}. A
+\oped\ de inversão substitui um fragmento da \seq\ pelo seu reverso
+complementar.
+
+Como pode ser visto em~\cite{1100950}, o problema de decisão associado ao
+problema de obter uma transformação ótima com \invs\ para um alfabeto ilimitado
+é NP-difícil
+
+Em 1992, Schöniger e Waterman \cite{pmid1591531} introduziram uma hipótese
+simplificadora: todas as regiões envolvendo \invs\ não se sobrepõem. Com esta
+simplificação eles obtiveram um \emph{alinhamento ótimo com \invnsobs} em tempo
+$O(n^6)$. A partir daí, outros melhoraram este tempo chegando até $O(n^4)$
+~\cite{lago03:wob03,gao03:_space_effic_algor_sequen_align_inver}.
+
+Propomos dois algoritmos exatos que obtêm uma transformação ótima com
+\invnsobs\ em tempo $O(n^3 \log n)$~\cite{MR2173809} e
+$O(n^3)$~\cite{vellozo06:_align_with_non_overl_inver}.
+
+Diremos que $\invert{s[i'\Rng i]}$ é o complemento reverso de $s[i'\Rng i]$ .
+Assumiremos que $ins(t[j])$, $rem(s[i])$, $sub(s[i],t[j])$ e $\opedweiginv$ são,
+respectivamente, as pontuações das \opeds\ de inserção de um símbolo $t[j]$,
+remoção de um símbolo $s[i]$, substituição de um símbolo $s[i]$ por $t[j]$ e
+inversão de um fragmento de $s$.
+
+Os dois algoritmos computam a matriz $B$, onde $B[i,j]$ é a pontuação do
+alinhamento ótimo com \invnsobs\ de $s[1\Rng i]$ e $t[1\Rng j]$. O
+Algoritmo~\ref{alg:invgeral} contém o pseudo-código seguido pelos dois
+algoritmos.
+
+Entre as linhas \ref{invgeral:classicinic} a \ref{invgeral:classicfim} do
+Algoritmo~\ref{alg:invgeral} são considerando somentes as \opeds\ de inserção,
+remoção e substituição de um símbolo. O laço da linha~\ref{invgeral:loopiLinha}
+considera a possibilidade de uma \oped\ de inversão de $s[i'+1 \Rng i]$, $0 \leq
+i' \leq i \leq n$.
+
+Os dois algoritmos que propomos diferem somente na forma da construção da
+matriz $\matw{G}{i'}{i}$ e do vetor $A_{i'}^i$, onde $\matw{G}{i'}{i}[j',j]$ é a pontuação do
+alinhamento ótimo de $\invert{s[i'+1\Rng i]}$ e $t[j'+1\Rng j]$ considerando somente
+inserção, remoção e substituição, pois não consideramos inversões sobrepostas no
+alinhamento de $s$ e $t$, e $A_{i'}^i[j]$ é o valor máximo de
+$(B[i',j]+\matw{G}{i'}{i}[j',j]+\opedweiginv)$, para todo $j'$, $0\leq j' \leq j$.
+
+% Para um daddo índice $i$ de $s$, o Algoritmo~\ref{alg:invgeral} calcula entre
+% as linhas \ref{invgeral:classicinic} a \ref{invgeral:classicfim}, para todo $j$
+% o valor $B[i,j]$ considerando somentes as \opeds\ de inserção de um símbolo
+% $t[j]$, remoção de um símbolo $s[i]$ e substituição de um símbolo $s[i]$ por
+% $t[j]$, cujas pontuações são denotadas no algoritmo por $ins(t[j])$,
+% $rem(s[i])$ e $sub(s[i],t[j])$, respectivamente. Em seguida, o algoritmo obtém,
+% para cada $i'$, qual é o valor ótimo de $B[i,j]$ considerando que houve uma
+% inversão de $s[i'\Rng i]$. Para isto, na linha~\ref{invgeral:obtemW}, o
+% algoritmo calcula a matriz $\matw{G}{i'}{i}$, onde $\matw{G}{i'}{i}[j',j]$ é a
+% pontuação do alinhamento ótimo de $\invert{s[i'+1\Rng i]}$ e $t[j'+1\Rng j]$
+% considerando somente inserção, remoção e substituição, pois não consideramos
+% inversões sobrepostas no alinhamento de $s$ e $t$.
+
+
+\begin{algorithm}[htbp]
+  \begin{algo}{INVGERAL}{s,t}
+    \DOFORI {i} {0} {|s|} \label{invgeral:loop1}
+      			\COM {Obtém $B[i,j]$ considerando somente inserção,
+      			remoção e substituição}
+    	\IF {i=0} \label{invgeral:classicinic}
+    		\SET {B[0,0]}{0}
+\ELSE
+    		\SET {B[i,0]}{B[i-1,0]+rem(s[i])}
+\FI
+      	\DOFORI {j} {1} {|t|}
+      		\IF {i=0}
+		    	\SET {B[0,j]}{B[0,j-1]+ins(t[j])}
+\ELSE
+      			\SET{h}{B[i,j-1]+ins(t[j])}
+      			\SET{v}{B[i-1,j]+rem(s[i])}
+      			\SET{d}{B[i-1,j-1]+sub(s[i],t[j])}
+        		\SET{B[i,j]}{\max(h,v,d)}
+\FI
+\OD \label{invgeral:classicfim}
+      			\COM {A seguir, obtém $B[i,j]$ considerando também \invnsobs}
+      			\COM{$\matw{G}{i'}{i}[j',j]=$pontuação do alinhamento
+ótimo de $\invert{s[i'+1\Rng i]}$ e $t[j'+1\Rng j]$}
+      			\ACTT{Inicializa $\matw{G}{i+1}{i}$}
+    \DOFORD {i'} {i} {0}\label{invgeral:loopiLinha}
+        \ACTT {Obtém $\matw{G}{i'}{i}$ a partir de $\matw{G}{i'+1}{i}$}
+        \label{invgeral:obtemW}
+        \ACTT{Para cada $j$ obtém
+        $A_{i'}^i[j]=\max_{j'\leq j}(B[i',j]+\matw{G}{i'}{i}[j',j]+\opedweiginv)$}
+        \label{invgeral:obtemA}
+        \DOFORI {j} {0} {|t|}\label{invgeral:forComInv}
+          \SET {B[i,j]} {\max(B[i,j],A_{i'}^i[j])}
+\OD \OD \OD \RETURN B \caption[INVGERAL]{Algoritmo para obtenção da matriz $B$
+tal que $B[i,j]$ é a pontuação do alinhamento ótimo com \invnsobs\ de $s[1\Rng
+i]$ e $t[1\Rng j]$}
+  \label{alg:invgeral}
+  \end{algo}
+\end{algorithm}
+
+\begin{figure}
+ \centering
+\includegraphics[width=0.7\textwidth,height=0.5\textwidth]{algn3logn}
+\caption[Ilustração da execução do Algoritmo~\ref{alg:invgeral}]{Ilustração da
+execução do Algoritmo~\ref{alg:invgeral}. A linha pontilhada representa em um
+\gred\ um alinhamento ótimo com \invnsobs\ de ${s[1\Rng i]} \times t[1\Rng
+j]$ e a linha tracejada o alinhamento de $\overline{s[i'+1\Rng i]}
+\times t[j'+1\Rng j]$}.
+\label{fig:algn3logn}
+\end{figure}
+
+
+\subsection{Alinhamento com \invnsobs\ em tempo  $O(n^3 \log n)$}
+
+% Seja $G=(V,E,\egweigsym)$ o \gred\ de $s$ e $t$. Dados $i$ e $i'$, tais que $0
+% \leq i'\leq i \leq n$, queremos calcular o valor de $\egweigp{(i',j')}{(i,j)}$,
+% ou seja, o peso de um caminho ótimo de $(i',j')$ a $(i,j)$ em $G$, para todo
+% $j$ e $j'$ tais que $0 \leq j' \leq j \leq m$.
+%
+% Dados $i$ e $i'$, tais que $0 \leq i'\leq i \leq n$, diremos que $i-i'=n'$. Um
+% algoritmo simples que calcula os valores de $\egweigp{(i',j')}{(i,j)}$, para
+% todo $j$ e $j'$ tais que $0 \leq j' \leq j \leq m$, é o seguinte: para cada
+% $j'$ o algoritmo calcula para todo $j$, tal que $j' \leq j \leq m$, o valor de
+% $\egweigp{(i',j')}{(i,j)}$. Com programação dinâmica simples é possível
+% calcular, para um dado $j'$, o valor de todos os $\egweigp{(i',j')}{(i,j)}$ em
+% tempo $O(mn')$. Portanto, para calcular $\egweigp{(i',j')}{(i,j)}$ para todos os $j'$ este algoritmo
+% simples leva tempo $O(m^2n')$.
+
+% Aggarwal e Park \cite{AggPar} e Apostolico et al.\ \cite{108168} desenvolveram
+% um algoritmo recursivo que, dados um \gred, $i$ e $i'$, tais que $0 \leq i'\leq
+% i \leq n$, calcula todos os valores de $\egweigp{(i',j')}{(i,j)}$ em tempo
+% $O(mn'\log m)$.
+%
+%TODO:Obter estes artigos. Verificar se não dá para fazer incremental.
+
+Jeanette Schmidt \cite{MR1621993} desenvolveu um algoritmo que constrói uma
+estrutura de árvores binárias de altura $\log m$ que possibilita obter um valor
+de $\egweigp{(i',j')}{(i,j)}$ em tempo $\log m$. Dada a estrutura de árvores com
+os valores de $\egweigp{(i',j')}{(i-1,j)}$ o algoritmo precisa de tempo $O(m \log
+m)$ para construir outras $m$ árvores que contêm os valores de
+$\egweigp{(i',j')}{(i,j)}$.
+
+Pode-se provar que a matriz $\matw{G}{i'}{i}$ é uma matriz de Monge inversa
+triangular superior e portanto totalmente monotônica, o que possibilita que
+utilizemos o algoritmo proposto por~\cite{MR895444} para obtermos $A_{i'}^i[j]$
+com $O(m)$ comparações.
+
+Utilizando a estrutura de árvores proposta
+em~\cite{MR1621993} para armazenar os valores de $\egweigp{(i',j')}{(i,j)}$,
+executamos a linha~\ref{invgeral:obtemW} do Algoritmo~\ref{alg:invgeral} em tempo
+$O(m \log m)$ e, utilizando o algoritmo proposto por~\cite{MR895444}, obtemos
+$A_{i'}^i[j]$ na linha~\ref{invgeral:obtemA} em tempo $O(m \log m)$. Como essas
+linhas são executadas para todo $i$ e $i'$, $0 \leq i' \leq i \leq n$, o
+Algoritmo~\ref{alg:invgeral} é executado em tempo  $O(n^2m \log m)$. Além
+disto, pode-se verificar que o Algoritmo~\ref{alg:invgeral} precisa de
+$O(\max(nm, m^2))$ de memória.
+
+
+% \begin{prova}
+% Sejam  $(i',j_1)$, $(i',j_2)$, $(i,j_3)$ e $(i,j_4)$ vértices de $G$, tais que
+% $0 \leq j_1 < j_2 \leq j_3 < j_4 \leq m$. Como é ilustrado na figura
+% \ref{fig:Wmonge}, existe um vértice $v$ onde os caminhos ótimos de $(i',j_2)$ a
+% $(i,j_3)$ e de $(i',j_1)$ a  $(i,j_4)$ se cruzam. Sejam
+% $a=\egweigp{(i',j_1)}{(i,j_3)}$, $b=\egweigp{(i',j_2)}{(i,j_4)}$,
+% $c=\egweigp{(i',j_1)}{v}$, $d=\egweigp{v}{(i,j_4)}$, $e=\egweigp{(i',j_2)}{v}$
+% e $f=\egweigp{v}{(i,j_3)}$. Suponha, por absurdo, que
+% $\matw{G}{i'}{i}[j_1,j_3]+\matw{G}{i'}{i}[j_2,j_4] < \matw{G}{i'}{i}[j_1,j_4]+\matw{G}{i'}{i}[j_2,j_3]$.
+% Logo teríamos:
+% \begin{equation*}
+% \begin{split}
+% (c+d)+(e+f)&> a+b \\
+% c+d+e+f-a -b &> 0  \\
+% (c+f-a)+(d+e-b) &> 0 \\
+% c+f-a & > 0 \textrm{ ou } (d+e-b) > 0 \\
+% c+f & > a \textrm{ ou } d+e > b \\
+% \end{split}
+% \end{equation*}
+%
+% Porém se $c+f > a $ (ou $ d+e > b$) teríamos um caminho de $(i',j_1)$ a
+% $(i,j_3)$ (ou de $(i',j_2)$ a $(i,j_4)$) com peso $c+f > a $ (ou $d+e > b$).
+% Isto é impossível pois $a$ e $b$ são caminhos ótimos de $(i',j_1)$ a
+% $(i,j_3)$ e de $(i',j_2)$ a $(i,j_4)$ respectivamente.
+%
+% Portanto $\matw{G}{i'}{i}[j_1,j_3]+\matw{G}{i'}{i}[j_2,j_4] \geq
+% \matw{G}{i'}{i}[j_1,j_4]+\matw{G}{i'}{i}[j_2,j_3]$ para $0 \leq j_1 < j_2 \leq j_3 < j_4 \leq
+% m$.
+%
+% Além disso $\egweigp{(i',j')}{(i,j)}=-\infty$ se $0 \leq j < j' \leq m$.
+%
+% Portanto $\matw{G}{i'}{i}$ é uma matriz de Monge inversa triangular superior.\cqd
+% \end{prova}
+
+% Chamamos a matriz $\matw{G}{i'}{i}$ de matriz de pesos de
+% caminhos ótimos em $G$ entre as linhas $i'$ e $i$.
+
+% \begin{figure}[htbp] \centering
+% \includegraphics[width=0.7\textwidth,height=0.5\textwidth]{monge}
+% % \end{center}
+% \caption[$\matw{G}{i'}{i}$ é uma matriz de Monge inversa]{Ilustração da prova que
+% $\matw{G}{i'}{i}$ é uma matriz de Monge inversa}
+%  \label{fig:Wmonge}
+% \end{figure}
+
+
+% O Algoritmo~\ref{alg:bimn3logn} constrói a matriz
+% $B$. A sua execução é ilustrada na Figura~\ref{fig:algn3logn} e é descrita
+% a seguir.
+%
+% O laço controlado pela linha~\ref{bimn3logn:loop1} calcula os valores da linha
+% $i$ de $B$. Os valores de $B[i,j]$ calculados nas linhas
+% \ref{bimn3logn:dirinicio} a~\ref{bimn3logn:dirfim} não consideram a operação de
+% inversão. Estas linhas levam tempo $O(m)$ para serem executadas.
+%
+% Na linha~\ref{bimn3logn:constroiW}, para $i$ e $i'$ fixados, são calculados os
+% valores dos alinhamentos ótimos de $\overline{s[i'+1\Rng i]} \times t[j'+1\Rng
+% j]$, para todo $j$ e $j'$ tais que $0 \leq j' \leq j \leq m$. Para tanto, já se
+% conhece $\matw{\overline{G}}{n-i}{n-(i'+1)}$ da iteração anterior e portanto,
+% como já visto na seção \ref{sec:jeanette}, a execução desta linha leva tempo
+% $O(m \log m)$. Convém observar que neste algoritmo é usada a construção
+% incremental de $\matw{\overline{G}}{n-i}{n-(i'+1)}$ proposta por Jeanette Schmidt em
+% \cite{MR1621993}. O acesso a qualquer elemento da matriz
+% $\matw{\overline{G}}{n-i}{n-i'}$, é feito em tempo $O(\log m)$.
+%
+% A matriz $A_{i'}^i$ definida na linha~\ref{bimn3logn:matrizA} não é realmente
+% construída, mas como o acesso a um elemento de $A_{i'}^i$ necessita do acesso a
+% um elemento de $\matw{\overline{G}}{n-i}{n-i'}$, o acesso a qualquer elemento
+% de $A_{i'}^i$ é feito em tempo $O(\log m)$. O elemento $A_{i'}^i[j',j]$ é o
+% peso de um caminho ótimo de $(0,0)$ a $(i,j)$ em $G$ que usa a aresta
+% $\egex{(i',j')}{(i,j)}$. Como já vimos, a matriz
+% $\matw{\overline{G}}{n-i}{n-i'}$ é uma matriz de Monge inversa. Dado $i'$,
+% temos que $B[i',j']+\opedweiginv$ é um vetor, portanto a matriz $A_{i'}^i$ é
+% uma matriz resultante da soma de uma matriz de Monge com um vetor. Logo
+% $A_{i'}^i$ também é uma matriz de Monge, ou seja, $A_{i'}^i$ é totalmente
+% monotônica, conforme visto na seção~\ref{sec:monge}. Portanto podemos obter os
+% máximos de $A_{i'}^i$ com o Algoritmo \ref{alg:maxTotMonotonica}
+% ($maxTotMonotonica$). O Algoritmo \ref{alg:maxTotMonotonica} faz $O(m)$ acessos
+% a matriz, portanto a linha \ref{bimn3logn:maxtotmonotonica} leva tempo $O(m
+% \log m)$. Após a chamada da função $maxTotMonotonica$, o elemento
+% $MaxCol_{i'}^i[j]$ contém o índice $j'$ associado ao máximo da coluna $j$ em
+% $A_{i'}^i$.
+% \begin{algorithm}
+%   \begin{algo}{BIMN3logn}{s,t}
+% 	\ACTT{Sejam $G=(V,E,\egweigsym)$ o \gred\ estendido de $s$ e $t$ e}
+% 	\COM{$\overline{G}$ o \gred\ de $\overline{s}$ e $t$. }
+% 	\COM{$B[i,j]=\egweigp{(i',j')}{(i,j)} \mbox{ em } G$}
+%     \DOFORI {i} {0} {|s|} \label{bimn3logn:loop1}
+%     	\IF {i=0} \label{bimn3logn:dirinicio}
+%     		\SET {B[0,0]}{0}
+% \ELSE
+%     		\COM{Na 1ª coluna $\nexists$ arestas horizontais nem diagonais}
+%     		\SET {B[i,0]}{B[i-1,0]+\egweige{\egev{(i,j)}}}
+% \FI
+%       	\DOFORI {j} {1} {|t|}
+%       		\IF {i=0}
+%     		\COM{Na 1ª linha $\nexists$ arestas verticais nem diagonais}
+% 		    	\SET {B[0,j]}{B[0,j-1]+\egweige{\egeh{(i,j)}}}
+% \ELSE
+%       			\COM {Obtém o máximo entre os caminhos que termi-}
+%       			\COM { nam nas arestas horizontal, vertical e diagonal}
+%       			\SET{h}{B[i,j-1]+\egweige{\egeh{(i,j)}}}
+%       			\SET{v}{B[i-1,j]+\egweige{\egev{(i,j)}}}
+%       			\SET{d}{B[i-1,j-1]+\egweige{\eged{(i,j)}}}
+%         		\SET{B[i,j]}{\max(h,v,d)}
+% \FI
+% %        \EXT {\qquad\qquad\qquad B[i-1,j-1]+\weight{s[i],t[j]})}
+% \OD \label{bimn3logn:dirfim}
+% 	\COM{Obtém, para cada $j$ da linha $i$, o máximo entre os }
+% 	\COM {caminhos que terminam numa aresta estendida}
+% 	\SET{\matw{\overline{G}}{n-i}{n-(i'+1)}}{\emptyset}
+%     \DOFORD {i'} {i} {0}\label{bimn3logn:loopiLinha}
+%         \SET {\matw{\overline{G}}{n-i}{n-i'}}
+% {\mathit{ConstroiW}(\matw{\overline{G}}{n-i}{n-(i'+1)},\overline{G},n-i,n-i')}
+%         \label{bimn3logn:constroiW}
+% %         \COM {$\matw{G}{i'}{i}[j',j] = $ peso do alinhamento de $\invert{s[i'+1\Rng i]}$
+% %         e $t[j',j]$}
+%         \ACTT {Define $A_{i'}^i[1\Rng |t|,1\Rng |t|]$ através de $\matw{\overline{G}}{n-i}{n-i'}$ e}
+% 		\ACTT {\mbox{    } da linha $i'$ de $B$}\label{bimn3logn:matrizA}
+%
+%         \COM {$A_{i'}^i[j',j] = \matw{\overline{G}}{n-i}{n-i'}[j',j] + B[i',j']+\opedweiginv$}
+%          \COM{$MaxCol_{i'}^i[1\Rng |t|]$ é o vetor de máximos de $A_{i'}^i$}
+%         \ACTT {$maxTotMonotonica (A_{i'}^i,MaxCol_{i'}^i)$} \label{bimn3logn:maxtotmonotonica}
+%         \DOFORI {j} {0} {|t|}\label{bimn3logn:forComInv}
+%           \SET {B[i,j]} {\max(B[i,j],A_{i'}^i[MaxCol_{i'}^i[j],j])}
+% \OD \OD \OD \RETURN B \caption[BIMN3logn]{Algoritmo $O(n^3 \log n)$ para
+% obtenção da matriz $B$}
+%   \label{alg:bimn3logn}
+%   \end{algo}
+% \end{algorithm}
+%
+%
+% %\TODO melhorar esta explicação
+% O laço controlado pela linha~\ref{bimn3logn:forComInv} analisa se o valor
+% calculado em $A_{i'}^i[j',j]$ é maior do que todos os valores de $B[i,j]$ já
+% encontrados anteriormente. Esse laço leva tempo $O(m)$.
+%
+% Portanto, o laço controlado pela linha~\ref{bimn3logn:loopiLinha} leva tempo
+% $O(nm \log m)$ e o algoritmo leva tempo $O(n^2m \log m)$. Quando $m=O(n)$  o
+% algoritmo tem tempo de execução $O(n^3 \log n)$.
+%
+%
+% \begin{algorithm}[htbp]
+% \begin{algo}{BimN3}{s,t}
+%  	\COM{$G=(V,E,\egweigsym)$ é o \gred\ estendido de $s$ e $t$ e}
+%  	\COM{$\overline{G}=(V,\overline{E},\egweigsymi)$ o \gred\ de $\overline{s}$ e $t$}
+% 	\COM{$B[i,j]=\egweigp{(0,0)}{(i,j)}$ em $G$}
+%     \DOFORI {i} {0} {|s|} \label{bimn3:loop1}
+%     	\IF {i=0} \label{bimn3:dirinicio}
+%     		\SET {B[0,0]}{0}
+%     	\ELSE
+%     		\COM{Na 1ª coluna $\nexists$ arestas horizontais nem diagonais}
+%     		\SET {B[i,0]}{B[i-1,0]+\egweige{\egev{(i,j)}}}
+%     	\FI
+%       	\DOFORI {j} {1} {|t|}
+%       		\IF {i=0}
+%     		\COM{Na 1ª linha $\nexists$ arestas verticais nem diagonais}
+% 		    	\SET {B[0,j]}{B[0,j-1]+\egweige{\egeh{(i,j)}}}
+%       		\ELSE
+%       			\COM {Obtém o máximo entre os caminhos que termi-}
+%       			\COM { nam nas arestas horizontal, vertical e diagonal}
+%       			\SET{h}{B[i,j-1]+\egweige{\egeh{(i,j)}}}
+%       			\SET{v}{B[i-1,j]+\egweige{\egev{(i,j)}}}
+%       			\SET{d}{B[i-1,j-1]+\egweige{\eged{(i,j)}}}
+%         		\SET{B[i,j]}{\max(h,v,d)}
+%       		\FI
+% 		\OD \label{bimn3:dirfim}
+% 	\COM{Obtém, para cada $j$ da linha $i$, o máximo entre os }
+% 	\COM {caminhos que terminam numa aresta estendida}
+% 	\SET{BL}{\emptyset}
+%     \DOFORD {i'} {i} {0}\label{bimn3:loopiLinha}
+%      \SET{BL}{constroiBL(\overline G,BL,i, i')}\label{bimn3:constroiBL}
+% 	\COM{Obtém $OUT_G[j]=B[i',j]+\egweigpi{(n-i,j)}{(n-i',j)}$}
+%     \DOFORI {j} {0} {|t|}\label{bimn3:forComInv}
+% 		\IF{i' = i}
+% 			\SET{W[j]}{0}
+% 		\ELSE
+% 			\SET{W[j]}{W[j]+\egweigei{\egevi{(n-i',j)}}}
+% 		\FI
+% 		\SET{OUT_G[j]}{B[i',j]+W[j]}
+% 	\OD
+%     \SET{maxOut}{obtemMaxOut(BL,OUT_G)}
+%     \label{bimn3:obtemMaxout}
+%         \DOFORI {j} {0} {|t|}\label{bimn3:forComInv}
+%           \SET {B[i,j]} {\max(B[i,j],maxOut[j]+\opedweiginv)}
+% \OD \OD \OD \RETURN B
+%   \caption[BimN3]{Algoritmo $O(n^3)$ para obtenção da matriz $B$}
+%   \label{alg:bimn3}
+% \end{algo}
+% \end{algorithm}
+
+\subsection{Alinhamento com \invnsobs\ em tempo  $O(n^3)$}
+
+
+
+\section{Alinhamento com \dups}
+
+Uma duplicação é um evento biológico que ocorre frequentemente e que insere uma
+cópia de um fragmento da \seq\ na própria \seq. Existe um tipo de
+duplicação muito estudado que são as duplicações encadeadas (ou \dups\
+\emph{tandem}). Neste tipo de \dup\ a cópia é inserida imediatamente após (ou
+antes) do fragmento copiado. Diremos que repetição é a cópia inserida e
+\seq\ base é a \seq\ de onde a repetição foi copiada.
+
+Em~\cite{267526} é proposto um modelo para o alinhamento de \seqs\ que
+considera \dups\ em \emph{tandem} de mesmo tamanho. São propostos
+dois algoritmos exatos para obter um tal alinhamento ótimo que considera estas
+\dups. O primeiro algoritmo proposto executa em tempo $O(n^5)$ e espaço
+$O(n^2)$. O segundo algoritmo proposto executa em tempo $O(n^4)$ e espaço
+$O(n^3)$. Propomos algoritmos que executam em tempo $O(n^3)$ e memória $O(n^2)$.
+
+Propomos um modelo para obter um alinhamento ótimo com \dups\ que é parecido
+com o modelo proposto por Benson, porém com algumas restrições diferentes:
+\begin{enumerate}
+ \item Benson propõe somente \dups\ em \emph{tandem}. Não mantemos a
+restrição de ser em \emph{tandem}. Um modelo com esta restrição também pode ser
+considerado sem alterar as complexidades do algoritmo que propomos.
+  \item No modelo proposto por Benson, se um trecho de $s$ é uma
+  \rep\ então a \seq\ base a ser comparada (ou alinhada) com esta \rep\
+  deve ser um trecho de $t$. Portanto ele não
+  considera que a \seq\ base da \rep\ pode estar na própria
+  \seq. Nós consideramos que a \seq\ base pode estar na outra
+  \seq. Com isto, se estamos interessados em obter uma transformação ótima com
+  \dups\ de $s$ em $t$, o modelo proposto por Benson
+considera que as \opeds\ pontuais (inserção, remoção e subsituição) em um
+trecho duplicado devem ocorrer depois da \dup\ na transformação. Nós
+consideramos que as \opeds\ pontuais podem ocorrer antes ou depois da \dup.
+
+  \item No modelo proposto por Benson,  a \seq\ base deve ser a mesma para
+  \reps\ contíguas. Nós consideramos que a \seq\ base pode ser qualquer
+  trecho das \seqs\ $s$ ou $t$.
+\end{enumerate}
+
+Se estamos interessados em obter uma transformação ótima de $s$ em $t$ com \dups\
+então no nosso modelo consideramos que a \seq\ base de uma \rep\ $s[i+1\Rng i']$
+está em $s[1\Rng i]$ ou $t[1\Rng j]$, onde $s[1\Rng i]$ se transforma em
+$t[1\Rng j]$ na transformação ótima sendo obtida. Além disto, consideramos a
+existência da \oped\ de \emph{excisão} que é a \oped\ dual à \dup, ou seja, uma
+excisão remove um trecho da \seq, tal que a \seq\ de símbolos do trecho removido
+ainda aparece na \seq\ gerada após a excisão. Numa transformação de $s$ em $t$
+com excisão, podemos associar uma excisão ao evento \bio\ de uma \dup\ na \seq\
+$t$ ou ao evento \bio\ de remoção de uma \rep\ em $s$.
+
+Vale a pena ressaltar que, utilizando as técnicas utilizadas em~\cite{MR1869256},
+podemos obter um alinhamento ótimo com \dups\ em \emph{tandem} segundo o
+mesmo modelo proposto por Benson, em tempo $O(n^3)$ e com memória $O(n^2)$.
+Porém acreditamos que os modelos que propomos são modelos mais reais, pois consideram mais casos de
+\dups.
+
+\subsection{Algoritmo para alinhamento com \dups}
+\label{sec:aligndupalg}
+
+Para todos $j'$ e $j$ tais que $1 \leq j' \leq j \leq m$ definimos os
+conjuntos de fatores das \seqs\ $s$ e $t$, \setA{t}{j'}{j}, \setB{t}{j'}{j},
+\setC{t}{j'}{j} e \setD{s} da seguinte forma:
+\begin{enumerate}
+  \item $\setA{t}{j'}{j} = \{t[j_1 \Rng j_2]\tq 0 < j_1 \leq j_2+1 \leq j'\}$,
+  \item $\setB{t}{j'}{j} = \{t[j_3 \Rng j_4]\tq j < j_3 \leq j_4+1 \leq |t|+1\}$,
+  \item $\setC{t}{j'}{j} = \{t[j_5 \Rng j'-1]t[j+1 \Rng j_6]\tq 0 < j_5 \leq j'
+  \textrm{ e } j \leq j_6 \leq |t|\}$ e
+  \item $\setD{s} = \{s[i_1 \Rng i_2]\tq 1 \leq i_1 \leq i_2+1 \leq
+  |s|+1\}$.
+\end{enumerate}
+
+Para todos $j'$ e $j$ tais que $1 \leq j' \leq j \leq m$ definimos, para cada
+conjunto \setA{t}{j'}{j}, \setB{t}{j'}{j}, \setC{t}{j'}{j} e
+\setD{s}, a pontuação máxima do alinhamento ótimo sem \dups\ de $t[j'
+\Rng j]$ com um elemento do conjunto da seguinte forma:
+\begin{align*}\bestScoreA{t}{j'}{j}&= \max(\alignoptscore{t[j'\Rng
+j]}{\seqbaseLetter}\tq \seqbaseLetter \in \setA{t}{j'}{j})\\
+&= \maxnew{j_1,j_2}{0 < j_1 \leq j_2+1 \leq
+j'}{\alignoptscorest{t}{t}{j'}{j}{j_1}{j_2}}\textrm{,}\end{align*}
+
+\begin{align*}\bestScoreB{t}{j'}{j}&=
+\max(\alignoptscore{t[j' \Rng j]}{\seqbaseLetter}\tq \seqbaseLetter \in
+\setB{t}{j'}{j})\\&= \maxnew{j_3,j_4}{j < j_3 \leq j_4+1 \leq m+1}{\alignoptscorest{t}{t}{j'}{j}{j_3}{j_4}}\textrm{,}\end{align*}
+
+\begin{align*}
+\bestScoreC{t}{j'}{j}&=
+\max(\alignoptscore{t[j' \Rng j]}{\seqbaseLetter}\tq \seqbaseLetter \in
+\setC{t}{j'}{j})\\
+&= \maxnew{j_5,j_6}{0 < j_5 \leq j'
+  \textrm{ e } j \leq j_6 \leq m}{\alignoptscore{t[j' \Rng j]}{t[j_5 \Rng j'-1]t[j+1 \Rng j_6]}}\textrm{ e
+}\end{align*}
+
+ \begin{align*}
+ \bestScoreD{t}{s}{j'}{j}&=
+\max(\alignoptscore{t[j' \Rng j]}{\seqbaseLetter}\tq \seqbaseLetter \in
+  \setD{s})
+  \\&= \maxnew{i_1,i_2}{1 \leq i_1 \leq i_2+1 \leq n+1}
+  {\alignoptscorest{t}{s}{j'}{j}{i_1}{i_2}}\textrm{.}\end{align*}
+
+Portanto, para todos $j'$ e $j$ tais que $1 \leq j' \leq j \leq m$, temos que
+\begin{displaymath}
+\dupw{t}{j'}{j}=\max\left( \begin{array}{l}
+\bestScoreA{t}{j'}{j}\\
+\bestScoreB{t}{j'}{j}\\
+\bestScoreC{t}{j'}{j}\\
+\bestScoreD{t}{s}{j'}{j}
+\end{array}\right)+\uomega{t}{j'}{j} \textrm{.}
+\end{displaymath}
+
+A seguir, analisaremos separadamente cada um destes valores que podem compor a
+função  \dupw{t}{j'}{j}: \bestScoreA{t}{j'}{j}, \bestScoreB{t}{j'}{j},
+\bestScoreC{t}{j'}{j} e \bestScoreD{t}{s}{j'}{j}; e vamos propor algoritmos para
+construir matrizes com os valores pré-computados destas funções.
+
+
+\section{Conclusão}
+Para a comparação de duas \seqs, desenvolvemos e apresentamos algoritmos exatos e
+inéditos, que obtêm alinhamentos que consideram a possibilidade da ocorrência de
+outros importantes eventos biológicos (inversão e duplicação) além dos eventos de
+inserção, remoção e substituição, comumente utilizados em
+algoritmos usuais para obtenção de alinhamentos ótimos. Esperamos com isto, que o
+alinhamento obtido esteja mais próximo de mostrar o que realmente ocorreu na
+evolução.
+
+Apesar do problema da obtenção de um alinhamento ótimo com \invnsobs\ ser um
+problema já bem estudado e com alguns algoritmos já publicados, conseguimos
+desenvolver algoritmos com complexidade de tempo significativamente melhor
+que os já existentes.
+
+Para o alinhamento com \dups, não conhecemos nenhum outro trabalho que utilize os
+modelos de \dups\ que apresentamos. O modelo mais próximo que conhecemos  do
+modelo que propomos para alinhamentos com \dups\ em \emph{tandem} é o modelo proposto
+por Benson~\cite{267526}. Porém, os algoritmos propostos por Benson têm
+complexidades de tempo e memória muito piores que as dos algoritmos que propomos,
+apesar do nosso espaço de busca das \dups\ em \emph{tandem} ser maior que o do
+Benson.
+
+\bibliographystyle{sbc}
+\bibliography{tese}
+
+\end{document}

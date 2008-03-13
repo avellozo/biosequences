@@ -1,0 +1,56 @@
+\section{Introdução}
+\label{sec:aligndupintro}
+
+Neste capítulo, consideraremos que $s$ e $t$ são duas seqüências de comprimentos 
+$n$ e $m$, respectivamente.
+
+Os eventos biológicos típicos que são considerados normalmente nos 
+procedimentos de alinhamentos atuais de seqüências de DNA são: substituição, 
+remoção e inserção de nucleotídeos. Um outro evento biológico que ocorre, mas 
+que normalmente não é considerado nos alinhamentos usuais, é a duplicação, a qual 
+iremos considerar sob algumas restrições nos algoritmos de alinhamentos deste 
+capítulo. São dois os tipos de duplicações que consideraremos que ocorrem:
+duplicações encadeadas (em \emph{tandem}) ou transposições.
+
+Sejam duas seqüências tais que somente uma delas sofreu um evento de duplicação. Ao 
+analisarmos estas seqüências através de um alinhamento usual, é muito provável que 
+neste alinhamento haja uma seqüência de colunas que correspondam a inserções (ou 
+remoções) no trecho que corresponde a duplicação. Neste caso, pretendemos mostrar, 
+num alinhamento com duplicações, que houve uma duplicação em uma das seqüências, ao invés de 
+mostrar a seqüência de colunas que correspondem a inserções (ou remoções) como é 
+mostrado num alinhamento comum.
+
+Em 1997, Benson~\cite{267526} propôs um modelo para o alinhamento de seqüências que 
+considera a presença de repetições em \emph{tandem} de mesmo tamanho nas seqüências. 
+Ele propôs dois algoritmos exatos para obter um tal alinhamento ótimo que 
+considera estas repetições. O primeiro algoritmo proposto executa em tempo 
+$O(n^5)$ e espaço $O(n^2)$. O segundo algoritmo proposto executa em tempo 
+$O(n^4)$ e espaço $O(n^3)$.
+
+O modelo proposto por 
+Benson para considerar duplicações em \emph{tandem}, além da restrição de só 
+considerar repetições em \emph{tandem}, tem mais duas restrições, que são as 
+seguintes.
+\begin{enumerate}
+  \item Sejam $s$ e $t$ as seqüências a serem alinhadas. Se um trecho de $s$ é uma 
+  repetição então a seqüência base a ser comparada (ou alinhada) com esta repetição em $s$ 
+  deve ser um trecho de $t$. Portanto este modelo proposto por Benson não 
+  considera que a seqüência original da repetição pode estar na própria seqüência onde está 
+  a repetição.
+  
+  \item A seqüência base deve ser a mesma para repetições consecutivas, ou seja, 
+  como as duplicações consideradas são em \emph{tandem} e a seqüência original 
+  considerada está sempre na outra seqüência, as seqüências base das duplicações 
+  consecutivas devem ter o mesmo tamanho.
+\end{enumerate}
+
+Iremos propor modelos parecidos com este modelo apresentado por Benson, porém sem
+estas restrições propostas por Benson. Proporemos 
+algoritmos exatos que obtêm alinhamentos ótimos com duplicações e
+que executam em tempo $O(n^3)$ e memória $O(n^2)$ segundo o nosso modelo.
+Utilizando
+as técnicas utilizadas no algoritmo $O(n^3)$ para a obtenção de um alinhamento
+ótimo com inversões não sobrepostas, existe um algoritmo que, em tempo $O(n^3)$ e memória
+$O(n^2)$, obtém um alinhamento ótimo com duplicações em \emph{tandem} segundo o mesmo
+modelo proposto pode Benson. Porém acreditamos que os modelos que iremos propor
+são modelos mais gerais e que consideram mais casos de duplicações. 

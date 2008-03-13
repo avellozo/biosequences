@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <project name="makepdf" default="makepdf" basedir=".">
+   
+      <target name ="makepdf" description="Create a pdf for this project">
+      
+         <exec executable="C:\Program Files\MiKTeX 2.5\miktex\bin\dvipdfm.exe">
+         	<arg file="C:\Documents and Settings\d\My Documents\workspace\text.tese\tese.dvi"/>
+         </exec>
+        <exec executable="C:\Program Files\Adobe\Acrobat 7.0\Reader\AcroRd32.exe">
+        	<arg file="C:\Documents and Settings\d\My Documents\workspace\text.tese\tese.pdf"/>
+        </exec>
+      </target>
+      
+    <target name ="pdfapresentacao" description="Create a pdf for this presentation">
+    
+       <exec executable="C:\Program Files\MiKTeX 2.5\miktex\bin\dvips.exe">
+       	<arg file="C:\Documents and Settings\d\My Documents\workspace\text.tese\tese.apresentacao.dvi"/>
+       	
+       </exec>
+        <exec executable="C:\Program Files\MiKTeX 2.5\miktex\bin\ps2pdf.exe">
+        	<arg file="C:\Documents and Settings\d\My Documents\workspace\text.tese\tese.apresentacao.ps"/>
+        	<arg file="C:\Documents and Settings\d\My Documents\workspace\text.tese\tese.apresentacao.pdf"/>
+        </exec>
+        <exec executable="C:\Program Files\Adobe\Acrobat 7.0\Reader\AcroRd32.exe">
+        	<arg file="C:\Documents and Settings\d\My Documents\workspace\text.tese\tese.apresentacao.pdf"/>
+        </exec>
+    </target>
+    
+    <target name ="pdfexemplo" description="Create a pdf for the presentation exemplo">
+    
+       <exec executable="C:\Program Files\MiKTeX 2.5\miktex\bin\dvips.exe">
+       	<arg file="C:\Documents and Settings\d\My Documents\workspace\text.tese\powerdot-example1.dvi"/>
+       	
+       </exec>
+        <exec executable="C:\Program Files\MiKTeX 2.5\miktex\bin\ps2pdf.exe">
+        	<arg file="C:\Documents and Settings\d\My Documents\workspace\text.tese\powerdot-example1.ps"/>
+        	<arg file="C:\Documents and Settings\d\My Documents\workspace\text.tese\powerdot-example1.pdf"/>
+        </exec>
+    </target>
+</project>

@@ -1,0 +1,50 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="6cm" height="4cm" 
+     viewBox="0 0 350 220" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <title>Edit Graph</title>
+  <path d="M 50 50 h 250 v 150 h -250 v -150"
+        fill="none" stroke="black" stroke-width="1" />
+        
+  <path d="M 100 50 l 100 150 "
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="5,5"/>
+  <path d="M 100 50 l 150 150 "
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="5,5"/>      
+        
+  <path d="M 250 50 l 0 150 "
+        fill="none" stroke="black" stroke-width="1" stroke-dasharray="1,8"/>
+        
+  <path d="M 200 50 l 0 150 "
+        fill="none" stroke="black" stroke-width="1" stroke-dasharray="1,8"/>
+        
+  <text x="47" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    0
+  </text>
+  <text x="295" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    m
+  </text>
+  <text x="100" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j'
+  </text>
+  <text x="200" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j-1
+  </text>
+  <text x="250" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j
+  </text>
+  <text x="37" y="60" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    i'
+  </text>
+  <text x="37" y="200" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    i
+  </text>
+</svg>

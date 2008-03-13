@@ -1,0 +1,89 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="6cm" height="4cm" 
+     viewBox="0 0 350 220" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <title>Edit Graph</title>
+  <path d="M 50 50 h 250 v 150 h -250 v -150"
+        fill="none" stroke="black" stroke-width="1" />
+        
+  <path d="M 50 50 l 100 150 "
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="5,5"/>
+  <path d="M 50 50 l 150 150 "
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="5,5"/>
+        
+  <circle cx="136" cy="135" r="2"
+        fill="red" stroke="red" stroke-width="1"  />        
+  <path d="M 136 135 l 15 65 "
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="5,5"/>
+        
+  <circle cx="106" cy="135" r="2"
+        fill="blue" stroke="blue" stroke-width="1"  />        
+  <path d="M 106 135 l 92 65 "
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="5,5"/>
+
+  <path d="M 50 135 l 250 0 "
+        fill="none" stroke="black" stroke-width="1" stroke-dasharray="1,8"/>
+        
+  <text x="47" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    0
+  </text>
+  <text x="295" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    m
+  </text>
+  <text x="108" y="125" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j
+  </text>
+  <text x="112" y="132" 
+        font-family="Times new roman" font-size="11" fill="black" >
+    1
+  </text>
+  <text x="133" y="125" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j
+  </text>
+  <text x="137" y="132" 
+        font-family="Times new roman" font-size="11" fill="black" >
+    2
+  </text>
+  <text x="145" y="215" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j-1
+  </text>
+  <text x="200" y="215" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    j
+  </text>
+  <text x="37" y="60" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    0
+  </text>
+  <text x="37" y="200" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    i
+  </text>
+  <text x="35" y="140" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    i'
+  </text>
+  <text x="155" y="181" 
+        font-family="Times new roman" font-size="15" fill="blue" >
+    c
+  </text>
+  <text x="150" y="193" 
+        font-family="Times new roman" font-size="15" fill="red" >
+    b
+  </text>
+  <text x="168" y="160" 
+        font-family="Times new roman" font-size="15" fill="red" >
+    a
+  </text>
+  <text x="110" y="166" 
+        font-family="Times new roman" font-size="15" fill="blue" >
+    d
+  </text>
+</svg>

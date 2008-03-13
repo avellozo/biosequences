@@ -1,0 +1,43 @@
+\pdbookmark{sec.0.slide}{sec.0}{2}{Alinhamento}
+\pdbookmark{sec.0.slide}{sec.0}{3}{Definição de alinhamento}
+\pdbookmark{sec.0.slide}{sec.0}{4}{Exemplo de alinhamento}
+\pdbookmark{sec.0.slide}{sec.0}{5}{Sistemas de pontuação}
+\pdbookmark{sec.0.slide}{sec.0}{6}{Inversão}
+\pdbookmark{sec.0.slide}{sec.0}{7}{Duplicação}
+\pdbookmark{sec.0.slide}{sec.0}{8}{Algoritmos}
+\pdbookmark{sec.0.slide}{sec.0}{9}{Algoritmos}
+\pdbookmark{sec.0.slide}{sec.0}{10}{Grafo de edição de $s$ e $t$}
+\pdbookmark{sec.0.slide}{sec.0}{11}{Exemplo de \gred }
+\pdbookmark{sec.0.slide}{sec.0}{12}{Grafo de edição}
+\pdbookmark{sec.0.slide}{sec.0}{13}{Exemplo}
+\pdbookmark{sec.0.slide}{sec.0}{14}{Grafo de edição estendido}
+\pdbookmark{sec.0.slide}{sec.0}{15}{Exemplo}
+\pdbookmark{sec.0.slide}{sec.0}{16}{Matriz de pesos}
+\pdbookmark{sec.0.slide}{sec.0}{17}{Funções $\hdifsym {G}$, $\vdifsym {G}$ e $\ddifsym {G}$}
+\pdbookmark{sec.0.slide}{sec.0}{18}{$\hdifsym {G}$, $\vdifsym {G}$ e $\ddifsym {G}$}
+\pdbookmark{sec.0.slide}{sec.0}{19}{Proposição~\ref {prop:BporDif}}
+\pdbookmark{sec.0.slide}{sec.0}{20}{Existem $j_1$ e $j_2$}
+\pdbookmark{sec.0.slide}{sec.0}{21}{Existem $j_1$ e $j_2$}
+\pdbookmark{sec.0.slide}{sec.0}{22}{Árvore binária}
+\pdbookmark{sec.0.slide}{sec.0}{23}{Exemplo de $\arvb {G}{i'}{i}{j}$}
+\pdbookmark{sec.0.slide}{sec.0}{24}{Construção de $\arvb {G}{i'}{i}{j}$}
+\pdbookmark{sec.0.slide}{sec.0}{25}{Algoritmo $n^3 \log n$}
+\pdbookmark{sec.0.slide}{sec.0}{26}{Algoritmo $n^3 \log n$}
+\pdbookmark{sec.0.slide}{sec.0}{27}{Definições para o algoritmo $n^3$}
+\pdbookmark{sec.0.slide}{sec.0}{28}{Definições para o algoritmo $n^3$}
+\pdbookmark{sec.0.slide}{sec.0}{29}{Definições para o algoritmo $n^3$}
+\pdbookmark{sec.0.slide}{sec.0}{30}{Esboço de $obtemMaxOut(BL)$}
+\pdbookmark{sec.0.slide}{sec.0}{31}{Esboço do alg $n^3$}
+\pdbookmark{sec.0.slide}{sec.0}{32}{Alinhamento com \dups }
+\pdbookmark{sec.0.slide}{sec.0}{33}{Alinhamento com \dups }
+\pdbookmark{sec.0.slide}{sec.0}{34}{Conjuntos de fatores}
+\pdbookmark{sec.0.slide}{sec.0}{35}{Constrói\wbestScoreAm {t}}
+\pdbookmark{sec.0.slide}{sec.0}{36}{Constrói\wbestScoreBm {t}}
+\pdbookmark{sec.0.slide}{sec.0}{37}{Constrói\wbestScoreCm {t}}
+\pdbookmark{sec.0.slide}{sec.0}{38}{Constrói\wbestScoreDm {t}{s}}
+\pdbookmark{sec.0.slide}{sec.0}{39}{\dupw {t}{j'}{j} e \dupw {s}{i'}{i}}
+\pdbookmark{sec.0.slide}{sec.0}{40}{Duplicações em \emph {tandem}}
+\pdbookmark{sec.0.slide}{sec.0}{41}{Trabalhos futuros}
+\pdbookmark{sec.0.slide}{sec.0}{42}{Trabalhos futuros}
+\pdbookmark{sec.0.slide}{sec.0}{43}{Trabalhos futuros}
+\pdbookmark{sec.0.slide}{sec.0}{44}{Fim}

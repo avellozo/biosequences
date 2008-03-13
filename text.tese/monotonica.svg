@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5-alpha5 -->
+<!-- CreationDate: Tue Dec  5 13:45:37 2006 -->
+<!-- Magnification: 1.050 -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="5.3in"
+   height="2.0in"
+   viewBox="1086 56 6366 2387"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.41.1"
+   sodipodi:docname="monotonica.svg"
+   sodipodi:docbase="/home/posmac/vellozo">
+  <metadata
+     id="metadata55">
+    <rdf:RDF
+       id="RDF57">
+      <cc:Work
+         rdf:about=""
+         id="Work59">
+        <dc:format
+           id="format61">image/svg+xml</dc:format>
+        <dc:type
+           id="type63"
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs53" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1017"
+     inkscape:window-height="688"
+     inkscape:zoom="1.1488469"
+     inkscape:cx="238.50003"
+     inkscape:cy="89.999990"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:current-layer="svg2" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="3070,1653 3779,1653 3779,1889 3070,1889 3070,1653 "
+     style="fill:none;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline6" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="2834,1417 3070,1417 3070,1653 2834,1653 2834,1417 "
+     style="fill:#000000;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline8" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="3070,472 4488,472 4488,1417 3070,1417 3070,472 "
+     style="fill:#cbcbff;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline10" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="1417,1653 2834,1653 2834,2362 1417,2362 1417,1653 "
+     style="fill:#cbcbff;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline12" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="1417,1417 4488,1417 4488,1653 1417,1653 1417,1417 "
+     style="fill:none;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline14" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="1417,472 4488,472 4488,2362 1417,2362 1417,472 "
+     style="fill:none;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline16" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="2834,472 3070,472 3070,2362 2834,2362 2834,472 "
+     style="fill:none;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline18" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="4015,2125 4488,2125 4488,2362 4015,2362 4015,2125 "
+     style="fill:none;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline20" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="1417,472 1889,472 1889,944 1417,944 1417,472 "
+     style="fill:none;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline22" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="2125,1181 2834,1181 2834,1417 2125,1417 2125,1181 "
+     style="fill:none;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline24" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="3779,1889 4015,1889 4015,2125 3779,2125 3779,1889 "
+     style="fill:#000000;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline26" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="1889,944 2125,944 2125,1181 1889,1181 1889,944 "
+     style="fill:#000000;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline28" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="4960,1181 5196,1181 5196,1417 4960,1417 4960,1181 "
+     style="fill:#000000;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline30" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="4960,1889 5196,1889 5196,2125 4960,2125 4960,1889 "
+     style="fill:#cbcbff;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline32" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="1417,1181 1889,1181 1889,1417 1417,1417 1417,1181 "
+     style="fill:#cbcbff;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline34" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="2125,472 2834,472 2834,944 2125,944 2125,472 "
+     style="fill:#cbcbff;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline36" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="3070,2125 3779,2125 3779,2362 3070,2362 3070,2125 "
+     style="fill:#cbcbff;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline38" />
+  <polyline
+     transform="translate(255.5693,-69.70073)"
+     points="4015,1653 4488,1653 4488,1889 4015,1889 4015,1653 "
+     style="fill:#cbcbff;stroke:#000000;stroke-width:16.000000;stroke-linecap:butt;stroke-linejoin:miter"
+     id="polyline40" />
+  <text
+     x="4979.5693"
+     y="2292.2993"
+     font-style="normal"
+     font-weight="normal"
+     font-size="152"
+     id="text42"
+     style="font-size:152.00000;font-style:normal;font-weight:normal;fill:#000000;stroke:#000000;stroke-width:0.025000000in;font-family:Times;text-anchor:start">(não podem conter máximos)</text>
+  <text
+     x="5688.5693"
+     y="2055.2993"
+     font-style="normal"
+     font-weight="normal"
+     font-size="152"
+     id="text44"
+     style="font-size:152.00000;font-style:normal;font-weight:normal;fill:#000000;stroke:#000000;stroke-width:0.025000000in;font-family:Times;text-anchor:start">Regiões mortas</text>
+  <text
+     x="1148.4673"
+     y="1525.2153"
+     font-style="normal"
+     font-weight="normal"
+     font-size="152"
+     id="text46"
+     style="font-size:160.15092;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;stroke:#000000;stroke-width:0.025000000in;font-family:Courier 10 Pitch;text-anchor:start;writing-mode:lr-tb"
+     sodipodi:linespacing="100%"><tspan
+       id="tspan1325"
+       sodipodi:role="line"
+       y="1525.2153"
+       x="1148.4673">I [j]</tspan></text>
+  <text
+     x="3168.5693"
+     y="294.08392"
+     font-style="normal"
+     font-weight="normal"
+     font-size="152"
+     id="text48"
+     style="font-size:152.00000;font-style:normal;font-weight:normal;fill:#000000;stroke:#000000;stroke-width:0.025000000in;font-family:Times;text-anchor:start">j</text>
+  <text
+     x="5688.5693"
+     y="1294.2993"
+     font-style="normal"
+     font-weight="normal"
+     font-size="152"
+     id="text50"
+     style="font-size:152.00000;font-style:normal;font-weight:normal;fill:#000000;stroke:#000000;stroke-width:0.025000000in;font-family:Times;text-anchor:start">Elementos do vetor I</text>
+  <text
+     x="1264.6349"
+     y="1594.9159"
+     font-style="normal"
+     font-weight="normal"
+     font-size="152"
+     id="text1344"
+     style="font-size:133.45911;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;stroke:#000000;stroke-width:0.025000000in;font-family:Monospace;text-anchor:start;writing-mode:lr-tb"
+     sodipodi:linespacing="100%"><tspan
+       x="1264.6349"
+       y="1594.9159"
+       sodipodi:role="line"
+       id="tspan1370">M</tspan></text>
+  <text
+     x="6980.0947"
+     y="1350.9635"
+     font-style="normal"
+     font-weight="normal"
+     font-size="152"
+     id="text1374"
+     style="font-size:133.45911;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;stroke:#000000;stroke-width:0.025000000in;font-family:Monospace;text-anchor:start;writing-mode:lr-tb"
+     sodipodi:linespacing="100%"><tspan
+       x="6980.0947"
+       y="1350.9635"
+       sodipodi:role="line"
+       id="tspan1376">M</tspan></text>
+</svg>

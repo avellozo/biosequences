@@ -1,0 +1,219 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="6cm" height="4cm" 
+     viewBox="0 0 350 220" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <title>Edit Graph</title>
+
+    <marker id="Triangle"
+      viewBox="0 0 10 10" refX="10" refY="2" 
+      markerUnits="strokeWidth"
+      markerWidth="20" markerHeight="20"
+      orient="auto">
+      <path d="M 0 0 L 10 2 L 0 4 z" />
+    </marker>
+
+  <path d="M 50 50 h 250 v 100 h -250 v -100"
+        fill="none" stroke="black" stroke-width="1" />
+    
+  <path d="M 200 100 h 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-end="url(#Triangle)"/>
+  <path d="M 250 100 v 50"
+        fill="none" stroke="red" stroke-width="1" 
+        marker-end="url(#Triangle)"/>
+  <path d="M 200 150 h 50"
+        fill="none" stroke="blue" stroke-width="1" 
+        marker-end="url(#Triangle)"/>
+  <path d="M 200 100 v 50"
+        fill="none" stroke="black" stroke-width="1" 
+        marker-end="url(#Triangle)"/>
+  <path d="M 200 100 l 50 50"
+        fill="none" stroke="green" stroke-width="1" 
+        marker-end="url(#Triangle)"/>
+
+  <circle cx="200" cy="150" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+  <circle cx="250" cy="150" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+  <circle cx="250" cy="100" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+  <circle cx="200" cy="100" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+  
+  <path d="M 50 50 L 200 150"
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 60 50 L 200 150"
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 70 50 L 200 150"
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 80 50 L 200 150"
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 90 50 L 200 150"
+        fill="none" stroke="blue" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 100 50 L 200 100"
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 110 50 L 200 100"
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 120 50 L 200 100"
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 130 50 L 200 100"
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 140 50 L 200 100"
+        fill="none" stroke="green" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 150 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 160 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 170 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 180 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 190 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 200 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 210 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 220 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 230 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 240 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <path d="M 250 50 L 250 100"
+        fill="none" stroke="red" stroke-width="1" stroke-dasharray="1,8"/>
+    
+  <text x="242" y="172" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    W
+  </text>
+    
+  <text x="252" y="178" 
+        font-family="Times new roman" font-size="11" fill="black" font-style="italic">
+    i'
+  </text>
+    
+  <text x="254" y="162" 
+        font-family="Times new roman" font-size="11" fill="black" font-style="italic">
+    i
+  </text>
+    
+  <text x="209" y="169" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    e
+  </text>
+    
+  <text x="217" y="175" 
+        font-family="Times new roman" font-size="11" fill="black" font-style="italic">
+    H
+  </text>
+    
+  <text x="219" y="162" 
+        font-family="Times new roman" font-size="11" fill="black" font-style="italic">
+    i,j
+  </text>
+    
+  <text x="252" y="122" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    e
+  </text>
+    
+  <text x="258" y="130" 
+        font-family="Times new roman" font-size="11" fill="black" font-style="italic">
+    V
+  </text>
+    
+  <text x="262" y="115" 
+        font-family="Times new roman" font-size="11" fill="black" font-style="italic">
+    i,j
+  </text>
+    
+  <text x="220" y="117" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    e
+  </text>
+    
+  <text x="228" y="123" 
+        font-family="Times new roman" font-size="11" fill="black" font-style="italic">
+    D
+  </text>
+    
+  <text x="230" y="111" 
+        font-family="Times new roman" font-size="11" fill="black" font-style="italic">
+    i,j
+  </text>
+    
+        
+  <text x="27" y="100" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    i-1
+  </text>
+  <text x="37" y="150" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    i
+  </text>
+  <text x="47" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    0
+  </text>
+  <text x="295" y="45" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    m
+  </text>
+  <text x="99" y="40" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    j
+  </text>
+  <text x="102" y="43" 
+        font-family="Times new roman" font-size="10" fill="black" font-style="italic">
+    1
+  </text>
+  <path d="M 100 44 v 10 "
+        fill="none" stroke="black" stroke-width="1" />
+    
+  <text x="149" y="40" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    j
+  </text>
+  <text x="152" y="43" 
+        font-family="Times new roman" font-size="10" fill="black" font-style="italic">
+    2
+  </text>
+  <path d="M 150 44 v 10 "
+        fill="none" stroke="black" stroke-width="1" />
+    
+  <text x="195" y="40" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    j-1
+  </text>
+  <text x="245" y="40" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    j
+  </text>
+  <text x="37" y="60" 
+        font-family="Times new roman" font-size="15" fill="black" font-style="italic">
+    i'
+  </text>
+</svg>

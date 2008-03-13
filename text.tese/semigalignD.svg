@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="6cm"
+   height="4cm"
+   viewBox="0 0 350 220"
+   id="svg3126">
+  <defs
+     id="defs3161">
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       style="overflow:visible"
+       id="Arrow1Lend">
+      <path
+         d="M 0,0 L 5,-5 L -12.5,0 L 5,5 L 0,0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill-rule:evenodd;stroke:black;stroke-width:1pt;marker-start:none"
+         id="path2968" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       style="overflow:visible"
+       id="Arrow2Mend">
+      <path
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.97309,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(-0.6,-0.6)"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path2944" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       style="overflow:visible"
+       id="Arrow2Lend">
+      <path
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.97309,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path2950" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       style="overflow:visible"
+       id="Dot_m">
+      <path
+         d="M -2.5,-1 C -2.5,1.76 -4.74,4 -7.5,4 C -10.26,4 -12.5,1.76 -12.5,-1 C -12.5,-3.76 -10.26,-6 -7.5,-6 C -4.74,-6 -2.5,-3.76 -2.5,-1 z "
+         transform="matrix(0.4,0,0,0.4,2.96,0.4)"
+         style="fill-rule:evenodd;stroke:black;stroke-width:1pt;marker-start:none;marker-end:none"
+         id="path2906" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       style="overflow:visible"
+       id="Dot_l">
+      <path
+         d="M -2.5,-1 C -2.5,1.76 -4.74,4 -7.5,4 C -10.26,4 -12.5,1.76 -12.5,-1 C -12.5,-3.76 -10.26,-6 -7.5,-6 C -4.74,-6 -2.5,-3.76 -2.5,-1 z "
+         transform="matrix(0.8,0,0,0.8,5.92,0.8)"
+         style="fill-rule:evenodd;stroke:black;stroke-width:1pt;marker-start:none;marker-end:none"
+         id="path2909" />
+    </marker>
+  </defs>
+  <title
+     id="title3128">Edit Graph</title>
+  <path
+     d="M 50,50 L 300,50 L 300,200 L 50,200 L 50,50"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="path3130" />
+  <path
+     d="M 67.358168,50.691503 L 199.92578,199.92578"
+     style="fill:none;stroke:blue;stroke-width:1.1484375;stroke-dasharray:5.74218775, 5.74218775"
+     id="path3132" />
+  <path
+     d="M 97.983593,49.218162 L 199.54727,148.92999"
+     style="fill:none;stroke:green;stroke-width:0.67088991;stroke-dasharray:3.35444969, 3.35444969"
+     id="path3134" />
+  <path
+     d="M 129.57658,50.564238 L 250.05305,150.05305"
+     style="fill:none;stroke:red;stroke-width:0.89390749;stroke-dasharray:4.46953757, 4.46953757"
+     id="path3136" />
+  <path
+     d="M 250,50 L 250,200"
+     style="fill:none;stroke:black;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:1.00000004, 4.00000017;stroke-dashoffset:0"
+     id="path3138" />
+  <path
+     d="M 200,50 L 200,200"
+     style="fill:none;stroke:black;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:1.00000004, 4.00000017;stroke-dashoffset:0"
+     id="path3140" />
+  <path
+     d="M 50,150 L 300,150"
+     style="fill:none;stroke:black;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:1.00000004, 4.00000017;stroke-dashoffset:0"
+     id="path3142" />
+  <text
+     x="47"
+     y="45"
+     style="font-size:15px;fill:black;font-family:Times new roman"
+     id="text3144">0</text>
+  <text
+     x="295"
+     y="45"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text3146">
+    <tspan
+       x="295"
+       y="45"
+       id="tspan1916">|s|</tspan>
+  </text>
+  <text
+     x="201.23457"
+     y="43.76543"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text3150">
+    <tspan
+       x="201.23457"
+       y="43.76543"
+       id="tspan1914">i -1</tspan>
+  </text>
+  <text
+     x="250"
+     y="45"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text3152">
+    <tspan
+       x="250"
+       y="45"
+       id="tspan1912">i</tspan>
+  </text>
+  <text
+     x="37"
+     y="60"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text3154">
+    <tspan
+       x="37"
+       y="60"
+       id="tspan1899">j'</tspan>
+  </text>
+  <text
+     x="37"
+     y="200"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text3156">
+    <tspan
+       x="37"
+       y="200"
+       id="tspan1903">j</tspan>
+  </text>
+  <text
+     x="30"
+     y="150"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text3158">
+    <tspan
+       x="30"
+       y="150"
+       id="tspan1901">j-1</tspan>
+  </text>
+  <text
+     x="254.93828"
+     y="48.271603"
+     style="font-size:9.87777805px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Courier New"
+     id="text1885"
+     xml:space="preserve"><tspan
+       x="254.93828"
+       y="48.271603"
+       id="tspan1887">2</tspan></text>
+  <text
+     x="204.93826"
+     y="48.271603"
+     style="font-size:9.87777805px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Courier New"
+     id="text1889"
+     xml:space="preserve"><tspan
+       x="204.93826"
+       y="48.271603"
+       id="tspan1891">2</tspan></text>
+  <text
+     x="156.17284"
+     y="31.604935"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text1895"
+     xml:space="preserve"><tspan
+       x="156.17284"
+       y="31.604935"
+       id="tspan1910">s</tspan></text>
+  <text
+     x="16.049374"
+     y="110.61729"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text1905"
+     xml:space="preserve"><tspan
+       x="16.049374"
+       y="110.61729"
+       id="tspan1907">t</tspan></text>
+  <path
+     d="M 250,150 L 250,200"
+     style="fill:none;fill-rule:evenodd;stroke:red;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Dot_m);marker-end:url(#Arrow1Lend);stroke-opacity:1"
+     id="path1909" />
+  <path
+     d="M 200,150 L 250,200"
+     style="fill:none;fill-rule:evenodd;stroke:lime;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Dot_m);marker-end:url(#Arrow1Lend);stroke-opacity:1"
+     id="path2984" />
+  <path
+     d="M 200,200 L 250,200"
+     style="fill:none;fill-rule:evenodd;stroke:blue;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Dot_m);marker-end:url(#Arrow1Lend);stroke-opacity:1"
+     id="path2986" />
+</svg>

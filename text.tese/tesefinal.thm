@@ -1,0 +1,91 @@
+\contentsline {definicao}{{Definição}{2.{1}}{Região de $(i_1,j_1)$ a $(i_2,j_2)$}}{24}{teorema.2.1}
+\contentsline {definicao}{{Definição}{2.{2}}{Submatriz}}{24}{teorema.2.2}
+\contentsline {definicao}{{Definição}{2.{3}}{Matriz comparável nas colunas}}{24}{teorema.2.3}
+\contentsline {definicao}{{Definição}{2.{4}}{Vetor $I_M$ de máximos das colunas}}{25}{teorema.2.4}
+\contentsline {exemplo}{{Exemplo}{2.{5}}{Matriz com os elementos máximos destacados}}{25}{teorema.2.5}
+\contentsline {definicao}{{Definição}{2.{6}}{Matriz monotônica}}{25}{teorema.2.6}
+\contentsline {exemplo}{{Exemplo}{2.{7}}{Matriz monotônica}}{26}{teorema.2.7}
+\contentsline {exemplo}{{Exemplo}{2.{8}}{Matriz monotônica com tipos diferentes}}{26}{teorema.2.8}
+\contentsline {definicao}{{Definição}{2.{9}}{Elemento morto}}{26}{teorema.2.9}
+\contentsline {definicao}{{Definição}{2.{10}}{Região morta}}{26}{teorema.2.10}
+\contentsline {proposicao}{{Proposição}{2.{11}}{}}{27}{teorema.2.11}
+\contentsline {problema}{{Problema}{2.{12}}{Máximo das colunas}}{27}{teorema.2.12}
+\contentsline {definicao}{{Definição}{2.{13}}{Matriz totalmente monotônica}}{28}{teorema.2.13}
+\contentsline {exemplo}{{Exemplo}{2.{14}}{Matriz totalmente monotônica}}{29}{teorema.2.14}
+\contentsline {proposicao}{{Proposição}{2.{15}}{}}{29}{teorema.2.15}
+\contentsline {corolario}{{Corolário}{2.{16}}{}}{30}{teorema.2.16}
+\contentsline {lema}{{Lema}{2.{17}}{}}{30}{teorema.2.17}
+\contentsline {definicao}{{Definição}{2.{18}}{Matriz de Monge}}{39}{teorema.2.18}
+\contentsline {definicao}{{Definição}{2.{19}}{Matriz de Monge inversa}}{39}{teorema.2.19}
+\contentsline {definicao}{{Definição}{2.{20}}{\Oped }}{40}{teorema.2.20}
+\contentsline {observacao}{{Observação}{2.{21}}{}}{43}{teorema.2.21}
+\contentsline {observacao}{{Observação}{2.{22}}{}}{43}{teorema.2.22}
+\contentsline {observacao}{{Observação}{2.{23}}{}}{43}{teorema.2.23}
+\contentsline {proposicao}{{Proposição}{2.{24}}{}}{44}{teorema.2.24}
+\contentsline {definicao}{{Definição}{2.{25}}{Grafo de edição de $s$ e $t$}}{45}{teorema.2.25}
+\contentsline {definicao}{{Definição}{2.{26}}{Grafo de edição estendido}}{46}{teorema.2.26}
+\contentsline {definicao}{{Definição}{3.{1}}{Alinhamento de $s$ e $t$}}{49}{teorema.3.1}
+\contentsline {exemplo}{{Exemplo}{3.{2}}{Alinhamento de duas \seqs }}{50}{teorema.3.2}
+\contentsline {observacao}{{Observação}{3.{3}}{}}{51}{teorema.3.3}
+\contentsline {proposicao}{{Proposição}{3.{4}}{}}{53}{teorema.3.4}
+\contentsline {corolario}{{Corolário}{3.{5}}{}}{55}{teorema.3.5}
+\contentsline {proposicao}{{Proposição}{3.{6}}{}}{57}{teorema.3.6}
+\contentsline {definicao}{{Definição}{4.{1}}{Alinhamento com \invs \ de $s$ e $t$}}{69}{teorema.4.1}
+\contentsline {exemplo}{{Exemplo}{4.{2}}{Alinhamento com inversões}}{70}{teorema.4.2}
+\contentsline {definicao}{{Definição}{4.{3}}{Transformação com \invs \ de $s$ e $t$}}{70}{teorema.4.3}
+\contentsline {definicao}{{Definição}{4.{4}}{Alinhamento com \invnsobs \ de $s$ e $t$}}{73}{teorema.4.4}
+\contentsline {exemplo}{{Exemplo}{4.{5}}{Alinhamento com \invnsobs }}{74}{teorema.4.5}
+\contentsline {definicao}{{Definição}{4.{6}}{Função parcial $\alignsimbsym $}}{74}{teorema.4.6}
+\contentsline {definicao}{{Definição}{4.{7}}{Função parcial \alignimaxind }}{75}{teorema.4.7}
+\contentsline {definicao}{{Definição}{4.{8}}{Função parcial \aligniminind }}{75}{teorema.4.8}
+\contentsline {definicao}{{Definição}{4.{9}}{Função parcial \alingblockinvsym }}{76}{teorema.4.9}
+\contentsline {definicao}{{Definição}{4.{10}}{Função parcial $\alignopedinvsym $}}{76}{teorema.4.10}
+\contentsline {definicao}{{Definição}{4.{11}}{Transformação com \invnsobs \ de $s$ e $t$}}{77}{teorema.4.11}
+\contentsline {definicao}{{Definição}{4.{12}}{Função \opedweigsym }}{78}{teorema.4.12}
+\contentsline {definicao}{{Definição}{4.{13}}{Pontuação de alinhamento com \invnsobs }}{78}{teorema.4.13}
+\contentsline {definicao}{{Definição}{4.{14}}{Função parcial \eginvert {j'}}}{79}{teorema.4.14}
+\contentsline {definicao}{{Definição}{4.{15}}{Função \egeopedinvsym {G}}}{80}{teorema.4.15}
+\contentsline {definicao}{{Definição}{4.{16}}{Função $\aligninvfunc $}}{80}{teorema.4.16}
+\contentsline {lema}{{Lema}{4.{17}}{}}{83}{teorema.4.17}
+\contentsline {observacao}{{Observação}{4.{18}}{}}{84}{teorema.4.18}
+\contentsline {definicao}{{Definição}{4.{19}}{Funções $\hdifsym {G}$, $\vdifsym {G}$ e $\ddifsym {G}$}}{84}{teorema.4.19}
+\contentsline {definicao}{{Definição}{4.{20}}{Vetores $\hdifvec {G}{i'}{i}{j}$, $\vdifvec {G}{i'}{i}{j}$ e $\ddifvec {G}{i'}{i}{j}$}}{85}{teorema.4.20}
+\contentsline {proposicao}{{Proposição}{4.{21}}{}}{85}{teorema.4.21}
+\contentsline {proposicao}{{Proposição}{4.{22}}{}}{87}{teorema.4.22}
+\contentsline {lema}{{Lema}{4.{23}}{}}{89}{teorema.4.23}
+\contentsline {definicao}{{Definição}{4.{24}}{Árvores para armazenar $\egweigp {(i', j')}{(i,j)}$}}{93}{teorema.4.24}
+\contentsline {definicao}{{Definição}{4.{25}}{Ponto de mudança de $\hdifsym {G}$ fixados $i$, $i'$ e $j$}}{103}{teorema.4.25}
+\contentsline {definicao}{{Definição}{4.{26}}{Lista \blhvec {G}{i'}{i}{j}}}{103}{teorema.4.26}
+\contentsline {definicao}{{Definição}{4.{27}}{Função $\outsym {G}$}}{105}{teorema.4.27}
+\contentsline {proposicao}{{Proposição}{4.{28}}{}}{105}{teorema.4.28}
+\contentsline {observacao}{{Observação}{4.{29}}{}}{106}{teorema.4.29}
+\contentsline {proposicao}{{Proposição}{4.{30}}{}}{106}{teorema.4.30}
+\contentsline {definicao}{{Definição}{4.{31}}{Lista $\outlist {j}$}}{108}{teorema.4.31}
+\contentsline {definicao}{{Definição}{4.{32}}{Candidato a máximo de $\outlist {j}$}}{108}{teorema.4.32}
+\contentsline {definicao}{{Definição}{4.{33}}{Lista de candidatos $\cl {j}$}}{108}{teorema.4.33}
+\contentsline {observacao}{{Observação}{4.{34}}{}}{108}{teorema.4.34}
+\contentsline {observacao}{{Observação}{4.{35}}{}}{108}{teorema.4.35}
+\contentsline {observacao}{{Observação}{4.{36}}{}}{108}{teorema.4.36}
+\contentsline {proposicao}{{Proposição}{4.{37}}{}}{108}{teorema.4.37}
+\contentsline {observacao}{{Observação}{4.{38}}{}}{109}{teorema.4.38}
+\contentsline {lema}{{Lema}{4.{39}}{}}{109}{teorema.4.39}
+\contentsline {observacao}{{Observação}{4.{40}}{}}{111}{teorema.4.40}
+\contentsline {definicao}{{Definição}{4.{41}}{Função \difoutsym {G}}}{112}{teorema.4.41}
+\contentsline {observacao}{{Observação}{4.{42}}{}}{112}{teorema.4.42}
+\contentsline {observacao}{{Observação}{4.{43}}{}}{112}{teorema.4.43}
+\contentsline {observacao}{{Observação}{4.{44}}{}}{113}{teorema.4.44}
+\contentsline {observacao}{{Observação}{4.{45}}{}}{113}{teorema.4.45}
+\contentsline {definicao}{{Definição}{5.{1}}{Intervalo de \rep \ em $\aligndupsym $}}{120}{teorema.5.1}
+\contentsline {definicao}{{Definição}{5.{2}}{Função \excludefunc }}{121}{teorema.5.2}
+\contentsline {definicao}{{Definição}{5.{3}}{Alinhamento com \dups \ de $s$ e $t$}}{121}{teorema.5.3}
+\contentsline {definicao}{{Definição}{5.{4}}{Função parcial $\aligndsimbsym $}}{122}{teorema.5.4}
+\contentsline {exemplo}{{Exemplo}{5.{5}}{Alinhamento com \dups \ caso \ref {def:aligndup:casossnormal}}}{123}{teorema.5.5}
+\contentsline {exemplo}{{Exemplo}{5.{6}}{Alinhamento com \dups \ caso \ref {def:aligndup:casossintercalado}}}{124}{teorema.5.6}
+\contentsline {exemplo}{{Exemplo}{5.{7}}{Alinhamento com \dups \ caso \ref {def:aligndup:casost}}}{124}{teorema.5.7}
+\contentsline {definicao}{{Definição}{5.{8}}{Transformação com \dups \ de $s$ e $t$}}{125}{teorema.5.8}
+\contentsline {definicao}{{Definição}{5.{9}}{Grafo de \dups \ de \aligndupsym }}{125}{teorema.5.9}
+\contentsline {definicao}{{Definição}{5.{10}}{Pontuação de um alinhamento com \dups }}{126}{teorema.5.10}
+\contentsline {definicao}{{Definição}{5.{11}}{Função parcial \dupwsym }}{129}{teorema.5.11}
+\contentsline {exemplo}{{Exemplo}{5.{12}}{Repetições em \emph {tandem}}}{146}{teorema.5.12}
+\contentsline {definicao}{{Definição}{5.{13}}{Alinhamento com \dups \ em \emph {tandem} de $s$ e $t$}}{146}{teorema.5.13}
+\contentsline {exemplo}{{Exemplo}{5.{14}}{Alinhamento com \dups \ em \emph {tandem}}}{147}{teorema.5.14}

@@ -1,0 +1,96 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="6cm" height="6cm" 
+     viewBox="0 0 250 200" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <title>Arvore binaria</title>
+        
+  <text x="145" y="21" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    raiz
+  </text>
+  <circle cx="156.25" cy="25" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 156.25 25 L 87.5 75 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="87.5" cy="75" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 156.25 25 L 225 75 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="225" cy="75" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 87.5 75 L 50 125 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="50" cy="125" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 87.5 75 L 125 125 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="125" cy="125" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 225 75 L 200 125 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="200" cy="125" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 50 125 L 25 175 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="25" cy="175" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 50 125 L 75 175 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="75" cy="175" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 125 125 L 100 175 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="100" cy="175" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 125 125 L 150 175 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="150" cy="175" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <path d="M 200 125 L 175 175 "
+        fill="none" stroke="black" stroke-width="1"/>
+
+  <circle cx="175" cy="175" r="2"
+        fill="black" stroke="black" stroke-width="1"  />        
+
+  <text x="172" y="190" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    4
+  </text>
+  <text x="147" y="190" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    3
+  </text>
+  <text x="97" y="190" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    2
+  </text>
+  <text x="72" y="190" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    1
+  </text>
+  <text x="22" y="190" 
+        font-family="Times new roman" font-size="15" fill="black" >
+    0
+  </text>
+</svg>

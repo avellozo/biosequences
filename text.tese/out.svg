@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="6cm"
+   height="4cm"
+   viewBox="0 0 350 220"
+   id="svg1962">
+  <defs
+     id="defs2013">
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       style="overflow:visible"
+       id="Arrow1Lend">
+      <path
+         d="M 0,0 L 5,-5 L -12.5,0 L 5,5 L 0,0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill-rule:evenodd;stroke:black;stroke-width:1pt;marker-start:none"
+         id="path3008" />
+    </marker>
+  </defs>
+  <title
+     id="title1964">Edit Graph</title>
+  <path
+     d="M 50,50 L 300,50 L 300,200 L 50,200 L 50,50"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="path1966" />
+  <path
+     d="M 49.750925,49.750925 L 127.40957,98.397219"
+     style="fill:none;stroke:blue;stroke-width:0.50185025;stroke-miterlimit:4;stroke-dasharray:4.01480202, 4.01480202;stroke-dashoffset:0"
+     id="path1968" />
+  <path
+     d="M 129.95454,101.21639 C 162.07593,105.36873 188.26884,119.59948 203.95905,151.68484"
+     style="fill:none;stroke:black;stroke-width:0.96966857;marker-end:url(#Arrow1Lend);stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="path1974" />
+  <path
+     d="M 50,98.580246 L 300,98.580246"
+     style="fill:none;stroke:black;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:1.00000004, 12.0000005;stroke-dashoffset:0"
+     id="path1980" />
+  <text
+     x="47"
+     y="45"
+     style="font-size:15px;fill:black;font-family:Times new roman"
+     id="text1982">0</text>
+  <text
+     x="295"
+     y="45"
+     style="font-size:15px;fill:black;font-family:Times new roman"
+     id="text1984">m</text>
+  <text
+     x="204.93828"
+     y="215"
+     style="font-size:15px;fill:black;font-family:Times new roman"
+     id="text1996">j</text>
+  <text
+     x="37"
+     y="60"
+     style="font-size:15px;fill:black;font-family:Times new roman"
+     id="text1998">0</text>
+  <text
+     x="40.086418"
+     y="156.79012"
+     style="font-size:15px;fill:black;font-family:Times new roman"
+     id="text2000">i</text>
+  <text
+     x="38.703705"
+     y="101.72839"
+     style="font-size:15px;fill:black;font-family:Times new roman"
+     id="text2002">i'</text>
+  <path
+     d="M 52.160498,152.5926 L 302.1605,152.5926"
+     style="fill:none;stroke:black;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:1.00000004, 12.0000005;stroke-dashoffset:0"
+     id="path2158" />
+  <text
+     x="39.198685"
+     y="199.25584"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text2166">
+    <tspan
+       x="39.198685"
+       y="199.25584"
+       id="tspan2168">n</tspan>
+  </text>
+  <text
+     x="126.89156"
+     y="215.44438"
+     style="font-size:15px;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;font-family:Times new roman"
+     id="text3058">
+    <tspan
+       x="126.89156"
+       y="215.44438"
+       id="tspan3060">j'</tspan>
+  </text>
+  <path
+     d="M 205.55556,53.295042 L 205.55556,198.18644"
+     style="fill:none;stroke:black;stroke-width:0.7612921;stroke-miterlimit:4;stroke-dasharray:0.76129211, 9.1355053;stroke-dashoffset:0"
+     id="path3062" />
+  <path
+     d="M 128.39506,53.603684 L 128.39506,198.49508"
+     style="fill:none;stroke:black;stroke-width:0.7612921;stroke-miterlimit:4;stroke-dasharray:0.76129211, 9.1355053;stroke-dashoffset:0"
+     id="path3064" />
+</svg>
