@@ -14,7 +14,7 @@
 \usepackage{subfigure}
 \usepackage{hyperref}
 \usepackage{ntheorem}
-\renewcommand{\baselinestretch}{2}
+% \renewcommand{\baselinestretch}{2}
 
 \usepackage{float}
 %%\floatstyle{boxed}
@@ -313,7 +313,7 @@ height0.75em width0.5em depth0.25em\fi}
 
 %função com peso máximo de um intrep
 \newcommand{\dupwsym}[1]{\ensuremath{R_{#1}}}
-\newcommand{\dupw}[3]{\ensuremath{\dupwsym{#1}(#2,#3)}}
+\newcommand{\dupw}[3]{\ensuremath{\dupwsym{#1}[#2,#3]}}
 
 %função com peso máximo de um intrep em tandem
 \newcommand{\dupwtsym}{\ensuremath{\textrm{dupt}}}
@@ -327,7 +327,7 @@ height0.75em width0.5em depth0.25em\fi}
 \newcommand{\diffunc}[5]{\ensuremath{{#1}((#2,#3),(#4,#5))}}
 \newcommand{\difvec}[4]{\ensuremath{{#1}^{#2,#3,#4}}}
 
-\newcommand{\hdifsym}[1]{\ensuremath{\textrm{hDif}_{#1}}}
+\newcommand{\hdifsym}[1]{\ensuremath{\textrm{hDif}}}
 \newcommand{\hdiffunc}[5]{\diffunc{\hdifsym{#1}}{#2}{#3}{#4}{#5}}
 \newcommand{\hdifvec}[4]{\difvec{\hdifsym{#1}}{#2}{#3}{#4}}
 
@@ -355,13 +355,13 @@ height0.75em width0.5em depth0.25em\fi}
 \newcommand{\difoutvec}[1]{\ensuremath{\Delta OUT_{#1}}}
 
 %Função psi para o alg n3
-\newcommand{\psihsym}[1]{\ensuremath{\psi_{#1}}}
+\newcommand{\psihsym}[1]{\ensuremath{\psi}}
 \newcommand{\psihfunc}[4]{\ensuremath{\psihsym{#1}(#2,#3,#4)}}
 
 %borderline
 % \newcommand{\blhsym}[1]{\ensuremath{bl_{#1}}}
 % \newcommand{\blhfunc}[5]{\ensuremath{\blhsym{#1}(#2,(#3,#4),#5)}}
-\newcommand{\blhvec}[4]{\ensuremath{BL_{#1}^{#2,#3,#4}}}
+\newcommand{\blhvec}[4]{\ensuremath{BL^{#2,#3,#4}}}
 \newcommand{\blhdeltavec}[1]{\ensuremath{\Delta BL_{#1}}}
 
 
@@ -551,26 +551,42 @@ resolver o mesmo problema. Este artigo é um resumo estendido de
 
 
 \section{Introdução}
-Atualmente, devido ao grande número de projetos de seqüenciamentos
-desenvolvidos e finalizados, temos uma enorme quantidade de dados moleculares
-disponíveis, principalmente de DNA, RNA e proteína. Processar estes dados para
-extrair informações relevantes é um grande desafio.
+Atualmente, devido ao grande número de projetos de seqüenciamentos desenvolvidos
+e finalizados, temos uma enorme quantidade de dados moleculares disponíveis,
+principalmente de DNA, RNA e proteína. Processar estes grandes volumes de dados
+para extrair informações relevantes exige algoritmos eficientes e é atualmente um
+grande desafio.
 
-Uma das maneiras de manipular, estudar e estruturar estes dados moleculares é
-através do uso de \seqs\ de símbolos. No caso do DNA os símbolos são as letras
-que representam as bases de nucleotídeos (A, C, T e G), no caso das proteínas
-os símbolos são letras que representam os 20 aminoácidos elementares.
+% Uma das maneiras de manipular, estudar e estruturar estes dados moleculares é
+% através do uso de \seqs\ de símbolos. No caso do DNA os símbolos são as letras
+% que representam as bases de nucleotídeos (A, C, T e G), no caso das proteínas
+% os símbolos são letras que representam os 20 aminoácidos elementares.
 
 Na história da evolução vários eventos \bios\ introduzem mudanças nas \seqs\ do
-DNA. Quando duas seqüências tem alto grau de semelhança é esperado que elas se
+DNA. Quando duas seqüências têm alto grau de semelhança é esperado que elas se
 diferenciem apenas em alguns trechos. Normalmente as diferenças nestes
 trechos são con\seqs\ da ocorrência de alguns eventos \bios. Em geral, para a
-visualização destes eventos ocorridos, é feito um procedimento de alinhamento
+visualização destes eventos ocorridos é feito um procedimento de alinhamento
 entre as duas \seqs. Procedimentos de alinhamento típicos tentam
 identificar que partes não mudam e, nas partes que mudam, quais os eventos
 \bios\ que ocasionaram as mudanças. Tipicamente os eventos biológicos
-considerados para um alinhamento são as \emph{substituições}, \emph{remoções} e
-\emph{inserções} de nucleotídeos.
+considerados para um alinhamento são os eventos pontuais de
+substituição, remoção e inserção de um nucleotídeo.
+
+Além desses eventos pontuais que resultam em alterações em um único símbolo na
+\seq\ biológica, iremos considerar também os rearranjos para a obtenção de um
+alinhamento ótimo de duas \seqs. Os rearranjos agem sobre um fragmento da \seq.
+Os rearranjos que consideraremos são a \inv\ e a \dup\ de fragmentos. Estes não
+são os únicos tipos de rearranjos, mas são considerados muito importantes e são
+largamente estudados, como em~\cite{pmid14764619,pmid1710175} na
+% em~\cite{pmid14764619,pmid15286789,pmid15918152,pmid12076675, pmid18039875},
+associação de doenças humanas à rearranjos no DNA. Os novos resultados
+comparativos feitos por Sherer et al.~\cite{pmid16254605} nas \seqs\ de DNA do
+homem e do chimpanzé, mostram
+ a importância do estudo da \inv\ ao nível da \seq\ de DNA e relataram 83 \seqs\
+ reversas que estão contidas dentro de genes,
+% apl:acréscimo:
+muitas destas ocorrências constituindo-se polimórficas.
 
 O alinhamento de \seqs\ \bioas\ é uma das principais técnicas utilizadas por
 biólogos para comparar \seqs\ \bioas.
@@ -592,28 +608,17 @@ algoritmo quadrático clássico de programação dinâmica para
 alinhamentos~\cite{meidanissetubalbook}.}, computa um conjunto mínimo de
 operações de edição que tem o custo total ótimo e apresenta o alinhamento associado.
 
-Dadas duas \seqs\ $s$ e $t$ e pontuações fixas para cada \oped\ associada a uma
-mutação, o problema de \emph{obter uma transformação ótima com \invs\ de $s$ e
-$t$} é um problema de otimização que procura uma transformação com \invs\ de
-$s$ e $t$ tal que, a soma das pontuações das \opeds\ desta transformação é
-máxima.
+% Dadas duas \seqs\ $s$ e $t$ e pontuações fixas para cada \oped\ associada a uma
+% mutação, o problema de \emph{obter uma transformação ótima com \invs\ de $s$ em
+% $t$} é um problema de otimização que procura uma transformação com \invs\ de
+% $s$ em $t$ tal que, a soma das pontuações das \opeds\ desta transformação é
+% máxima.
+%apl: reescrevi transformação ótima com \invs\ de $s$ e
+%$t$ em transformação ótima com \invs\ de $s$ *em*
+%$t$.
 
-Além desses eventos que resultam em alterações em um único símbolo na \seq\
-biológica, iremos considerar também os rearranjos para a obtenção de
-alinhamentos. Os rearranjos agem sobre um fragmento da \seq. Consideraremos, além
-dos eventos de inserção, remoção e substituição de um símbolo, os eventos de
-\inv\ e de \dup\ de fragmentos para a obtenção de um alinhamento ótimo de duas
-\seqs. Estes não são os únicos tipos de rearranjos, mas são considerados muito
-importantes e são largamente estudados, como por exemplo em~\cite{pmid14764619},
-% em~\cite{pmid14764619,pmid15286789,pmid15918152,pmid12076675, pmid18039875},
-inclusive na associação de doenças humanas à rearranjos no DNA, como por exemplo
-em~\cite{pmid1710175}. Os novos resultados comparativos feitos por Sherer et
-al.~\cite{pmid16254605} nas \seqs\ de DNA do homem e do chimpanzé, mostram
- a importância do estudo da \inv\ ao nível da \seq\ de DNA e reportaram 83 \seqs\
- reversas que estão contidas dentro de genes.
-
-Consideraremos que $s=s_1s_2\ldots s_n=s[1\Rng n]$ e $t=t_1t_2\ldots t_m=t[1\Rng
-m]$ são as duas \seqs\ a serem comparadas e alinhadas.
+Neste texto, consideraremos que $s=s_1s_2\ldots s_n=s[1\Rng n]$ e
+$t=t_1t_2\ldots t_m=t[1\Rng m]$ são as duas \seqs\ a serem comparadas e alinhadas.
 
 Chamaremos uma \seq\ de \opeds\ que transforma uma \seq\ $s$ em uma \seq\ $t$ de
 uma \emph{transformação de $s$ em $t$}. Consideraremos que cada \oped\ tem uma
@@ -622,8 +627,10 @@ pontuações de suas \opeds. Consideraremos que uma transformação de $s$ em $t$ é
 ótima se não existir outra transformação de $s$ em $t$ com pontuação maior.
 
 Diremos que $\egweigp{s}{(i',j')}{t}{(i,j)}$ é a pontuação de uma transformação
-ótima de $s[i'+1 \Rng i]$ em $t[j'+1 \Rng j]$ considerando as operações de
-substituição, inserção e remoção.
+ótima de $s[i'+1 \Rng i]$ em $t[j'+1 \Rng j]$ considerando as \opeds\ de inserção
+de um símbolo $t[j]$, remoção de um símbolo $s[i]$ e substituição de um símbolo
+$s[i]$ por $t[j]$, cujas pontuações são, repectivamente, denotadas
+por $ins(t[j])$, $rem(s[i])$ e $sub(s[i],t[j])$.
 
 \section{Alinhamento com inversões}
 
@@ -631,45 +638,42 @@ Quando possibilitamos a
 \oped\ de \inv\ para a obtenção de uma transformação diremos que a
 transformação obtida é uma \emph{transformação com \invs\ de $s$ em $t$}. A
 \oped\ de inversão substitui um fragmento da \seq\ pelo seu reverso
-complementar.
+complementar. Diremos que $\invert{s[i'\Rng i]}$ é o complemento reverso de $s[i'\Rng i]$ e
+$\opedweiginv$ é a pontuação da \oped\ de inversão de um fragmento.
 
 Como pode ser visto em~\cite{1100950}, o problema de decisão associado ao
-problema de obter uma transformação ótima com \invs\ para um alfabeto ilimitado
-é NP-difícil
-
+problema de obter uma transformação ótima com \invs\ para um alfabeto ilimitado é
+NP-difícil. %apl: juntei com abaixo
 Em 1992, Schöniger e Waterman \cite{pmid1591531} introduziram uma hipótese
 simplificadora: todas as regiões envolvendo \invs\ não se sobrepõem. Com esta
-simplificação eles obtiveram um \emph{alinhamento ótimo com \invnsobs} em tempo
-$O(n^6)$. A partir daí, outros melhoraram este tempo chegando até $O(n^4)$
+simplificação eles desenvolveram um algoritmo que obtém um alinhamento ótimo com
+\invnsobs\ em tempo $O(n^6)$. A partir daí, outros trabalhos melhoraram este
+tempo chegando até $O(n^4)$
 ~\cite{lago03:wob03,gao03:_space_effic_algor_sequen_align_inver}.
 
 Propomos dois algoritmos exatos que obtêm uma transformação ótima com
 \invnsobs\ em tempo $O(n^3 \log n)$~\cite{MR2173809} e
 $O(n^3)$~\cite{vellozo06:_align_with_non_overl_inver}.
 
-Diremos que $\invert{s[i'\Rng i]}$ é o complemento reverso de $s[i'\Rng i]$ .
-Assumiremos que $ins(t[j])$, $rem(s[i])$, $sub(s[i],t[j])$ e $\opedweiginv$ são,
-respectivamente, as pontuações das \opeds\ de inserção de um símbolo $t[j]$,
-remoção de um símbolo $s[i]$, substituição de um símbolo $s[i]$ por $t[j]$ e
-inversão de um fragmento de $s$.
-
 Os dois algoritmos computam a matriz $B$, onde $B[i,j]$ é a pontuação do
-alinhamento ótimo com \invnsobs\ de $s[1\Rng i]$ e $t[1\Rng j]$. O
-Algoritmo~\ref{alg:invgeral} contém o pseudo-código seguido pelos dois
-algoritmos.
+alinhamento ótimo com \invnsobs\ de $s[1\Rng i]$ e $t[1\Rng j]$ e seguem o
+pseudo-código do Algoritmo~\ref{alg:invgeral}, cuja execução é ilustrada na
+figura \ref{fig:algn3logn}.
 
 Entre as linhas \ref{invgeral:classicinic} a \ref{invgeral:classicfim} do
-Algoritmo~\ref{alg:invgeral} são considerando somentes as \opeds\ de inserção,
+Algoritmo~\ref{alg:invgeral} são consideradas somentes as \opeds\ de inserção,
 remoção e substituição de um símbolo. O laço da linha~\ref{invgeral:loopiLinha}
 considera a possibilidade de uma \oped\ de inversão de $s[i'+1 \Rng i]$, $0 \leq
 i' \leq i \leq n$.
 
-Os dois algoritmos que propomos diferem somente na forma da construção da
-matriz $\matw{G}{i'}{i}$ e do vetor $A_{i'}^i$, onde $\matw{G}{i'}{i}[j',j]$ é a pontuação do
-alinhamento ótimo de $\invert{s[i'+1\Rng i]}$ e $t[j'+1\Rng j]$ considerando somente
-inserção, remoção e substituição, pois não consideramos inversões sobrepostas no
-alinhamento de $s$ e $t$, e $A_{i'}^i[j]$ é o valor máximo de
-$(B[i',j]+\matw{G}{i'}{i}[j',j]+\opedweiginv)$, para todo $j'$, $0\leq j' \leq j$.
+Os dois algoritmos que propomos diferem somente na forma da construção da matriz
+$\matw{G}{i'}{i}$ e do vetor $A_{i'}^i$, onde
+$\matw{G}{i'}{i}[j',j]=\egweigp{\invert{s}}{(i',j')}{t}{(i,j)}$ é a pontuação
+do alinhamento ótimo de $\invert{s[i'+1\Rng i]}$ e $t[j'+1\Rng j]$ considerando
+somente inserção, remoção e substituição de um símbolo, pois não consideramos
+inversões sobrepostas no alinhamento de $s$ e $t$, e $A_{i'}^i[j]$ é o valor
+máximo de $(B[i',j']+\matw{G}{i'}{i}[j',j]+\opedweiginv)$, para todo $j'$, $0\leq
+j' \leq j$.
 
 % Para um daddo índice $i$ de $s$, o Algoritmo~\ref{alg:invgeral} calcula entre
 % as linhas \ref{invgeral:classicinic} a \ref{invgeral:classicfim}, para todo $j$
@@ -685,7 +689,7 @@ $(B[i',j]+\matw{G}{i'}{i}[j',j]+\opedweiginv)$, para todo $j'$, $0\leq j' \leq j
 % inversões sobrepostas no alinhamento de $s$ e $t$.
 
 
-\begin{algorithm}[htbp]
+\begin{algorithm}[htbd]
   \begin{algo}{INVGERAL}{s,t}
     \DOFORI {i} {0} {|s|} \label{invgeral:loop1}
       			\COM {Obtém $B[i,j]$ considerando somente inserção,
@@ -713,7 +717,8 @@ $(B[i',j]+\matw{G}{i'}{i}[j',j]+\opedweiginv)$, para todo $j'$, $0\leq j' \leq j
         \ACTT {Obtém $\matw{G}{i'}{i}$ a partir de $\matw{G}{i'+1}{i}$}
         \label{invgeral:obtemW}
         \ACTT{Para cada $j$ obtém
-        $A_{i'}^i[j]=\max_{j'\leq j}(B[i',j]+\matw{G}{i'}{i}[j',j]+\opedweiginv)$}
+        $A_{i'}^i[j]=\max_{j'\leq
+        j}(B[i',j']+\matw{G}{i'}{i}[j',j]+\opedweiginv)$}
         \label{invgeral:obtemA}
         \DOFORI {j} {0} {|t|}\label{invgeral:forComInv}
           \SET {B[i,j]} {\max(B[i,j],A_{i'}^i[j])}
@@ -724,7 +729,7 @@ i]$ e $t[1\Rng j]$}
   \end{algo}
 \end{algorithm}
 
-\begin{figure}
+\begin{figure} [htbd]
  \centering
 \includegraphics[width=0.7\textwidth,height=0.5\textwidth]{algn3logn}
 \caption[Ilustração da execução do Algoritmo~\ref{alg:invgeral}]{Ilustração da
@@ -761,106 +766,159 @@ j]$ e a linha tracejada o alinhamento de $\overline{s[i'+1\Rng i]}
 Jeanette Schmidt \cite{MR1621993} desenvolveu um algoritmo que constrói uma
 estrutura de árvores binárias de altura $\log m$ que possibilita obter um valor
 de $\egweigp{s}{(i',j')}{t}{(i,j)}$ em tempo $\log m$. Dada a estrutura de árvores com
-os valores de $\egweigp{s}{(i',j')}{t}{(i-1,j)}$ o algoritmo precisa de tempo
-$O(m \log m)$ para construir outras $m$ árvores que contêm os valores de
-$\egweigp{s}{(i',j')}{t}{(i,j)}$.
+os valores de $\egweigp{s}{(i',j')}{t}{(i-1,j)}$ o algoritmo proposto por
+\cite{MR1621993} precisa de tempo $O(m \log m)$ para construir outras $m$
+árvores que contêm os valores de $\egweigp{s}{(i',j')}{t}{(i,j)}$.
 
-Pode-se provar que a matriz $\matw{G}{i'}{i}$ é uma matriz de Monge inversa
-triangular superior e portanto totalmente monotônica, o que possibilita que
+A matriz $\matw{G}{i'}{i}$ é uma matriz de Monge inversa triangular
+superior~\cite{AggPar} e portanto totalmente monotônica, o que possibilita que
 utilizemos o algoritmo proposto por~\cite{MR895444} para obtermos $A_{i'}^i[j]$
 com $O(m)$ comparações.
 
-Utilizando a estrutura de árvores proposta
-em~\cite{MR1621993} para armazenar os valores de $\egweigp{s}{(i',j')}{t}{(i,j)}$,
-executamos a linha~\ref{invgeral:obtemW} do Algoritmo~\ref{alg:invgeral} em tempo
-$O(m \log m)$ e, utilizando o algoritmo proposto por~\cite{MR895444}, obtemos
-$A_{i'}^i[j]$ na linha~\ref{invgeral:obtemA} em tempo $O(m \log m)$. Como essas
-linhas são executadas para todo $i$ e $i'$, $0 \leq i' \leq i \leq n$, o
-Algoritmo~\ref{alg:invgeral} é executado em tempo  $O(n^2m \log m)$. Além
-disto, pode-se verificar que o Algoritmo~\ref{alg:invgeral} precisa de
-$O(\max(nm, m^2))$ de memória.
+Utilizando a estrutura de árvores proposta em~\cite{MR1621993} para armazenar os
+valores de $\egweigp{\invert{s}}{(i',j')}{t}{(i,j)}$, executamos a
+linha~\ref{invgeral:obtemW} do Algoritmo~\ref{alg:invgeral} em tempo $O(m \log
+m)$ e, utilizando o algoritmo proposto por~\cite{MR895444}, obtemos $A_{i'}^i[j]$
+na linha~\ref{invgeral:obtemA} em tempo $O(m \log m)$. Como essas linhas são
+executadas para todo $i$ e $i'$, $0 \leq i' \leq i \leq n$, o
+Algoritmo~\ref{alg:invgeral} é executado em tempo  $O(n^2m \log m)$. Além disto,
+o Algoritmo~\ref{alg:invgeral} precisa de $O(\max(nm, m^2))$ de memória.
 
+\subsection{Alinhamento com \invnsobs\ em tempo $O(n^3)$}
 
-\subsection{Alinhamento com \invnsobs\ em tempo  $O(n^3)$}
+Dados $i$, $i'$ e $j$, $0 \leq i' \leq \ i \leq n$, $0 \leq j \leq m$, definimos
+o vetor $\hdifvec{G}{i'}{i}{j}$ tal que $\hdifvec{G}{i'}{i}{j}[j'] =
+\egweigp{\invert{s}}{(i',j')}{t}{(i,j)}
+-\egweigp{\invert{s}}{(i',j')}{t}{(i,j-1)}$, $ 0 \leq j'\leq j$.
 
+O vetor $\hdifvec{G}{i'}{i}{j}$ é não decrescente~\cite{MR1621993} e portanto
+assume no máximo $\psihfunc{G}{i'}{i}{j}$ valores distintos, $1 \leq
+\psihfunc{G}{i'}{i}{j} \leq j$. Consideraremos que as pontuações das \opeds\
+pontuais são constantes e inteiras e portanto podemos considerar que
+\psihfunc{G}{i'}{i}{j} é constante. Por exemplo, se $ins(t[j])=rem(s[i])=-g$ e
+$sub(s[i],t[j])\in \{a, -g\}$, $a\in \natset^*$, $g\in \natset^*$,
+então $\psihfunc{G}{i'}{i}{j} \leq a + 2g +1 = O(1)$\footnote{Muitos sistemas de
+pontuação de alinhamento atribuem uma pontuação como neste exemplo.}.
 
+Seja o vetor crescente \blhvec{G}{i'}{i}{j} onde são armazenados todos os $j'$
+tais que $\hdifvec{G}{i'}{i}{j}[j'] \neq \hdifvec{G}{i'}{i}{j}[j'-1]$ e $j'>0$.
+Fixados $i$ e $i'$ e dados os vetores \blhvec{G}{i'}{i-1}{j}, $\forall j \tq 0
+\leq j \leq m$, existe um algoritmo na seção 6 de~\cite{MR1621993} que obtém em
+tempo $O(m)$ os vetores \blhvec{G}{i'}{i}{j} e os valores de
+$\hdifvec{G}{i'}{i}{j}[j']$, $\forall j \tq 0 \leq j \leq m$ e $\forall j' \tq j'
+\in \blhvec{G}{i'}{i}{j}$.
+
+Portanto, ao invés de calcularmos todos os valores de \matw{G}{i'}{i} trabalhamos
+somente com algumas diferenças destes valores para calcularmos $A_{i'}^i$, ou
+seja, na linha~\ref{invgeral:obtemW} do Algoritmo~\ref{alg:invgeral} calculamos
+somente os valores de $\hdifvec{G}{i'}{i}{j}[j']$, tais que $0 \leq j \leq m$ e
+$j' \in \blhvec{G}{i'}{i}{j}$. Portanto executamos a linha~\ref{invgeral:obtemW}
+do Algoritmo~\ref{alg:invgeral} em tempo $O(m)$.
+
+Dados $i$ e $i'$ , $0 \leq i' \leq \ i \leq n$, dizemos que $j'$ é um
+\emph{candidato a máximo de $j$} se não existe outro $j''$ tal que $j' < j'' \leq
+j$ e $B[i',j'']+\matw{G}{i'}{i}[j'',j] \geq B[i',j']+\matw{G}{i'}{i}[j',j]$.
+Colocamos todos os candidatos a máximo de $j$ em uma lista crescente e portanto o
+primeiro elemento $j'$ desta lista é tal que $B[i',j']+\matw{G}{i'}{i}[j',j]$ é
+máximo para aquele $j$, ou seja,
+$A_{i'}^i[j]=B[i',j']+\matw{G}{i'}{i}[j',j]+\opedweiginv$.
+
+Dados $i$, $i'$, $0 \leq i' \leq \ i \leq n$, e os vetores \blhvec{G}{i'}{i-1}{j}
+de cada $j$, existe um algoritmo em~\cite{MR1869256} que constrói  em tempo
+$O(m)$ as listas de candidatos a máximo de cada $j$, $ 0 \leq j \leq
+m$. Utilizamos este algoritmo e conseguimos executar a linha
+\ref{invgeral:obtemA} do Algoritmo~\ref{alg:invgeral} em tempo $O(m)$. Como as
+linhas \ref{invgeral:obtemW} e \ref{invgeral:obtemA} são executadas
+$O(n^2)$ vezes, conseguimos executar o Algoritmo~\ref{alg:invgeral} em tempo
+$O(n^2m)$. Além disto, o algoritmo pode ser executado com $O(nm)$ de memória.
 
 \section{Alinhamento com \dups}
 
-Uma duplicação é um evento biológico que ocorre frequentemente e que insere uma
-cópia de um fragmento da \seq\ na própria \seq. Existe um tipo de
-duplicação muito estudado que são as duplicações encadeadas (ou \dups\
+A duplicação é um evento biológico que ocorre freqüentemente e que insere uma
+cópia de um fragmento da \seq\ na própria \seq. Um tipo de
+duplicação muito estudado  é a \dup\ encadeada (ou \dup\ em
 \emph{tandem}). Neste tipo de \dup\ a cópia é inserida imediatamente após (ou
-antes) do fragmento copiado. Diremos que repetição é a cópia inserida e
-\seq\ base é a \seq\ de onde a repetição foi copiada.
+antes) do fragmento copiado. Diremos que \emph{repetição} é a cópia inserida e
+\emph{\seq\ base} é a \seq\ de onde a repetição foi copiada.
 
-Em~\cite{267526} é proposto um modelo para o alinhamento de \seqs\ que
-considera \dups\ em \emph{tandem} de mesmo tamanho. São propostos
-dois algoritmos exatos para obter um tal alinhamento ótimo que considera estas
-\dups. O primeiro algoritmo proposto executa em tempo $O(n^5)$ e espaço
-$O(n^2)$. O segundo algoritmo proposto executa em tempo $O(n^4)$ e espaço
-$O(n^3)$. Propomos algoritmos que executam em tempo $O(n^3)$ e memória $O(n^2)$.
+Em~\cite{267526} é proposto um modelo para o alinhamento de \seqs\ que considera
+\dups\ em \emph{tandem}. São propostos dois algoritmos exatos para obter um tal
+alinhamento ótimo. O primeiro algoritmo proposto executa em tempo $O(n^5)$ e
+espaço $O(n^2)$. O segundo algoritmo proposto executa em tempo $O(n^4)$ e espaço
+$O(n^3)$. Estamos preparando um artigo onde propomos um modelo mais geral que o
+de Benson com algoritmos exatos que executam em tempo $O(n^3)$ e espaço $O(n^2)$.
 
-Propomos um modelo para obter um alinhamento ótimo com \dups\ que é parecido
-com o modelo proposto por Benson, porém com algumas restrições diferentes:
+Propomos um modelo para obter um alinhamento ótimo com \dups\ que é parecido com
+o modelo proposto por Benson, porém com as seguintes diferenças:
 \begin{enumerate}
- \item Benson propõe somente \dups\ em \emph{tandem}. Não mantemos a
-restrição de ser em \emph{tandem}. Um modelo com esta restrição também pode ser
-considerado sem alterar as complexidades do algoritmo que propomos.
+ \item Benson propõe somente \dups\ em \emph{tandem}. Nós não mantemos a
+restrição de ser em \emph{tandem}, apesar de uma derivação do algoritmo que
+propomos poder ser feita para considerar esta restrição sem alterar as
+complexidades de tempo e memória do algoritmo que propomos.
   \item No modelo proposto por Benson, se um trecho de $s$ é uma
   \rep\ então a \seq\ base a ser comparada (ou alinhada) com esta \rep\
-  deve ser um trecho de $t$. Portanto ele não
+  deve ser um trecho de $t$, ou seja, ele não
   considera que a \seq\ base da \rep\ pode estar na própria
-  \seq. Nós consideramos que a \seq\ base pode estar na outra
-  \seq. Com isto, se estamos interessados em obter uma transformação ótima com
+  \seq. Nós consideramos que a \seq\ base pode estar na própria \seq\ ou na
+  outra. Com isto, se estamos interessados em obter uma transformação ótima com
   \dups\ de $s$ em $t$, o modelo proposto por Benson
-considera que as \opeds\ pontuais (inserção, remoção e subsituição) em um
-trecho duplicado devem ocorrer depois da \dup\ na transformação. Nós
-consideramos que as \opeds\ pontuais podem ocorrer antes ou depois da \dup.
+considera que as \opeds\ pontuais (inserção, remoção e subsituição) devem
+ocorrer depois das \dups\ na transformação. Nós consideramos que as \opeds\
+pontuais podem ocorrer antes ou depois das \dups.
 
   \item No modelo proposto por Benson,  a \seq\ base deve ser a mesma para
   \reps\ contíguas. Nós consideramos que a \seq\ base pode ser qualquer
-  trecho das \seqs\ $s$ ou $t$.
+  trecho das \seqs\ $s$ ou $t$, exceto o próprio trecho da \rep.
 \end{enumerate}
-
-Se estamos obtendo uma transformação ótima de $s$ em $t$ com \dups\ então
-consideramos que a \seq\ base de uma \rep\ $s[i+1\Rng i']$ está em
-$s[1\Rng i]$ ou $t[1\Rng j]$, onde $s[1\Rng i]$ se transforma em $t[1\Rng j]$ na
-transformação ótima sendo obtida. Além disto, em uma transformação com
-\dups\ consideramos a existência da \oped\ de \emph{excisão} que é a \oped\ dual
-à \dup, ou seja, uma excisão remove um trecho da \seq\ (\rep), tal que a \seq\ de símbolos do trecho removido ainda
-aparece como um fragmento (\seq\ base) da \seq\ gerada após a excisão. Numa
-transformação de $s$ em $t$, podemos associar uma \oped\ de excisão ao
-evento \bio\ de uma \dup\ na \seq\ $s$ que não ocorreu em $t$ ou ao evento \bio\ de
-remoção de uma \rep\ em $t$ que não ocorreu em $s$.
 
 Utilizando as técnicas utilizadas em~\cite{MR1869256}, podemos obter um
 alinhamento ótimo com \dups\ em \emph{tandem} segundo o mesmo modelo proposto por
-Benson, em tempo $O(n^3)$ e com memória $O(n^2)$. Porém, acreditamos que o
-modelo que propomos está mais próximo à realidade, pois considera mais
-casos de \dups.
+Benson, em tempo $O(n^3)$ e com memória $O(n^2)$. Porém, acreditamos que o modelo
+que propomos
+% apl: está mais próximo
+é mais fiel à realidade, pois considera mais casos de \dups.
+
+Vamos considerar que para obtenção de um alinhamento ótimo com \dups\ a \seq\
+base de uma \rep\ $s[i'+1\Rng i]$ está em $s[1\Rng i']s[i+1\Rng n]$ ou $t[1\Rng
+m]$, onde $s[1\Rng i]s[i'+1\Rng n]$ é a concatenação das \seqs\ $s[1\Rng i]$ e
+$s[i'+1\Rng n]$. Vale a pena ressaltar que o alinhamento obtido desta forma pode,
+em alguns casos, não representar uma transformação. Se estamos querendo
+garantir que o alinhamento ótimo gerado represente uma transformação ótima de
+$s$ em $t$ com \dups\ então podemos alterar o algoritmo proposto, sem alterar
+suas compexidades, para considerar que a \seq\ base de uma
+\rep\ $s[i'+1\Rng i]$ está em $s[1\Rng i']$ ou $t[1\Rng j]$, onde $s[1\Rng i']$
+se transforma em $t[1\Rng j]$ na transformação ótima sendo obtida. Além disto, em
+uma transformação com \dups\ consideramos a existência da \oped\ de
+\emph{excisão} que é a \oped\ dual à \dup, ou seja, uma \oped\ de excisão remove
+um trecho da \seq\ (\rep), tal que a \seq\ de símbolos do trecho removido ainda aparece
+como um fragmento (\seq\ base) da \seq\ gerada após a excisão. Numa transformação
+de $s$ em $t$, podemos associar uma \oped\ de excisão ao evento \bio\ de uma
+\dup\ na \seq\ $s$ que não ocorreu em $t$ ou ao evento \bio\ de remoção de uma
+\rep\ em $t$ que não ocorreu em $s$.
+
 
 % \subsection{Algoritmo para alinhamento com \dups} \label{sec:aligndupalg}
 Dados $i$ e $i'$ tais que $0 \leq i' < i \leq n$, dizemos que
 $\setseqbase{s}{i'}{i}$ é o conjunto de todas as possíveis \seqs\ que podem ser a
 \seq\ base de  $s[i'+1\Rng i]$. Definimos a matriz \dupwsym{s}, tal que
 $\dupw{s}{i'}{i}=\egweigp{s}{(i',i)}{\seqbaseSym}{(0,|\seqbaseSym|)}+\uomega{s}{i'}{i}$
-se $0 \leq i' < i \leq n$ e $0$ caso contrário, onde $\seqbaseSym \in
+se $0 \leq i' < i \leq n$ e $-\infty$ caso contrário, onde $\seqbaseSym \in
 \setseqbase{s}{i'}{i}$ e não existe um $\seqbaseSym' \tq \seqbaseSym' \in
 \setseqbase{s}{i'}{i}$ e $\egweigp{s}{(i',i)}{\seqbaseSym'}{(0,|\seqbaseSym'|)} >
 \egweigp{s}{(i',i)}{\seqbaseSym}{(0,|\seqbaseSym|)}$ e \uomega{s}{i'}{i} é a
 pontuação da \oped\ de \dup\ de $s[i'+1\Rng i]$. Dizemos que \dupw{s}{i'}{i} é a
 pontuação da inserção da \rep\ $s[i'+1\Rng i]$, $0 \leq i' < i \leq n$. No nosso
 modelo consideraremos que $\setseqbase{s}{i'}{i}$ são todos os possíveis
-fragmentos de $s[1\Rng i]s[i'+1\Rng n]$ e todos os possíveis fragmentos de
-$t[1\Rng m]$, onde $s[1\Rng i]s[i'+1\Rng n]$ é a concatenação das \seqs\
-$s[1\Rng i]$ e $s[i'+1\Rng n]$. De forma análoga, definimos a matriz \dupwsym{t}.
-Utilizando-se apenas de programação dinâmica conseguimos construir as matrizes
-\dupwsym{s} e \dupwsym{t} em tempo $O(n^3)$ e memória
-$O(n^2)$.
+fragmentos de $s[1\Rng i']s[i+1\Rng n]$ e todos os possíveis fragmentos de
+$t[1\Rng m]$. De forma análoga, definimos a matriz \dupwsym{t}.
+Utilizando programação dinâmica conseguimos construir as matrizes \dupwsym{s}
+e \dupwsym{t} em tempo $O(n^3)$ e memória $O(n^2)$.
 
-Seja $M$ uma matriz $n\times m$ tal que
-\begin{equation}
+Seja a matriz $M$ tal que $M[i,j]$ é a pontuação de um alinhamento ótimo com \dups\ de $s[1\Rng
+i]$ e $t[1\Rng j]$. Dadas as matrizes \dupwsym{s} e \dupwsym{t} construímos $M$
+em tempo $O(n^3)$ e memória $O(n^2)$ utilizando a seguinte recorrência:
+
+\begin{displaymath}
 \begin{array}{l}
 M[0,0]=0\\
 
@@ -880,35 +938,31 @@ M[0,0]=0\\
   \end{array}\right\}$, $i > 0\textrm{ e }j > 0
 \end{array}
  \label{eq:dupM}
-\end{equation}
+\end{displaymath}
 
-Diremos que $M[i,j]$ é a pontuação de um alinhamento ótimo com \dups\ de $s[1\Rng
-i]$ e $t[1\Rng j]$.
-Dadas as matrizes \dupwsym{s} e \dupwsym{t} existe um algoritmo que com
-programação dinâmica constrói a matriz $M$ em tempo $O(n^3)$ e memória
-$O(n^2)$.
 
 \section{Conclusão}
 Para a comparação de duas \seqs, desenvolvemos e apresentamos algoritmos exatos e
 inéditos, que obtêm alinhamentos que consideram a possibilidade da ocorrência de
 outros importantes eventos biológicos (inversão e duplicação) além dos eventos de
-inserção, remoção e substituição, comumente utilizados em
-algoritmos usuais para obtenção de alinhamentos ótimos. Esperamos com isto, que o
+inserção, remoção e substituição de um símbolo, comumente utilizados em
+algoritmos para obtenção de alinhamentos ótimos. Esperamos com isto, que o
 alinhamento obtido esteja mais próximo de mostrar o que realmente ocorreu na
 evolução.
 
 Apesar do problema da obtenção de um alinhamento ótimo com \invnsobs\ ser um
 problema já bem estudado e com alguns algoritmos já publicados, conseguimos
-desenvolver algoritmos com complexidade de tempo significativamente melhor
-que os já existentes.
+desenvolver algoritmos~\cite{MR2173809,vellozo06:_align_with_non_overl_inver}
+com complexidade de tempo significativamente melhor que os já existentes.
 
 Para o alinhamento com \dups, não conhecemos nenhum outro trabalho que utilize os
 modelos de \dups\ que apresentamos. O modelo mais próximo que conhecemos  do
-modelo que propomos para alinhamentos com \dups\ em \emph{tandem} é o modelo proposto
-por Benson~\cite{267526}. Porém, os algoritmos propostos por Benson têm
-complexidades de tempo e memória muito piores que as dos algoritmos que propomos,
-apesar do nosso espaço de busca das \dups\ em \emph{tandem} ser maior que o do
-Benson.
+modelo que propomos, o qual estamos implementando e preparando para publicação, é
+o modelo proposto por Benson~\cite{267526}. Porém, os algoritmos propostos por
+Benson têm complexidades de tempo e memória muito piores que as dos algoritmos
+que propomos, apesar do nosso espaço de busca das \dups\
+% apl: ser maior que o do Benson.
+tratar muito mais casos que os de Benson.
 
 \bibliographystyle{sbc}
 \bibliography{tese}
