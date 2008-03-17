@@ -18,22 +18,15 @@ import sequences.matrix.ArrayIntPrimitive;
 import sequences.matrix.ArrayIntRange;
 import sequences.matrix.ElementInt;
 import sequences.matrix.MatrixCharRange;
-import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntPrimitive;
 import sequences.matrix.MatrixIntPrimitiveForMax;
 import sequences.matrix.MatrixIntRange;
 
-public class MethodClassicWithGapOpen implements OptimumPathMethod
+public class MethodClassicWithGapOpen extends MethodClassic implements OptimumPathMethod
 {
-	char			type;
-
-	MatrixInt		m;
-
-	MatrixCharRange	arcsType;
-
 	public MethodClassicWithGapOpen(char type)
 	{
-		this.type = type;
+		super(type);
 	}
 
 	public OptimumPath createPath(VertexRange vertexRange, EditGraph eg) throws ExceptionInvalidEditGraph
@@ -225,21 +218,6 @@ public class MethodClassicWithGapOpen implements OptimumPathMethod
 	public String getName()
 	{
 		return "Classic Alignment with gap open penalty";
-	}
-
-	public boolean isLocal()
-	{
-		return type == OptimumPathMethod.LOCAL;
-	}
-
-	public boolean isGlobal()
-	{
-		return type == OptimumPathMethod.GLOBAL;
-	}
-
-	public boolean isSemiGlobal()
-	{
-		return type == OptimumPathMethod.SEMIGLOBAL;
 	}
 
 }

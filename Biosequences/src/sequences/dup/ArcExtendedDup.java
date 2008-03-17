@@ -14,27 +14,19 @@ public class ArcExtendedDup extends ArcExtendedOverEG
 	//	public static final char	SET_UNKNOWN	= 'U';
 	//
 	//	char						set;
-	boolean					inSameSequence;
 	DupPenaltyCalculator	duplicationPenalty;
 
-	public ArcExtendedDup(VertexRange vertexRange, OptimumPath optimumPath, DupPenaltyCalculator duplicationPenalty,
-			boolean inSameSequence) throws ExceptionInvalidVertex
+	public ArcExtendedDup(VertexRange vertexRange, OptimumPath optimumPath, DupPenaltyCalculator duplicationPenalty)
+			throws ExceptionInvalidVertex
 	{
-		super(vertexRange, optimumPath, duplicationPenalty.getExtensionPenalty(vertexRange, inSameSequence,
-			optimumPath.getLast().getEndVertex().getCol()));
-		this.inSameSequence = inSameSequence;
+		super(vertexRange, optimumPath, duplicationPenalty.getExtensionPenalty(vertexRange));
 		this.duplicationPenalty = duplicationPenalty;
 		int cols = vertexRange.getColsQtty();
 		int rows = vertexRange.getRowsQtty();
-		if (((cols == 1) || (rows == 1)) && (cols != rows))
+		if (((cols != 1) && (rows != 1)) || (cols == rows))
 		{
 			throw new ExceptionInvalidVertex(vertexRange.toString());
 		}
-	}
-
-	public boolean isInSameSequence()
-	{
-		return inSameSequence;
 	}
 
 	public DupPenaltyCalculator getDuplicationPenalty()

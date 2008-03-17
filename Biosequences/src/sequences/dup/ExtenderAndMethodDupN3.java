@@ -16,7 +16,6 @@ import sequences.editgraph.Vertex;
 import sequences.editgraph.VertexRange;
 import sequences.editgraph.arcs.ArcExtended;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
-import sequences.editgraph.exception.ExceptionInvalidPathMethod;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 import sequences.matrix.ArrayInt;
 import sequences.matrix.ArrayIntPrimitive;
@@ -35,7 +34,7 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 	DupPenaltyCalculator			duplicationPenalty;
 	ArcExtendedFactoryForGapOpen	arcEFactoryForGapOpen;
 	MatrixInt						m;
-	boolean							setA, setB, setC, setD;
+	boolean							searchForward;
 
 	MatrixCharRange					arcsType;
 
@@ -44,27 +43,19 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 	//Só verifica o conjunto C, se os conjuntos A e B devem ser verificados
 	public ExtenderAndMethodDupN3(ArcExtendedFactoryForGapOpen arcEFactoryForGapOpen, EditGraph egSeq1xSeq1,
 			EditGraph egSeq1xSeq2, EditGraph egSeq2xSeq1, EditGraph egSeq2xSeq2,
-			DupPenaltyCalculator duplicationPenalty, boolean setA, boolean setB, boolean setC, boolean setD,
-			char alignType) throws ExceptionInvalidPathMethod
+			DupPenaltyCalculator duplicationPenalty, boolean searchForward, char alignType)
 	{
 		this.egSeq1xSeq1 = egSeq1xSeq1;
 		this.egSeq1xSeq2 = egSeq1xSeq2;
 		this.egSeq2xSeq1 = egSeq2xSeq1;
 		this.egSeq2xSeq2 = egSeq2xSeq2;
 		this.duplicationPenalty = duplicationPenalty;
-		this.setA = setA;
-		this.setB = setB;
-		this.setC = setC;
-		this.setD = setD;
-		if (!setA && !setB && !setD)
-		{
-			throw new ExceptionInvalidPathMethod("Duplication search set is empty.");
-		}
+		this.searchForward = searchForward;
 		this.alignType = alignType;
 		this.arcEFactoryForGapOpen = arcEFactoryForGapOpen;
 	}
 
-	//Assume que os grafos de edições estão corretos 
+	//Assume que os grafos de edições estão corretos
 	public boolean canCreateExtendedArc(VertexRange vertexRange)
 	{
 		int cols = vertexRange.getColsQtty();
@@ -119,7 +110,6 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 		if (isSetA() || isSetB())
 		{
 			//monta a matrix de PD e de arcos
-
 			if (isSetA())
 			{
 				jMin = egABC.getColMin();

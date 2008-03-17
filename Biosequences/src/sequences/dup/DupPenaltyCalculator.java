@@ -7,5 +7,5 @@ import sequences.editgraph.VertexRange;
 
 public interface DupPenaltyCalculator
 {
-	public int getExtensionPenalty(VertexRange range, boolean seqBaseInTheSameSeq, boolean tandem);
+	public int getExtensionPenalty(VertexRange range);
 }

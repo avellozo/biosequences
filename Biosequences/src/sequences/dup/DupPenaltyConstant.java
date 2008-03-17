@@ -14,7 +14,7 @@ public class DupPenaltyConstant implements DupPenaltyCalculator
 		this.penalty = penalty;
 	}
 
-	public int getExtensionPenalty(VertexRange range, boolean seqBaseInTheSameSeq, boolean tandem)
+	public int getExtensionPenalty(VertexRange range)
 	{
 		return penalty;
 	}
