@@ -11,6 +11,7 @@ import sequences.editgraph.OptimumPathImpl;
 import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.VertexRange;
+import sequences.editgraph.arcs.factories.ArcGapOpenFactory;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 import sequences.matrix.ArrayInt;
@@ -40,14 +41,14 @@ public class MethodClassicWithGapOpen extends MethodClassic implements OptimumPa
 		{
 			throw new ExceptionInvalidEditGraph(eg);
 		}
-		ArcExtendedFactoryForGapOpen arcEFactory;
-		if (!(((EditGraphBasic) eg).getArcExtendedFactory() instanceof ArcExtendedFactoryForGapOpen))
+		ArcGapOpenFactory arcEFactory;
+		if (!(((EditGraphBasic) eg).getArcExtendedFactory() instanceof ArcGapOpenFactory))
 		{
 			throw new ExceptionInvalidEditGraph(eg);
 		}
 		else
 		{
-			arcEFactory = (ArcExtendedFactoryForGapOpen) ((EditGraphBasic) eg).getArcExtendedFactory();
+			arcEFactory = (ArcGapOpenFactory) ((EditGraphBasic) eg).getArcExtendedFactory();
 		}
 
 		int gapOpenPenalty = arcEFactory.getGapOpenPenalty();

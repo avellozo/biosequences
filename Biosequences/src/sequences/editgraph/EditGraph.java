@@ -59,7 +59,7 @@ public interface EditGraph
 	// Cria uma lista somente com arcos horizontais que são positivos no grafo
 	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs();
 
-	public EditGraph getSegment(VertexRange vertexRange) throws ExceptionInvalidVertex;
+	//	public EditGraph getSegment(VertexRange vertexRange) throws ExceptionInvalidVertex;
 
 	public int getWeightVerticalArc(int i, int j) throws ExceptionInvalidVertex;
 

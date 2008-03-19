@@ -1,7 +1,6 @@
 package sequences.editgraph;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import sequences.editgraph.arcs.ArcDiagonal;
 import sequences.editgraph.arcs.ArcExtended;
@@ -119,15 +118,12 @@ public class OptimumPathImpl implements OptimumPath
 			arcsExtended.add((ArcExtended) arc);
 			if (arc instanceof ArcExtendedOverEG)
 			{
-				List<OptimumPath> pathsEGExtender = ((ArcExtendedOverEG) arc).getOptimumPaths();
-				for (OptimumPath path : pathsEGExtender)
-				{
-					qttyExtendedArcs += path.getQttyExtendedArcs();
-					qttyHorizontalArcs += path.getQttyHorizontalArcs();
-					qttyVerticalArcs += path.getQttyVerticalArcs();
-					qttyMatches += path.getQttyMatches();
-					qttyMismatches += path.getQttyMismatches();
-				}
+				OptimumPath path = ((ArcExtendedOverEG) arc).getOptimumPath();
+				qttyExtendedArcs += path.getQttyExtendedArcs();
+				qttyHorizontalArcs += path.getQttyHorizontalArcs();
+				qttyVerticalArcs += path.getQttyVerticalArcs();
+				qttyMatches += path.getQttyMatches();
+				qttyMismatches += path.getQttyMismatches();
 			}
 		}
 	}

@@ -6,6 +6,7 @@ package sequences.common;
 import sequences.editgraph.EditGraphBasic;
 import sequences.editgraph.arcs.factories.ArcDiagonalFactoryNothing;
 import sequences.editgraph.arcs.factories.ArcDiagonalFactorySequences;
+import sequences.editgraph.arcs.factories.ArcGapOpenFactory;
 import sequences.editgraph.arcs.factories.ArcExtendedFactoryNothing;
 import sequences.editgraph.arcs.factories.ArcHorizontalFactoryConstant;
 import sequences.editgraph.arcs.factories.ArcHorizontalFactoryNothing;
@@ -33,7 +34,7 @@ public class AlignmentClassic extends AlignmentImpl
 	{
 		super(new EditGraphBasic(seq1.getLength(), seq2.getLength(), new ArcHorizontalFactoryNothing(),
 			new ArcVerticalFactoryNothing(), new ArcDiagonalFactorySequences(seq1, seq2, match, mismatch),
-			new ArcExtendedFactoryForGapOpen(gapOpen, new EditGraphBasic(seq1.getLength(), seq2.getLength(),
+			new ArcGapOpenFactory(gapOpen, new EditGraphBasic(seq1.getLength(), seq2.getLength(),
 				new ArcHorizontalFactoryConstant(gap), new ArcVerticalFactoryConstant(gap),
 				new ArcDiagonalFactoryNothing(), new ArcExtendedFactoryNothing()))), new MethodClassicWithGapOpen(type));
 		this.seq1 = seq1;
