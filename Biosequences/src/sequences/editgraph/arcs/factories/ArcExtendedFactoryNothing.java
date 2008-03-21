@@ -3,7 +3,6 @@
  */
 package sequences.editgraph.arcs.factories;
 
-import sequences.editgraph.ArcExtendedFactory;
 import sequences.editgraph.VertexRange;
 import sequences.editgraph.arcs.ArcExtended;
 import sequences.editgraph.exception.ExceptionInvalidVertex;

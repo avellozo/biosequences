@@ -8,7 +8,6 @@ import java.util.List;
 
 import sequences.common.ScoringMatrix;
 import sequences.common.Sequence;
-import sequences.editgraph.ArcDiagonalFactory;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.arcs.ArcDiagonal;

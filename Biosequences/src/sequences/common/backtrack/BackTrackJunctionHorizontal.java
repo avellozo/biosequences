@@ -1,15 +1,14 @@
 /*
  * Created on 19/03/2008
  */
-package sequences.common;
+package sequences.common.backtrack;
 
-import sequences.editgraph.EditGraph;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.VertexRange;
 import sequences.editgraph.arcs.ArcJuntion;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
-public class BackTrackJunctionHorizontal
+public class BackTrackJunctionHorizontal implements BackTrackJunction
 {
 	int	colEnd, colBegin;
 
@@ -19,7 +18,10 @@ public class BackTrackJunctionHorizontal
 		this.colBegin = colBegin;
 	}
 
-	public ArcJuntion getArcJuntion(Vertex endVertex, EditGraph eg) throws ExceptionInvalidVertex
+	/* (non-Javadoc)
+	 * @see sequences.common.BackTrackJunction#getArcJuntion(sequences.editgraph.Vertex, sequences.editgraph.EditGraph)
+	 */
+	public ArcJuntion getArcJuntion(Vertex endVertex) throws ExceptionInvalidVertex
 	{
 		if (endVertex.getCol() != this.colEnd)
 		{
@@ -37,6 +39,9 @@ public class BackTrackJunctionHorizontal
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see sequences.common.BackTrackJunction#setJunction(int, int, int, int, int)
+	 */
 	public void setJunction(int rowBegin, int colBegin, int rowEnd, int colEnd, int value)
 			throws ExceptionInvalidVertex
 	{

@@ -34,4 +34,6 @@ public interface Arc
 
 	public int getWeight();
 
+	public void setWeight(int weight);
+
 }

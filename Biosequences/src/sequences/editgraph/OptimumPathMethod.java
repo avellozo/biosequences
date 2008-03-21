@@ -4,9 +4,9 @@ import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 
 public interface OptimumPathMethod
 {
-	final char	GLOBAL		= 'G';
-	final char	SEMIGLOBAL	= 'S';
-	final char	LOCAL		= 'L';
+	public static final byte	LOCAL		= 'L';
+	public static final byte	GLOBAL		= 'G';
+	public static final byte	SEMIGLOBAL	= 'S';
 
 	// vertexRange = (i1,j1)(i2,j2)
 	//Global alignment: better path of (i1,j1)(i2,j2)

@@ -3,7 +3,6 @@
  */
 package sequences.editgraph.arcs.factories;
 
-import sequences.editgraph.ArcExtendedFactory;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.Vertex;

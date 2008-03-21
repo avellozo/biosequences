@@ -7,7 +7,7 @@ import sequences.editgraph.arcs.ArcGapSetHorizontal;
 import sequences.editgraph.arcs.ArcGapSetVertical;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
-public interface EditGraphWithGapOpen extends EditGraph
+public interface EditGraphWithGapSet extends EditGraph
 {
 	public boolean existsGapSetVerticalArc(int beginRow, Vertex endVertex);
 

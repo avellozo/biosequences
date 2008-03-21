@@ -1,9 +1,9 @@
 /*
  * Created on 19/03/2008
  */
-package sequences.common;
+package sequences.common.backtrack;
 
-import sequences.editgraph.EditGraph;
+import sequences.editgraph.EditGraphExtended;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.VertexRange;
 import sequences.editgraph.arcs.ArcExtended;
@@ -12,12 +12,13 @@ import sequences.matrix.MatrixInt;
 import sequences.matrix.MatrixIntPrimitive;
 import sequences.matrix.MatrixIntRange;
 
-public class BackTrackGap
+public class BackTrackExtensionMatrixes implements BackTrackExtension
 {
+	MatrixInt	extendedValue;
 	MatrixInt	extendedRow;
 	MatrixInt	extendedCol;
 
-	public BackTrackGap(int rowBegin, int colBegin, int rowEnd, int colEnd)
+	public BackTrackExtensionMatrixes(int rowBegin, int colBegin, int rowEnd, int colEnd)
 	{
 		extendedValue = new MatrixIntPrimitive(rowEnd - rowBegin + 1, colEnd - colBegin + 1);
 		extendedRow = new MatrixIntPrimitive(rowEnd - rowBegin + 1, colEnd - colBegin + 1);
@@ -31,25 +32,18 @@ public class BackTrackGap
 		}
 	}
 
-	public ArcExtended getExtendedArc(Vertex endVertex, EditGraph eg)
+	public ArcExtended getExtendedArc(Vertex endVertex, EditGraphExtended eg) throws ExceptionInvalidVertex
 	{
 		int rowEnd = endVertex.getRow();
 		int colEnd = endVertex.getCol();
-		try
-		{
-			return eg.getExtendedArc(new VertexRange(new Vertex(extendedRow.getValue(rowEnd, colEnd),
-				extendedCol.getValue(rowEnd, colEnd)), endVertex));
-		}
-		catch (ExceptionInvalidVertex e)
-		{
-			e.printStackTrace();
-			throw new RuntimeException();
-		}
+		return eg.getExtendedArc(new VertexRange(new Vertex(extendedRow.getValue(rowEnd, colEnd), extendedCol.getValue(
+			rowEnd, colEnd)), endVertex));
 	}
 
-	public void setGapHor(int colBegin, int rowEnd, int colEnd, int value)
+	public void setExtension(int rowBegin, int colBegin, int rowEnd, int colEnd, int value)
 	{
 		extendedValue.setValue(rowEnd, colEnd, value);
+		extendedRow.setValue(rowEnd, colEnd, rowBegin);
 		extendedCol.setValue(rowEnd, colEnd, colBegin);
 	}
 

@@ -39,7 +39,7 @@ public class FrameBimNaive extends javax.swing.JFrame
 		tabbedPane = new JTabbedPane();
 		panelSeq1 = new PanelSeq(bim.getSeq1(), false, false);
 		panelSeq2 = new PanelSeq(bim.getSeq2(), false, false);
-		panelBim = new PanelMatrix(bim.getMatrix(), new MatrixIntCellRenderer(true, true));		
+		panelBim = new PanelMatrix(bim.getMatrixValues(), new MatrixIntCellRenderer(true, true));		
 	}
 
 	private void setFrameProperties()

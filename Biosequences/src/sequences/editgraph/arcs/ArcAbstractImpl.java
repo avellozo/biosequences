@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package sequences.editgraph.arcs;
 
@@ -36,4 +36,10 @@ public abstract class ArcAbstractImpl implements Arc
 	{
 		return "Arc: endVertex:" + getEndVertex() + " weight " + weight;
 	}
+
+	public void setWeight(int weight)
+	{
+		this.weight = weight;
+	}
+
 }

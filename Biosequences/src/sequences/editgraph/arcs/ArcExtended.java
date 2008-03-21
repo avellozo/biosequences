@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package sequences.editgraph.arcs;
 
@@ -51,6 +51,11 @@ public class ArcExtended implements Arc
 	public int getColsOfExtension()
 	{
 		return vertexRange.getColsQtty();
+	}
+
+	public void setWeight(int weight)
+	{
+		this.weight = weight;
 	}
 
 }

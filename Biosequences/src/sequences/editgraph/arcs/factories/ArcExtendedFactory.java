@@ -1,8 +1,9 @@
 /*
  * Created on 09/10/2007
  */
-package sequences.editgraph;
+package sequences.editgraph.arcs.factories;
 
+import sequences.editgraph.VertexRange;
 import sequences.editgraph.arcs.ArcExtended;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 

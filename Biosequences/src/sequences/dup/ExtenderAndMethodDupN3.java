@@ -5,7 +5,6 @@ package sequences.dup;
 
 import sequences.common.SequenceInternalException;
 import sequences.editgraph.Arc;
-import sequences.editgraph.ArcExtendedFactory;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.EditGraphBasic;
 import sequences.editgraph.OptimumPath;
@@ -14,6 +13,7 @@ import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.VertexRange;
 import sequences.editgraph.arcs.ArcExtended;
+import sequences.editgraph.arcs.factories.ArcExtendedFactory;
 import sequences.editgraph.arcs.factories.ArcGapOpenFactory;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 import sequences.editgraph.exception.ExceptionInvalidVertex;

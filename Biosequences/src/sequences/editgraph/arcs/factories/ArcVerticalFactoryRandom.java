@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import sequences.editgraph.ArcVerticalFactory;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.arcs.ArcVertical;

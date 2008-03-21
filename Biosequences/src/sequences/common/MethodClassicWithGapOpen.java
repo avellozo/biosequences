@@ -6,6 +6,7 @@ package sequences.common;
 import sequences.editgraph.Arc;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.EditGraphBasic;
+import sequences.editgraph.EditGraphWithGapSet;
 import sequences.editgraph.OptimumPath;
 import sequences.editgraph.OptimumPathImpl;
 import sequences.editgraph.OptimumPathMethod;
@@ -25,12 +26,12 @@ import sequences.matrix.MatrixIntRange;
 
 public class MethodClassicWithGapOpen extends MethodClassic implements OptimumPathMethod
 {
-	public MethodClassicWithGapOpen(char type)
+	public MethodClassicWithGapOpen(byte type)
 	{
 		super(type);
 	}
 
-	public OptimumPath createPath(VertexRange vertexRange, EditGraph eg) throws ExceptionInvalidEditGraph
+	public OptimumPath createPath(VertexRange vertexRange, EditGraphWithGapSet eg) throws ExceptionInvalidEditGraph
 	{
 		int iMin, iMax, jMin, jMax;
 		iMin = vertexRange.getBeginVertex().getRow();

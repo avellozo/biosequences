@@ -6,7 +6,6 @@ package sequences.editgraph.arcs.factories;
 import java.util.LinkedList;
 import java.util.List;
 
-import sequences.editgraph.ArcVerticalFactory;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.arcs.ArcVertical;

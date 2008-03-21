@@ -3,12 +3,11 @@
  */
 package sequences.editgraph.arcs;
 
-import sequences.editgraph.OptimumPath;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.VertexRange;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
-public class ArcGapSetVertical extends ArcExtendedOverEG
+public class ArcGapSetVertical extends ArcExtended
 {
 
 	//	public ArcExtendedForGapOpenVertical(VertexRange vertexRange, OptimumPath path, int gapOpenPenalty)
@@ -21,10 +20,9 @@ public class ArcGapSetVertical extends ArcExtendedOverEG
 	//		}
 	//	}
 	//
-	public ArcGapSetVertical(int beginRow, Vertex endVertex, OptimumPath path, int gapOpenPenalty)
-			throws ExceptionInvalidVertex
+	public ArcGapSetVertical(int beginRow, Vertex endVertex, int gapWeight) throws ExceptionInvalidVertex
 	{
-		super(new VertexRange(new Vertex(beginRow, endVertex.getCol()), endVertex), path, gapOpenPenalty);
+		super(new VertexRange(new Vertex(beginRow, endVertex.getCol()), endVertex), gapWeight);
 	}
 
 	//	public ArcExtendedForGapOpenVertical(VertexRange vertexRange, EditGraph eg, int gapOpenPenalty)

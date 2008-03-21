@@ -1,10 +1,12 @@
 /*
  * Created on 07/01/2008
  */
-package sequences.editgraph;
+package sequences.editgraph.arcs.factories;
 
 import java.util.List;
 
+import sequences.editgraph.EditGraph;
+import sequences.editgraph.Vertex;
 import sequences.editgraph.arcs.ArcDiagonal;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 

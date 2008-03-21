@@ -6,11 +6,7 @@ import sequences.editgraph.arcs.ArcDiagonal;
 import sequences.editgraph.arcs.ArcExtended;
 import sequences.editgraph.arcs.ArcExtendedOverEG;
 import sequences.editgraph.arcs.ArcHorizontal;
-import sequences.editgraph.arcs.ArcJuntion;
 import sequences.editgraph.arcs.ArcVertical;
-import sequences.editgraph.exception.ExceptionInvalidVertex;
-import sequences.matrix.MatrixCharRange;
-import sequences.matrix.MatrixInt;
 
 public class OptimumPathImpl implements OptimumPath
 {
@@ -18,7 +14,6 @@ public class OptimumPathImpl implements OptimumPath
 	//	VertexRange				range;
 	EditGraph				eg;
 	//	boolean					local;
-	String					methodName;
 
 	LinkedList<Arc>			arcs				= new LinkedList<Arc>();
 	LinkedList<ArcExtended>	arcsExtended		= new LinkedList<ArcExtended>();
@@ -33,11 +28,10 @@ public class OptimumPathImpl implements OptimumPath
 	//	protected int			iMin, iMax, jMin, jMax, rows, cols;
 
 	//	public OptimumPathImpl(VertexRange range, EditGraph eg, boolean local)
-	public OptimumPathImpl(EditGraph eg, String methodName)
+	public OptimumPathImpl(EditGraph eg)
 	{
 		//		this.range = range;
 		this.eg = eg;
-		this.methodName = methodName;
 		//		this.local = local;
 		//		iMin = getVertexRange().getBeginVertex().getRow();
 		//		jMin = getVertexRange().getBeginVertex().getCol();
@@ -178,75 +172,75 @@ public class OptimumPathImpl implements OptimumPath
 		return Math.max(x, y);
 	}
 
-	public static OptimumPath buildPath(MatrixInt m, MatrixCharRange arcsType, Vertex optimumVertex, EditGraph eg,
-			String name, int gapOpenPenalty, EditGraph egForGap, int beginJunction) throws ExceptionInvalidVertex
-	{
-		OptimumPathImpl path = new OptimumPathImpl(eg, name);
-		Vertex v = optimumVertex;
-		char c;
-		Arc arc;
-		Vertex v1;
-		int mIJ, wGap, i, j;
-		while ((c = arcsType.getValue(i = v.getRow(), j = v.getCol())) != Arc.INVALID)
-		{
-			switch (c)
-			{
-				case Arc.DIAGONAL:
-					arc = eg.getDiagonalArc(v);
-					break;
-				case Arc.VERTICAL:
-					arc = eg.getVerticalArc(v);
-					break;
-				case Arc.HORIZONTAL:
-					arc = eg.getHorizontalArc(v);
-					break;
-				case Arc.GAP_VERT:
-					mIJ = m.getValue(i, j);
-					wGap = gapOpenPenalty;
-					arc = egForGap.getVerticalArc(v);
-					v1 = arc.getBeginVertex();
-					while (m.getValue(v1.getRow(), v1.getCol()) + arc.getWeight() + wGap != mIJ)
-					{
-						wGap += arc.getWeight();
-						arc = egForGap.getVerticalArc(v1);
-						v1 = arc.getBeginVertex();
-					}
-					arc = eg.getExtendedArc(new VertexRange(v1, v));
-					break;
-				case Arc.GAP_HOR:
-					mIJ = m.getValue(i, j);
-					wGap = gapOpenPenalty;
-					arc = egForGap.getHorizontalArc(v);
-					v1 = arc.getBeginVertex();
-					while (m.getValue(v1.getRow(), v1.getCol()) + arc.getWeight() + wGap != mIJ)
-					{
-						wGap += arc.getWeight();
-						arc = egForGap.getHorizontalArc(v1);
-						v1 = arc.getBeginVertex();
-					}
-					arc = eg.getExtendedArc(new VertexRange(v1, v));
-					break;
-				case Arc.JUNCTION:
-					arc = new ArcJuntion(new VertexRange(eg.getVertex(i, beginJunction), v));
-					break;
-				default:
-					throw new RuntimeException("Tipo de arco inválido: " + c);
-			}
-			path.addFirst(arc);
-			v = arc.getBeginVertex();
-		}
-		return path;
-	}
-
-	public static OptimumPath buildPath(MatrixInt m, MatrixCharRange arcsType, Vertex optimumVertex, EditGraph eg,
-			String name) throws ExceptionInvalidVertex
-	{
-		return buildPath(m, arcsType, optimumVertex, eg, name, 0, null, 0);
-	}
-
-	public static OptimumPath buildPath(MatrixInt m, MatrixCharRange arcsType, Vertex optimumVertex, EditGraph eg,
-			String name, int gapOpenPenalty, EditGraph egForGap) throws ExceptionInvalidVertex
-	{
-		return buildPath(m, arcsType, optimumVertex, eg, name, gapOpenPenalty, egForGap, 0);
-	}
+	//	public static OptimumPath buildPath(MatrixInt m, MatrixCharRange arcsType, Vertex optimumVertex, EditGraph eg,
+	//			int gapOpenPenalty, EditGraph egForGap, int beginJunction) throws ExceptionInvalidVertex
+	//	{
+	//		OptimumPathImpl path = new OptimumPathImpl(eg);
+	//		Vertex v = optimumVertex;
+	//		char c;
+	//		Arc arc;
+	//		Vertex v1;
+	//		int mIJ, wGap, i, j;
+	//		while ((c = arcsType.getValue(i = v.getRow(), j = v.getCol())) != Arc.INVALID)
+	//		{
+	//			switch (c)
+	//			{
+	//				case Arc.DIAGONAL:
+	//					arc = eg.getDiagonalArc(v);
+	//					break;
+	//				case Arc.VERTICAL:
+	//					arc = eg.getVerticalArc(v);
+	//					break;
+	//				case Arc.HORIZONTAL:
+	//					arc = eg.getHorizontalArc(v);
+	//					break;
+	//				case Arc.GAP_VERT:
+	//					mIJ = m.getValue(i, j);
+	//					wGap = gapOpenPenalty;
+	//					arc = egForGap.getVerticalArc(v);
+	//					v1 = arc.getBeginVertex();
+	//					while (m.getValue(v1.getRow(), v1.getCol()) + arc.getWeight() + wGap != mIJ)
+	//					{
+	//						wGap += arc.getWeight();
+	//						arc = egForGap.getVerticalArc(v1);
+	//						v1 = arc.getBeginVertex();
+	//					}
+	//					arc = eg.getExtendedArc(new VertexRange(v1, v));
+	//					break;
+	//				case Arc.GAP_HOR:
+	//					mIJ = m.getValue(i, j);
+	//					wGap = gapOpenPenalty;
+	//					arc = egForGap.getHorizontalArc(v);
+	//					v1 = arc.getBeginVertex();
+	//					while (m.getValue(v1.getRow(), v1.getCol()) + arc.getWeight() + wGap != mIJ)
+	//					{
+	//						wGap += arc.getWeight();
+	//						arc = egForGap.getHorizontalArc(v1);
+	//						v1 = arc.getBeginVertex();
+	//					}
+	//					arc = eg.getExtendedArc(new VertexRange(v1, v));
+	//					break;
+	//				case Arc.JUNCTION:
+	//					arc = new ArcJuntion(new VertexRange(eg.getVertex(i, beginJunction), v));
+	//					break;
+	//				default:
+	//					throw new RuntimeException("Tipo de arco inválido: " + c);
+	//			}
+	//			path.addFirst(arc);
+	//			v = arc.getBeginVertex();
+	//		}
+	//		return path;
+	//	}
+	//
+	//	public static OptimumPath buildPath(MatrixInt m, MatrixCharRange arcsType, Vertex optimumVertex, EditGraph eg,
+	//			String name) throws ExceptionInvalidVertex
+	//	{
+	//		return buildPath(m, arcsType, optimumVertex, eg, 0, null, 0);
+	//	}
+	//
+	//	public static OptimumPath buildPath(MatrixInt m, MatrixCharRange arcsType, Vertex optimumVertex, EditGraph eg,
+	//			String name, int gapOpenPenalty, EditGraph egForGap) throws ExceptionInvalidVertex
+	//	{
+	//		return buildPath(m, arcsType, optimumVertex, eg, gapOpenPenalty, egForGap, 0);
+	//	}
 }

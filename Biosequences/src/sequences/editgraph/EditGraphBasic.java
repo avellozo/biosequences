@@ -11,6 +11,12 @@ import sequences.editgraph.arcs.ArcGapSetHorizontal;
 import sequences.editgraph.arcs.ArcGapSetVertical;
 import sequences.editgraph.arcs.ArcHorizontal;
 import sequences.editgraph.arcs.ArcVertical;
+import sequences.editgraph.arcs.factories.ArcDiagonalFactory;
+import sequences.editgraph.arcs.factories.ArcExtendedFactory;
+import sequences.editgraph.arcs.factories.ArcGapSetFactory;
+import sequences.editgraph.arcs.factories.ArcHorizontalFactory;
+import sequences.editgraph.arcs.factories.ArcVerticalFactory;
+import sequences.editgraph.arcs.factories.GapFactory;
 import sequences.editgraph.exception.ExceptionInternalEG;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
@@ -21,7 +27,7 @@ import sequences.editgraph.exception.ExceptionInvalidVertex;
 /**
  * @author Augusto F. Vellozo
  */
-public class EditGraphBasic implements EditGraphWithGapOpen, Cloneable
+public class EditGraphBasic implements EditGraphWithGapSet, EditGraphExtended, Cloneable
 {
 	int						rowMin, rowMax, colMin, colMax;
 
@@ -50,6 +56,12 @@ public class EditGraphBasic implements EditGraphWithGapOpen, Cloneable
 			ArcDiagonalFactory arcDFactory, ArcExtendedFactory arcEFactory, ArcGapSetFactory arcGapSetFactory)
 	{
 		this(0, rowMax, 0, colMax, arcHFactory, arcVFactory, arcDFactory, arcEFactory, arcGapSetFactory);
+	}
+
+	public EditGraphBasic(int rowMax, int colMax, GapFactory gapFactory, ArcDiagonalFactory arcDFactory,
+			ArcExtendedFactory arcEFactory)
+	{
+		this(rowMax, colMax, gapFactory, gapFactory, arcDFactory, arcEFactory, gapFactory);
 	}
 
 	public int getRowMin()
@@ -109,22 +121,26 @@ public class EditGraphBasic implements EditGraphWithGapOpen, Cloneable
 
 	public boolean existsDiagonalArc(Vertex endVertex)
 	{
-		return (isValidVertexParam(endVertex) && getArcDiagonalFactory().canCreateDiagonalArc(endVertex));
+		return (isValidVertexParam(endVertex) && getArcDiagonalFactory() != null && getArcDiagonalFactory().canCreateDiagonalArc(
+			endVertex));
 	}
 
 	public boolean existsHorizontalArc(Vertex endVertex)
 	{
-		return (isValidVertexParam(endVertex) && getArcHorizontalFactory().canCreateHorizontalArc(endVertex));
+		return (isValidVertexParam(endVertex) && getArcHorizontalFactory() != null && getArcHorizontalFactory().canCreateHorizontalArc(
+			endVertex));
 	}
 
 	public boolean existsVerticalArc(Vertex endVertex)
 	{
-		return (isValidVertexParam(endVertex) && getArcVerticalFactory().canCreateVerticalArc(endVertex));
+		return (isValidVertexParam(endVertex) && getArcVerticalFactory() != null && getArcVerticalFactory().canCreateVerticalArc(
+			endVertex));
 	}
 
 	public boolean existsExtendedArc(VertexRange vertexRange)
 	{
-		return (isValidVertexParam(vertexRange) && getArcExtendedFactory().canCreateExtendedArc(vertexRange));
+		return (isValidVertexParam(vertexRange) && getArcExtendedFactory() != null && getArcExtendedFactory().canCreateExtendedArc(
+			vertexRange));
 	}
 
 	protected boolean isValidVertexParam(Vertex v)
@@ -189,7 +205,7 @@ public class EditGraphBasic implements EditGraphWithGapOpen, Cloneable
 			throw new ExceptionInvalidVertex(endVertex,
 				"It's impossible to create an horizontal arc with this end vertex:" + endVertex);
 		}
-		return arcHFactory.getHorizontalArc(endVertex);
+		return getArcHorizontalFactory().getHorizontalArc(endVertex);
 	}
 
 	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex
@@ -199,7 +215,7 @@ public class EditGraphBasic implements EditGraphWithGapOpen, Cloneable
 			throw new ExceptionInvalidVertex(endVertex,
 				"It's impossible to create an vertical arc with this end vertex:" + endVertex);
 		}
-		return arcVFactory.getVerticalArc(endVertex);
+		return getArcVerticalFactory().getVerticalArc(endVertex);
 	}
 
 	public ArcExtended getExtendedArc(VertexRange vertexRange) throws ExceptionInvalidVertex
@@ -217,12 +233,14 @@ public class EditGraphBasic implements EditGraphWithGapOpen, Cloneable
 
 	public boolean existsGapSetHorizontalArc(int beginCol, Vertex endVertex)
 	{
-		return isValidVertexParam(endVertex) && getArcGapSetFactory().canCreateGapSetHorizontalArc(beginCol, endVertex);
+		return isValidVertexParam(endVertex) && getArcGapSetFactory() != null
+			&& getArcGapSetFactory().canCreateGapSetHorizontalArc(beginCol, endVertex);
 	}
 
 	public boolean existsGapSetVerticalArc(int beginRow, Vertex endVertex)
 	{
-		return isValidVertexParam(endVertex) && getArcGapSetFactory().canCreateGapSetVerticalArc(beginRow, endVertex);
+		return isValidVertexParam(endVertex) && getArcGapSetFactory() != null
+			&& getArcGapSetFactory().canCreateGapSetVerticalArc(beginRow, endVertex);
 	}
 
 	public ArcGapSetHorizontal getGapSetHorizontalArc(int beginCol, Vertex endVertex) throws ExceptionInvalidVertex
@@ -258,12 +276,12 @@ public class EditGraphBasic implements EditGraphWithGapOpen, Cloneable
 
 	public List< ? extends ArcHorizontal> getNonZeroHorizontalArcs()
 	{
-		return arcHFactory.getNonZeroHorizontalArcs(this);
+		return getArcHorizontalFactory().getNonZeroHorizontalArcs(this);
 	}
 
 	public List< ? extends ArcVertical> getNonZeroVerticalArcs()
 	{
-		return arcVFactory.getNonZeroVerticalArcs(this);
+		return getArcVerticalFactory().getNonZeroVerticalArcs(this);
 	}
 
 	public int getWeightDiagonalArc(int i, int j) throws ExceptionInvalidVertex
@@ -273,12 +291,12 @@ public class EditGraphBasic implements EditGraphWithGapOpen, Cloneable
 
 	public int getWeightHorizontalArc(int i, int j) throws ExceptionInvalidVertex
 	{
-		return arcHFactory.getWeightHorizontalArc(i, j);
+		return getArcHorizontalFactory().getWeightHorizontalArc(i, j);
 	}
 
 	public int getWeightVerticalArc(int i, int j) throws ExceptionInvalidVertex
 	{
-		return arcVFactory.getWeightVerticalArc(i, j);
+		return getArcVerticalFactory().getWeightVerticalArc(i, j);
 	}
 
 	public VertexRange getFullRange()

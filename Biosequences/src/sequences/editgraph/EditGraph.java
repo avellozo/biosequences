@@ -6,7 +6,6 @@ package sequences.editgraph;
 import java.util.List;
 
 import sequences.editgraph.arcs.ArcDiagonal;
-import sequences.editgraph.arcs.ArcExtended;
 import sequences.editgraph.arcs.ArcHorizontal;
 import sequences.editgraph.arcs.ArcVertical;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
@@ -40,7 +39,7 @@ public interface EditGraph
 
 	public boolean existsDiagonalArc(Vertex endVertex);
 
-	public boolean existsExtendedArc(VertexRange vertexRange);
+	//	public boolean existsExtendedArc(VertexRange vertexRange);
 
 	public ArcDiagonal getDiagonalArc(Vertex endVertex) throws ExceptionInvalidVertex;
 
@@ -48,7 +47,7 @@ public interface EditGraph
 
 	public ArcVertical getVerticalArc(Vertex endVertex) throws ExceptionInvalidVertex;
 
-	public ArcExtended getExtendedArc(VertexRange vertexRange) throws ExceptionInvalidVertex;
+	//	public ArcExtended getExtendedArc(VertexRange vertexRange) throws ExceptionInvalidVertex;
 
 	// Cria uma lista somente com arcos diagonais que são positivos no grafo
 	public List< ? extends ArcDiagonal> getNonZeroDiagonalArcs();

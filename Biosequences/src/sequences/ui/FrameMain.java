@@ -29,7 +29,7 @@ import sequences.common.AlignmentClassic;
 import sequences.common.FileFastaSequence;
 import sequences.common.ListOfSequences;
 import sequences.common.Sequence;
-import sequences.editgraph.OptimumPathMethod;
+import sequences.common.backtrack.BackTrack;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 
 /**
@@ -161,7 +161,7 @@ public class FrameMain extends JFrame implements ListSelectionListener
 
 				});
 
-				
+
 				 * // btnBuildFileBimN4= new JButton(" <html> Gera arquivo do grafo <br>
 				 * bipartido para BIM N4 </html> "); //
 				 * btnBuildFileBimN4.setToolTipText("Gera um arquivo com as
@@ -170,7 +170,7 @@ public class FrameMain extends JFrame implements ListSelectionListener
 				 * btnBuildFileBimN4.addActionListener(new ActionListener() // { //
 				 * public void actionPerformed(ActionEvent evt) // { //
 				 * buildFileBimN4(); // } // }); //
-				 
+
 				btnBuildBimN4 = new JButton("Gera BIM N4");
 				btnBuildBimN4.setToolTipText("Gera a matriz BIM através do método N4, utilizando um arquivo com as especificações do grafo bipartido");
 				btnBuildBimN4.setEnabled(false);
@@ -376,7 +376,7 @@ public class FrameMain extends JFrame implements ListSelectionListener
 			Sequence seq2 = sequences.getSequence(selectedSequences[1]);
 			try
 			{
-				AlignmentClassic align = new AlignmentClassic(seq1, seq2, 1, 0, 0, -1, OptimumPathMethod.GLOBAL);
+				AlignmentClassic align = new AlignmentClassic(seq1, seq2, 1, 0, 0, -1, BackTrack.GLOBAL);
 				System.out.println(align.getPath().getScore());
 			}
 			catch (ExceptionInvalidEditGraph e)
