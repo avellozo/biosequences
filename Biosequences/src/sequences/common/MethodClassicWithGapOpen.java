@@ -38,10 +38,9 @@ public class MethodClassicWithGapOpen extends MethodClassic implements OptimumPa
 		jMin = vertexRange.getBeginVertex().getCol();
 		iMax = vertexRange.getEndVertex().getRow();
 		jMax = vertexRange.getEndVertex().getCol();
-		if (!(eg instanceof EditGraphBasic))
-		{
-			throw new ExceptionInvalidEditGraph(eg);
-		}
+		
+		BackTrack bt = new BackTrackBasic(iMin, jMin, iMax, jMax, type, null, null, null);
+		
 		ArcGapOpenFactory arcEFactory;
 		if (!(((EditGraphBasic) eg).getArcExtendedFactory() instanceof ArcGapOpenFactory))
 		{

@@ -58,11 +58,11 @@ public interface BackTrack
 
 	public void updateDiagonal(int row, int col, EditGraph eg) throws ExceptionInvalidVertex;
 
-	//	public void updateExtended(int rowBegin, int colBegin, int rowEnd, int colEnd, EditGraph eg)
-	//			throws ExceptionInvalidVertex;
-	//
-	//	public void updateGapSetVertical(int rowBegin, int rowEnd, int col, EditGraph eg) throws ExceptionInvalidVertex;
-	//
-	//	public void updateGapSetHorizontal(int colBegin, int row, int colEnd, EditGraph eg) throws ExceptionInvalidVertex;
+	public int getOptimumGapSetVer(int rowEnd, int colEnd) throws ExceptionInvalidVertex;
+
+	public int getOptimumGapSetHor(int rowEnd, int colEnd) throws ExceptionInvalidVertex;
+
+	public Element getOptimumExtended(int rowEnd, int colEnd) throws ExceptionInvalidVertex;
+
 
 }
