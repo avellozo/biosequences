@@ -15,4 +15,6 @@ public interface BackTrackExtension
 
 	public void setExtension(int rowBegin, int colBegin, int rowEnd, int colEnd, int value);
 
+	public Vertex getOptVertexExtended(int rowEnd, int colEnd);
+
 }

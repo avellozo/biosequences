@@ -19,4 +19,8 @@ public interface BackTrackGapSet
 
 	public void setGapVer(int rowBegin, int rowEnd, int col, int value);
 
+	public int getOptColGapSetHor(int rowEnd, int colEnd);
+
+	public int getOptRowGapSetVer(int rowEnd, int colEnd);
+
 }

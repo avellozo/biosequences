@@ -5,6 +5,7 @@ package sequences.common.backtrack;
 
 import sequences.common.ExceptionInvalidBackTrack;
 import sequences.editgraph.EditGraph;
+import sequences.editgraph.EditGraphWithGapSet;
 import sequences.editgraph.OptimumPath;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
@@ -19,11 +20,11 @@ public interface BackTrack
 
 	public static final byte	EXTENDED	= 'E';
 
-	public static final byte	JUNCTION	= 'J';	//arco sem peso que junta dois vértices
+	public static final byte	JUNCTION	= 'J';	// arco sem peso que junta dois vértices
 
-	public static final byte	GAP_HOR		= 'R';	//Gap estendido horizontal
+	public static final byte	GAP_HOR		= 'R';	// Gap estendido horizontal
 
-	public static final byte	GAP_VER		= 'C';	//Gap estendido vertical
+	public static final byte	GAP_VER		= 'C';	// Gap estendido vertical
 
 	public static final byte	INVALID		= 'I';
 
@@ -58,11 +59,14 @@ public interface BackTrack
 
 	public void updateDiagonal(int row, int col, EditGraph eg) throws ExceptionInvalidVertex;
 
-	public int getOptimumGapSetVer(int rowEnd, int colEnd) throws ExceptionInvalidVertex;
+	public void updateGapSetVertical(int rowEnd, int col, EditGraphWithGapSet eg) throws ExceptionInvalidVertex;
 
-	public int getOptimumGapSetHor(int rowEnd, int colEnd) throws ExceptionInvalidVertex;
+	public void updateGapSetHorizontal(int row, int colEnd, EditGraphWithGapSet eg) throws ExceptionInvalidVertex;
 
-	public Element getOptimumExtended(int rowEnd, int colEnd) throws ExceptionInvalidVertex;
-
-
+	// public int getOptVertexGapSetVer(int rowEnd, int colEnd) throws ExceptionInvalidVertex;
+	//
+	// public int getOptColGapSetHor(int rowEnd, int colEnd) throws ExceptionInvalidVertex;
+	//
+	// public Vertex getOptRowExtended(int rowEnd, int colEnd) throws ExceptionInvalidVertex;
+	//
 }

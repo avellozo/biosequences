@@ -15,7 +15,7 @@ import sequences.editgraph.exception.ExceptionInvalidVertex;
 public class MethodClassic implements OptimumPathMethod
 {
 
-	byte	type;	//Local, Global, semi-global
+	byte	type;	// Local, Global, semi-global
 
 	public MethodClassic(byte type)
 	{
@@ -32,7 +32,6 @@ public class MethodClassic implements OptimumPathMethod
 		BackTrack bt = new BackTrackBasic(iMin, jMin, iMax, jMax, type, null, null, null);
 
 		int i, j;
-		int w, wh = 0, wd = 0, wv = 0;
 
 		try
 		{

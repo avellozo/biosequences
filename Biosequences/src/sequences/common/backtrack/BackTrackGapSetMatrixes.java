@@ -31,12 +31,12 @@ public class BackTrackGapSetMatrixes implements BackTrackGapSet
 
 	public ArcGapSetHorizontal getArcGapHor(Vertex endVertex, EditGraphWithGapSet eg) throws ExceptionInvalidVertex
 	{
-		return eg.getGapSetHorizontalArc(extendedCol.getValue(endVertex.getRow(), endVertex.getCol()), endVertex);
+		return eg.getGapSetHorizontalArc(getOptColGapSetHor(endVertex.getRow(), endVertex.getCol()), endVertex);
 	}
 
 	public ArcGapSetVertical getArcGapVer(Vertex endVertex, EditGraphWithGapSet eg) throws ExceptionInvalidVertex
 	{
-		return eg.getGapSetVerticalArc(extendedRow.getValue(endVertex.getRow(), endVertex.getCol()), endVertex);
+		return eg.getGapSetVerticalArc(getOptRowGapSetVer(endVertex.getRow(), endVertex.getCol()), endVertex);
 	}
 
 	public void setGapHor(int colBegin, int rowEnd, int colEnd, int value)
@@ -47,6 +47,16 @@ public class BackTrackGapSetMatrixes implements BackTrackGapSet
 	public void setGapVer(int rowBegin, int rowEnd, int col, int value)
 	{
 		extendedRow.setValue(rowEnd, col, rowBegin);
+	}
+
+	public int getOptColGapSetHor(int rowEnd, int colEnd)
+	{
+		return extendedCol.getValue(rowEnd, colEnd);
+	}
+
+	public int getOptRowGapSetVer(int rowEnd, int colEnd)
+	{
+		return extendedRow.getValue(rowEnd, colEnd);
 	}
 
 }

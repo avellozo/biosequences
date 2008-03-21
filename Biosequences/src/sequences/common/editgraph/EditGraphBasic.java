@@ -299,6 +299,16 @@ public class EditGraphBasic implements EditGraphWithGapSet, EditGraphExtended, C
 		return getArcVerticalFactory().getWeightVerticalArc(i, j);
 	}
 
+	public int getGapSetHorizontalWeight(int beginCol, int row, int endCol) throws ExceptionInvalidVertex
+	{
+		return getArcGapSetFactory().getWeightGapSetHorizontalArc(beginCol, row, endCol);
+	}
+
+	public int getGapSetVerticalWeight(int beginRow, int endRow, int col) throws ExceptionInvalidVertex
+	{
+		return getArcGapSetFactory().getWeightGapSetVerticalArc(beginRow, endRow, col);
+	}
+
 	public VertexRange getFullRange()
 	{
 		try
@@ -312,67 +322,42 @@ public class EditGraphBasic implements EditGraphWithGapSet, EditGraphExtended, C
 		}
 	}
 
-	//	public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
-	//	{
-	//		return arcFactory.isMatch(endVertex);
-	//	}
+	// public boolean isMatch(Vertex endVertex) throws ExceptionInvalidVertex
+	// {
+	// return arcFactory.isMatch(endVertex);
+	// }
 	//
-	/*	public <P extends OptimumPath> P getOptimumPath(VertexRange range, boolean local,
-	OptimumPathFactory<E, P> pathFactory) throws EGInvalidRangeException, EGInvalidEditGraphException
-	{
-	if (range == null)
-	{
-	throw new EGInvalidRangeException("Impossible to calculate optimum path to null range");
-	}
-	if (pathFactory == null)
-	{
-	throw new EGInvalidEditGraphException("Edit graph without path factory: impossible to create path.");
-	}
-	return pathFactory.createPath(range, local);
-	}
-
-	public OptimumPath getOptimumPath(VertexRange range, boolean local) throws EGInvalidRangeException,
-	EGInvalidEditGraphException
-	{
-	return getOptimumPath(range, local, getOptimumPathFactory());
-	}
-
-	// get maximum path from up left corner to down right corner
-	public OptimumPath getOptimumPath(boolean local) throws EGInvalidEditGraphException
-	{
-	try
-	{
-	return getOptimumPath(getFullVertexRange(), local);
-	}
-	catch (EGInvalidRangeException e)
-	{
-	e.printStackTrace();
-	throw new EGInternalException();
-	}
-	}
-	*/
-	/*	public OptimumPathFactory<E, ? extends OptimumPath> getOptimumPathFactory()
-	{
-	return optimumPathFactory;
-	}
-
-	public void setPathFactory(OptimumPathFactory<E, ? extends OptimumPath> pathFactory)
-	{
-
-	this.optimumPathFactory = pathFactory;
-	}
-	*/
-	//public VertexesOfExtension getFullVertexRange()
-	//{
-	//try
-	//{
-	//return new VertexesOfExtension(getVertex(getRowMin(), getColMin()), getVertex(getRowMax(), getColMax()));
-	//}
-	//catch (EGInvalidVertexException e)
-	//{
-	//e.printStackTrace();
-	//throw new EGInternalException();
-	//}
-	//}
+	/*
+	 * public <P extends OptimumPath> P getOptimumPath(VertexRange range, boolean local, OptimumPathFactory<E, P>
+	 * pathFactory) throws EGInvalidRangeException, EGInvalidEditGraphException { if (range == null) { throw new
+	 * EGInvalidRangeException("Impossible to calculate optimum path to null range"); } if (pathFactory == null) { throw
+	 * new EGInvalidEditGraphException("Edit graph without path factory: impossible to create path."); } return
+	 * pathFactory.createPath(range, local); }
+	 * 
+	 * public OptimumPath getOptimumPath(VertexRange range, boolean local) throws EGInvalidRangeException,
+	 * EGInvalidEditGraphException { return getOptimumPath(range, local, getOptimumPathFactory()); }
+	 *  // get maximum path from up left corner to down right corner public OptimumPath getOptimumPath(boolean local)
+	 * throws EGInvalidEditGraphException { try { return getOptimumPath(getFullVertexRange(), local); } catch
+	 * (EGInvalidRangeException e) { e.printStackTrace(); throw new EGInternalException(); } }
+	 */
+	/*
+	 * public OptimumPathFactory<E, ? extends OptimumPath> getOptimumPathFactory() { return optimumPathFactory; }
+	 * 
+	 * public void setPathFactory(OptimumPathFactory<E, ? extends OptimumPath> pathFactory) {
+	 * 
+	 * this.optimumPathFactory = pathFactory; }
+	 */
+	// public VertexesOfExtension getFullVertexRange()
+	// {
+	// try
+	// {
+	// return new VertexesOfExtension(getVertex(getRowMin(), getColMin()), getVertex(getRowMax(), getColMax()));
+	// }
+	// catch (EGInvalidVertexException e)
+	// {
+	// e.printStackTrace();
+	// throw new EGInternalException();
+	// }
+	// }
 	//
 }

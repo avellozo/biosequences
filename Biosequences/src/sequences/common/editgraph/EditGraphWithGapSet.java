@@ -17,4 +17,8 @@ public interface EditGraphWithGapSet extends EditGraph
 
 	public ArcGapSetVertical getGapSetVerticalArc(int beginRow, Vertex endVertex) throws ExceptionInvalidVertex;
 
+	public int getGapSetHorizontalWeight(int beginCol, int row, int endCol) throws ExceptionInvalidVertex;
+
+	public int getGapSetVerticalWeight(int beginRow, int endRow, int col) throws ExceptionInvalidVertex;
+
 }

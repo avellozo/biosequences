@@ -69,14 +69,14 @@ public class BackTrackBasic implements BackTrack
 	{
 		switch (type)
 		{
-			case OptimumPathMethod.LOCAL:
-				return new BTMatrixesLocal(rowBegin, colBegin, rowEnd, colEnd);
-			case OptimumPathMethod.GLOBAL:
-				return new BTMatrixesGlobal(rowBegin, colBegin, rowEnd, colEnd);
-			case OptimumPathMethod.SEMIGLOBAL:
-				return new BTMatrixesSemiGlobal(rowBegin, colBegin, rowEnd, colEnd);
-			default:
-				throw new RuntimeException("Invalid alignment type: " + type);
+		case OptimumPathMethod.LOCAL:
+			return new BTMatrixesLocal(rowBegin, colBegin, rowEnd, colEnd);
+		case OptimumPathMethod.GLOBAL:
+			return new BTMatrixesGlobal(rowBegin, colBegin, rowEnd, colEnd);
+		case OptimumPathMethod.SEMIGLOBAL:
+			return new BTMatrixesSemiGlobal(rowBegin, colBegin, rowEnd, colEnd);
+		default:
+			throw new RuntimeException("Invalid alignment type: " + type);
 		}
 	}
 
@@ -118,6 +118,82 @@ public class BackTrackBasic implements BackTrack
 	{
 		updateValue(rowEnd, col, value, GAP_VER);
 		backtrackGapSet.setGapVer(rowBegin, rowEnd, col, value);
+	}
+
+	public void updateDiagonal(int row, int col, EditGraph eg) throws ExceptionInvalidVertex
+	{
+		updateDiagonal(row, col, getValue(row - 1, col - 1) + eg.getWeightDiagonalArc(row, col));
+	}
+
+	public void updateHorizontal(int row, int col, EditGraph eg) throws ExceptionInvalidVertex
+	{
+		updateHorizontal(row, col, getValue(row, col - 1) + eg.getWeightHorizontalArc(row, col));
+	}
+
+	public void updateVertical(int row, int col, EditGraph eg) throws ExceptionInvalidVertex
+	{
+		updateVertical(row, col, getValue(row - 1, col) + eg.getWeightVerticalArc(row, col));
+	}
+
+	// Assume que ou continua o anterior gap set ou faz um novo
+	public void updateGapSetHorizontal(int row, int colEnd, EditGraphWithGapSet eg) throws ExceptionInvalidVertex
+	{
+		int colOpt, valOpt;
+		if (colEnd - 1 == eg.getColMin())
+		{
+			colOpt = colEnd - 1;
+			valOpt = getValue(row, colOpt) + eg.getGapSetHorizontalWeight(colOpt, row, colEnd);
+		}
+		else
+		{
+			colOpt = getOptColGapSetHor(row, colEnd - 1);
+			valOpt = getValue(row, colOpt) + eg.getGapSetHorizontalWeight(colOpt, row, colEnd);
+			int valColAnt = getValue(row, colEnd - 1) + eg.getGapSetHorizontalWeight(colEnd - 1, row, colEnd);
+			if (valOpt < valColAnt)
+			{
+				colOpt = colEnd - 1;
+				valOpt = valColAnt;
+			}
+		}
+		updateGapSetHorizontal(colOpt, row, colEnd, valOpt);
+	}
+
+	// Assume que ou continua o anterior gap set ou faz um novo
+	public void updateGapSetVertical(int rowEnd, int col, EditGraphWithGapSet eg) throws ExceptionInvalidVertex
+	{
+		int rowOpt, valOpt;
+		if (rowEnd - 1 == eg.getRowMin())
+		{
+			rowOpt = rowEnd - 1;
+			valOpt = getValue(rowOpt, col) + eg.getGapSetHorizontalWeight(rowOpt, rowEnd, col);
+		}
+		else
+		{
+			rowOpt = getOptRowGapSetVer(rowEnd - 1, col);
+			valOpt = getValue(rowOpt, col) + eg.getGapSetVerticalWeight(rowOpt, rowEnd, col);
+			int valRowAnt = getValue(rowEnd - 1, col) + eg.getGapSetVerticalWeight(rowEnd - 1, rowEnd, col);
+			if (valOpt < valRowAnt)
+			{
+				rowOpt = rowEnd - 1;
+				valOpt = valRowAnt;
+			}
+		}
+		updateGapSetVertical(rowOpt, rowEnd, col, valOpt);
+	}
+
+	public Vertex getOptVertexExtended(int rowEnd, int colEnd) throws ExceptionInvalidVertex
+	{
+		return backTrackExtension.getOptVertexExtended(rowEnd, colEnd);
+	}
+
+	public int getOptColGapSetHor(int rowEnd, int colEnd) throws ExceptionInvalidVertex
+	{
+		return backtrackGapSet.getOptColGapSetHor(rowEnd, colEnd);
+	}
+
+	public int getOptRowGapSetVer(int rowEnd, int colEnd) throws ExceptionInvalidVertex
+	{
+		return backtrackGapSet.getOptRowGapSetVer(rowEnd, colEnd);
 	}
 
 	public OptimumPath getOptimumPath(EditGraph eg)
@@ -163,29 +239,29 @@ public class BackTrackBasic implements BackTrack
 		byte b = matrixValue.getArcType(v.getRow(), v.getCol());
 		switch (b)
 		{
-			case DIAGONAL:
-				arc = eg.getDiagonalArc(v);
-				break;
-			case VERTICAL:
-				arc = eg.getVerticalArc(v);
-				break;
-			case HORIZONTAL:
-				arc = eg.getHorizontalArc(v);
-				break;
-			case EXTENDED:
-				arc = backTrackExtension.getExtendedArc(v, (EditGraphExtended) eg);
-				break;
-			case JUNCTION:
-				arc = backTrackJunction.getArcJuntion(v);
-				break;
-			case GAP_HOR:
-				arc = backtrackGapSet.getArcGapHor(v, (EditGraphWithGapSet) eg);
-				break;
-			case GAP_VER:
-				arc = backtrackGapSet.getArcGapVer(v, (EditGraphWithGapSet) eg);
-				break;
-			default:
-				throw new RuntimeException("Tipo de arco inválido: " + b);
+		case DIAGONAL:
+			arc = eg.getDiagonalArc(v);
+			break;
+		case VERTICAL:
+			arc = eg.getVerticalArc(v);
+			break;
+		case HORIZONTAL:
+			arc = eg.getHorizontalArc(v);
+			break;
+		case EXTENDED:
+			arc = backTrackExtension.getExtendedArc(v, (EditGraphExtended) eg);
+			break;
+		case JUNCTION:
+			arc = backTrackJunction.getArcJuntion(v);
+			break;
+		case GAP_HOR:
+			arc = backtrackGapSet.getArcGapHor(v, (EditGraphWithGapSet) eg);
+			break;
+		case GAP_VER:
+			arc = backtrackGapSet.getArcGapVer(v, (EditGraphWithGapSet) eg);
+			break;
+		default:
+			throw new RuntimeException("Tipo de arco inválido: " + b);
 		}
 		return arc;
 	}
@@ -193,21 +269,6 @@ public class BackTrackBasic implements BackTrack
 	public void setBeginPath(int row, int col, int value)
 	{
 		matrixValue.setBeginOptimumPath(row, col, value);
-	}
-
-	public void updateDiagonal(int row, int col, EditGraph eg) throws ExceptionInvalidVertex
-	{
-		updateDiagonal(row, col, getValue(row - 1, col - 1) + eg.getWeightDiagonalArc(row, col));
-	}
-
-	public void updateHorizontal(int row, int col, EditGraph eg) throws ExceptionInvalidVertex
-	{
-		updateHorizontal(row, col, getValue(row, col - 1) + eg.getWeightHorizontalArc(row, col));
-	}
-
-	public void updateVertical(int row, int col, EditGraph eg) throws ExceptionInvalidVertex
-	{
-		updateVertical(row, col, getValue(row - 1, col) + eg.getWeightVerticalArc(row, col));
 	}
 
 }

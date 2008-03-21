@@ -34,10 +34,7 @@ public class BackTrackExtensionMatrixes implements BackTrackExtension
 
 	public ArcExtended getExtendedArc(Vertex endVertex, EditGraphExtended eg) throws ExceptionInvalidVertex
 	{
-		int rowEnd = endVertex.getRow();
-		int colEnd = endVertex.getCol();
-		return eg.getExtendedArc(new VertexRange(new Vertex(extendedRow.getValue(rowEnd, colEnd), extendedCol.getValue(
-			rowEnd, colEnd)), endVertex));
+		return eg.getExtendedArc(new VertexRange(getOptVertexExtended(endVertex.getRow(), endVertex.getCol()), endVertex));
 	}
 
 	public void setExtension(int rowBegin, int colBegin, int rowEnd, int colEnd, int value)
@@ -45,6 +42,11 @@ public class BackTrackExtensionMatrixes implements BackTrackExtension
 		extendedValue.setValue(rowEnd, colEnd, value);
 		extendedRow.setValue(rowEnd, colEnd, rowBegin);
 		extendedCol.setValue(rowEnd, colEnd, colBegin);
+	}
+
+	public Vertex getOptVertexExtended(int rowEnd, int colEnd)
+	{
+		return new Vertex(extendedRow.getValue(rowEnd, colEnd), extendedCol.getValue(rowEnd, colEnd));
 	}
 
 }
