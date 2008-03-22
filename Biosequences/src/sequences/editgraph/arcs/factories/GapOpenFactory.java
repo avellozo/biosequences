@@ -13,14 +13,14 @@ import sequences.editgraph.arcs.ArcHorizontal;
 import sequences.editgraph.arcs.ArcVertical;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
-public class ArcGapOpenFactory implements GapFactory
+public class GapOpenFactory implements GapFactory
 {
 
 	int						gapOpenPenalty;
 	ArcHorizontalFactory	arcHorizontalFactory;
 	ArcVerticalFactory		arcVerticalFactory;
 
-	public ArcGapOpenFactory(int gapOpenPenalty, ArcHorizontalFactory arcHorizontalFactory,
+	public GapOpenFactory(int gapOpenPenalty, ArcHorizontalFactory arcHorizontalFactory,
 			ArcVerticalFactory arcVerticalFactory)
 	{
 		this.gapOpenPenalty = gapOpenPenalty;

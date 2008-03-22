@@ -13,7 +13,7 @@ import sequences.editgraph.arcs.ArcHorizontal;
 import sequences.editgraph.arcs.ArcVertical;
 import sequences.editgraph.arcs.factories.ArcDiagonalFactory;
 import sequences.editgraph.arcs.factories.ArcExtendedFactory;
-import sequences.editgraph.arcs.factories.ArcGapSetFactory;
+import sequences.editgraph.arcs.factories.GapSetFactory;
 import sequences.editgraph.arcs.factories.ArcHorizontalFactory;
 import sequences.editgraph.arcs.factories.ArcVerticalFactory;
 import sequences.editgraph.arcs.factories.GapFactory;
@@ -35,11 +35,11 @@ public class EditGraphBasic implements EditGraphWithGapSet, EditGraphExtended, C
 	ArcVerticalFactory		arcVFactory;
 	ArcDiagonalFactory		arcDFactory;
 	ArcExtendedFactory		arcEFactory;
-	ArcGapSetFactory		arcGapSetFactory;
+	GapSetFactory		arcGapSetFactory;
 
 	public EditGraphBasic(int rowMin, int rowMax, int colMin, int colMax, ArcHorizontalFactory arcHFactory,
 			ArcVerticalFactory arcVFactory, ArcDiagonalFactory arcDFactory, ArcExtendedFactory arcEFactory,
-			ArcGapSetFactory arcGapSetFactory)
+			GapSetFactory arcGapSetFactory)
 	{
 		this.rowMin = rowMin;
 		this.rowMax = rowMax;
@@ -53,7 +53,7 @@ public class EditGraphBasic implements EditGraphWithGapSet, EditGraphExtended, C
 	}
 
 	public EditGraphBasic(int rowMax, int colMax, ArcHorizontalFactory arcHFactory, ArcVerticalFactory arcVFactory,
-			ArcDiagonalFactory arcDFactory, ArcExtendedFactory arcEFactory, ArcGapSetFactory arcGapSetFactory)
+			ArcDiagonalFactory arcDFactory, ArcExtendedFactory arcEFactory, GapSetFactory arcGapSetFactory)
 	{
 		this(0, rowMax, 0, colMax, arcHFactory, arcVFactory, arcDFactory, arcEFactory, arcGapSetFactory);
 	}
@@ -104,7 +104,7 @@ public class EditGraphBasic implements EditGraphWithGapSet, EditGraphExtended, C
 		return arcEFactory;
 	}
 
-	public ArcGapSetFactory getArcGapSetFactory()
+	public GapSetFactory getArcGapSetFactory()
 	{
 		return arcGapSetFactory;
 	}

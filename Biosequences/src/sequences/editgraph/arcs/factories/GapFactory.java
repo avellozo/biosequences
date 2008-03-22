@@ -3,7 +3,7 @@
  */
 package sequences.editgraph.arcs.factories;
 
-public interface GapFactory extends ArcGapSetFactory, ArcHorizontalFactory, ArcVerticalFactory
+public interface GapFactory extends GapSetFactory, ArcHorizontalFactory, ArcVerticalFactory
 {
 
 }

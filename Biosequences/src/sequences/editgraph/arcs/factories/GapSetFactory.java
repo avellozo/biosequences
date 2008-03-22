@@ -8,7 +8,7 @@ import sequences.editgraph.arcs.ArcGapSetHorizontal;
 import sequences.editgraph.arcs.ArcGapSetVertical;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
-public interface ArcGapSetFactory
+public interface GapSetFactory
 {
 
 	public ArcGapSetHorizontal getGapSetHorizontalArc(int beginCol, Vertex endVertex) throws ExceptionInvalidVertex;

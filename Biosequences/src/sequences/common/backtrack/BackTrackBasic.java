@@ -17,11 +17,8 @@ import sequences.matrix.MatrixInt;
 
 public class BackTrackBasic implements BackTrack
 {
-
 	byte				typeAlign;
-
 	BackTrackMatrixes	matrixValue;
-
 	BackTrackExtension	backTrackExtension;
 	BackTrackJunction	backTrackJunction;
 	BackTrackGapSet		backtrackGapSet;
@@ -29,7 +26,7 @@ public class BackTrackBasic implements BackTrack
 	public BackTrackBasic(int rowBegin, int colBegin, int rowEnd, int colEnd, byte type,
 			BackTrackGapSet backtrackGapSet, BackTrackExtension backTrackExtension, BackTrackJunction backTrackJunction)
 	{
-		createDataStrutucture(rowBegin, colBegin, rowEnd, colEnd, type);
+		this.matrixValue = createDataStrutucture(rowBegin, colBegin, rowEnd, colEnd, type);
 		this.backtrackGapSet = backtrackGapSet;
 		this.backTrackExtension = backTrackExtension;
 		this.backTrackJunction = backTrackJunction;
@@ -42,6 +39,22 @@ public class BackTrackBasic implements BackTrack
 		this.backtrackGapSet = backtrackGapSet;
 		this.backTrackExtension = backTrackExtension;
 		this.backTrackJunction = backTrackJunction;
+	}
+
+	protected static BackTrackMatrixes createDataStrutucture(int rowBegin, int colBegin, int rowEnd, int colEnd,
+			byte type)
+	{
+		switch (type)
+		{
+		case OptimumPathMethod.LOCAL:
+			return new BTMatrixesLocal(rowBegin, colBegin, rowEnd, colEnd);
+		case OptimumPathMethod.GLOBAL:
+			return new BTMatrixesGlobal(rowBegin, colBegin, rowEnd, colEnd);
+		case OptimumPathMethod.SEMIGLOBAL:
+			return new BTMatrixesSemiGlobal(rowBegin, colBegin, rowEnd, colEnd);
+		default:
+			throw new RuntimeException("Invalid alignment type: " + type);
+		}
 	}
 
 	public MatrixInt getMatrixValues()
@@ -62,22 +75,6 @@ public class BackTrackBasic implements BackTrack
 	public byte getArcType(int row, int col)
 	{
 		return matrixValue.getArcType(row, col);
-	}
-
-	protected static BackTrackMatrixes createDataStrutucture(int rowBegin, int colBegin, int rowEnd, int colEnd,
-			byte type)
-	{
-		switch (type)
-		{
-		case OptimumPathMethod.LOCAL:
-			return new BTMatrixesLocal(rowBegin, colBegin, rowEnd, colEnd);
-		case OptimumPathMethod.GLOBAL:
-			return new BTMatrixesGlobal(rowBegin, colBegin, rowEnd, colEnd);
-		case OptimumPathMethod.SEMIGLOBAL:
-			return new BTMatrixesSemiGlobal(rowBegin, colBegin, rowEnd, colEnd);
-		default:
-			throw new RuntimeException("Invalid alignment type: " + type);
-		}
 	}
 
 	public void updateDiagonal(int row, int col, int value)

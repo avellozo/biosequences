@@ -14,7 +14,7 @@ import sequences.editgraph.Vertex;
 import sequences.editgraph.VertexRange;
 import sequences.editgraph.arcs.ArcExtended;
 import sequences.editgraph.arcs.factories.ArcExtendedFactory;
-import sequences.editgraph.arcs.factories.ArcGapOpenFactory;
+import sequences.editgraph.arcs.factories.GapOpenFactory;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 import sequences.matrix.ArrayInt;
@@ -32,7 +32,7 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 
 	EditGraph						egSeq1xSeq1, egSeq1xSeq2, egSeq2xSeq1, egSeq2xSeq2;
 	DupPenaltyCalculator			duplicationPenalty;
-	ArcGapOpenFactory	arcEFactoryForGapOpen;
+	GapOpenFactory	arcEFactoryForGapOpen;
 	MatrixInt						m;
 	boolean							searchForward;
 
@@ -41,7 +41,7 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 	char							alignType;											//Local or Global or Semi-global
 
 	//Só verifica o conjunto C, se os conjuntos A e B devem ser verificados
-	public ExtenderAndMethodDupN3(ArcGapOpenFactory arcEFactoryForGapOpen, EditGraph egSeq1xSeq1,
+	public ExtenderAndMethodDupN3(GapOpenFactory arcEFactoryForGapOpen, EditGraph egSeq1xSeq1,
 			EditGraph egSeq1xSeq2, EditGraph egSeq2xSeq1, EditGraph egSeq2xSeq2,
 			DupPenaltyCalculator duplicationPenalty, boolean searchForward, char alignType)
 	{
@@ -135,9 +135,9 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 
 			//if the extension is for gap open then build dynamic matrix with gap open
 			if ((egABC instanceof EditGraphBasic)
-				&& (((EditGraphBasic) egABC).getArcExtendedFactory() instanceof ArcGapOpenFactory))
+				&& (((EditGraphBasic) egABC).getArcExtendedFactory() instanceof GapOpenFactory))
 			{
-				ArcGapOpenFactory arcEFactory = (ArcGapOpenFactory) ((EditGraphBasic) egABC).getArcExtendedFactory();
+				GapOpenFactory arcEFactory = (GapOpenFactory) ((EditGraphBasic) egABC).getArcExtendedFactory();
 				gapOpenPenaltyABC = arcEFactory.getGapOpenPenalty();
 				egForGapABC = arcEFactory.getEditGraph();
 
@@ -366,9 +366,9 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 
 			//if the extension is for gap open then build dynamic matrix with gap open
 			if ((egD instanceof EditGraphBasic)
-				&& (((EditGraphBasic) egD).getArcExtendedFactory() instanceof ArcGapOpenFactory))
+				&& (((EditGraphBasic) egD).getArcExtendedFactory() instanceof GapOpenFactory))
 			{
-				ArcGapOpenFactory arcEFactory = (ArcGapOpenFactory) ((EditGraphBasic) egD).getArcExtendedFactory();
+				GapOpenFactory arcEFactory = (GapOpenFactory) ((EditGraphBasic) egD).getArcExtendedFactory();
 				gapOpenPenaltyD = arcEFactory.getGapOpenPenalty();
 				egForGapD = arcEFactory.getEditGraph();
 
@@ -543,7 +543,7 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 		return duplicationPenalty;
 	}
 
-	public ArcGapOpenFactory getArcEFactoryForGapOpen()
+	public GapOpenFactory getArcEFactoryForGapOpen()
 	{
 		return arcEFactoryForGapOpen;
 	}
@@ -627,7 +627,7 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 			throw new ExceptionInvalidEditGraph(eg);
 		}
 
-		ArcGapOpenFactory arcEFactoryForGapOpen = getArcEFactoryForGapOpen();
+		GapOpenFactory arcEFactoryForGapOpen = getArcEFactoryForGapOpen();
 		int gapOpenPenalty;
 		EditGraph egForGap;
 		int wJOld;
@@ -860,9 +860,9 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 		int gapHor = 0;
 		//if the extension is for gap open then build dynamic matrix with gap open
 		if ((eg instanceof EditGraphBasic)
-			&& (((EditGraphBasic) eg).getArcExtendedFactory() instanceof ArcGapOpenFactory))
+			&& (((EditGraphBasic) eg).getArcExtendedFactory() instanceof GapOpenFactory))
 		{
-			ArcGapOpenFactory arcEFactory = (ArcGapOpenFactory) ((EditGraphBasic) eg).getArcExtendedFactory();
+			GapOpenFactory arcEFactory = (GapOpenFactory) ((EditGraphBasic) eg).getArcExtendedFactory();
 			gapOpenPenalty = arcEFactory.getGapOpenPenalty();
 			egForGap = arcEFactory.getEditGraph();
 
@@ -997,9 +997,9 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 		int gapHor = 0;
 		//if the extension is for gap open then build dynamic matrix with gap open
 		if ((eg instanceof EditGraphBasic)
-			&& (((EditGraphBasic) eg).getArcExtendedFactory() instanceof ArcGapOpenFactory))
+			&& (((EditGraphBasic) eg).getArcExtendedFactory() instanceof GapOpenFactory))
 		{
-			ArcGapOpenFactory arcEFactory = (ArcGapOpenFactory) ((EditGraphBasic) eg).getArcExtendedFactory();
+			GapOpenFactory arcEFactory = (GapOpenFactory) ((EditGraphBasic) eg).getArcExtendedFactory();
 			gapOpenPenalty = arcEFactory.getGapOpenPenalty();
 			egForGap = arcEFactory.getEditGraph();
 
@@ -1183,9 +1183,9 @@ public class ExtenderAndMethodDupN3 implements ArcExtendedFactory, OptimumPathMe
 		int gapHor = 0;
 		//if the extension is for gap open then build dynamic matrix with gap open
 		if ((eg instanceof EditGraphBasic)
-			&& (((EditGraphBasic) eg).getArcExtendedFactory() instanceof ArcGapOpenFactory))
+			&& (((EditGraphBasic) eg).getArcExtendedFactory() instanceof GapOpenFactory))
 		{
-			ArcGapOpenFactory arcEFactory = (ArcGapOpenFactory) ((EditGraphBasic) eg).getArcExtendedFactory();
+			GapOpenFactory arcEFactory = (GapOpenFactory) ((EditGraphBasic) eg).getArcExtendedFactory();
 			gapOpenPenalty = arcEFactory.getGapOpenPenalty();
 			egForGap = arcEFactory.getEditGraph();
 

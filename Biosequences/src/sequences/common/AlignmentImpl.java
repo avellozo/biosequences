@@ -8,14 +8,14 @@ import sequences.editgraph.OptimumPath;
 import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 
-public abstract class AlignmentImpl implements Alignment
+public abstract class AlignmentImpl<E extends EditGraph> implements Alignment
 {
-	OptimumPathMethod	method;
-	long				time;
-	EditGraph			eg;
-	OptimumPath			path;
+	OptimumPathMethod<E>	method;
+	long					time;
+	E						eg;
+	OptimumPath				path;
 
-	protected AlignmentImpl(EditGraph eg, OptimumPathMethod method) throws ExceptionInvalidEditGraph
+	protected AlignmentImpl(E eg, OptimumPathMethod<E> method) throws ExceptionInvalidEditGraph
 	{
 		time = System.currentTimeMillis();
 		this.method = method;

@@ -9,11 +9,11 @@ import sequences.editgraph.arcs.factories.ArcExtendedFactoryNothing;
 import sequences.editgraph.arcs.factories.GapConstantFactory;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 
-public class AlignmentClassic extends AlignmentImpl
+public class AlignmentClassic extends AlignmentImpl<EditGraphBasic>
 {
 	Sequence	seq1, seq2;
 
-	//type is global, local or semiglobal
+	// type is global, local or semiglobal
 	public AlignmentClassic(Sequence seq1, Sequence seq2, int match, int mismatch, int gap, byte type)
 			throws ExceptionInvalidEditGraph
 	{
