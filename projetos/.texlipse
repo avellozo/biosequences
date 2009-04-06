@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Mon Apr 06 12:20:12 BRT 2009
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=planotrabalhoUFSCAR042009.tex
+outputFile=planotrabalhoUFSCAR042009.pdf
+langSpell=en
+markDer=true
+srcDir=

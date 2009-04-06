@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\pagestyle{headings}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage[brazil]{babel} 
+\usepackage[latin1]{inputenc}
+\usepackage[normalem]{ulem} 
+\usepackage[portuguese]{alg}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\usepackage{alg}
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{algorithm}{htbp}{loa}%[chapter]
+\newcommand{\listofalgorithms}{\listof{algorithm}{Lista de Algoritmos}}
+\floatname{algorithm}{Algoritmo} 
+ 
+%Teoremas, Lemas, etc.
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicao}[teorema]{Proposição}
+\newtheorem{observacao}[teorema]{Observação}
+\newtheorem{corolario}[teorema]{Corolário}
+\newtheorem{definicao}[teorema]{Definição}
+\newtheorem{exemplo}[teorema]{Exemplo}
+\newtheorem{problema}[teorema]{Problema}
+\newenvironment{prova}[1][Prova.]{\begin{trivlist}
+\item[\hskip \labelsep {\itshape #1}]}{\end{trivlist}}
+\newenvironment{comentario}[1][Comentário]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newcommand{\tq}{\mathrel{|}}
+\newcommand{\weightsym}{\phi}
+\newcommand{\weight}[1]{\function{\weightsym}{#1}}
+\newcommand{\invert}[1]{\mathord{\overline{{#1}}}}
+\newcommand{\invertsym}{\mathord{\overline{\ \ {\vspace{3 mm}}}}}
+\newcommand{\aplica}{\longrightarrow}              
+\newcommand{\implica}{\Longrightarrow}   
+\newcommand{\sse}{\Longleftrightarrow}   
+\newcommand{\seq}{seqüência}
+\newcommand{\seqs}{seqüências}
+           
+
+% \newcount\hour
+% \newcount\minute
+% \hour=\time \divide \hour by 60 \minute=\time \loop \ifnum \minute
+% > 59 \advance \minute by -60 \repeat
+% \def\now{%
+% \ifnum \hour<13 \ifnum \hour<1 12:\else\number\hour:\fi \ifnum
+% \minute<10 0\fi
+% \number\minute%
+% %\ifnum \hour<12 \ AM \else \ PM \fi
+% \else \advance \hour by -12 \number\hour:%
+% \ifnum \minute<10 0\fi
+% \number\minute%
+% %\ PM%
+% \fi%
+% }
+% \let\oldthepage=\thepage
+% \renewcommand{\thepage}{\today{} \now \qquad (\oldthepage)}
+
+\newcommand{\cqd}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+\begin{document}
+
+\title{Documento de conclusão do doutorado}
+\author{Augusto Fernandes Vellozo}
+\maketitle O documento mostrado nas páginas a seguir foi obtido na secretaria 
+de pós-graduação do IME-USP. Neste documento consta que a data limite para o 
+término do doutorado é dia 02/03/2007, portanto antes do início do período de 
+vigência da bolsa de pós-doutorado. Além disto, vale a pena ressaltar que 
+apesar de não constar no documento abaixo, a banca para a defesa do doutorado 
+já foi aprovada em reunião da comissão de pós-graduação no dia 15 de Dezembro 
+de 2006. Já entramos em contato com os professores da banca e foi acertado com 
+\textbf{todos} que a data para a defesa será dia \textbf{15 de Fevereiro de 
+2007}, portanto 2 meses e meio antes do início da bolsa de pós-doutorado. Estes 
+dados não constam no documento, pois o documento só é atualizado após o 
+depósito da tese, que ocorrerá até o dia 15 de Janeiro de 2007. \newpage
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.7]{docIme1.jpg}
+\end{center}
+\end{figure}
+\newpage
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.7]{docIme2.jpg}
+\end{center}
+\end{figure}
+\newpage
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.7]{docIme3.jpg}
+\end{center}
+\end{figure}
+\end{document}
+

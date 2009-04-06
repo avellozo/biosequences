@@ -1,0 +1,777 @@
+\documentclass[11pt]{article}
+\marginparwidth 0pt
+\oddsidemargin  0pt
+
+\marginparsep 0pt
+
+\topmargin -0.25in
+
+\textwidth 6.5in
+\textheight 8.5in
+
+\date{}
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{xspace}
+\usepackage{mathrsfs}
+\setcounter{tocdepth}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Action de Recherche Coopérative de la Direction Scientifique\\
+\ \\ \ \\Project title: Integrated Biological Networks\\ 
+{\small Coordinator: Marie-France Sagot, HELIX Project}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+
+\section{Research project}
+
+%MF: ajouter references, les notres et celles d'autres (par rapport 
+%    au projet de recherche.
+
+Historically, the field of computational biology, at least from the
+more algorithmic point of view, started with the analysis of
+sequences, isolated sequences for many years, and then whole genomes
+when the sequencing projects started accelerating. Other topics of
+interest in the early years of the discipline addressed issues that
+were either sequence-related (for instance, molecular phylogeny) or
+were related to the analysis of other elementary biological objects
+(such as protein or RNA structures).
+
+More recently, concern with getting a deeper understanding on how all
+such elementary biological objects interact in the general context of
+a genome, cell or organism has led to the development of whole new
+areas of investigation by computational biologists. The study of
+relations, although not altogether new to the field, has thus been in
+full bloom in the last few years. Such relations concern {\it every}
+element in a cell or organism. They may even concern extra-cellular
+elements, or elements that belong to the environment of an organism as
+some may have an influence on the inner functioning of a living
+system. Investigating relations requires therefore to study what has
+been called {\bf integrative biology}. This is the objective of the
+present project.
+
+This project thus fits the first of the ``Favored directions'' for
+2005, namely ``Coupling models and data to simulate and control
+complex systems'' although our main aim is first to understand such
+complex systems, with simulation as a second, more longer term
+objective at least as bigger systems are concerned (simulation of
+smaller systems is already being studied in one of the teams).
+
+\vspace{0.5cm} Lack of enough or sufficiently clean data has however
+hindered for now a full growth of the areas of investigation within or
+related to integrative biology. Worse still, the lack of good models
+has slowed down the development of revolutionary new ways of
+considering such relations, and thus of considering biology at the
+global level of an organism, in a way similar to the revolution
+brought about by the sequencing of genomic sequences to our view of
+genetics and molecular evolution.  The data come under many different
+forms, whose nature falls into three main categories: 1. sequence
+data, 2. expression data (this includes both transcriptomic and
+proteomic data), and 3. biochemical data (such as provided by the
+lists of reactions, enzymes and compounds composing the metabolism of
+an organism). This diversity requires expertise in different types of
+techniques such as text algorithmics, combinatorial and statistical
+data analysis methods, and graph theory modelling and algorithmics.
+
+We wish to address both types of problems in this project: lack of
+reliable data/information (on actually existing relations) and lack of
+good models (in particular for what could be defined as conserved, and
+therefore potentially functional, relations). The diversity of the
+forms of data to be treated means already that the models must vary as
+well.  As a reflection of this, the present project is divided into
+three main deeply inter-related topics of investigation: exploration
+and analysis of the complex regulation motifs that represent important
+elements in any study of biochemical and evolutionary networks (Part 1
+of this project), genome dynamics (Part 2), and genetic and
+biochemical networks (Part 3).
+
+Like many other issues in computational biology, obtaining good models
+is a particularly difficult problem both because we lack general
+knowledge of the biological processes at play (and so have no clear
+idea of where to look at, or even what we are supposed to look for),
+and because we have at our disposal an often vast collection of
+partial and very specialized knowledge (that may strongly bias our
+search for new information, or even prevent us completely from finding
+anything new).
+
+The investigation for good models (it is very unlikely that a unique
+one will exist) must therefore involve all the steps from
+1. biological theory (of what could be the important forces or
+constraints to consider) to 2. the development of mathematical models
+that lead to 3. (theoretical) considerations of algorithmical
+complexity which may either 4. feed back into the biological
+formulations of the problems considered or 4'. lead to the elaboration
+of efficient algorithms, and then 5. to the application of such
+algorithms to data in a specific or systematic way, 6. analysis of the
+results obtained and 7. feedback to either the initial theory or the
+mathematical models derived from it. Upstream of this, the problem of
+obtaining the elementary pieces of information (on what relations
+actually exist) must be addressed.
+
+In the context of this project, we shall concentrate our attention on
+a still somewhat restricted view of the functioning of a cell or
+organism, the one provided by biochemical and evolutionary networks,
+and by the relation between the two. A biochemical network offers a
+view that is in-between the one given by a molecular sequence and
+structure, and the view provided by looking at a cell
+directly. Genetic and protein-protein networks can both be seen as
+networks of interactions between objects (genes, proteins, sometimes
+metabolites) whose deeper nature is not important in a first
+approximation. This brings them closer to other types of networks
+(social, web) that have been studied for a longer time. Although the
+rapprochement is dubious, this has meant that many pre-existing
+algorithmic and statistical techniques could be applied in a first
+investigation of such networks. Inferring the networks in a reliable
+way remains however very much an open problem. Immediate transposition
+of the techniques used for studying interaction graphs to metabolic
+networks is simply not possible. It is indeed imperative in this case
+to take into account the nature both of the elementary objects
+represented by the nodes of the network and of the links between them
+when modelling and analysing such networks. This in turn requires new
+algorithmic and mathematical developments.
+
+The challenge after that will then be to consider the relations
+existing between the networks themselves, either by trying to
+integrate the various informations they contain into a single network,
+or by going one step higher in our view of the functioning of a cell
+and building a network of networks. At some point, connection with
+genome architecture and organisation, and thus evolutionary networks
+becomes essential. It has been relatively little explored so far
+although many groups in the world are getting very active in this
+area.
+
+\vspace{0.5cm} The teams associated with this project, both INRIA and
+external (two INRA groups and a group from the Pasteur Institute),
+have all been pursuing research around the topics sketched above for
+some years now. Among the teams, there is a mix of groups who have
+been in contact for some years (SYMBIOSE project, INRA Toulouse,
+Jouy-en-Josas and InaPG Paris) and of groups whose interaction is much
+more recent (Systems Biology Unit at the Pasteur Institute, MISTIS
+project). In the two cases, the contact has often been of a loose
+nature not formalized through a common project. The teams have both
+overlapping and complementary concerns and expertises.  The teams thus
+gather people with interest in and/or specialized in algorithmics,
+combinatorial optimization and graph theory, statistics, and
+computational biology. Among them, all the main subjects to be covered
+by the project are currently been addressed: protein-protein and
+genetic interaction networks (modelling, inference and simulation),
+metabolic networks (inference and analysis), sequence and structure
+motifs involved in regulation (modelling, search and inference),
+evolutionary processes (deriving synteny relations, studying genome
+structure and dynamics and the relation of these with biochemical
+networks). Each of the topics detailed below is thus already the
+object of a research that is being conducted in at least one of the
+teams, either individually or in collaboration. Sharing knowledge
+within these areas is absolutely essential for trying to get at a
+bigger picture of the functioning of a cell.
+
+\ \\
+\noindent
+{\large \bf Part 1: Complex regulation motifs}
+
+The main objective of this part is to address various aspects of the
+problem of sequence motif modelling, search and inference. The motifs
+that will concern us will be all motifs involved in some way with
+regulation. The sequences may be DNA or RNA. Indeed, it is now known
+that RNA plays a much more prominent role in regulation than believed
+until recently. We thus know now that there is massive transcription
+of non-coding RNA. RNA mediated regulation works at two levels, a
+digital, message passing level, and an analog, catalytic
+level. Current tools are inadequate to explore this ``new world'' of
+RNAs.  Even with the long-practiced approach to structure prediction,
+a breakthrough is needed to extract the significant ensemble of
+structures from the large, near-optimal folding space.  We also need
+methods for large-scale search for RNA genes, hybridization sites and
+structural patterns based on thermodynamics.
+
+The following subtopics will more particularly interest us in the
+context of this ARC project:
+
+\begin{description}
+\item[1.1] Improving or investigating the various models for motifs
+that have been developed over the years. The motifs here include:
+complex motifs, that is motifs which may be composed of various parts
+separated by more or less constrained distances; footprint motifs,
+that is motifs that explicitely take a (known) phylogeny into account
+when trying to infer motifs from a set of orthologous sequences;
+finally, motifs that try to combine both the pattern and position
+weight matrix models for representing sequence signals.
+
+\item[1.2] Systematically investigating new approaches for motif
+inference, in particular by exploring probabilistic methods and
+linking them with combinatorial approaches to motif extraction.
+
+\item[1.3] Exploiting conservation differences, that is, differences
+in evolutionary constraints, to identify gene regulatory
+sequences. Algorithms will be considered for scanning sequences from
+different organisms for conserved equivalent segments, and within
+these segments, to identify hyper conserved and hyper variable
+regions.
+
+\item[1.4] Analysing various exact or approximate formulations of
+motif clustering and improving the algorithms for establishing the
+statistical significance of any type of sequence motifs.
+
+\item[1.5] (This overlaps with Part 3 of the current project.)
+Developing methods for the inference of regulatory networks by
+combining information from two sources: microarray genomic expression
+data (using for instance biclustering algorithms) and genetic sequence
+data.
+
+\item[1.6] Locating RNAs (genes and motifs) in genomic
+sequences. Two main approaches will be developed:
+
+\begin{itemize}
+\item[a.] Inferring RNA secondary structures from unaligned sequences
+of homologous RNA genes. The final objective is to propose a method
+enabling to infer a searchable description of a common motif.
+
+\item[b.] Locating unknown RNA genes in genomic sequences. The
+objective in this case is to improve the detection of RNA genes by
+merging several different types of information.
+
+\item[c.] Developing techniques to evaluate the significance of
+putative RNA motifs.
+\end{itemize}
+
+\end{description}
+
+\ \\
+\noindent
+{\large \bf Part 2: Genome dynamics}
+
+It has since long been known that genomes are not static. The work of
+Barbara Clintock in the late 40's showing that genes could jump
+spontaneously from one site to another was a first clear sign of
+this. ``Jumping genes'' were called transposable elements by
+Clintock. Genes may also get duplicated. There are strong indications
+that the duplication may sometimes affect whole chromosomes or even
+genomes or, inversely, only pieces of a gene, in particular exons. It
+has thus been shown that, during evolution, DNA segments coding for
+modules or domains in proteins have been duplicated and rearranged
+through what has been called intronic recombination. By shuffling
+modules between genes, protein families have thus evolved. Genomic
+segments can be reversed, in general through ectopic recombination, or
+deleted. Chromosomes in multi-chromosomal organisms may undergo fusion
+or fission, or exchange genetic material with another chromosome
+(through homologous or non-homologous recombination), usually at their
+ends (translocation) or internally. Genetic material may also be
+transferred across sub-species or species (lateral transfer), thus
+leading to the insertion of new elements in a genome.  Parts of a
+genome may be amplified, through, for instance, slippage resulting in
+the multiplication of the copies of a tandem repeat.
+
+Although much is known about the dynamic behaviour of genomes, much
+more remains to be discovered about the forces and exact mechanisms
+behind such dynamics, its function and extend, the frequency of each
+type of rearrangement, and the impact genomic reorganisations may have
+on gene expression and genome development.
+
+The main topics around which the association between the researchers
+involved this ARC project can yield breakthroughs are:
+
+\begin{description}
+\item[2.1] Algorithms and complexity analysis for calculating
+a rearrangement distance between two or more genomes under various
+models. Classical methods of DNA sequence comparison assumed that
+sequences may only mutate by operations that act on individual
+nucleotides, {\it i.e.}, substitutions, insertions, and
+deletions. More recently, additional studies considered large scale
+genome rearrangement events such as inversions, transpositions and
+translocation.  We aim to broaden the theory of genome rearrangement
+in several directions, and to tighten the contact between the
+theoretical analysis and the real data that are gradually becoming
+available. The key topics we shall study are algorithms for sorting by
+signed reversals, length-sensitive sorting by reversal, sorting by
+transpositions, handling duplicated genes, handling missing genes,
+handling multiple genomes.
+
+\item[2.2] Modelling, detection and analysis of ``segments conserved
+by rearrangements''. ``Segments conserved by rearrangements'' mean
+parts of a chromosome which are relatively stable under large-scale
+evolutionary events.  Looking for such segments is a difficult task
+for two reasons. The first one is that the conservation is not
+exact. Some rearrangements preserve the function associated with a
+segment provided there are ``not many'' of them. How precisely to
+define the number and type that should be allowed, and therefore which
+definition(s) to adopt for a conserved segment (possibly there will be
+more than one depending on the biological question) remains very much
+an open problem. Our first task will thus be to derive models that are
+satisfying both mathematically and biologically. The second difficulty
+of the problem is that such models may be hard to compute. Finally,
+the links between ``segments conserved by rearrangements'' and
+biochemical networks will be explored.
+
+\item[2.3] Study of breakpoint regions of the genome. This consists in
+analysing the regions where rearrangements have broken the genome, and
+trying to find some characterics that may enable to classify them
+according to the type of rearrangement that gave them origin. The
+characteristics sought could be the motifs or repeats such regions may
+contain, or some other features still to be determined.  We intend to
+build methods for detecting such regions as accurately as possible
+(this is the counterpart of the conserved segments mentioned just
+above). Then by studying the distribution and length of these regions,
+we shall try to evaluate the reality of the ``fragile regions'' model,
+which asserts that there are evolution hotspots in the genome. This
+theory is under discussion in the scientific community, and still
+lacks clear theoretical bases. We shall combine gene homology data and
+global genomic alignment data and provide reliable tools and analyses
+based on previous studies on rearrangements.
+
+\item[2.4] We have interest also in a particular subproblem of the
+previous one, namely the problem of alignments with inversions.
+Sequence alignments are broadly studied for biological sequence
+comparison but considering only biological events such as mutations,
+insertions and deletions. Other biological events such as inversions
+are not automatically detected by the usual alignment algorithms. Some
+alternative strategies have been considered in the attempt to include
+inversions and other types of rearrangements.  We plan to improve
+further on some initial results that have already been published in
+the community concerning this topic, and possibly to generalize them
+to other types of alignments and objective functions.
+
+\item[2.5] Repetitions, recombinations and rearrangements. The
+objective is to design algorithms for identifying various types of
+repeats and studying the relationship between repeats and
+recombination on the one hand, and repeats and regulation at the level
+of a whole genome on the other.  We shall investigate new models,
+algorithms and indexes for identifying various types of repeats in a
+sequence. The work will start by attempting a typology of the various
+types of repeats that may be found in biological
+sequences. Mathematical models and efficient algorithms for their
+detection will then be investigated for some of these repeats.
+
+\item[2.6] Exploring the network (graph) nature of the evolution of
+organisms.
+\end{description}
+
+
+\ \\
+\noindent
+{\large \bf Part 3: Genetic and biochemical networks }
+
+It is now commonly accepted that the functioning and development of a
+living organism is controlled by the networks of interactions between
+its genes, proteins, and small molecules. Studying such networks and
+their underlying complexity is the main objective of this part.  This
+objective hides a second one, no less crucial, which is to greatly
+improve the mathematical and algorithmic theory needed to accurately
+model, and then explore and analyse highly complex living
+systems. Biochemical networks may represent protein-protein
+interactions, the metabolism of an organism, its system of gene
+expression regulation, or even, mixed networks that contain
+information coming from various of the previous sources.
+
+The amount and spread of the data now becoming available enable us
+also to introduce an evolutionary perspective into the study of living
+organisms, and in particular of biochemical networks. Evolution is a
+general underlying principle of life that allows us to compare and
+decipher the meaning and function of structure, the modification of
+biochemical pathways and networks, the preservation and variation of
+cell signalling systems, and so on. It thus serves to study the
+fundamental aspects of life, taking advantage for this of the
+exploratory and comparative possibilities provided, in particular, by
+the availability of an increasing number of whole sequences and
+datasets from different genomes.
+
+We shall be concerned with the following main topics.
+
+\begin{description}
+
+\item[3.1] Proteomics and transcriptomics. The concern will be with
+improving the quality of the information that may be derived directly
+from both proteomic data (mass spectrometry) and transcriptomic data
+(mainly from macro/micro arrays but also from SAGE experiments and EST
+analyses). Such information concerns protein identification,
+protein-protein interaction and gene co-regulation.
+
+\item[3.2] Motifs and modules in biochemical networks. Modules are in
+general considered to be parts of a network that function in relative
+independence from other parts, while motifs are small patterns of
+interactions that are repeatedly found in the network.  No fully
+satisfying or complete definition of motifs and modules in biochemical
+networks exist and most of the work will consist in exploring the
+various which may be considered (topological or other) and the
+algorithmic complexity of such definitions. For each, efficient data
+structures, filters and algorithms for both searching known motifs and
+for inferring new ones in large networks will be developed.  The
+definitions will of course vary depending on the type of biochemical
+network that is considered.
+
+The question of the statistical significance of the motifs identified
+will be of primary importance. This question is still open. An answer
+to it may depend on the definition of a random graph that is
+appropriate to the biological problem at hand, a definition of a motif
+occurrence in such a network, and how to calculate the probability of
+such motifs. The possibility to transpose questions and results on
+motif statistics in a random sequence to motif statistics in a random
+network will be examined. This will be a more exploratory research
+activity.
+
+\item[3.3] Reconstruction, alignment and simulation of metabolic
+pathways. Metabolic pathways reflect the sum of an organism's chemical
+reactions, and their elucidation is key to the understanding of
+cellular processes as a whole.  Such pathways can be represented as
+labeled graphs and networks of processes, thus making them amenable to
+algorithmic analyses of several kinds.  Our objective is to combine
+methods for computational analysis and simulation of these structures
+with experimental work that reveals the (kinetic and other) parameters
+that are required to characterize the behaviour of these systems in
+order to allow life science researchers to better understand how
+metabolic pathways function.
+
+In our work, we aim to provide researchers with systematic and
+predictive means to do their work.  These include the ability to
+compare metabolisms both of a variety of organisms as well as of
+similar processes within the same organism, the provision of tools and
+methods to do both static and dynamic analyses of pathways, and the
+ability to reconstruct complex pathways from their constituents.  Note
+that some of the methods developed in this context are applicable also
+to other cases, such as regulatory networks, or protein-protein
+interaction networks.
+
+\item[3.4] Exploring the relations between biochemical networks (in
+particular modules and motifs in such networks) and genome structure
+and dynamics (in particular, ``conserved segments'').
+ 
+\item[3.5] Exploring the issues behind biochemical network
+integration.
+
+\end{description}
+
+\section{Participants}
+
+The participants to this project comprise three teams from the Inria,
+and three external, two from the INRA (Toulouse and
+Jouy-en-Josas/Paris) and one from the Pasteur Institute.
+
+In all cases, the lists of participants for each team do not include
+students who may arrive at (or return to) the team during the duration
+of the project.
+
+\subsection{HELIX, Inria Rhône-Alpes - Coordinator team}
+
+The HELIX team is located in Montbonnot (Grenoble) and on the Campus
+of the DOUA (Villeurbanne, next to Lyon). The members of the group in
+Grenoble, headed by François Rechenmann, work in the Rhône-Alpes
+research unit of the INRIA. The members in Lyon are part of two groups
+within the ``Laboratory of Biometry and Biological Evolution'' (LBBE
+-- CNRS/Université Claude Bernard de Lyon, UMR 5558), directed by
+Christian Gautier: the group ``Bioinformatics and Evolutionary
+Genomics'' headed by Manolo Gouy, and the group ``BAOBAB'' created in
+September 2004 and headed by Marie-France Sagot. The SwissProt group,
+headed by Amos Bairoch within the SIB (Swiss Institute of
+Bioinformatics) in Geneva, is associated with the HELIX project.
+HELIX is composed of computer scientists, mathematicians and
+biologists (bio-mathematicians and bio-informaticians).
+
+The objectives of the HELIX team are the design and development of
+methods and tools for modelling and analyzing genomic data. Such data
+comprise, in addition to biological sequences, a diversity of other
+experimentally-obtained information. In all instances, the research
+activities of the team are dictated by biological questions, and the
+results, in the form of algorithms and computer tools, are evaluated
+as to their relevance in computer science or mathematics, and in
+biology.
+
+Among the main topics covered by the team are (DNA/RNA and protein)
+sequence and structure analysis, comparative genomics and evolution,
+computational proteomics and transcriptomics, modelling and analysis
+of metabolism, modelling and simulation of genetic regulatory
+networks.
+
+\ \\
+\noindent
+{\bf HELIX participants to the ARC} 
+
+The HELIX participants to the ARC include members from both Grenoble
+and Lyon. The coordinator of the ARC is in Lyon.
+
+\begin{itemize}
+%MF: Anne?
+\item HELIX Grenoble: François Rechenmann (head of HELIX), Alain
+Viari, Hidde de Jong, Eric Coissac, Michel Page, Grégory Batt,
+Delphine Ropers, Samuel Drulhe.
+\item HELIX Lyon: Marie-France Sagot (coordinator of the ARC project
+and head of the BAOBAB team at Lyon), Christian Gautier (head of the
+LBBE at Lyon), Eric Tannier, Laurent Guéguen, Frédéric Boyer, Vincent
+Navratil, Christelle Melo de Lima, Leonor Palmeira, Vincent Lacroix,
+Claire Lemaître.
+\end{itemize}
+
+Will also participate the following external PhD students currently
+co-supervised by a member of HELIX: Julien Allali, Pierre Peterlongo
+and Benoît Olivieri from the University of Marne-la-Vallée and
+Alexandra Carvalho from the Instituto Superior Técnico of Lisbon,
+Portugal.
+
+\ \\
+\noindent
+{\bf WEB page of HELIX:}
+
+www-helix.inrialpes.fr
+
+\subsection{SYMBIOSE, Inria Rennes}
+
+The SYMBIOSE project is interested in two types of data: sequences
+(DNA -- genomes or SNP data -- RNA or proteins) coming from public
+databanks and experimental data generated from post-genomic
+studies. The first type may be represented with words on a finite
+alphabet (4 to 20 letters). For the second one, raw data are images
+corresponding to expression levels of genes or mass spectra of
+proteins. For expression levels, the current technology offers mostly
+qualitative data.
+
+The research specificities of SYMBIOSE include an interest in large
+scale studies (genomes or proteomes) and in pattern discovery methods
+on sets of sequences. Two main tracks are studied: modelling with
+formal languages and development of dedicated machines. Other emerging
+or more transversal topics include gene networks modelling and
+classification.
+
+\ \\
+\noindent
+{\bf SYMBIOSE participants to the ARC} 
+
+The participants of SYMBIOSE to the project are Jacques Nicolas
+(head of SYMBIOSE), Michel Le Borgne, Anne Siegel, François Coste,
+Dominique Lavenier.
+
+\ \\
+\noindent
+{\bf WEB page of SYMBIOSE:}
+
+http://www.irisa.fr/symbiose/index-eng.htm
+
+\subsection{MISTIS, Inria Rhône-Alpes}
+
+The aim of MISTIS is to develop statistical methods for applications
+in image analysis and signal processing, and particularly for
+biological and medical applications. The main research topics of
+MISTIS are mixture models, Markovian models and non-parametric
+methods.  In particular, research is mainly focused on two directions
+of research:
+
+\begin{itemize}
+\vspace{-0.2cm}
+\item
+How to deal with complex phenomena, complex models and complex
+data. The team proposes to use structured models and methods allowing
+easy interpretations, to develop model selection and approximation
+techniques for complex structure models and to study dimension
+reduction techniques based on non linear data analysis.
+\vspace{-0.2cm}
+\item 
+The theoretical and practical behaviour of methods. The team's
+interest are on approximation justifications, asymptotic behaviour and
+convergence analysis.
+\end{itemize}
+
+\noindent
+{\bf MISTIS participants to the ARC}
+
+The participants of MISTIS to the project are Florence Forbes
+(head of MISTIS) and Matthieu Vignes.
+
+\ \\
+\noindent
+{\bf WEB page of MISTIS:}
+
+http://www.inria.fr/recherche/equipes/mistis.en.html
+
+\subsection{Systems Biology Unit, Pasteur Institute}
+
+The Systems Biology Unit at the Pasteur Institute has been created in
+April 2004 with Benno Schwikowski at its head.  The research interests
+of the team include:
+
+\begin{itemize}
+\vspace{-0.2cm}
+\item Qualitative, semi-quantitative and quantitative models for
+living systems on the cellular level through integration of diverse
+data types;
+\vspace{-0.2cm}
+\item Computational support of high-throughput technology, such as DNA
+arrays and mass spectrometry;
+\vspace{-0.2cm}
+\item Algorithms.
+\end{itemize}
+
+\noindent
+{\bf Systems Biology Unit participants to the ARC}
+
+The participants are Benno Schwikowski (head of the Unit) and the PhD
+and postdoc students he has just or is currently recruiting.
+
+\ \\
+\noindent
+{\bf WEB page of Benno Schwikowski:}
+http://www.gmd.de/People/Benno.Schwikowski/
+
+\subsection{INRA Toulouse}
+
+The participants to this project from the INRA Toulouse gather members
+from two different teams. One is the group ``Statistique et
+informatique appliquées à la génétique et à la biologie moléculaire''
+that is inside the BIA (``Unité de Biométrie et Intelligence
+Artificielle'') of the INRA. One of the participants (Thomas Faraut)
+belongs to the ``Laboratoire de Génétique Cellulaire''.
+
+The two groups are composed of scientists and engineers with expertise
+in bioinformatics, computer science, statistics and artificial
+intelligence. The aim of the bioinformatics team is to develop
+software tools as well as statistical and algorithmic methods to
+locate functional elements in genomes and to point out relations
+between them. At the genetic marker level, this involves both genetic
+and radiated hybrid mapping (with a current specific interest to
+comparative mapping and how genome rearrangement analysis may
+contribute to a better mapping) and QTL (quantified trait loci)
+mapping. At the genomic sequence level, this involves both protein
+gene identification and RNA gene structure modelling and search
+(either known families or {\it ab initio}). The group applies and
+develops expertise in mathematical modelling, constraint satisfaction,
+dynamic programming, graph theory, statistical inference, mixture
+models in order to extend and build tools and methods well-suited to
+genome analysis.
+
+\ \\
+\noindent
+{\bf INRA Toulouse participants to the ARC}
+
+The participants are Thomas Schiex (head of the group ``Statistique et
+informatique appliquées à la génétique et à la biologie
+moléculaire''), Christine Gaspin, Thomas Faraut, Simon de Givry,
+Matthias Zytnicky and Séverine Bérard.
+
+\ \\
+\noindent
+{\bf WEB pages of the two groups from the INRA Toulouse:}
+http://www.inra.fr/bia/T/schiex/ Genome/ and
+http://www.toulouse.inra.fr/lgc/lgc.html
+
+\subsection{SSB, INRA}
+
+The SSB (``Statistique des Séquences Biologiques'') team is mainly
+part of the Departement of ``Mathematics and Computer science for the
+life sciences'' of the INRA. The group is headed by Sophie Schbath.
+
+The research of the SSB concerns mainly the following topics:
+
+\begin{itemize}
+\vspace{-0.2cm}
+\item DNA motifs with unexpected frequency in DNA sequences;
+\vspace{-0.2cm}
+\item DNA motifs unexpectedly distributed along DNA sequences;
+\vspace{-0.2cm}
+\item Homogeneity of DNA sequences;
+\vspace{-0.2cm}
+\item Physical mapping;
+\vspace{-0.2cm}
+\item Score statistics for the analysis and comparison of biological
+sequences;
+\vspace{-0.2cm}
+\item Analysis of microarray data.
+\end{itemize}
+
+\noindent
+{\bf SSB participants to the ARC}
+
+The participants are Sophie Schbath (head of SSB), Stéphane Robin,
+Jean-Jacques Daudin, François Rodolphe, Catherine Matias, Pierre
+Nicolas.
+
+\ \\
+\noindent
+{\bf WEB page of SSB:} http://www-mig.jouy.inra.fr/ssb/
+
+
+\section{Budget requested}
+
+We are requesting funds for three main items:
+
+\begin{itemize}
+\item two postdocs of one year each, one for the first year and one
+for the second year. Besides needed for accelerating the research
+covered by the various topics in this project, the postdocs will also
+have the important function of effectively strengthening the links
+among the different teams. This will be implemented in concrete terms
+by having both postdocs travel around and spend some time in the
+different teams.  Funds for one machine is also asked for this
+position. Since the two postdocs will not overlap in time, a single
+machine is sufficient. To facilitate travelling among the teams, a
+laptop would be preferred. The cost for each year of postdoc is based
+on the rate usually applied by the INRIA.
+\item organising one seminar for each year of duration of the project.
+Each seminar will consist in a number of talks over a period of 2 or 3
+days. The talks will include talks by the team members, and talks of
+researchers external to the team that will be invited for the occasion
+among international experts in the various topics covered by the
+project. The cost of each seminar was calculated based on the cost of
+the Seminar Algorithms and Biology
+(www.inrialpes.fr/helix/people/sagot/AlgoBio) that the coordinator of
+this project has been organising since 1997 at a rate of 2 to 4 per
+year, each seminar lasting in general 3 days and including around 15
+invited talks from speakers, some from France and most from Europe or
+from the United States, particularly the East Coast for cost
+reasons. The estimated cost of each such 3-day series of talks of the
+Seminar Algorithms and Biology is 15000 euros.  We are requesting two
+thirds of that amount for each of the two seminars to be organised
+inside this project.
+\item covering the expenses of visits among members of the project.
+This cost was calculated based on a number of visits per year that
+includes:
+\begin{itemize}
+\item 4 longer term visits of around 2 weeks each;
+\item 20 shorter term visits of around 2 days each.
+\end{itemize}
+This leads to a total of around 68 days of visits (researchers and
+students) and 24 train or plane trips per year. We estimated the cost
+of a visit at around 70 euros per day (lodging plus meals) and the
+cost of a trip at 100 euros on average. This leads to an approximate
+total of 7000 euros per year for visits.
+\end{itemize}
+
+The total amount of funds requested is summarised in the table below.
+
+\begin{center}
+\begin{tabular}{l|l|l|l}
+\hline
+\multicolumn{4}{c}{{\bf Summary of the funds requested}}\\
+\hline
+&First year&Second year&Total\\
+&(in euros)&(in euros)&(in euros)\\
+\hline
+Postdocs&36500&36500&73000\\
+Equipment for the postdocs&3000&&3000\\
+Seminars&10000&10000&20000\\
+Visits among teams&7000&7000&14000\\
+\hline
+Total&56500&53500&110000\\
+\hline
+\hline
+\multicolumn{3}{l|}{{\bf Total requested to the ARC}}&{{\bf 110000}}\\
+\end{tabular}
+\end{center}
+
+The budget each INRIA team had for 2004 or requested for 2005
+is as follows:
+
+\begin{itemize}
+\vspace{-0.2cm}
+\item HELIX: requested for 2005, 199462 euros;
+\vspace{-0.2cm}
+\item SYMBIOSE: had for 2004, 148500 euros personel excluded;
+\vspace{-0.2cm}
+\item MISTIS: requested for 2005, 36700 euros.
+\end{itemize}
+
+\end{document}
+
