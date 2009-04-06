@@ -1,10 +1,8 @@
 \documentclass[12pt]{article}
 \usepackage{latexsym}
 \usepackage{amssymb}
-\usepackage[brazil]{babel} 
-\usepackage[latin1]{inputenc}
-\usepackage[normalem]{ulem} 
-\usepackage[portuguese]{alg}
+\usepackage[brazil]{babel} \usepackage[latin1]{inputenc}
+\usepackage[normalem]{ulem} \usepackage[portuguese]{alg}
 \usepackage[dvips]{graphicx}
 \usepackage{amsmath}
 \usepackage{hyperref}
@@ -16,7 +14,7 @@
 \newcommand{\listofalgorithms}{\listof{algorithm}{Lista de Algoritmos}}
 \floatname{algorithm}{Algoritmo} 
  
-%Teoremas, Lemas, etc.
+% Teoremas, Lemas, etc.
 \newtheorem{teorema}{Teorema}[section]
 \newtheorem{lema}[teorema]{Lema}
 \newtheorem{proposicao}[teorema]{Proposição}
@@ -39,8 +37,8 @@
 \newcommand{\aplica}{\longrightarrow}              
 \newcommand{\implica}{\Longrightarrow}   
 \newcommand{\sse}{\Longleftrightarrow}   
-\newcommand{\seq}{seqüência}
-\newcommand{\seqs}{se\-qüên\-cias}
+\newcommand{\seq}{sequência}
+\newcommand{\seqs}{se\-quên\-cias}
            
 
 % \newcount\hour
@@ -100,7 +98,7 @@
 \begin{abstract}
 
 Este documento tem como objetivo principal relacionar as atividades a 
-serem realizadas como docente na área de algoritmos e estruturas de dados da 
+serem realizadas como docente do departamento de Ciência da Computação da 
 Universidade de São Carlos no campus de Sorocaba.
     
   \end{abstract}
@@ -119,16 +117,16 @@ Universidade de São Carlos no campus de Sorocaba.
     Há o interesse também no desenvolvimento de aplicativos que ajudem no
     processo de anotação dos novos genomas que estão endo sequenciados.
   
-  Peça fundamental na comparação de seqüências biológicas é a obtenção de 
-  alinhamentos de \seqs, que no entanto costumam desprezar eventos mutacionais 
-  importantes como a duplicação e a inversão.  Em nosso trabalho em Biologia 
-  Computacional temos obtido algoritmos ainda polinomiais exatos e que 
-  reintroduzem estes eventos em sua análise. Este projeto inclui avançar nos 
-  trabalhos já iniciados nestes assuntos, assim como trabalhar em novos 
-  problemas dentro de outros assuntos da Biologia Computacional, como pontos de 
-  quebra (\emph{breakpoints}), motivos (\emph{motifs}), genômica comparativa e 
-  técnicas para alinhamentos múltiplos.
-\subsection{Introdução e justifictivas}\label{secintro}
+%   Peça fundamental na comparação de seqüências biológicas é a obtenção de 
+%   alinhamentos de \seqs, que no entanto costumam desprezar eventos mutacionais 
+%   importantes como a duplicação e a inversão.  Em nosso trabalho em Biologia 
+%   Computacional temos obtido algoritmos ainda polinomiais exatos e que 
+%   reintroduzem estes eventos em sua análise. Este projeto inclui avançar nos 
+%   trabalhos já iniciados nestes assuntos, assim como trabalhar em novos 
+%   problemas dentro de outros assuntos da Biologia Computacional, como pontos de 
+%   quebra (\emph{breakpoints}), motivos (\emph{motifs}), genômica comparativa e 
+%   técnicas para alinhamentos múltiplos.
+\subsection{Tópicos de pesquisa}\label{secintro}
 
 \subsubsection{Comparação de \seqs}
 
@@ -195,7 +193,7 @@ $n$ é o comprimento da maior \seq\ analisada} $O(n^2)$ computa o conjunto mínimo
 operações de edição com o custo total mínimo e apresenta o alinhamento 
 associado, que tem boa qualidade e alta semelhança para custos realistas.
 
-\subsection{Inversões}
+\subsubsection{Inversões}
 
 Considere três novas possibilidades de operações de edição: 
 
@@ -214,7 +212,7 @@ para cada tipo de operação de edição, o problema de \emph{alinhamento com
 inversões} é um problema de otimização que indaga o custo total mínimo de um 
 conjunto de operações de edição que transforma uma seqüência em outra. Além 
 disso, pode também haver interesse na apresentação do alinhamento 
-correspondente , ou seja das operações de edição. Da mesma forma, podemos 
+correspondente, ou seja das operações de edição. Da mesma forma, podemos 
 definir os problemas de \emph{alinhamento com reversões-por-$2$} e de 
 \emph{alinhamento com reversões}.
 
@@ -279,23 +277,22 @@ Tarjan~\cite{MR97k:92016,MR2001c:92008} em 1997. Em 2001, Bader, Moret, e
 Yan~\cite{MR2003i:68102} propuseram um algoritmo que calcula a distância de 
 edição em $O(n)$ (a \seq\ de reversões ainda requer $O(n^2)$). Estes estudos 
 têm sido aplicados a estudos de reconstrução filogenética.
+% Em 2000, El-Mabrouk~\cite{MR1789777,MR2002g:92019} estudou a inclusão de duas 
+% operações: inserções e remoções de segmentos genéticos. Ela obteve resultados 
+% parciais e propôs uma solução polinomial exata para um caso e uma heurística 
+% polinomial com um testador polinomial para otimalidade no outro caso. Símbolos 
+% repetidos ainda não são permitidos. Em 2002, El-Mabrouk~\cite{MR1955942} também 
+% obteve alguns resultados parciais ao considerar reversões e duplicações. 
 
-Em 2000, El-Mabrouk~\cite{MR1789777,MR2002g:92019} estudou a inclusão de duas 
-operações: inserções e remoções de segmentos genéticos. Ela obteve resultados 
-parciais e propôs uma solução polinomial exata para um caso e uma heurística 
-polinomial com um testador polinomial para otimalidade no outro caso. Símbolos 
-repetidos ainda não são permitidos. Em 2002, El-Mabrouk~\cite{MR1955942} também 
-obteve alguns resultados parciais ao considerar reversões e duplicações. 
 
-
-Em 2003, Lago~\cite{MR2132586} propôs dois algoritmos exatos para o problema do 
-alinhamento com inversões sem sobreposições, ou seja, a primeira estratégia 
-para tratar o problema do alinhamento com inversões. Um algoritmo é uma solução 
-que executa em tempo $O(n^4)$ e que usa espaço $O(n^2)$. O outro algoritmo é 
-uma implementação dinâmica esparsa que reduz o uso de recursos se $o(n^2)$ 
-atribuições são dadas.  Isto é freqüentemente esperado se a cardinalidade do 
-alfabeto for grande, como por exemplo quando as letras são
-fragmentos de DNA de comprimento fixo.
+Em 2003, Lago~\cite{MR2132586} propôs dois algoritmos exatos para o problema do
+alinhamento com inversões sem sobreposições, ou seja, a primeira estratégia
+descrita anteriormente para tratar o problema do alinhamento com inversões. Um
+dos algoritmos é uma solução que executa em tempo $O(n^4)$ e que usa espaço
+$O(n^2)$. O outro algoritmo é uma implementação dinâmica esparsa que reduz o uso
+de recursos se $o(n^2)$ atribuições são dadas. Isto é freqüentemente esperado se
+a cardinalidade do alfabeto for grande, como por exemplo quando as letras são
+fragmentos de DNA de comprimento fixo.
 
 Em 2005, Alves, Lago, e Vellozo~\cite{MR2173809} propusemos um algoritmo exato
 para este mesmo problema do alinhamento com inversões não sobrepostas que
@@ -305,12 +302,11 @@ Em 2006, Vellozo, Alves, e Lago~\cite{vellozo06:_align_with_non_overl_inver} pro
 para o mesmo problema que executa em  
 tempo $O(n^3)$ e que usa espaço $O(n^2)$.
 
-\subsection{\emph{Motifs} e repetições}
-Em genética, um motivo, ou \emph{motif}, é um padrão de \seq\ de 
-nucleo\-tí\-de\-os ou aminoácidos que é amplamente encontrado e tem, ou 
-espera-se que tenha, um significado biológico. Existem também os \emph{motifs} 
-estruturais, aplicados principalmente em pro\-teí\-nas e que estabelecem 
-padrões tridimensionais.
+\subsubsection{Repetições}
+Em genética, um motivo, ou \emph{motif}, é um padrão de \seq\ de
+nucleo\-tí\-de\-os ou aminoácidos que espera-se que tenha,
+um significado biológico. Existem também os \emph{motifs} estruturais, aplicados
+principalmente em pro\-teí\-nas e que estabelecem padrões tridimensionais.
 
 Um exemplo de \emph{motif} é o \emph{N-glycosylation motif}, cujo padrão é descrito a
 seguir: $Asn$, seguido por qualquer
@@ -390,89 +386,98 @@ Estamos elaborando um artigo com um algoritmo que obtém um alinhamento ótimo
 considerando o mesmo modelo proposto por Benson, porém com tempo de execução 
 $O(n^3)$ e espaço $O(n^2)$.
 
-\subsection{Pontos de quebra}
+%   Eventualmente, poderemos também investigar a possibilidade de inclusão de 
+%   técnicas aceleradoras como o uso de árvores de sufixos ou de 
+%   filtragem~\cite{lago03:_algor} nos problemas que vão ser estudados.
+  
 
-Transposons são uma espécie do que chamamos de "rearranjos genômicos". 
-Outros rearranjos genômicos são a inversão de um trecho de seqüência ge\-nô\-mi\-ca, a
-duplicação, a 
-deleção ou perda de uma parte de um genoma ou a operação inversa, isto é a 
-inserção, e, no caso de genomas multi-cromossômicos, a translocação ou troca de 
-material gênico entre dois cromossomos homólogos, a fusão de dois cromossomos em 
-um ou a fissão de um cromossomo que dá nascimento a dois.
+\subsubsection{\emph{Motifs}}
 
-Rearranjos são eventos com conseqüências funcionais importantes para um 
-organismo. São no entanto eventos cujos mecanismos conhecemos ainda pouco. No 
-âmbito de entender melhor tais mecanismos, torna-se importante ser capaz de 
-localizar precisamente o que se chama de pontos de quebra, isto é, os pontos 
-exatos onde um genoma foi "quebrado" como conseqüência de um rearranjo. Não 
-existe atualmente nenhum algoritmo que permita uma tal identificação com
-precisão suficiente para permitir o estudo dessas regiões 
-e determinar características possíveis, no nível do genoma, dos pontos de 
-quebra, e portanto dos mecanismos que levam a uma quebra.
+\subsubsection{Anotação funcional}
+Atualmente existem muitos novos projetos de sequenciamento do genoma de
+organismos. Estes projetos geram uma grande quantidade de \seqs\ de DNA. Um
+grande desafio é tentar compreender quais são as funções desempenhadas por
+estas \seqs\ na vida do organismo. 
 
-Essa localização leva a problemas de alinhamento um pouco particulares, e que 
-são especialmente difíceis, pois as seqüências a serem alinhadas de uma maneira 
-precisa são seqüências frequentemente muito compridas, e com pouquíssima 
-conservação. Trata-se, de fato, de seqüências inter-gênicas onde se exerce, em geral,
-pouca pressão seletiva.
+Alguns trechos dessas \seqs\ são
+classificados como genes. Um gene pode gerar uma ou mais
+proteínas que podem ter uma ou mais funções. Desta forma podemos atribuir a um
+gene uma
+ou mais funções que podem ser, por exemplo, para transporte, regulação ou
+metabolismo.
 
-Essa representa, no entanto, somente uma primeira etapa para a compreensão dos 
-possíveis mecanismos que podem levar a um rearranjo. Uma segunda etapa seria 
-ser capaz de identificar características que seriam próprias a essas regiões 
-que, em certos organismos, são "quebrados", e eventualmente até próprias ao 
-tipo de rearranjo. Para tal, devemos novamente fazer comparação de \seqs\ para 
-tentar determinar tais caraterísticas. A 
-principal é que uma região que quebrou uma vez é possivelmente mais propensa a 
-quebras múltiplas, e que as regiões ao redor de um ponto de quebra inicialmente 
-identificado foram rearranjadas mais de uma vez. Compará-las significa ser 
-capaz de alinhar seqüências levando em conta diversos tipos mais de operações 
-do que as usuais de substituição, deleção puntual, inserção e inversão (que 
-eu fiz no meu doutorado).
+Após o sequenciamento do genoma, algumas técnicas são aplicadas para o
+reconhecimento dos trechos que são genes.
 
-A detecção exata dos \emph{breakpoints} poderia ajudar a entender os 
-mescanismos que estão por trás dos rearranjos e quais na verdade aconteceram. 
-Isto poderia ajudar a melhorar os modelos de comparação de genomas e sua 
-evolução. A hipótese de \emph{Hotspots} (regiões que são mais suscetíveis a 
-rearranjos~\cite{bailey-2004-5, kent-2003, peng-2006, pevzner-2003-breakpoint, 
-sankoff-2005}) é um assunto que poderia ser melhor estudado com a detecção 
-exata dos \emph{breakpoints}.
+Para anotar quais são as funções de um gene $G$, muitas vezes se utilizam
+técnicas e algoritmos que tentam encontrar \seqs\ de genes de outras espécies com
+funções já conhecidas e com alto grau de similaridade com a \seq\ de $G$. Após a
+obtenção destas funções anotadas computacionalmente alguns experimentos \emph{in
+vitro} podem ser realizados, porém muitas vezes somente as anotações \emph{in
+silico} são consideradas. A não realização de experimentos \emph{in vitro} pode
+ocasionar uma propagação de erros nas anotações funcionais dos genes.
+
+Desta forma, dentro do projeto do sequenciamento do inseto \emph{Acyrthosiphon
+pisum}, desenvolvemos um aplicativo que gera uma pontuação para cada anotação
+funcional metabólica deste inseto. Esta pontuação da anotação tenta mostrar o
+grau de certeza da anotação funcional metabólica. Esta pontuação pode mostrar a
+necessidade de experimentos \emph{in vitro} para assegurar a existência da
+função anotada.
+
+Atualmente estamos escrevendo um artigo para apresentar esteaplicativo e a sua aplicação no projeto genoma do organismo
+\emph{Acyrthosiphon pisum}.
 
 
-Em suma, a reconstrução do quebra-cabeças que é a evolução de um genoma leva a 
-problemas algorítmicos de alinhamento e comparação que estão ainda largamento 
-abertos.
+\subsection{Objetivos e atividades}
 
+Na área de pesquisa como docente na universidade, o objetvo é realizar as
+seguintes atividades: \squishlist
+  \item redigir e submeter artigos em publicações com reconhecimento
+  internacional; 
+  \item realizar uma grande troca de conhecimentos científicos e
+  acadêmicos entre os pesquisadores da universidade e principalmente do
+  departamento; 
+  \item estabelecer contato com
+   pesquisadores brasileiros e
+ estrangeiros da área, assim como estreitar e fortalecer os relacionamentos já
+ existentes;
+  \item elaboração de algoritmos e estruturas de dados eficientes que permitam
+  tratar e extrair informações de \seqs\ biológicas.
+\squishend 
 
-\section{Objetivos e atividades}
+% Durante meu pos-doutorado, pretendo estudar esses problemas, me
+% apoiando para isso nos trabalhos que fiz durante meu doutorado e em estudos de
+% outros pesquisadores da área.
+% 
+% 
+%   Pretendemos implementar os algoritmos que vierem a ser elaborados e realizar 
+%   testes juntamente com biólogos com os quais meu orientador de 
+%   pós-doutorado já trabalha. Esse contato com experimentalistas deve também 
+%   ajudar a definir de maneira adequata os tipos de repetições que serão 
+%   interessantes buscar em genomas completos de eucariontes, como o da mosca, do 
+%   homem, do camundongo e do chimpanzé. Meu trabalho se fará também em 
+%   colaboração com doutorandos e pesquisadores do grupo com quem irei trabalhar.
+  
+%   Estaremos receptivos a trabalhar também com problemas novos que vierem a 
+%   surgir durante o projeto.
+%   
+%   Para os resultados relevantes obtidos redigiremos os respectivos artigos e 
+%   sempre que possível, enviaremo-os para publicações de reconhecimento 
+%   internacional na área.
 
-Os objetivos deste projeto são relacionados a seguir:
-\squishlist
-  \item A elaboração de algoritmos eficientes que permitam tratar e extrair 
-  informações de \seqs\ biológicas;
-  \item submeter ao menos dois artigos em publicações com reconhecimento
-  internacional;
-  \item possibilitar uma grande troca de conhecimentos científicos e acadêmicos
-  entre os pesquisadores envolvidos;
-  \item estabelecer contatos com outros pesquisadores da área de Biologia 
-  Computacional e até mesmo com biólogos que trabalhem com análise de \seqs;
-  \item estreitar e fortalecer o relacionamento com a pesquisadora Marie-France 
-  Sagot e com outros pesquisadores do laboratório LBBE (\emph{Laboratoire de 
-  Biométrie et Biologie Évolutive}) da Universidade Claude Bernardde - Lyon I.
-\squishend
-
-  Já foram identificados alguns tópicos que são de interesse de ambas as partes 
-  e que iremos investigar durante o projeto. Estes tópicos são:
-  \begin{enumerate}
-    \item melhorias e mudanças nos algoritmos para alinhamento com inversões 
-    não sobrepostas e para alinhamento com repetições desenvolvidos durante o 
-    doutorado;
-    \item buscas de inversões e repetições ocorridas durante a evolução de 
-    espécies próximas com genomas sequenciados;\label{buscaInversoes}
-    \item busca de pontos de quebra (\emph{breakpoints}) ocorridos durante o 
-    processo evolutivo;
-    \item buscas de motivos (\emph{motifs});
-    \item técnicas para alinhamento múltiplo (várias \seqs).
-  \end{enumerate}
+%   Já foram identificados alguns tópicos que são de interesse de ambas as partes 
+%   e que iremos investigar durante o projeto. Estes tópicos são:
+%   \begin{enumerate}
+%     \item melhorias e mudanças nos algoritmos para alinhamento com inversões 
+%     não sobrepostas e para alinhamento com repetições desenvolvidos durante o 
+%     doutorado;
+%     \item buscas de inversões e repetições ocorridas durante a evolução de 
+%     espécies próximas com genomas sequenciados;\label{buscaInversoes}
+%     \item busca de pontos de quebra (\emph{breakpoints}) ocorridos durante o 
+%     processo evolutivo;
+%     \item buscas de motivos (\emph{motifs});
+%     \item técnicas para alinhamento múltiplo (várias \seqs).
+%   \end{enumerate}
   
 % \section{Atividades}
 
@@ -483,28 +488,6 @@ Os objetivos deste projeto são relacionados a seguir:
 %   repetições, ou seja, deverá ocorrer junto com o item \ref{buscaInversoes}.
 %   Todo este trabalho deverá tomar aproximadamente 5 meses.
   
-Durante meu pos-doutorado, pretendo estudar esses problemas, me apoiando para 
-isso nos trabalhos que fiz durante meu doutorado e em estudos de outros
-pesquisadores da área. 
-
-  Pretendemos implementar os algoritmos que vierem a ser elaborados e realizar 
-  testes juntamente com biólogos com os quais meu orientador de 
-  pós-doutorado já trabalha. Esse contato com experimentalistas deve também 
-  ajudar a definir de maneira adequata os tipos de repetições que serão 
-  interessantes buscar em genomas completos de eucariontes, como o da mosca, do 
-  homem, do camundongo e do chimpanzé. Meu trabalho se fará também em 
-  colaboração com doutorandos e pesquisadores do grupo com quem irei trabalhar.
-  
-  Eventualmente, poderemos também investigar a possibilidade de inclusão de 
-  técnicas aceleradoras como o uso de árvores de sufixos ou de 
-  filtragem~\cite{lago03:_algor} nos problemas que vão ser estudados.
-  
-  Estaremos receptivos a trabalhar também com problemas novos que vierem a 
-  surgir durante o projeto.
-  
-  Para os resultados relevantes obtidos redigiremos os respectivos artigos e 
-  sempre que possível, enviaremo-os para publicações de reconhecimento 
-  internacional na área.
   
   
 %   Determinar o prazo e a ordem exata de execução de cada trabalho é algo muito 
@@ -518,65 +501,7 @@ pesquisadores da área.
 \bibliographystyle{abbrv}
 \bibliography{projetos, pubmed-result}
 }
-
-\newpage
-
-\section{Anexo}
-
-\subsection{Carta com as justificativas para o pós-doutorado logo após o
-doutorado}
-
-Em Dezembro de 2005 fiquei durante 3 semanas em Lyon financiado pelo INRIA 
-(França) através de um projeto que o nosso departamento (DCC do IME/USP) mantém 
-com o INRIA e o laboratório LBBE (\emph{Laboratoire de Biométrie et Biologie 
-Évolutive}) da Universidade Claude Bernardde - Lyon I - França. Esta viagem foi 
-muito proveitosa, inclusive com possibilidade de publicação de um artigo sobre 
-um problema (alinhamento com duplicações) detectado durante esta minha visita. 
-Porém, o tempo da visita foi muito curto para adquirir os conhecimentos 
-decorrentes de uma convivência com outros pesquisadores de um grande centro de 
-pesquisa no exterior.
-
-Como a visita mostrou-se produtiva acredito que em um período mais longo eu 
-poderia obter mais resultados, trocar conhecimentos e fortalecer a colaboração 
-com pesquisadores daquela instituição e, principalmente, com a pesquisadora 
-Marie-France Sagot (supervisora deste projeto de pós-dou\-to\-ra\-do) que tem 
-comprovadamente grande competência, grandes conhecimentos na área e 
-reconhecimento internacional.
-
-Portanto, este pós-doutorado com ela irá me ajudar bastante a evoluir como 
-pesquisador, transmitindo-me conhecimentos técnicos, possibilitando-me 
-estabelecer contatos e conviver com outros pesquisadores estrangeiros que fazem 
-pesquisa de ponta na minha área de pesquisa. Tudo isto é muito importante e me 
-dará condições de prosseguir pesquisando numa instituição nacional de bom 
-nível, visto que os grandes pesquisadores nestas instituições trabalharam em 
-grandes centros de pesquisa no exterior, ou durante o doutorado e/ou durante o 
-pós-doutorado.
- 
-Gostaria muito de fazer este pós-doutorado agora pois continuaria o ritmo de 
-estudos que venho mantendo nos últimos anos, alimentado pelos bons resultados 
-que venho obtendo. No momento não tenho vínculo empregatício nenhum, pois me 
-dedico exclusivamente aos estudos do doutorado e recebo bolsa da CAPES. Vale a 
-pena ressaltar que sou casado, temos uma boa casa que construímos e minha 
-esposa tem um bom emprego fixo aqui no Brasil. Nossa intenção é que ela obtenha 
-uma licença não remunerada para me acompanhar por pelo menos 6 meses neste 
-pós-doutorado no exterior.
-
-Existe um grande interesse no momento também por parte da instituição francesa 
-para que este projeto aconteça, face à colaboração proveitosa com pesquisadores 
-do DCC - IME/USP.
-
-Acho que agora seria um bom momento para estreitar estes laços e manter este 
-relacionamento com essa instituição de pesquisa, pois aproveitaria o interesse 
-atual de ambas as partes.
-
-\vspace{4ex}
-
-São Paulo, \today.
-
-\vspace{4ex}
-
-Augusto Fernandes Vellozo
-
+% 
 % Logo após o doutorado seria um bom momento para mim fazer um pós-doutorado no
 % exterior, pois não estarei trabalhando e consequentemente sem problemas para
 % conseguir licença do trabalho. Vejo este problema com minha esposa que leciona
@@ -588,4 +513,4 @@ Augusto Fernandes Vellozo
 % certas responsabilidades e atividades dentro da instituição naquele momento,
 % portanto uma licença para fazer o pós-doutorado no exterior seria difícil.
 % 
-\end{document}
+\end{document}
