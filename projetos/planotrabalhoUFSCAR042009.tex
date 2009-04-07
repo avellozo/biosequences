@@ -106,16 +106,9 @@ Universidade de São Carlos no campus de Sorocaba.
 % \tableofcontents
 % \newpage
 % 
+
 \section{Plano de pesquisa}
 
-    O objetivo principal é a elaboração de algoritmos eficientes 
-    que permitam tratar e extrair informações presentes em grandes volumes de 
-    dados como \seqs\ biológicas.  Estruturas de dados apropriadas e algoritmos 
-    eficientes são particularmente importantes no estudo de \seqs\ biológicas 
-    devido à crescente quantidade de organismos sequenciados e ao grande 
-    comprimento destas \seqs.
-    Há o interesse também no desenvolvimento de aplicativos que ajudem no
-    processo de anotação dos novos genomas que estão endo sequenciados.
   
 %   Peça fundamental na comparação de seqüências biológicas é a obtenção de 
 %   alinhamentos de \seqs, que no entanto costumam desprezar eventos mutacionais 
@@ -308,142 +301,199 @@ nucleo\-tí\-de\-os ou aminoácidos que espera-se que tenha,
 um significado biológico. Existem também os \emph{motifs} estruturais, aplicados
 principalmente em pro\-teí\-nas e que estabelecem padrões tridimensionais.
 
-Um exemplo de \emph{motif} é o \emph{N-glycosylation motif}, cujo padrão é descrito a
-seguir: $Asn$, seguido por qualquer
-aminoácido exceto $Pro$, seguido por $Ser$ ou $Thr$, seguido por qualquer aminoácido
-exceto $Pro$, onde as abreviações de 3 letras identificam um tipo de aminoácido.
-Este padrão pode ser escrito como $N\{P\}[ST]\{P\}$, onde $N=Asn$, $P=Pro$, $S=Ser$, $T=Thr$;
-$\{X\}$ significa qualquer aminoácido exceto $X$; e $[XY]$ significa ou $X$ ou
-$Y$.A notação $[XY]$ não explicita a distribuição de probabilidade das
-ocorrências de $X$ e de $Y$. Quando isto é desejado, estes padrões são definidos
-a partir de um modelo estatístico.
+Um exemplo de \emph{motif} é o \emph{N-glycosylation motif}, cujo padrão é
+descrito a seguir: $Asn$, seguido por qualquer aminoácido exceto $Pro$, seguido
+por $Ser$ ou $Thr$, seguido por qualquer aminoácido exceto $Pro$, onde as
+abreviações de 3 letras identificam um tipo de aminoácido. Este padrão pode ser
+escrito como $N\{P\}[ST]\{P\}$, onde $N=Asn$, $P=Pro$, $S=Ser$, $T=Thr$; $\{X\}$
+significa qualquer aminoácido exceto $X$; e $[XY]$ significa ou $X$ ou $Y$.A
+notação $[XY]$ não explicita a distribuição de probabilidade das ocorrências de
+$X$ e de $Y$. Quando isto é desejado, estes padrões são definidos a partir de um
+modelo estatístico.
 
 A procura de \emph{motifs} nas \seqs\ normalmente está relacionada à busca de
 repetições nas \seqs.
 
-Repetições são elementos preponderantes, especialmente em genomas de organismos 
-eucariontes. Estima-se que mais de 80\% dos genomas de planta são compostos por 
-repetições. Existem diversos tipos de repetições em um genoma, provavelmente 
-nem todos já conhecidos. Entre os tipos mais conhecidos estão os satélites 
-(micro ou mini conforme as características de comprimento e outras) que são 
-repetições em \emph{tandem}, isto é, que aparecem uma atrás da outra ao longo 
-do genoma. Outro tipo de repetição muito conhecido são os ditos elementos 
-transponíveis, ou transposons. Os transposons foram descobertos por Barbara 
-McClintock~\cite{Comfort_2001} nos anos 50 estudando o milho. Os elementos 
-transponíveis podem ser definidos como seqüências de DNA moderadamente 
-repetitivas que podem mover-se de um local a outro no genoma e, desta maneira, 
-ter um profundo impacto na estrutura, regulação e função dos genes, bem como na 
-organização dos cromossomos na espécie. Enfim, motivos (\emph{motifs}) em seqüências 
-potencialmente relacionados com sítios de interação de complexos moleculares 
-(proteínas e/ou RNAs) com o DNA são mais um exemplo de repetições, 
-intra e inter espécie que desempenha um papel importante na regulação 
-individual dos genes.
+Repetições são elementos preponderantes, especialmente em genomas de organismos
+eucariontes. Estima-se que mais de 80\% dos genomas de planta são compostos por
+repetições. Existem diversos tipos de repetições em um genoma, provavelmente nem
+todos já conhecidos. Entre os tipos mais conhecidos estão os satélites (micro ou
+mini conforme as características de comprimento e outras) que são repetições em
+\emph{tandem}, isto é, que aparecem uma atrás da outra ao longo do genoma. Outro
+tipo de repetição muito conhecido são os ditos elementos transponíveis, ou
+transposons. Os transposons foram descobertos por Barbara
+McClintock~\cite{Comfort_2001} nos anos 50 estudando o milho. Os elementos
+transponíveis podem ser definidos como seqüências de DNA moderadamente
+repetitivas que podem mover-se de um local a outro no genoma e, desta maneira,
+ter um profundo impacto na estrutura, regulação e função dos genes, bem como na
+organização dos cromossomos na espécie. Enfim, motivos (\emph{motifs}) em
+seqüências potencialmente relacionados com sítios de interação de complexos
+moleculares (proteínas e/ou RNAs) com o DNA são mais um exemplo de repetições,
+intra e inter espécie que desempenha um papel importante na regulação individual
+dos genes.
 
-% Durante meu pos-doutorado, pretendo estudar esse problema, me apoiando para 
-% isso nos trabalhos que fiz durante meu doutorado. Todos os algoritmos que eu 
-% desenvolver serão testados juntamente com biólogos com os quais meu orientador 
-% já trabalha. Esse contato com experimentalistas deve também me ajudar a definir 
-% de maneira adequata os tipos de repetições que será interessante buscar em 
-% genomas completos de eucariotes, como o da mosca, mas tambem o do homem, do 
-% camundongo e do chimpanzé. Meu trablho se fará também em colaboração com 
+% Durante meu pos-doutorado, pretendo estudar esse problema, me apoiando para
+% isso nos trabalhos que fiz durante meu doutorado. Todos os algoritmos que eu
+% desenvolver serão testados juntamente com biólogos com os quais meu orientador
+% já trabalha. Esse contato com experimentalistas deve também me ajudar a definir
+% de maneira adequata os tipos de repetições que será interessante buscar em
+% genomas completos de eucariotes, como o da mosca, mas tambem o do homem, do
+% camundongo e do chimpanzé. Meu trablho se fará também em colaboração com
 % doutorandos do grupo com quem irei trabalhar.
-% 
-Ser capaz de identificar de maneira sistemática, e portanto exata, dado uma 
-certa definição de repetição, é um problema importante em bioinformá\-ti\-ca que 
-ainda não foi resolvido de maneira satisfatória ou realmente eficaz, 
-especialmente no caso de genomas de organismos eucariontes. A dificuldade vem já 
-da grande variedade de tipos de repetições. Algumas 
-repetições, como as compridas (onde cada cópia pode atingir centenas de 
-bases), são particularmente difíceis de identificar, por causa do comprimento, 
-e porque há pouca conservação de uma cópia para a outra. Obviamente, o tamanho 
-habitual das \seqs\ onde as repetições devem ser identificadas, aumenta ainda 
-mais o grau de complexidade do problema.
+Ser capaz de identificar de maneira sistemática, e portanto exata, dado uma certa
+definição de repetição, é um problema importante em bioinformá\-ti\-ca que ainda
+não foi resolvido de maneira satisfatória ou realmente eficaz, especialmente no
+caso de genomas de organismos eucariontes. A dificuldade vem já da grande
+variedade de tipos de repetições. Algumas repetições, como as compridas (onde
+cada cópia pode atingir centenas de bases), são particularmente difíceis de
+identificar, por causa do comprimento, e porque há pouca conservação de uma cópia
+para a outra. Obviamente, o tamanho habitual das \seqs\ onde as repetições devem
+ser identificadas, aumenta ainda mais o grau de complexidade do problema.
 
-Algumas doenças humanas são associadas às repetições, tais como: retardação 
-mental \emph{fragile-X}~\cite{pmid1710175}, doença de 
-Huntington~\cite{pmid8458076}, distrofia 
-miotô\-ni\-ca~\cite{Myotonic_Muscular_Dystrophy} e ataxia de 
-Friedreich~\cite{Friedreich_Ataxia}. \emph{Tandem repeats} podem estar ligados 
-a regras de regulação gênica~\cite{HHamada12011984, QLu05011993, pmid3111846}, 
-ligação DNA-proteína~\cite{DNAProteinBinding, 
-binding_proteins_mammalian_species} e evolução~\cite{pmid3146527}.
+Algumas doenças humanas são associadas às repetições, tais como: retardação
+mental \emph{fragile-X}~\cite{pmid1710175}, doença de
+Huntington~\cite{pmid8458076}, distrofia
+miotô\-ni\-ca~\cite{Myotonic_Muscular_Dystrophy} e ataxia de
+Friedreich~\cite{Friedreich_Ataxia}. \emph{Tandem repeats} podem estar ligados a
+regras de regulação gênica~\cite{HHamada12011984, QLu05011993, pmid3111846},
+ligação DNA-proteína~\cite{DNAProteinBinding, binding_proteins_mammalian_species}
+e evolução~\cite{pmid3146527}.
 
-O número de cópias num \emph{tandem repeat} pode ser variável entre indivíduos 
-diferentes (polimórfico). Locais polimórficos são úteis em várias tarefas de 
-laboratório~\cite{pmid1740333, pmid2916582}. \emph{Tandem repeats} tem sido 
-utilizados para sustentar algumas hipóteses da evolução 
-humana~\cite{pmid8640220, Modern_Human_Origins} e da evolução de 
-micro-satélites (\emph{tandem repeats} cujo tamanho é de apenas algumas 
-unidades de nucleotídeos) em primatas~\cite{Messier1996}.
+O número de cópias num \emph{tandem repeat} pode ser variável entre indivíduos
+diferentes (polimórfico). Locais polimórficos são úteis em várias tarefas de
+laboratório~\cite{pmid1740333, pmid2916582}. \emph{Tandem repeats} tem sido
+utilizados para sustentar algumas hipóteses da evolução humana~\cite{pmid8640220,
+Modern_Human_Origins} e da evolução de micro-satélites (\emph{tandem repeats}
+cujo tamanho é de apenas algumas unidades de nucleotídeos) em
+primatas~\cite{Messier1996}.
 
 Em 1997, Benson~\cite{267526} propôs um modelo para o alinhamento de \seqs\ que
-considera \emph{tandem repeats} de mesmo tamanho. Ele propôs dois
-algoritmos exatos para obter um tal alinhamento ótimo. O primeiro algoritmo
-proposto executa em tempo $O(n^5)$ e espaço $O(n^2)$. O segundo algoritmo
-proposto executa em tempo $O(n^4)$ e espaço $O(n^3)$. 
+considera \emph{tandem repeats} de mesmo tamanho. Ele propôs dois algoritmos
+exatos para obter um tal alinhamento ótimo. O primeiro algoritmo proposto executa
+em tempo $O(n^5)$ e espaço $O(n^2)$. O segundo algoritmo proposto executa em
+tempo $O(n^4)$ e espaço $O(n^3)$.
 
-Estamos elaborando um artigo com um algoritmo que obtém um alinhamento ótimo 
-considerando o mesmo modelo proposto por Benson, porém com tempo de execução 
+Estamos elaborando um artigo com um algoritmo que obtém um alinhamento ótimo
+considerando o mesmo modelo proposto por Benson, porém com tempo de execução
 $O(n^3)$ e espaço $O(n^2)$.
 
-%   Eventualmente, poderemos também investigar a possibilidade de inclusão de 
-%   técnicas aceleradoras como o uso de árvores de sufixos ou de 
-%   filtragem~\cite{lago03:_algor} nos problemas que vão ser estudados.
+% Eventualmente, poderemos também investigar a possibilidade de inclusão de
+% técnicas aceleradoras como o uso de árvores de sufixos ou de
+% filtragem~\cite{lago03:_algor} nos problemas que vão ser estudados.
   
-
-\subsubsection{\emph{Motifs}}
 
 \subsubsection{Anotação funcional}
 Atualmente existem muitos novos projetos de sequenciamento do genoma de
 organismos. Estes projetos geram uma grande quantidade de \seqs\ de DNA. Um
-grande desafio é tentar compreender quais são as funções desempenhadas por
-estas \seqs\ na vida do organismo. 
+grande desafio é tentar compreender quais são as funções desempenhadas por estas
+\seqs\ na vida do organismo.
 
-Alguns trechos dessas \seqs\ são
-classificados como genes. Um gene pode gerar uma ou mais
-proteínas que podem ter uma ou mais funções. Desta forma podemos atribuir a um
-gene uma
-ou mais funções que podem ser, por exemplo, para transporte, regulação ou
-metabolismo.
 
-Após o sequenciamento do genoma, algumas técnicas são aplicadas para o
-reconhecimento dos trechos que são genes.
+Alguns trechos dessas \seqs\ são classificados como genes. Um gene pode gerar uma
+ou mais proteínas que podem ter uma ou mais funções. Desta forma podemos atribuir
+a um gene uma ou mais funções que podem ser, por exemplo, para transporte,
+regulação ou metabolismo.
 
-Para anotar quais são as funções de um gene $G$, muitas vezes se utilizam
-técnicas e algoritmos que tentam encontrar \seqs\ de genes de outras espécies com
-funções já conhecidas e com alto grau de similaridade com a \seq\ de $G$. Após a
-obtenção destas funções anotadas computacionalmente alguns experimentos \emph{in
-vitro} podem ser realizados, porém muitas vezes somente as anotações \emph{in
-silico} são consideradas. A não realização de experimentos \emph{in vitro} pode
-ocasionar uma propagação de erros nas anotações funcionais dos genes.
 
-Desta forma, dentro do projeto do sequenciamento do inseto \emph{Acyrthosiphon
-pisum}, desenvolvemos um aplicativo que gera uma pontuação para cada anotação
-funcional metabólica deste inseto. Esta pontuação da anotação tenta mostrar o
-grau de certeza da anotação funcional metabólica. Esta pontuação pode mostrar a
-necessidade de experimentos \emph{in vitro} para assegurar a existência da
-função anotada.
+% Após o sequenciamento do genoma, algumas técnicas são aplicadas para o
+% reconhecimento dos trechos que são genes.
+% 
 
-Atualmente estamos escrevendo um artigo para apresentar esteaplicativo e a sua aplicação no projeto genoma do organismo
-\emph{Acyrthosiphon pisum}.
+Para anotar quais são as funções de um gene, muitas vezes se utilizam técnicas e
+algoritmos (como por exemplo em~\cite{pmid17526522,pmid16081474,pmid18400082})
+que tentam encontrar \seqs\ de genes de outras espécies com funções já conhecidas e com alto grau de
+similaridade com a \seq\ do gene. Após a obtenção destas funções anotadas
+computacionalmente alguns experimentos \emph{in vitro} podem ser realizados,
+porém muitas vezes somente as anotações \emph{in silico} são consideradas. A não
+realização de experimentos \emph{in vitro} pode ocasionar uma propagação de erros
+nas anotações funcionais dos genes.
 
+
+Desta forma, dentro do projeto do sequenciamento do genoma do inseto
+\emph{Acyrthosiphon pisum}, desenvolvemos um aplicativo que gera uma pontuação
+para cada anotação funcional metabólica deste inseto. Esta pontuação da anotação
+tenta mostrar o grau de certeza da anotação funcional metabólica. Esta pontuação
+pode mostrar a necessidade ou não de experimentos \emph{in vitro} para assegurar
+a existência da função anotada.
+
+
+Atualmente estamos escrevendo um artigo para apresentar este aplicativo e a sua
+aplicação no projeto genoma do organismo \emph{Acyrthosiphon pisum}.
+
+
+\subsubsection{\emph{Redes metabólicas}}
+
+Em um organismo ocorrem várias reações que transformam compostos em outros
+compostos. Em uma reação os compostos chamados reagentes ou substratos são
+transformados em compostos chamados produtos. A rede metabólica de um organismo identifica todas
+as reações que podem ocorrer dentro de um organismo. Uma via metabólica de uma
+rede metabólica é uma série de reações químicas onde uma reação fornece o
+substrato da reação seguinte.
+
+Após o sequenciamento e a anotação do genoma de um organismo é possível
+conseguir a rede metabólica deste organismo.
+
+Na tentativa de compreender melhor a rede metabólica de um
+organismo~\cite{17608928}, muitos estudos e análises estão sendo realizados atualmente. Uma
+das maneiras de se realizar estes estudos e análises é através da procura e
+identificação de padrões (ou \emph{motifs}) nas vias metabólicas~\cite{1183307}.
+Outra maneira é comparar a rede metabólica de dois organismos e analisar as
+suas diferenças e semelhanças.
+
+Atualmente estamos tentando fazer de forma inédita a comparação dasredes metabólicas de dois organismos que mantêm uma relação de simbiose.
 
 \subsection{Objetivos e atividades}
 
-Na área de pesquisa como docente na universidade, o objetvo é realizar as
-seguintes atividades: \squishlist
+%     O objetivo principal é a elaboração de algoritmos eficientes 
+%     que permitam tratar e extrair informações presentes em grandes volumes de 
+%     dados como \seqs\ biológicas.  Estruturas de dados apropriadas e algoritmos 
+%     eficientes são particularmente importantes no estudo de \seqs\ biológicas 
+%     devido à crescente quantidade de organismos sequenciados e ao grande 
+%     comprimento destas \seqs.
+%     
+    
+
+Na área de pesquisa como docente na universidade, pretendo realizar as seguintes
+atividades: \squishlist
   \item redigir e submeter artigos em publicações com reconhecimento
-  internacional; 
-  \item realizar uma grande troca de conhecimentos científicos e
+  internacional; \item realizar uma grande troca de conhecimentos científicos e
   acadêmicos entre os pesquisadores da universidade e principalmente do
-  departamento; 
-  \item estabelecer contato com
+  departamento; \item estabelecer contato com
    pesquisadores brasileiros e
  estrangeiros da área, assim como estreitar e fortalecer os relacionamentos já
- existentes;
+ existentes; \squishend
+ 
+ Meu objetivo na pesquisa é investigar e obter resultados relevantes para a
+ comunidade científica. Atualmente, tenho interesse e condições de alcançar este
+ objetivo trabalhando nos seguintes temas:\squishlist
   \item elaboração de algoritmos e estruturas de dados eficientes que permitam
-  tratar e extrair informações de \seqs\ biológicas.
-\squishend 
+  tratar e extrair informações de \seqs\ biológicas; \item desenvolvimento de
+  aplicativos que ajudem no
+    processo de anotação dos novos genomas sequenciados; \item análise e
+    comparação de redes metabólicas.\squishend
+ 
+
+\subsection{Metodologia}
+
+As implementações dos algoritmos desenvolvidos serão desenvolvidos em
+microcomputadores. No caso de algoritmos com foco em dados biológios, os dados
+processados serão \seqs\ biológicas reais obtidas de bancos de dados
+pú\-bli\-cos ou através de algum biólogo com o qual haja contato.
+
+Quaisquer informações e artigos a serem utilizados na pesquisa serão obtidos 
+preferencialmente através de meios eletrônicos em formato digital. Caso isto 
+não seja possível então serão utilizados os periódicos e publicações arquivados 
+na universidade.
+
+Os resultados obtidos com os algoritmos aqui propostos serão comparados com
+aqueles obtidos de eventuais programas já disponíveis.
+
+Também pretendo obter retorno da relevância e acuracidade dos 
+resultados obtidos a partir de diálogos com biólogos e pesquisadores com os
+quais se tenha contato. 
+
+A orientação de alunos interessdos em pesquisas será também utilizada paraauxiliar na execução das atividades a serem desenvolvidas.
+
 
 % Durante meu pos-doutorado, pretendo estudar esses problemas, me
 % apoiando para isso nos trabalhos que fiz durante meu doutorado e em estudos de
@@ -496,10 +546,89 @@ seguintes atividades: \squishlist
 %   acreditamos que o tempo para alcançar nossos objetivos e realizar estes 
 %   trabalhos é de no mínimo 1 ano.
 
+\section{Plano de ensino}
+
+\subsection{Objetivos}\label{ensino_objetivos}
+
+Na área de ensino, pretende-se preparar e motivar os alunos para que: 
+\squishlist
+\item  aprendam conceitos básicos e que dificilmente se alteram com o tempo. Dada
+a grande dinâmica da área de computação este é um fator muito importante para um
+bom desenvolvimento da carreira do aluno; 
+\item sejam um pouco autodidatas, ou
+seja que eles "aprendam a aprender"; 
+\item aprimorem e desenvolvam o raciocínio
+abstrato. Este é um conceito muito importante e muito utilizado em computação,
+principalmente na modelização, programação e solução de problemas práticos;
+\item sejam capazes de identificar e especificar problemas novos, assim como
+dsenvolver novas tecnologias e métodos a fim de contribuir com o meio
+acadêmico e poder participar da sociedade científica;
+\item tenham a habilidade de apresentar resultados científicos e técnicos em
+publicações e seminários;
+\item desenvolvam um espírito de empreendedor a fim de trabalhar para criar
+empresas e gerar postos de trabalho;
+
+\item saibam atuar em problemas e projetos de várias disciplinas e setores. Este
+é um item muito requisitado pois, cada vez mais é necessário resolver problemas
+mais abrangentes e amplos dentro das empresas e no meio científico;
+\item planejem e assumam riscos, buscando atinigr resultados mais
+ousados;
+
+\item sejam pró-ativos, de tal modo que busquem resolver problemas por conta
+própria,
+
+\squishend
+
+\subsection{Metodologia e atividades}
+
+Para alcançar os objetivos propostos na seção~\ref{ensino_objetivos} pretendo:
+\squishlist
+
+\item elaborar aulas teóricas com recursos multimídia e anotações em quadro
+negro;
+
+\item formular problemas para que os alunos realizem trabalhos práticos
+desenvolvendo algoritmos e programas;
+
+\item propor sempre que pertinente, a participação ativa do aluno em 
+atividades/trabalhos/projetos tanto na produção como na apresentação destes;
+
+\item incentivar os alunos à utilização e leitura de livros, apostilas e
+artigos acadêmicos sejam em disciplinas ou projetos;
+
+\item evitar a concentração no estudo de técnicas, mas sim dar mais
+importância nos conceitos das ferramentas a serem utilizadas pelos alunos;
+
+\item envolver sempre que possível e pertinente a solução de problemas em
+organizações ou situações reais
+
+\item incentivar os alunos a aprender novos conceitos para que sempre aprimorem
+os seus conhecimentos;
+
+\item propiciar o contato dos alunos com profissionais experientes nos assuntos
+sendo estudados sendo através de palestras, seminários ou estágios;
+
+\item passar minha experiência no trabalho e na criação de empresas, assim
+como na carreira acadêmica e científica;
+ 
+\squishend
+
+
+\section{Plano de extensão}
+
+Sendo habitante da cidade de Sorocaba por algumas décadas acredito que possa
+ajudar bastante na inserção da universidade na sociedade da cidade e da região.
+
+Pretendo propor parcerias com empresas locais em projetos que podem se
+auto-sustentar através do financiamento destas empresas dos recursos financeiros
+necessários para o pagamento de bolsas científicas a alunos com supervião de
+professores. Desta forma as empresas podem conseguir resultados expressivos einovatórios, assim como a universidade pode conseguir aprimorar o conhecimentodos alunos e aproximá-los de problemas reais e do ambiente e estrutura dasempresas.
+
+Vsle a pena ressaltar que conheço alguns empresários e funcionários de altoescalão de empresas da região que podem facilitar estas parcerias.
 
 {\small 
 \bibliographystyle{abbrv}
-\bibliography{projetos, pubmed-result}
+\bibliography{projetos}
 }
 % 
 % Logo após o doutorado seria um bom momento para mim fazer um pós-doutorado no
