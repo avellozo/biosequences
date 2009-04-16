@@ -1,0 +1,674 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage[brazil]{babel} \usepackage[latin1]{inputenc}
+\usepackage[normalem]{ulem} \usepackage[portuguese]{alg}
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\usepackage{alg}
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{algorithm}{htbp}{loa}%[chapter]
+\newcommand{\listofalgorithms}{\listof{algorithm}{Lista de Algoritmos}}
+\floatname{algorithm}{Algoritmo} 
+ 
+% Teoremas, Lemas, etc.
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicao}[teorema]{Proposição}
+\newtheorem{observacao}[teorema]{Observação}
+\newtheorem{corolario}[teorema]{Corolário}
+\newtheorem{definicao}[teorema]{Definição}
+\newtheorem{exemplo}[teorema]{Exemplo}
+\newtheorem{problema}[teorema]{Problema}
+\newenvironment{prova}[1][Prova.]{\begin{trivlist}
+\item[\hskip \labelsep {\itshape #1}]}{\end{trivlist}}
+\newenvironment{comentario}[1][Comentário]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+\newcommand{\tq}{\mathrel{|}}
+\newcommand{\weightsym}{\phi}
+\newcommand{\weight}[1]{\function{\weightsym}{#1}}
+\newcommand{\invert}[1]{\mathord{\overline{{#1}}}}
+\newcommand{\invertsym}{\mathord{\overline{\ \ {\vspace{3 mm}}}}}
+\newcommand{\aplica}{\longrightarrow}              
+\newcommand{\implica}{\Longrightarrow}   
+\newcommand{\sse}{\Longleftrightarrow}   
+\newcommand{\seq}{sequência}
+\newcommand{\seqs}{se\-quên\-cias}
+           
+
+% \newcount\hour
+% \newcount\minute
+% \hour=\time \divide \hour by 60 \minute=\time \loop \ifnum \minute
+% > 59 \advance \minute by -60 \repeat
+% \def\now{%
+% \ifnum \hour<13 \ifnum \hour<1 12:\else\number\hour:\fi \ifnum
+% \minute<10 0\fi
+% \number\minute%
+% %\ifnum \hour<12 \ AM \else \ PM \fi
+% \else \advance \hour by -12 \number\hour:%
+% \ifnum \minute<10 0\fi
+% \number\minute%
+% %\ PM%
+% \fi%
+% }
+% \let\oldthepage=\thepage
+% \renewcommand{\thepage}{\today{} \now \qquad (\oldthepage)}
+
+\newcommand{\cqd}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+% \usepackage[small,compact]{titlesec}
+
+\newcommand{\squishlist}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}      \setlength{\parsep}{3pt}
+      \setlength{\topsep}{3pt}       \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishlisttwo}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}    \setlength{\parsep}{0pt}
+      \setlength{\topsep}{0pt}     \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{2em} \setlength{\labelwidth}{1.5em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishend}{ \end{list}  }
+
+\begin{document}
+
+% \hyphenation{a-li-nha-men-to pro-ba-bi-li-da-de se-qüên-cia}
+
+\title{Plano de trabalho para investigador doutorado}
+\author{Augusto Fernandes Vellozo}
+% \date
+
+\maketitle
+
+
+\begin{abstract}
+
+Este documento tem como objetivo relacionar os objetivos e
+atividades a serem realizadas como investigador doutorado no INESC-ID Portugal.
+    
+  \end{abstract}
+
+% \tableofcontents
+% \newpage
+% 
+
+ 
+%   Peça fundamental na comparação de seqüências biológicas é a obtenção de 
+%   alinhamentos de \seqs, que no entanto costumam desprezar eventos mutacionais 
+%   importantes como a duplicação e a inversão.  Em nosso trabalho em Biologia 
+%   Computacional temos obtido algoritmos ainda polinomiais exatos e que 
+%   reintroduzem estes eventos em sua análise. Este projeto inclui avançar nos 
+%   trabalhos já iniciados nestes assuntos, assim como trabalhar em novos 
+%   problemas dentro de outros assuntos da Biologia Computacional, como pontos de 
+%   quebra (\emph{breakpoints}), motivos (\emph{motifs}), genômica comparativa e 
+%   técnicas para alinhamentos múltiplos.
+\section{Tópicos para a investigação}\label{secintro}
+
+\subsection{Comparação de \seqs}
+
+À medida que o número de novos genomas completos aumenta, a comparação entre
+seqüências longas de DNA de espécies próximas torna-se mais importante para
+nosso entendimento da estrutura da seqüência do DNA. Devido a isto, a análise
+genômica comparativa~\cite{pmid10438229}, apesar de ser um novo campo na
+bioinformática, está se desenvolvendo rapidamente. Em muitas espécies próximas, a
+ordem dos genes é preservada para intervalos curtos~\cite{pmid7583118}. Nesses
+casos, os genes são mais conservados do que as regiões intergênicas. Portanto, a
+ordem da seqüência de genes é muito útil para detectar reordenamentos
+cromossômicos como inversões. Estes tipos de comparações ganham maior
+significância à medida que mais segmentos de genomas ortólogos, fortemente
+relacionados pela evolução, são sequenciados.
+
+Desde a finalização do rascunho do genoma humano novos projetos de
+sequenciamento têm sido desenvolvidos para comparação com o genoma humano.
+Muitos programas computacionais têm sido usados para esse propósito como
+VISTA~\cite{pmid11159318,pmid10984448}, GLASS~\cite{pmid10899144}, Mummer~\cite{pmid10325427},
+PipMaker~\cite{pmid10779500}, e também BLAST 2 Sequences~\cite{pmid10339815}.
+
+Assim como muitos outros estudos em bioinformática, essas comparações dependem
+fortemente da obtenção de um alinhamento ótimo.
+
+Na história da evolução alguns eventos introduzem mudanças na se\-quên\-cia do DNA. 
+Alguns eventos biológicos típicos são as \emph{substituições}, \emph{remoções} e
+\emph{inserções} de nucleotídeos. 
+Portanto, qualquer comparação de \seqs\ precisa levar em consideração a
+possibilidade da ocorrência desses eventos, se é esperado identificar uma alta
+similaridade entre duas \seqs. Procedimentos de alinhamento típicos tentam 
+identificar que partes não mudam e onde se localizam esses eventos biológicos.
+Após, apresentam um alinhamento ótimo de acordo com algum critério de
+otimização e sistema de pontuação associado aos eventos. 
+
+% Por exemplo, na figura~\ref{fig:ExampleOfAlignment} nós vemos dois alinhamentos 
+% de $actagatcagtca$ contra $attgaatcgacta$. 
+% 
+% \begin{figure}[htbp] 
+%   \centering 
+% \begin{verbatim} 
+%                actaga-tcagtc-a      actaga-tcagtca 
+%                | | || || | | |      | | || ||****| 
+%                a-ttgaatc-gacta      a-ttgaatcgacta 
+% \end{verbatim} 
+%   \label{fig:ExampleOfAlignment} 
+%   \caption{Dois alinhamentos para $actagatcagtca$ e $attgaatcgacta$} 
+% \end{figure} 
+% 
+% Da esquerda para a direita, pode-se perceber a remoção de $c$, a mutação de $a$ 
+% para $t$ e a inserção de $a$ nos dois alinhamentos. Na parte mais à direita, o 
+% primeiro alinhamento indica a remoção de $a$, a mutação de $t$ para $a$ e uma 
+% inserção de $t$. Em contraste, o segundo alinhamento explicita a inversão de 
+% $agtc$ para seu complemento reverso $gact$. Já que procedimentos de
+% alinhamento comuns não levam as \emph{inversões} em consideração, eles
+% produziriam o primero alinhamento. 
+% 
+Alinhamentos podem ser associados a um conjunto de operações de edição que 
+transformam uma \seq\ em outra. Normalmente as únicas operações de edição 
+consideradas são a \emph{substituição} de um símbolo em outro, a 
+\emph{inserção} de um símbolo e a \emph{remoção} de um símbolo. Se os custos 
+são associados a cada operação, existe um procedimento de programação dinâmica 
+clássico, que em tempo e espaço\footnote{Consideraremos neste texto que
+$n$ é o comprimento da maior \seq\ analisada} $O(n^2)$ computa o conjunto mínimo de 
+operações de edição com o custo total mínimo e apresenta o alinhamento 
+associado, que tem boa qualidade e alta semelhança para custos realistas.
+
+\subsection{Inversões}
+
+Considere três novas possibilidades de operações de edição: 
+
+\squishlist
+\item a \emph{reversão-por-$2$}, que reverte a ordem de \emph{dois símbolos 
+consecutivos};
+\item a operação de \emph{reversão}, que reverte a ordem de \emph{qualquer 
+segmento} de símbolos ao invés de um segmento de comprimento $2$;
+\item a operação de \emph{inversão}, que substitui qualquer segmento pela sua 
+se\-quên\-cia \emph{reversa complementar}. A operação de inversão é a operação 
+de interesse na obtenção de alinhamentos ótimos de \seqs\ biológicas. \squishend
+
+Associados a quaisquer dessas três operações, nós podemos definir novos 
+problemas de alinhamento. Por exemplo, dadas duas seqüências e custos fixos 
+para cada tipo de operação de edição, o problema de \emph{alinhamento com 
+inversões} é um problema de otimização que indaga o custo total mínimo de um 
+conjunto de operações de edição que transforma uma seqüência em outra. Além 
+disso, pode também haver interesse na apresentação do alinhamento 
+correspondente, ou seja das operações de edição. Da mesma forma, podemos 
+definir os problemas de \emph{alinhamento com reversões-por-$2$} e de 
+\emph{alinhamento com reversões}.
+
+Em 1975, Wagner~\cite{Wagner75} estudou o alinhamento com reversões-por-$2$ e 
+provou que ele admite uma solução polinomial se o custo de uma reversão-por-$2$ é
+nulo. Por outro lado, ele também provou que a obtenção de uma solução ótima 
+é \emph{NP-difícil}, se cada operação tem um custo positivo constante.
+
+Em  \cite{1100950} podemos ver que o problema de decisão, associado ao problema
+de obter um alinhamento considerando
+inversões para um alfabeto de tamanho ilimitado, é NP-difícil.
+
+Com o objetivo de tratar os alinhamentos com inversões, três estratégias principais 
+têm sido consideradas: 
+
+\squishlist	 
+\item inversões sem sobreposições; 
+\item ordenação de permutações sem sinal por reversões e; 
+\item ordenação de permutações com sinal por reversões. 
+\squishend 
+
+% Antes de irmos adiante, daremos um breve resumo dessas três estratégias.
+
+Em 1992, Schöniger e Waterman~\cite{pmid1591531} introduziram uma 
+\emph{hipótese simplificadora}: \emph{todas as regiões envolvendo inversões não 
+se sobrepõem}. Isso levou ao problema do \emph{alinhamento com inversões sem 
+sobreposições} (primeira estratégia). Eles apresentaram uma solução em $O(n^6)$ 
+para esse problema e também introduziram uma heurística que reduziu a 
+complexidade do tempo de execução do problema. Essa heurística usa o algoritmo 
+desenvolvido por Waterman e Eggert~\cite{pmid2448477} que informa os $K$ 
+melhores alinhamentos locais não mutualmente intersectantes, com o objetivo de 
+reduzir o tempo de execução para algo entre $O(n^2)$ e $O(n^4)$, dependendo dos 
+dados.
+
+A segunda estratégia se aplica bem a alinhamentos de \emph{seqüências de genes} 
+e tem sido bastante usada para genomas de mitocôndrias. Ela não se aplica a 
+\seqs\ de nucleotídeos nem a \seqs\ de aminoácidos porque \emph{repetições} de 
+símbolos \emph{não são} permitidas. Além disso, \emph{nenhuma inserção} e 
+\emph{nenhuma remoção} são consideradas e a única operação permitida é a 
+reversão. O problema, também chamado de 
+\emph{ordenação de permutações sem sinal por reversões}, produz a média do 
+cálculo das distâncias de edição de duas permutações com a operação de 
+reversão. Neste caso, os dados são duas permutações de ${1,2,3,\ldots,n}$, onde 
+$n$ é o número de genes. Kececioglu e Sankoff~\cite{MR95j:68125} propuseram um 
+algoritmo de $2$-aproximação em 1995 e Christie~\cite{MR1642934} propôs um 
+algoritmo de aproximação de razão $3/2$ em 1998. De fato, 
+Caprara~\cite{MR2000a:68046} provou em 1999 que esse problema na verdade é 
+NP-difícil.
+
+A terceira estratégia é o problema chamado \emph{ordenação 
+de permutações com sinal por reversões}. Este é o mesmo problema de ordenação 
+de permutações sem sinal por reversões até o ponto em que os sinais também são 
+atribuídos a um gene e uma reversão também troca seu sinal. Por exemplo, uma 
+reversão poderia transformar ${1,2,3,4,5}$ em ${1,-4,-3,-2,5}$. Este sinal é 
+normalmente associado à direção do gene (a qual filamento de DNA ele pertence). 
+Hannenhalli e Pevzner~\cite{225112} propuseram 
+o primeiro algoritmo polinomial para o problema em 1995 e iniciaram uma 
+seqüência de artigos baseados nessa estratégia. O algoritmo de Hannenhalli e 
+Pevzner era $O(n^4)$ e foi melhorado para $O(n^2)$ por Kaplan, Shamir e 
+Tarjan~\cite{MR97k:92016,MR2001c:92008} em 1997. Em 2001, Bader, Moret, e 
+Yan~\cite{MR2003i:68102} propuseram um algoritmo que calcula a distância de 
+edição em $O(n)$ (a \seq\ de reversões ainda requer $O(n^2)$). Estes estudos 
+têm sido aplicados a estudos de reconstrução filogenética.
+% Em 2000, El-Mabrouk~\cite{MR1789777,MR2002g:92019} estudou a inclusão de duas 
+% operações: inserções e remoções de segmentos genéticos. Ela obteve resultados 
+% parciais e propôs uma solução polinomial exata para um caso e uma heurística 
+% polinomial com um testador polinomial para otimalidade no outro caso. Símbolos 
+% repetidos ainda não são permitidos. Em 2002, El-Mabrouk~\cite{MR1955942} também 
+% obteve alguns resultados parciais ao considerar reversões e duplicações. 
+
+
+Em 2003, Lago~\cite{MR2132586} propôs dois algoritmos exatos para o problema do
+alinhamento com inversões sem sobreposições, ou seja, a primeira estratégia
+descrita anteriormente para tratar o problema do alinhamento com inversões. Um
+dos algoritmos é uma solução que executa em tempo $O(n^4)$ e que usa espaço
+$O(n^2)$. O outro algoritmo é uma implementação dinâmica esparsa que reduz o uso
+de recursos se $o(n^2)$ atribuições são dadas. Isto é freqüentemente esperado se
+a cardinalidade do alfabeto for grande, como por exemplo quando as letras são
+fragmentos de DNA de comprimento fixo.
+
+Em 2005, Alves, Lago, e Vellozo~\cite{MR2173809} propusemos um algoritmo exato
+para este mesmo problema do alinhamento com inversões não sobrepostas que
+executa em tempo $O(n^3\log n)$ e que usa espaço $O(n^2)$.
+
+Em 2006, Vellozo, Alves, e Lago~\cite{vellozo06:_align_with_non_overl_inver} propusemos um algoritmo exato
+para o mesmo problema que executa em  
+tempo $O(n^3)$ e que usa espaço $O(n^2)$.
+
+\subsection{Repetições}
+Em genética, um motivo, ou \emph{motif}, é um padrão de \seq\ de
+nucleo\-tí\-de\-os ou aminoácidos que espera-se que tenha,
+um significado biológico. Existem também os \emph{motifs} estruturais, aplicados
+principalmente em pro\-teí\-nas e que estabelecem padrões tridimensionais.
+
+Um exemplo de \emph{motif} é o \emph{N-glycosylation motif}, cujo padrão é
+descrito a seguir: $Asn$, seguido por qualquer aminoácido exceto $Pro$, seguido
+por $Ser$ ou $Thr$, seguido por qualquer aminoácido exceto $Pro$, onde as
+abreviações de 3 letras identificam um tipo de aminoácido. Este padrão pode ser
+escrito como $N\{P\}[ST]\{P\}$, onde $N=Asn$, $P=Pro$, $S=Ser$, $T=Thr$; $\{X\}$
+significa qualquer aminoácido exceto $X$; e $[XY]$ significa ou $X$ ou $Y$.A
+notação $[XY]$ não explicita a distribuição de probabilidade das ocorrências de
+$X$ e de $Y$. Quando isto é desejado, estes padrões são definidos a partir de um
+modelo estatístico.
+
+A procura de \emph{motifs} nas \seqs\ normalmente está relacionada à busca de
+repetições nas \seqs.
+
+Repetições são elementos preponderantes, especialmente em genomas de organismos
+eucariontes. Estima-se que mais de 80\% dos genomas de planta são compostos por
+repetições. Existem diversos tipos de repetições em um genoma, provavelmente nem
+todos já conhecidos. Entre os tipos mais conhecidos estão os satélites (micro ou
+mini conforme as características de comprimento e outras) que são repetições em
+\emph{tandem}, isto é, que aparecem uma atrás da outra ao longo do genoma. Outro
+tipo de repetição muito conhecido são os ditos elementos transponíveis, ou
+transposons. Os transposons foram descobertos por Barbara
+McClintock~\cite{Comfort_2001} nos anos 50 estudando o milho. Os elementos
+transponíveis podem ser definidos como seqüências de DNA moderadamente
+repetitivas que podem mover-se de um local a outro no genoma e, desta maneira,
+ter um profundo impacto na estrutura, regulação e função dos genes, bem como na
+organização dos cromossomos na espécie. Enfim, motivos (\emph{motifs}) em
+seqüências potencialmente relacionados com sítios de interação de complexos
+moleculares (proteínas e/ou RNAs) com o DNA são mais um exemplo de repetições,
+intra e inter espécie que desempenha um papel importante na regulação individual
+dos genes.
+
+% Durante meu pos-doutorado, pretendo estudar esse problema, me apoiando para
+% isso nos trabalhos que fiz durante meu doutorado. Todos os algoritmos que eu
+% desenvolver serão testados juntamente com biólogos com os quais meu orientador
+% já trabalha. Esse contato com experimentalistas deve também me ajudar a definir
+% de maneira adequata os tipos de repetições que será interessante buscar em
+% genomas completos de eucariotes, como o da mosca, mas tambem o do homem, do
+% camundongo e do chimpanzé. Meu trablho se fará também em colaboração com
+% doutorandos do grupo com quem irei trabalhar.
+Ser capaz de identificar de maneira sistemática, e portanto exata, dado uma certa
+definição de repetição, é um problema importante em bioinformá\-ti\-ca que ainda
+não foi resolvido de maneira satisfatória ou realmente eficaz, especialmente no
+caso de genomas de organismos eucariontes. A dificuldade vem já da grande
+variedade de tipos de repetições. Algumas repetições, como as compridas (onde
+cada cópia pode atingir centenas de bases), são particularmente difíceis de
+identificar, por causa do comprimento, e porque há pouca conservação de uma cópia
+para a outra. Obviamente, o tamanho habitual das \seqs\ onde as repetições devem
+ser identificadas, aumenta ainda mais o grau de complexidade do problema.
+
+Existem algumas doenças humanas que são associadas às repetições, tais como:
+retardação mental \emph{fragile-X}~\cite{pmid1710175}, doença de
+Huntington~\cite{pmid8458076}, distrofia
+miotô\-ni\-ca~\cite{Myotonic_Muscular_Dystrophy} e ataxia de
+Friedreich~\cite{Friedreich_Ataxia}. \emph{Tandem repeats} podem estar ligados a
+regras de regulação gênica~\cite{HHamada12011984, QLu05011993, pmid3111846},
+ligação DNA-proteína~\cite{DNAProteinBinding, binding_proteins_mammalian_species}
+e evolução~\cite{pmid3146527}.
+
+O número de cópias num \emph{tandem repeat} pode ser variável entre indivíduos
+diferentes (polimórfico). Locais polimórficos são úteis em várias tarefas de
+laboratório~\cite{pmid1740333, pmid2916582}. \emph{Tandem repeats} tem sido
+utilizados para sustentar algumas hipóteses da evolução humana~\cite{pmid8640220,
+Modern_Human_Origins} e da evolução de micro-satélites (\emph{tandem repeats}
+cujo tamanho é de apenas algumas unidades de nucleotídeos) em
+primatas~\cite{Messier1996}.
+
+Em 1997, Benson~\cite{267526} propôs um modelo para o alinhamento de \seqs\ que
+considera \emph{tandem repeats} de mesmo tamanho. Ele propôs dois algoritmos
+exatos para obter um tal alinhamento ótimo. O primeiro algoritmo proposto executa
+em tempo $O(n^5)$ e espaço $O(n^2)$. O segundo algoritmo proposto executa em
+tempo $O(n^4)$ e espaço $O(n^3)$.
+
+Estamos elaborando um artigo completo~\cite{tese_in_preparation} com os
+resultados da minha tese de doutorado, inclusive com um algoritmo que obtém um
+alinhamento ótimo considerando o mesmo modelo proposto por Benson, porém com
+tempo de execução $O(n^3)$ e espaço $O(n^2)$.
+% Eventualmente, poderemos também investigar a possibilidade de inclusão de
+% técnicas aceleradoras como o uso de árvores de sufixos ou de
+% filtragem~\cite{lago03:_algor} nos problemas que vão ser estudados.
+  
+
+\subsection{Anotação funcional}
+Atualmente existem muitos novos projetos de sequenciamento do genoma de
+organismos. Estes projetos geram uma grande quantidade de \seqs\ de DNA. Um
+grande desafio é tentar compreender quais são as funções desempenhadas por estas
+\seqs\ na vida do organismo.
+
+
+Alguns trechos dessas \seqs\ são classificados como genes. Um gene pode gerar uma
+ou mais proteínas que podem ter uma ou mais funções. Desta forma podemos atribuir
+a um gene uma ou mais funções. Estas funções podem ser classificadas, por
+exemplo, para transporte, regulação ou metabolismo.
+
+
+% Após o sequenciamento do genoma, algumas técnicas são aplicadas para o
+% reconhecimento dos trechos que são genes.
+% 
+
+Para anotar quais são as funções de um gene, muitas vezes se utilizam técnicas e
+algoritmos (como por exemplo em~\cite{pmid17526522,pmid16081474,pmid18400082})
+que tentam encontrar \seqs\ de genes de outras espécies com funções já conhecidas
+e com alto grau de similaridade com a \seq\ do gene que se quer descobrir a(s)
+função(ões). Após a obtenção destas funções anotadas computacionalmente alguns
+experimentos \emph{in vitro} podem ser realizados, porém muitas vezes somente as
+anotações \emph{in silico} são consideradas. A não realização de experimentos
+\emph{in vitro} pode ocasionar uma propagação de erros nas anotações funcionais
+dos genes.
+
+Desta forma, dentro do projeto do sequenciamento do genoma do inseto
+\emph{Acyrthosiphon pisum}, desenvolvemos um aplicativo que gera uma pontuação
+para cada anotação funcional metabólica deste inseto. Esta pontuação da anotação
+tenta refletir o grau de confiabilidade da anotação funcional metabólica. Esta
+pontuação pode mostrar a necessidade ou não de experimentos \emph{in vitro} para
+assegurar a existência da função anotada.
+
+Atualmente estamos escrevendo um artigo para apresentar este \emph{software} e a
+sua aplicação no projeto genoma do organismo \emph{Acyrthosiphon
+pisum}~\cite{cycads_in_preparation}.
+
+
+\subsection{\emph{Redes metabólicas}}
+
+Em um organismo ocorrem várias reações químicas que transformam alguns compostos
+químicos em outros. Em uma reação química os compostos chamados reagentes ou
+substratos são transformados em compostos chamados produtos. A rede metabólica de
+um organismo identifica todas as reações que podem ocorrer dentro de um
+organismo. Uma \emph{via metabólica} de uma rede metabólica é uma série de
+reações químicas onde uma reação fornece o substrato da reação seguinte.
+
+Após o sequenciamento e a anotação funcional do genoma de um organismo é possível
+conseguir a rede metabólica deste organismo.
+
+Na tentativa de compreender melhor a rede metabólica de um
+organismo~\cite{17608928}, muitos estudos e análises estão sendo realizados
+atualmente. Uma das maneiras de se realizar estes estudos e análises é através da
+procura e identificação de padrões (ou \emph{motifs}) nas vias
+metabólicas~\cite{1183307}. Outra maneira é comparar a rede metabólica de dois
+organismos e analisar as suas diferenças e semelhanças.
+
+Atualmente estamos preparando um artigo que descreve um algoritmo para encontrar
+todos os \emph{motifs} de um tamanho fixo em uma rede
+metabólica~\cite{motifs_in_preparation}.
+
+Além disto, estamos tentando fazer de forma inédita a comparação das redes
+metabólicas de dois organismos que mantêm uma relação de simbiose.
+
+\section{Objetivos e atividades}
+
+%     O objetivo principal é a elaboração de algoritmos eficientes 
+%     que permitam tratar e extrair informações presentes em grandes volumes de 
+%     dados como \seqs\ biológicas.  Estruturas de dados apropriadas e algoritmos 
+%     eficientes são particularmente importantes no estudo de \seqs\ biológicas 
+%     devido à crescente quantidade de organismos sequenciados e ao grande 
+%     comprimento destas \seqs.
+%     
+
+Além dos tópicos já expostos anteriormente, a princípio pretendo também, dada a
+proximidade dos tópicos, realizar pesquisas em "Recuperação da informação".
+
+Outros tópicos que também tenho interesse, devido ao meu passado profissional é
+em Tecnologia da Informação e Engenharia de Software.
+
+ Meu objetivo é investigar e obter resultados relevantes para a
+ comunidade científica. Atualmente, tenho interesse e condições de alcançar este
+ objetivo realizando as seguintes
+atividades: \squishlist
+ \item elaboração de algoritmos e estruturas de dados eficientes que permitam
+  tratar e extrair informações de \seqs\ biológicas ou outras grandes massas de
+  dados;
+  \item desenvolvimento de
+  aplicativos que ajudem no
+    processo de anotação dos novos genomas sequenciados; 
+    \item análise e
+    comparação de redes metabólicas.
+  \item redigir e submeter artigos em publicações com reconhecimento
+  internacional; 
+  \item trabalhar e colaborar com os investigadores que já tenho contato e que
+venha a ter contato no instituto, assim como com os alunos interessados;
+  \item realizar uma grande troca de conhecimentos científicos e
+  acadêmicos com os investigadores do instituto; 
+  \item estreitar e fortalecer os já
+ existentes relacionamentos com investigadores estrangeiros e portugueses;
+ \squishend
+ 
+
+\section{Metodologia}
+
+As implementações dos algoritmos desenvolvidos serão desenvolvidos em
+microcomputadores utilizando preferencialmente a linguagesm Java. 
+
+No caso de algoritmos com foco em dados biológicos, os dados processados serão
+\seqs\ biológicas reais obtidas de bancos de dados pú\-bli\-cos ou através de
+algum biólogo com o qual haja contato.
+
+Quaisquer informações e artigos a serem utilizados na pesquisa serão obtidos
+preferencialmente através de meios eletrônicos em formato digital. Caso isto não
+seja possível então serão utilizados os periódicos e publicações arquivados no
+instituto.
+
+Os resultados obtidos com os algoritmos aqui propostos serão comparados com
+aqueles obtidos de eventuais programas já disponíveis.
+
+Também pretendo obter retorno da relevância e acuracidade dos resultados obtidos
+a partir de diálogos com biólogos e investigadores com os quais tenha contato.
+
+A orientação de alunos interessados será também utilizada para auxiliar na
+execução das atividades a serem desenvolvidas.
+
+
+% Durante meu pos-doutorado, pretendo estudar esses problemas, me
+% apoiando para isso nos trabalhos que fiz durante meu doutorado e em estudos de
+% outros pesquisadores da área.
+% 
+% 
+%   Pretendemos implementar os algoritmos que vierem a ser elaborados e realizar 
+%   testes juntamente com biólogos com os quais meu orientador de 
+%   pós-doutorado já trabalha. Esse contato com experimentalistas deve também 
+%   ajudar a definir de maneira adequata os tipos de repetições que serão 
+%   interessantes buscar em genomas completos de eucariontes, como o da mosca, do 
+%   homem, do camundongo e do chimpanzé. Meu trabalho se fará também em 
+%   colaboração com doutorandos e pesquisadores do grupo com quem irei trabalhar.
+  
+%   Estaremos receptivos a trabalhar também com problemas novos que vierem a 
+%   surgir durante o projeto.
+%   
+%   Para os resultados relevantes obtidos redigiremos os respectivos artigos e 
+%   sempre que possível, enviaremo-os para publicações de reconhecimento 
+%   internacional na área.
+
+%   Já foram identificados alguns tópicos que são de interesse de ambas as partes 
+%   e que iremos investigar durante o projeto. Estes tópicos são:
+%   \begin{enumerate}
+%     \item melhorias e mudanças nos algoritmos para alinhamento com inversões 
+%     não sobrepostas e para alinhamento com repetições desenvolvidos durante o 
+%     doutorado;
+%     \item buscas de inversões e repetições ocorridas durante a evolução de 
+%     espécies próximas com genomas sequenciados;\label{buscaInversoes}
+%     \item busca de pontos de quebra (\emph{breakpoints}) ocorridos durante o 
+%     processo evolutivo;
+%     \item buscas de motivos (\emph{motifs});
+%     \item técnicas para alinhamento múltiplo (várias \seqs).
+%   \end{enumerate}
+  
+% \section{Atividades}
+
+%   Iremos realizar algumas melhorias e mudanças, já identificadas nos 
+%   algoritmos para alinhamento com inversões não sobrepostas e para alinhamento 
+%   com duplicações desenvolvidos durante o doutorado. Este trabalho deverá ser 
+%   feito concomitantemente com o trabalho de buscas de inversões e 
+%   repetições, ou seja, deverá ocorrer junto com o item \ref{buscaInversoes}.
+%   Todo este trabalho deverá tomar aproximadamente 5 meses.
+  
+  
+  
+%   Determinar o prazo e a ordem exata de execução de cada trabalho é algo muito 
+%   difícil, pois dependem muito de outras variáveis que fogem de nosso controle 
+%   ou que são desconhecidas. No entanto, pela experiência em outros projetos, 
+%   acreditamos que o tempo para alcançar nossos objetivos e realizar estes 
+%   trabalhos é de no mínimo 1 ano.
+
+% \section{Plano de ensino}
+% 
+% \subsection{Objetivos}\label{ensino_objetivos}
+% 
+% Além das disciplinas de Algoritmos e Estruturas de Dados, pretendo
+% também lecionar as seguintes disciplinas (ou correlatas): Biologia
+% Computacional, Introdução à Bioinformática, Introdução à Computação, Introdução
+% à Programação, Programação Orientada a Objetos, Análise de Algoritmos, Teoria
+% dos Grafos I e Metodologias no Desenvolvimento de Sistemas.
+% 
+% Dada a minha grande experiência em desenvolvimento de sistemas e no
+% gerenciamento de equipes de desenvolvimento, prontifico-me a ajudar em
+% disciplinas afins.
+% 
+%  Nas disciplinas e nas orientações, pretendo preparar e motivar os
+%  alunos para que:
+% \squishlist
+% \item  aprendam conceitos básicos e que dificilmente se alteram com o tempo. Dada
+% a grande dinâmica da área de computação este é um fator muito importante para um
+% bom desenvolvimento da carreira do aluno; 
+% \item sejam um pouco autodidatas, ou
+% seja que eles "aprendam a aprender"; 
+% \item aprimorem e desenvolvam o raciocínio
+% abstrato. Este é um conceito muito importante e muito utilizado em computação,
+% principalmente na modelização, programação e solução de problemas práticos;
+% \item sejam capazes de identificar e especificar problemas novos, assim como
+% desenvolver novas tecnologias e métodos a fim de contribuir com o meio
+% acadêmico e poder participar da sociedade científica;
+% \item tenham a habilidade de apresentar resultados científicos e técnicos em
+% publicações e seminários;
+% \item desenvolvam um espírito de empreendedor a fim de trabalhar para criar
+% empresas e gerar postos de trabalho;
+% 
+% \item saibam atuar em problemas e projetos de várias disciplinas e setores. Este
+% é um item muito requisitado pois, cada vez mais é necessário resolver problemas
+% mais abrangentes e amplos dentro das empresas e no meio científico;
+% 
+% \item planejem e assumam riscos, buscando atingir resultados mais
+% ousados;
+% 
+% \item sejam pró-ativos, de tal modo que busquem resolver problemas por conta
+% própria,
+% 
+% \squishend
+% 
+% \subsection{Metodologia e atividades}
+% 
+% Para alcançar os objetivos propostos na seção~\ref{ensino_objetivos} pretendo:
+% \squishlist
+% 
+% \item elaborar aulas teóricas com recursos multimídia e anotações em quadro
+% negro;
+% 
+% \item formular problemas para que os alunos realizem trabalhos práticos
+% desenvolvendo algoritmos e programas;
+% 
+% \item propor sempre que pertinente, a participação ativa do aluno em 
+% atividades/trabalhos/projetos tanto na produção como na apresentação destes;
+% 
+% \item incentivar os alunos à utilização e leitura de livros, apostilas e
+% artigos acadêmicos sejam em disciplinas ou projetos;
+% 
+% \item evitar a concentração no estudo de técnicas, mas sim dar mais
+% importância nos conceitos das ferramentas a serem utilizadas pelos alunos;
+% 
+% \item envolver sempre que possível e pertinente a solução de problemas em
+% organizações ou situações reais
+% 
+% \item incentivar os alunos a aprender novos conceitos para que sempre aprimorem
+% os seus conhecimentos;
+% 
+% \item propiciar o contato dos alunos com profissionais experientes nos assuntos
+% sendo estudados sendo através de palestras, seminários ou estágios;
+% 
+% % \item passar minha experiência no trabalho e na criação de empresas, assim
+% % como na carreira acadêmica e científica;
+%  
+% \squishend
+% 
+% 
+% 
+% \section{Plano de extensão}
+% 
+% Sendo habitante da cidade de Sorocaba por algumas décadas, acredito que possa
+% ajudar bastante na inserção da universidade na comunidade local.
+% 
+% Dados os meus contatos com empresários e profissionais influentes de empresas da
+% região, acredito que possa ajudar a concretizar parcerias com empresas locais
+% e alavancar projetos que podem se auto-sustentar através do financiamento destas
+% empresas. Desta forma as empresas podem conseguir resultados expressivos e
+% inovatórios, assim como a universidade pode conseguir aprimorar o conhecimento
+% dos alunos e aproximá-los de problemas reais e do ambiente e estrutura das
+% empresas.
+% 
+% 
+% Da mesma forma, além de pessoas na região, conheço também profissionais de alto
+% escalão (diretoria e vice-presidência) em empresas na área de recuperação de
+% informação e internet (UOL e Google) que poderiam nos ajudar a concretizar
+% algumas parcerias.
+% 
+% 
+
+{\small
+\bibliographystyle{abbrv}
+\bibliography{projetos}
+}
+%  Logo após o doutorado seria um bom momento para mim fazer um pós-doutorado no
+% exterior, pois não estarei trabalhando e consequentemente sem problemas para
+% conseguir licença do trabalho. Vejo este problema com minha esposa que leciona
+% numa escola que dificulta a saída de licenças remuneradas, mas a qual ela gosta
+% muito e não quer sair. Acredito que seria muito provável que se eu começasse a
+% trabalhar logo após o doutorado inviabilizaria um pós-doutorado no exterior,
+% pois normalmente a instituição que está precisando de um empregado, precisa que
+% alguém assuma certas responsabilidades e atividades dentro da instituição
+% naquele momento, portanto uma licença para fazer o pós-doutorado no exterior
+% seria difícil.
+\end{document}
