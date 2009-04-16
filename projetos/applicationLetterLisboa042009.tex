@@ -1,0 +1,140 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage[brazil]{babel} \usepackage[latin1]{inputenc}
+\usepackage[normalem]{ulem} \usepackage[portuguese]{alg}
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\usepackage{alg}
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{algorithm}{htbp}{loa}%[chapter]
+\newcommand{\listofalgorithms}{\listof{algorithm}{Lista de Algoritmos}}
+\floatname{algorithm}{Algoritmo} 
+ 
+% Teoremas, Lemas, etc.
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicao}[teorema]{Proposição}
+\newtheorem{observacao}[teorema]{Observação}
+\newtheorem{corolario}[teorema]{Corolário}
+\newtheorem{definicao}[teorema]{Definição}
+\newtheorem{exemplo}[teorema]{Exemplo}
+\newtheorem{problema}[teorema]{Problema}
+\newenvironment{prova}[1][Prova.]{\begin{trivlist}
+\item[\hskip \labelsep {\itshape #1}]}{\end{trivlist}}
+\newenvironment{comentario}[1][Comentário]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+\newcommand{\tq}{\mathrel{|}}
+\newcommand{\weightsym}{\phi}
+\newcommand{\weight}[1]{\function{\weightsym}{#1}}
+\newcommand{\invert}[1]{\mathord{\overline{{#1}}}}
+\newcommand{\invertsym}{\mathord{\overline{\ \ {\vspace{3 mm}}}}}
+\newcommand{\aplica}{\longrightarrow}              
+\newcommand{\implica}{\Longrightarrow}   
+\newcommand{\sse}{\Longleftrightarrow}   
+\newcommand{\seq}{sequência}
+\newcommand{\seqs}{se\-quên\-cias}
+           
+
+% \newcount\hour
+% \newcount\minute
+% \hour=\time \divide \hour by 60 \minute=\time \loop \ifnum \minute
+% > 59 \advance \minute by -60 \repeat
+% \def\now{%
+% \ifnum \hour<13 \ifnum \hour<1 12:\else\number\hour:\fi \ifnum
+% \minute<10 0\fi
+% \number\minute%
+% %\ifnum \hour<12 \ AM \else \ PM \fi
+% \else \advance \hour by -12 \number\hour:%
+% \ifnum \minute<10 0\fi
+% \number\minute%
+% %\ PM%
+% \fi%
+% }
+% \let\oldthepage=\thepage
+% \renewcommand{\thepage}{\today{} \now \qquad (\oldthepage)}
+
+\newcommand{\cqd}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+% \usepackage[small,compact]{titlesec}
+
+\newcommand{\squishlist}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}      \setlength{\parsep}{3pt}
+      \setlength{\topsep}{3pt}       \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishlisttwo}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}    \setlength{\parsep}{0pt}
+      \setlength{\topsep}{0pt}     \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{2em} \setlength{\labelwidth}{1.5em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishend}{ \end{list}  }
+
+\begin{document}
+\thispagestyle{empty}
+Augusto Fernandes Vellozo
+
+10B, rue Paul Cambon
+
+69100 - Villeurbanne 
+
+FRANCE
+
+Telefone: +33(0)426766582
+
+E-mail: augusto@vellozo.org
+\vspace{30pt}
+
+\hspace{170pt} Arlindo Manuel Limede de Oliveira
+
+\hspace{170pt} INESC-ID
+
+\hspace{170pt} R Alves Redol 9
+
+\hspace{170pt} 1000 Lisboa, Portugal
+
+\vspace{50pt}
+
+Caro Senhor/Senhora/Senhorita,
+\vspace{20pt}
+
+Eu, Augusto Fernandes Vellozo, cidadão português com bilhete de identidade
+número 15591425-1, venho por meio desta carta candidatar-me para a posição de
+investigador doutorado no INESC-ID em Lisboa Portugal.
+
+Como foi solicitado, encaminho anexo
+a esta carta, meu \emph{curriculum vitae} detalhado, um plano de atividades a
+serem desenvolvidas e 3 cartas de referência.
+
+Atualmente trabalho no laboratório BAOBAB coordenado por Marie-France Sagot em
+Lyon, onde tive e tenho contato com investigadores portugueses, tais como Ana
+Teresa de Freitas. Sei que existe uma forte colaboração entre o INESC-ID e o
+laboratório BAOBAB e acredito que possa ajudar bastante em futuras colaborações
+com este laboratório.
+
+Tenho especial interesse em trabalhar em Portugal e principalmente em Lisboa,
+pois em meu país sei que terei melhores condições de adaptação junto com
+minha família, além de usufruir do clima da cidade de Lisboa.
+
+Desde já agradeço pela atenção,
+
+\vspace{50pt}
+
+Augusto Fernandes Vellozo
+
+
+
+
+\end{document}
