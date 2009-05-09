@@ -1,7 +1,7 @@
 /*
  * Created on 18/10/2004
  */
-package sequences.common;
+package sequences.editgraph.arcs.factories;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +10,6 @@ import java.util.Random;
 import sequences.editgraph.EditGraph;
 import sequences.editgraph.Vertex;
 import sequences.editgraph.arcs.ArcDiagonal;
-import sequences.editgraph.arcs.factories.ArcDiagonalFactory;
 import sequences.editgraph.exception.ExceptionInternalEG;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 

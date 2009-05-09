@@ -12,7 +12,7 @@ public abstract class AlignmentImpl<E extends EditGraph> implements Alignment
 {
 	OptimumPathMethod<E>	method;
 	long					time;
-	E						eg;
+	EditGraph				eg;
 	OptimumPath				path;
 
 	protected AlignmentImpl(E eg, OptimumPathMethod<E> method) throws ExceptionInvalidEditGraph

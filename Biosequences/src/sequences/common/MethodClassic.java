@@ -12,7 +12,7 @@ import sequences.editgraph.VertexRange;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
-public class MethodClassic implements OptimumPathMethod
+public class MethodClassic<E extends EditGraph> implements OptimumPathMethod<E>
 {
 
 	byte	type;	// Local, Global, semi-global
@@ -22,7 +22,7 @@ public class MethodClassic implements OptimumPathMethod
 		this.type = type;
 	}
 
-	public OptimumPath createPath(VertexRange vertexRange, EditGraph eg) throws ExceptionInvalidEditGraph
+	public OptimumPath createPath(VertexRange vertexRange, E eg) throws ExceptionInvalidEditGraph
 	{
 		int iMin, iMax, jMin, jMax;
 		iMin = vertexRange.getBeginVertex().getRow();

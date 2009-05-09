@@ -12,25 +12,26 @@ import sequences.editgraph.exception.ExceptionInternalEG;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
-public class ArcExtendedFactoryOverEGInverted implements ArcExtendedFactory
+public class ArcExtendedFactoryOverEGInverted<E extends EditGraph> implements ArcExtendedFactory
 {
 
-	// O peso de uma aresta estendida (i,j)(i', j') é o peso do caminho ótimo de (n-i'+k,j)(n-i+k,j') no grafo invertido (egInverted), 
+	// O peso de uma aresta estendida (i,j)(i', j') é o peso do caminho ótimo de (n-i'+k,j)(n-i+k,j') no grafo invertido
+	// (egInverted),
 	// onde n é a última linha do grafo estendido e k é a primeira linha do grafo invertido
 
-	EditGraph			egInverted;
-	int					n, k;
-	OptimumPathMethod	optimumPathMethod;
-	int					extensionPenalty;
+	E						egInverted;
+	int						n, k;
+	OptimumPathMethod<E>	optimumPathMethod;
+	int						extensionPenalty;
 
-	public ArcExtendedFactoryOverEGInverted(EditGraph egInverted, OptimumPathMethod optimumPathMethod,
-			int extensionPenalty) throws ExceptionInvalidEditGraph
+	public ArcExtendedFactoryOverEGInverted(E egInverted, OptimumPathMethod<E> optimumPathMethod, int extensionPenalty)
+			throws ExceptionInvalidEditGraph
 	{
 		this(egInverted, optimumPathMethod, egInverted.getRowMax(), egInverted.getRowMin(), extensionPenalty);
 	}
 
-	public ArcExtendedFactoryOverEGInverted(EditGraph egInverted, OptimumPathMethod optimumPathMethod,
-			int extensionPenalty, int n, int k) throws ExceptionInvalidEditGraph
+	public ArcExtendedFactoryOverEGInverted(E egInverted, OptimumPathMethod<E> optimumPathMethod, int extensionPenalty,
+			int n, int k) throws ExceptionInvalidEditGraph
 	{
 		this.egInverted = egInverted;
 		this.n = n;
@@ -39,7 +40,7 @@ public class ArcExtendedFactoryOverEGInverted implements ArcExtendedFactory
 		this.extensionPenalty = extensionPenalty;
 	}
 
-	public EditGraph getEgInverted()
+	public E getEgInverted()
 	{
 		return egInverted;
 	}
@@ -47,7 +48,7 @@ public class ArcExtendedFactoryOverEGInverted implements ArcExtendedFactory
 	/**
 	 * @return Returns the optimumPathMethod.
 	 */
-	public OptimumPathMethod getOptimumPathMethod()
+	public OptimumPathMethod<E> getOptimumPathMethod()
 	{
 		return optimumPathMethod;
 	}
@@ -90,7 +91,7 @@ public class ArcExtendedFactoryOverEGInverted implements ArcExtendedFactory
 			vertexRange.getEndVertex().getCol()));
 	}
 
-	//Assume que se o vertexRange existe no grafo de edição invertido então um arco estendido pode ser criado
+	// Assume que se o vertexRange existe no grafo de edição invertido então um arco estendido pode ser criado
 	public boolean canCreateExtendedArc(VertexRange vertexRange)
 	{
 		try

@@ -18,8 +18,8 @@ public class AlignmentClassic extends AlignmentImpl<EditGraphBasic>
 			throws ExceptionInvalidEditGraph
 	{
 		super(new EditGraphBasic(seq1.getLength(), seq2.getLength(), new GapConstantFactory(gap, 0),
-			new ArcDiagonalFactorySequences(seq1, seq2, match, mismatch), new ArcExtendedFactoryNothing()),
-			new MethodClassic(type));
+			new ArcDiagonalFactorySequences(seq1, seq2, match, mismatch), null),
+			new MethodClassic<EditGraphBasic>(type));
 		this.seq1 = seq1;
 		this.seq2 = seq2;
 	}
@@ -29,7 +29,7 @@ public class AlignmentClassic extends AlignmentImpl<EditGraphBasic>
 	{
 		super(new EditGraphBasic(seq1.getLength(), seq2.getLength(), new GapConstantFactory(gap, gapOpen),
 			new ArcDiagonalFactorySequences(seq1, seq2, match, mismatch), new ArcExtendedFactoryNothing()),
-			new MethodClassicWithGapOpen(type));
+			new MethodClassicWithGapOpen<EditGraphBasic>(type));
 		this.seq1 = seq1;
 		this.seq2 = seq2;
 	}

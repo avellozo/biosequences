@@ -8,7 +8,7 @@ import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.VertexRange;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 
-public class MethodN3WithDupModel1 implements OptimumPathMethod
+public class MethodN3WithDupModel1 implements OptimumPathMethod<EGDupModel1>
 {
 
 	public OptimumPath createPath(VertexRange vertexRange, EGDupModel1 eg) throws ExceptionInvalidEditGraph

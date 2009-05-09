@@ -8,19 +8,18 @@ import sequences.common.backtrack.BackTrackBasic;
 import sequences.common.backtrack.BackTrackGapSetMatrixes;
 import sequences.editgraph.EditGraphWithGapSet;
 import sequences.editgraph.OptimumPath;
-import sequences.editgraph.OptimumPathMethod;
 import sequences.editgraph.VertexRange;
 import sequences.editgraph.exception.ExceptionInvalidEditGraph;
 import sequences.editgraph.exception.ExceptionInvalidVertex;
 
-public class MethodClassicWithGapOpen extends MethodClassic implements OptimumPathMethod
+public class MethodClassicWithGapOpen<E extends EditGraphWithGapSet> extends MethodClassic<E>
 {
 	public MethodClassicWithGapOpen(byte type)
 	{
 		super(type);
 	}
 
-	public OptimumPath createPath(VertexRange vertexRange, EditGraphWithGapSet eg) throws ExceptionInvalidEditGraph
+	public OptimumPath createPath(VertexRange vertexRange, E eg) throws ExceptionInvalidEditGraph
 	{
 		int iMin, iMax, jMin, jMax;
 		iMin = vertexRange.getBeginVertex().getRow();
