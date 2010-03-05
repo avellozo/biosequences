@@ -97,16 +97,19 @@
 
 
 % \begin{abstract}
-
-Este documento tem como objetivo principal relacionar os objetivos e
-atividades a serem realizados como pesquisador da Universidade Federal de São
-Paulo no campus de São José dos Campos.
+\begin{center}
+\emph{
+Projeto de pesquisa apresentado como parte das exigências do
+Concurso Público de Provas e Títulos para o Magistério de Ensino Superior
+da Universidade Federal de São Paulo no campus de São José dos Campos.
+}
+\end{center}
 
      Algoritmos eficientes são essenciais em muitas atividades na área de
      bio\-informática, principalmente devido à grande quantidade de dados
-     envolvida. Sendo assim, muitos aspectos teóricos de Ciência da Computação
+     envolvida. Sendo assim, muitos aspectos teóricos da Ciência da Computação
      são muito importantes e até imprescindíveis para resolverem vários
-     problemas nesta área em tempo e memória viáveis para o trabalho de um
+     problemas nesta área, em tempo e memória viáveis para o trabalho de um
      biólogo ou bioinformata.
 
     
@@ -151,12 +154,13 @@ Paulo no campus de São José dos Campos.
 % Assim como muitos outros estudos em bioinformática, essas comparações dependem
 % fortemente da obtenção de um alinhamento ótimo.
 
-Na história da evolução alguns eventos introduzem mudanças na se\-quên\-cia do
-DNA. Alguns eventos biológicos típicos são as \emph{substituições},
-\emph{remoções} e \emph{inserções} de nucleotídeos. Se é esperado
-identificar uma alta similaridade entre duas \seqs\ então qualquer comparação
-destas \seqs\ precisa levar em consideração a possibilidade da ocorrência desses
-eventos. Procedimentos de alinhamento típicos tentam identificar que partes das
+Na história da evolução alguns eventos introduzem mudanças nas se\-quên\-cias de
+DNA. Alguns eventos biológicos típicos são as substituições,
+remoções e inserções de nucleotídeos. Se é esperado identificar uma
+alta similaridade entre duas \seqs\ então qualquer compara\-ção destas \seqs\
+precisa levar em consideração a possibilidade da ocorrência desses eventos. Um
+modo comum de se comparar \seqs\ biológicas é através do alinhamento destas
+\seqs. Procedimentos de alinhamento típicos tentam identificar que partes das
 \seqs\ mudam e os eventos biológicos que originaram estas mudanças. Após,
 apresentam um alinhamento ótimo de acordo com algum critério de otimização e
 sistema de pontuação associado aos eventos.
@@ -185,75 +189,74 @@ sistema de pontuação associado aos eventos.
 % 
 Alinhamentos podem ser associados a um conjunto de operações de edição que 
 transformam uma \seq\ em outra. Normalmente as únicas operações de edição 
-consideradas são a \emph{substituição}, a 
-\emph{inserção} e a \emph{remoção} de um símbolo. Se os custos 
+consideradas são a substituição, a 
+inserção e a remoção de um símbolo. Se os custos 
 são associados a cada operação, existe um procedimento de programação dinâmica 
 clássico, que em tempo e espaço\footnote{Consideraremos neste texto que
 $n$ é o comprimento da maior \seq\ analisada} $O(n^2)$ computa o conjunto mínimo de 
 operações de edição com o custo total mínimo e apresenta o alinhamento 
 associado.
 
-Um outro evento que ocorre muitas vezes em \seqs\ de DNA é o evento de \emph{inversão}, que substitui qualquer
-segmento da \seq\ pelo corrspondente segmento \emph{reverso complementar}. Nas
-\seqs\ de DNA, consideramos que o símbolo $A$ é o símbolo complementar de $T$ e
-vice-versa. Da mesma forma, consideramos que $C$ e $G$ são complementares.
+Um outro evento biológico que ocorre muitas vezes nas \seqs\ de DNA é a
+inversão de trechos desta \seq. Neste evento um segmento da \seq\ é
+substituído pelo correspondente segmento reverso complementar. Nas \seqs\
+de DNA, consideramos que o símbolo $A$ é o símbolo complementar de $T$ e
+vice-versa. Da mesma forma, consideramos que $C$ e $G$ são complementares.
 
-Dadas duas seqüências e custos fixos 
-para as operações de edição de substituição, inserção, remoção e inversão, o
-problema de \emph{alinhamento com inversões} é um problema de otimização que indaga o custo total mínimo de um 
-conjunto destas operações de edição que transforma uma seqüência em outra. Além 
-disso, pode também haver interesse na apresentação do alinhamento 
-correspondente, ou seja das operações de edição. 
+Dadas duas \seqs\ e custos fixos para as operações de edição de substituição,
+inser\-ção, remoção e inversão, o problema de alinhamento com inversões é
+um problema de otimização que indaga o custo total mínimo de um conjunto destas
+operações de edição que transforma uma \seq\ em outra. Além disso, pode
+também haver interesse na apresentação do alinhamento correspondente, ou seja das
+operações de edição que transformam uma \seq\ na outra.
 
 Em  \cite{1100950} podemos ver que o problema de decisão, associado ao problema
-de obter um alinhamento com
-inversões para um alfabeto de tamanho ilimitado, é NP-difícil.
+de obter um alinhamento com inversões para um alfabeto de tamanho ilimitado, é
+NP-difícil.
 
 % Antes de irmos adiante, daremos um breve resumo dessas três estratégias.
 
 Em 1992, Schöniger e Waterman~\cite{pmid1591531} introduziram uma 
-\emph{hipótese simplificadora}: \emph{todas as regiões envolvendo inversões não 
-se sobrepõem}. Isso levou ao problema do \emph{alinhamento com inversões sem 
-sobreposições}. Eles apresentaram uma solução exata em tempo $O(n^6)$ 
+hipótese simplificadora: todas as regiões envolvendo inversões não 
+se sobrepõem. Isso levou ao problema do alinhamento com inversões sem 
+sobreposições. Eles apresentaram uma solução exata em tempo $O(n^6)$ 
 para esse problema. 
 
 Em 2003, Lago~\cite{MR2132586} propôs um algoritmo exato para o problema do
 alinhamento com inversões sem sobreposições que executa em tempo $O(n^4)$ e que
-usa espaço $O(n^2)$. Em 2005, Alves, Lago, e Vellozo~\cite{MR2173809}
-propusemos um algoritmo exato para este mesmo problema que
-executa em tempo $O(n^3\log n)$ e que usa espaço $O(n^2)$. Em 2006, Vellozo,
-Alves, e Lago~\cite{vellozo06:_align_with_non_overl_inver} propusemos um algoritmo exato para o mesmo problema que executa em  
-tempo $O(n^3)$ e que usa espaço $O(n^2)$.
+usa espaço $O(n^2)$. Em 2005, Alves, Lago, e Vellozo~\cite{MR2173809} propusemos
+um algoritmo exato para este mesmo problema que executa em tempo $O(n^3\log n)$ e
+que usa espaço $O(n^2)$. Em 2006, Vellozo, Alves, e
+Lago~\cite{vellozo06:_align_with_non_overl_inver} propusemos um algoritmo exato
+para o mesmo problema que executa em tempo $O(n^3)$ e que usa espaço $O(n^2)$para um sistema de pontuação das operações de edição que utiliza valoresinteiros e fixos.
 
-Outro evento muito comum em \seqs\ de DNA é a duplicação, que introduz dentro
-da \seq\ uma cópia de um segmento da \seq. Se a cópia de um segmento é
-introduzida exatamente depois ou antes deste segmento, dizemos que a duplicação
-é em \emph{tandem} (\emph{tandem repeat}).
+Outro evento muito comum em \seqs\ de DNA é a duplicação, que introduz dentro da
+\seq\ uma cópia (ou repetição) de um segmento da própria \seq. Se a cópia de um
+segmento é introduzida exatamente depois ou antes deste segmento, ou seja numa posição
+adjacente, dizemos que a duplicação é em \emph{tandem} (\emph{tandem repeat}).
 
-Ser capaz de identificar de maneira sistemática, e portanto exata, dado uma certa
-definição de repetição, é um problema importante em bioinformá\-ti\-ca que ainda
-não foi resolvido de maneira satisfatória ou realmente eficaz, especialmente no
-caso de genomas de organismos eucariontes. A dificuldade vem já da grande
-variedade de tipos de repetições. Algumas repetições, como as compridas (onde
-cada cópia pode atingir centenas de bases), são particularmente difíceis de
-identificar, por causa do comprimento, e porque há pouca conservação de uma cópia
-para a outra. Obviamente, o tamanho habitual das \seqs\ onde as repetições devem
-ser identificadas, aumenta ainda mais o grau de complexidade do problema.
+Ser capaz de identificar de maneira sistemática, e portanto exata os eventos de
+duplicação é um problema importante em bioinformá\-ti\-ca que ainda não foi
+resolvido de maneira satisfatória ou realmente eficaz, especialmente no caso de
+genomas de organismos eucariontes. Algumas repetições, como as compridas (onde
+cada cópia pode atingir centenas de nucleotídeos), são particularmente difíceis
+de serem identificadas, por causa do comprimento e devido a outros eventos
+ocorridos após a duplicação que podem ter alterado os trechos duplicados.
 
 Em 1997, Benson~\cite{267526} propôs um modelo para o alinhamento de \seqs\ que
-considera \emph{tandem repeats} de mesmo tamanho. Ele propôs dois algoritmos
-exatos para obter um tal alinhamento ótimo. O primeiro algoritmo proposto executa
+considera somente \emph{tandem repeats} de mesmo tamanho. Ele propôs dois
+algoritmos exatos para obter um tal alinhamento ótimo. O primeiro algoritmo proposto executa
 em tempo $O(n^5)$ e espaço $O(n^2)$. O segundo algoritmo proposto executa em
 tempo $O(n^4)$ e espaço $O(n^3)$.
 
-Estamos elaborando um artigo completo~\cite{tese_in_preparation} com os
-resultados da minha tese de doutorado, inclusive com um algoritmo que obtém um
-alinhamento ótimo considerando o mesmo modelo proposto por Benson, porém com
-tempo de execução $O(n^3)$ e espaço $O(n^2)$.
+Durante o meu doutorado elaborei um algoritmo~\cite{tese_Vellozo}
+que considera duplicações em qualquer parte da \seq\ onde não tenha havido outra duplicação
+(sem sobreposição) que executa em tempo $O(n^3)$ e espaço
+$O(n^2)$.
 % Eventualmente, poderemos também investigar a possibilidade de inclusão de
 % técnicas aceleradoras como o uso de árvores de sufixos ou de
 % filtragem~\cite{lago03:_algor} nos problemas que vão ser estudados.
-  
+  
 
 \subsection{Anotação funcional}
 Atualmente existem muitos novos projetos de sequenciamento do genoma de
@@ -273,53 +276,115 @@ exemplo, para transporte, regulação ou metabolismo.
 % 
 
 Para anotar quais são as funções de um gene, muitas vezes utilizam-se técnicas e
-algoritmos (como em~\cite{ClotildeClaudel-Renard11152003}) que tentam encontrar
-\seqs\ de genes de outras espécies com funções já conhecidas e com alto grau de
-similaridade com a \seq\ do gene que se quer descobrir a(s) função(ões). Após a
-obtenção destas funções anotadas computacionalmente (\emph{in silico}) alguns
-experimentos biológicos (\emph{in vitro}) podem ser realizados, porém muitas
-vezes somente as anotações \emph{in silico} são consideradas. A não realização de
-experimentos \emph{in vitro} pode ocasionar uma propagação de erros nas anotações
-funcionais dos genes.
+algoritmos que tentam encontrar \seqs\ de genes de outras espécies com funções já
+conhecidas e com alto grau de similaridade com a \seq\ do gene que se quer
+descobrir a(s) função(ões). Desta forma, é transferida a função (ou as funções)
+de um gene similar já estudado ao gene que está sendo estudado. Existem vários
+métodos e algoritmos, como em~\cite{ClotildeClaudel-Renard11152003} e~\cite{pmid17526522},
+que tentam relacionar os genes que são similares a outros genes já estudados e
+assim possibilitar a transferência de suas funções.
+
+A anotação computacional, ou em \emph{in silico}, atribui uma função a um gene ou
+proteína utilizando apenas métodos computacionais. Após a obtenção destas funções
+anotadas computacionalmente (\emph{in silico}) alguns experimentos biológicos
+(\emph{in vitro}) podem ser realizados, porém os experimentos \emph{in vitro} são
+muito custosos e demorados. Desta forma, muitas vezes somente as anotações
+\emph{in silico} são consideradas. Porém uma pequena diferença de poucos
+nucleotídeos pode gerar uma função diferente a um gene. Contudo, ainda não são
+conhecidas totalmente quais alterações nas \seqs\ dos genes podem levar a funções
+diferentes destes genes. Portanto, a não realização de experimentos \emph{in
+vitro} pode ocasionar uma propagação de erros nas anotações funcionais dos genes.
 
 Desta forma, dentro do projeto do sequenciamento do genoma do inseto
-\emph{Acyrthosiphon pisum}~\cite{10.1371/journal.pbio.1000313}, desenvolvemos um
-aplicativo que gera uma pontuação para cada anotação funcional metabólica deste
-inseto. Esta pontuação da anotação tenta refletir o grau de confiabilidade da
-anotação funcional metabólica. Esta pontuação pode mostrar a necessidade ou não
-de experimentos \emph{in vitro} para assegurar a existência da função anotada.
-% 
-% Atualmente estamos escrevendo um artigo para apresentar este \emph{software} e a
-% sua aplicação no projeto genoma do organismo \emph{Acyrthosiphon
-% pisum}~\cite{cycads_in_preparation}.
+\emph{Acyrthosiphon pisum}~\cite{10.1371/journal.pbio.1000313}, desenvolvemos o
+aplicativo CycADS~\cite{cycads_software} que gera uma pontuação (ou evidências)
+para cada anotação funcional do organismo, ou seja, para cada atribuição de uma
+função a um gene é dada uma pontuação. Esta pontuação da anotação
+tenta refletir o grau de confiabilidade desta anotação. Desta forma, esta
+pontuação tenta mostrar a necessidade ou não de experimentos \emph{in vitro} para
+assegurar a existência da função anotada. Neste projeto somente as anotações
+funcionais metabólicas estão sendo analisadas através do aplicativo CycADS e a
+pontuação de cada anotação varia somente de acordo com a quantidade de métodos
+que concordam com a anotação. 
+
+Existem ainda muitas outras características que podem ser consideradas em
+projetos futuros para gerar uma pontuação mais precisa de cada anotação
+funcional. Por exemplo, o sistema CycADS já está preparado para considerar no
+valor da pontuação de cada anotação o grau de similaridade e os métodos
+utilizados na anotação funcional. Métodos com experimentos \emph{in vitro} podem
+gerar pontuações maiores  que métodos \emph{in silico}, assim como funções em
+genes mais similares podem gerar pontuações maiores.
+% Atualmente estamos escrevendo um artigo para apresentar este \emph{software} e
+% a sua aplicação no projeto genoma do organismo \emph{Acyrthosiphon
+% pisum}~\cite{cycads_in_preparation}.
 
 
-\subsection{\emph{Redes metabólicas}}
+\subsection{\emph{Motifs} e Redes metabólicas}
 
 Nas células de um organismo ocorrem várias reações químicas que transformam
-alguns compostos químicos em outros. A rede metabólica de
-um organismo contém todas as reações que podem ocorrer dentro de um
-organismo. 
+alguns compostos químicos em outros. A rede metabólica de um organismo contém
+todas as reações que podem ocorrer dentro de um organismo.
 
 Após o sequenciamento e a anotação funcional do genoma de um organismo é possível
 conseguir a rede metabólica deste organismo. Uma das maneiras de se conseguir
-isto é através do aplicativo \emph{CycADS} que desenvolvemos.
+isto é através do aplicativo CycADS~\cite{cycads_software} que
+desenvolvemos.
 
-Na tentativa de compreender melhor a rede metabólica de um
-organismo, muitos estudos e análises estão sendo realizados
-atualmente. Uma das maneiras de se realizar estes estudos e análises é através da
-procura e identificação de padrões (ou \emph{motifs}) nas redes
-metabólicas~\cite{1183307} de organismos. Para isto desenvolvemos um algoritmo
-para encontrar todos os \emph{motifs} de um tamanho fixo em uma rede metabólica.
-Além dos \emph{motifs} muitos outros apectos são estudados nas redes
-metabólicas, como os modos elementares~\cite{SCHUSTER1994} e os conjuntos
-minimais de precursores de um conjunto de produtos alvo~\cite{1433585}.
+Na tentativa de compreender melhor a rede metabólica de um organismo, muitos
+estudos e análises estão sendo realizados atualmente. Uma das maneiras de se
+realizar estes estudos e análises é através da procura e identificação de padrões
+(ou \emph{motifs})~\cite{1183307} na rede metabólica.
+
+Podemos representar uma rede metabólica $R$ como um grafo
+$G_R=(V,E)$ tal que $V=\{r|\forall r \mbox{ tal que } r \mbox{ é uma reação
+metabólica em }R\}$ e $E=\{(r_1,r_2)|\forall r_1 \in V \mbox{ e } r_2 \in V $
+tal que existe pelo menos um composto (substrato ou produto) em $r_1$ que
+também é composto (substrato ou produto) em $r_2\}$. Podemos com isto
+procurar padrões (ou \emph{motifs}) em $G_R$, como por exemplo buscar os 
+subgrafos isomorfos a um dado subgrafo (padrão).
+
+Dado um grafo $G=(V,E)$, um conjunto de cores $C$ e uma função $c:V\rightarrow
+C$ que rotula (ou colore) os vértices de $V$, definimos \emph{motifs} coloridos
+como um conjunto $M$ de cores não necessariamente distintas, tal que toda cor em
+$M$ é uma cor em $C$ e existe um subgrafo conexo $S$ de $G$ tal que para toda
+cor $c\in C$ o número de ocorrências de $c$ em $M$ é igual ao número de
+vértices em $S$ com a cor $c$.
+
+% Normalmente, a cada reação metabólica é associado um código EC (\emph{Enzyme
+% Commission}) que classifica esta reação. Este código é composto de 4 números
+% separados por um ponto. Cada número representa uma função da reação e números
+% mais a esquerda representam funções mais gerais. Por exemplo o código 1.8.3.4
+% representa a reação catalisada pela enzima \emph{methanethiol oxidase} e o
+% número 1 no código representa que é uma reação de oxidação-redução e
+% todas as reações de oxidação-redução tem o 1 no primeiro número do código EC.
+% Podemos também representar uma reação com somente os $t$ primeiros números do
+% código EC, $1 \leq t \leq 4$. Dizemos que uma reação $r_1$ está ligada a
+% outra reação $r_2$ se existe pelo menos um composto como substrato ou produto em
+% $r_1$ que é também um substrato ou produto em $r_2$. 
+% 
+% Logo, dado uma rede metabólica e um número $t$, $1 \leq t \leq 4$ temos um
+% grafo
+% 
+
+
+Desenvolvemos um algoritmo inédito para encontrar todos os \emph{motifs}
+coloridos de um tamanho fixo em uma rede metabólica e assim poder descobrir
+\emph{motifs} coloridos que ocorrem numa quantidade de vezes surpreendentes
+(muitas ou poucas ocorrências) na rede metabólica de um certo organismo. De
+forma similar, o algoritmo pode ser usado também em redes de interações entreproteínas (PPI).
+
+Além dos \emph{motifs}
+muitos outros apectos são estudados nas redes metabólicas, como os modos elementares~\cite{SCHUSTER1994} e os conjuntos minimais de
+precursores de um conjunto de produtos alvo~\cite{1433585}.
 
 Outra análise que pode ser feita é a comparação da rede metabólica de dois
-organismos. Neste sentido estamos tentando fazer de forma inédita a comparação das redes
-metabólicas de dois organismos que mantêm uma relação de simbiose.
+organismos. Neste sentido, com a recente disponibilização da rede
+metabólica do inseto \emph{Acyrthosiphon pisum}~\cite{10.1371/journal.pbio.1000313} e da já
+conhecida rede metabólica da bactéria \emph{Buchnera
+aphidicola Aps}~\cite{Prickett03012006} podemos fazer de forma inédita a
+comparação das redes metabólicas de dois organismos que mantêm uma relação de simbiose .
 
-\subsection{Objetivos e atividades}
+\section{Objetivos e atividades}
 
 %     O objetivo principal é a elaboração de algoritmos eficientes 
 %     que permitam tratar e extrair informações presentes em grandes volumes de 
@@ -360,7 +425,7 @@ atividades: \squishlist
 graduação e pós-graduação interessados em realizar pesquisas. \squishend
  
 
-\subsection{Metodologia}
+\section{Metodologia}
 
 As implementações dos algoritmos desenvolvidos serão desenvolvidos em
 microcomputadores. No caso de algoritmos com foco em dados biológicos, os dados
@@ -379,10 +444,10 @@ Também pretendo obter retorno da relevância e acuracidade dos
 resultados obtidos a partir de diálogos com biólogos e pesquisadores com os
 quais eu tenha contato. 
 
-A orientação de alunos interessados em pesquisas será também utilizada paraauxiliar na execução das atividades a serem desenvolvidas.
+A orientação de alunos interessados em pesquisas será também utilizada paraauxiliar na execução das atividades a serem desenvolvidas no campo da pesquisa.
 
-{\small
+% {\small
 \bibliographystyle{abbrv}
 \bibliography{projetos}
-}
+% }
 \end{document}
