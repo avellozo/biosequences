@@ -103,7 +103,9 @@ Projeto de pesquisa apresentado como parte das exigências do
 Concurso Público de Provas e Títulos para o Magistério de Ensino Superior
 da Universidade Federal de São Paulo no campus de São José dos Campos.
 }
-\end{center}
+
+\end{center}
+
 
      Algoritmos eficientes são essenciais em muitas atividades na área de
      bio\-informática, principalmente devido à grande quantidade de dados
@@ -119,7 +121,7 @@ da Universidade Federal de São Paulo no campus de São José dos Campos.
 % \newpage
 % 
   
-%   Peça fundamental na comparação de seqüências biológicas é a obtenção de 
+%   Peça fundamental na comparação de sequências biológicas é a obtenção de 
 %   alinhamentos de \seqs, que no entanto costumam desprezar eventos mutacionais 
 %   importantes como a duplicação e a inversão.  Em nosso trabalho em Biologia 
 %   Computacional temos obtido algoritmos ainda polinomiais exatos e que 
@@ -133,13 +135,13 @@ da Universidade Federal de São Paulo no campus de São José dos Campos.
 \subsection{Alinhamento de \seqs\ com rearranjos}
 
 % À medida que o número de novos genomas completos aumenta, a comparação entre
-% seqüências longas de DNA de espécies próximas torna-se mais importante para nosso
-% entendimento da estrutura da seqüência do DNA. Devido a isto, a análise genômica
+% sequências longas de DNA de espécies próximas torna-se mais importante para nosso
+% entendimento da estrutura da sequência do DNA. Devido a isto, a análise genômica
 % comparativa~\cite{pmid10438229}, apesar de ser um novo campo na bioinformática,
 % está se desenvolvendo rapidamente. Em muitas espécies próximas, a ordem dos genes
 % é preservada para intervalos curtos~\cite{pmid7583118}. Nesses casos, os genes
 % são mais conservados do que as regiões intergênicas. Portanto, a ordem da
-% seqüência de genes é muito útil para detectar reordenamentos cromossômicos como
+% sequência de genes é muito útil para detectar reordenamentos cromossômicos como
 % inversões. Estes tipos de comparações ganham maior significância à medida que
 % mais segmentos de genomas ortólogos, fortemente relacionados pela evolução, são
 % sequenciados.
@@ -163,7 +165,8 @@ modo comum de se comparar \seqs\ biológicas é através do alinhamento destas
 \seqs. Procedimentos de alinhamento típicos tentam identificar que partes das
 \seqs\ mudam e os eventos biológicos que originaram estas mudanças. Após,
 apresentam um alinhamento ótimo de acordo com algum critério de otimização e
-sistema de pontuação associado aos eventos.
+sistema de pontuação associado aos eventos.
+
 
 % Por exemplo, na figura~\ref{fig:ExampleOfAlignment} nós vemos dois alinhamentos 
 % de $actagatcagtca$ contra $attgaatcgacta$. 
@@ -185,7 +188,7 @@ sistema de pontuação associado aos eventos.
 % inserção de $t$. Em contraste, o segundo alinhamento explicita a inversão de 
 % $agtc$ para seu complemento reverso $gact$. Já que procedimentos de
 % alinhamento comuns não levam as \emph{inversões} em consideração, eles
-% produziriam o primero alinhamento. 
+% produziriam o primeiro alinhamento. 
 % 
 Alinhamentos podem ser associados a um conjunto de operações de edição que 
 transformam uma \seq\ em outra. Normalmente as únicas operações de edição 
@@ -201,18 +204,21 @@ Um outro evento biológico que ocorre muitas vezes nas \seqs\ de DNA é a
 inversão de trechos desta \seq. Neste evento um segmento da \seq\ é
 substituído pelo correspondente segmento reverso complementar. Nas \seqs\
 de DNA, consideramos que o símbolo $A$ é o símbolo complementar de $T$ e
-vice-versa. Da mesma forma, consideramos que $C$ e $G$ são complementares.
+vice-versa. Da mesma forma, consideramos que $C$ e $G$ são complementares.
+
 
 Dadas duas \seqs\ e custos fixos para as operações de edição de substituição,
 inser\-ção, remoção e inversão, o problema de alinhamento com inversões é
 um problema de otimização que indaga o custo total mínimo de um conjunto destas
 operações de edição que transforma uma \seq\ em outra. Além disso, pode
 também haver interesse na apresentação do alinhamento correspondente, ou seja das
-operações de edição que transformam uma \seq\ na outra.
+operações de edição que transformam uma \seq\ na outra.
+
 
 Em  \cite{1100950} podemos ver que o problema de decisão, associado ao problema
 de obter um alinhamento com inversões para um alfabeto de tamanho ilimitado, é
-NP-difícil.
+NP-difícil.
+
 
 % Antes de irmos adiante, daremos um breve resumo dessas três estratégias.
 
@@ -224,24 +230,29 @@ para esse problema.
 
 Em 2003, Lago~\cite{MR2132586} propôs um algoritmo exato para o problema do
 alinhamento com inversões sem sobreposições que executa em tempo $O(n^4)$ e que
-usa espaço $O(n^2)$. Em 2005, Alves, Lago, e Vellozo~\cite{MR2173809} propusemos
+usa espaço $O(n^2)$. Em 2005, Alves, Lago, e Vellozo~\cite{MR2173809} propuseram
 um algoritmo exato para este mesmo problema que executa em tempo $O(n^3\log n)$ e
 que usa espaço $O(n^2)$. Em 2006, Vellozo, Alves, e
-Lago~\cite{vellozo06:_align_with_non_overl_inver} propusemos um algoritmo exato
-para o mesmo problema que executa em tempo $O(n^3)$ e que usa espaço $O(n^2)$para um sistema de pontuação das operações de edição que utiliza valoresinteiros e fixos.
+Lago~\cite{vellozo06:_align_with_non_overl_inver} propuseram um algoritmo exato
+para o mesmo problema que executa em tempo $O(n^3)$ e que usa espaço $O(n^2)$
+para um sistema de pontuação das operações de edição que utiliza valores
+inteiros e fixos.
+
 
 Outro evento muito comum em \seqs\ de DNA é a duplicação, que introduz dentro da
 \seq\ uma cópia (ou repetição) de um segmento da própria \seq. Se a cópia de um
 segmento é introduzida exatamente depois ou antes deste segmento, ou seja numa posição
-adjacente, dizemos que a duplicação é em \emph{tandem} (\emph{tandem repeat}).
+adjacente, dizemos que a duplicação é em \emph{tandem} (\emph{tandem repeat}).
+
 
 Ser capaz de identificar de maneira sistemática, e portanto exata os eventos de
 duplicação é um problema importante em bioinformá\-ti\-ca que ainda não foi
 resolvido de maneira satisfatória ou realmente eficaz, especialmente no caso de
-genomas de organismos eucariontes. Algumas repetições, como as compridas (onde
+genomas de organismos eucariotas. Algumas repetições, como as compridas (onde
 cada cópia pode atingir centenas de nucleotídeos), são particularmente difíceis
 de serem identificadas, por causa do comprimento e devido a outros eventos
-ocorridos após a duplicação que podem ter alterado os trechos duplicados.
+ocorridos após a duplicação que podem ter alterado os trechos duplicados.
+
 
 Em 1997, Benson~\cite{267526} propôs um modelo para o alinhamento de \seqs\ que
 considera somente \emph{tandem repeats} de mesmo tamanho. Ele propôs dois
@@ -256,7 +267,8 @@ $O(n^2)$.
 % Eventualmente, poderemos também investigar a possibilidade de inclusão de
 % técnicas aceleradoras como o uso de árvores de sufixos ou de
 % filtragem~\cite{lago03:_algor} nos problemas que vão ser estudados.
-  
+  
+
 
 \subsection{Anotação funcional}
 Atualmente existem muitos novos projetos de sequenciamento do genoma de
@@ -277,12 +289,13 @@ exemplo, para transporte, regulação ou metabolismo.
 
 Para anotar quais são as funções de um gene, muitas vezes utilizam-se técnicas e
 algoritmos que tentam encontrar \seqs\ de genes de outras espécies com funções já
-conhecidas e com alto grau de similaridade com a \seq\ do gene que se quer
+conhecidas e com alto grau de similaridade com a \seq\ do gene da qual se quer
 descobrir a(s) função(ões). Desta forma, é transferida a função (ou as funções)
 de um gene similar já estudado ao gene que está sendo estudado. Existem vários
 métodos e algoritmos, como em~\cite{ClotildeClaudel-Renard11152003} e~\cite{pmid17526522},
 que tentam relacionar os genes que são similares a outros genes já estudados e
-assim possibilitar a transferência de suas funções.
+assim possibilitar a transferência de suas funções.
+
 
 A anotação computacional, ou em \emph{in silico}, atribui uma função a um gene ou
 proteína utilizando apenas métodos computacionais. Após a obtenção destas funções
@@ -293,13 +306,14 @@ muito custosos e demorados. Desta forma, muitas vezes somente as anotações
 nucleotídeos pode gerar uma função diferente a um gene. Contudo, ainda não são
 conhecidas totalmente quais alterações nas \seqs\ dos genes podem levar a funções
 diferentes destes genes. Portanto, a não realização de experimentos \emph{in
-vitro} pode ocasionar uma propagação de erros nas anotações funcionais dos genes.
+vitro} pode ocasionar uma propagação de erros nas anotações funcionais dos genes.
+
 
 Desta forma, dentro do projeto do sequenciamento do genoma do inseto
 \emph{Acyrthosiphon pisum}~\cite{10.1371/journal.pbio.1000313}, desenvolvemos o
-aplicativo CycADS~\cite{cycads_software} que gera uma pontuação (ou evidências)
-para cada anotação funcional do organismo, ou seja, para cada atribuição de uma
-função a um gene é dada uma pontuação. Esta pontuação da anotação
+aplicativo CycADS~\cite{cycads_software} que gera uma pontuação (ou o
+número de evidências) para cada anotação funcional do organismo, ou seja, para
+cada atribuição de uma função a um gene é dada uma pontuação. Esta pontuação da anotação
 tenta refletir o grau de confiabilidade desta anotação. Desta forma, esta
 pontuação tenta mostrar a necessidade ou não de experimentos \emph{in vitro} para
 assegurar a existência da função anotada. Neste projeto somente as anotações
@@ -316,7 +330,8 @@ gerar pontuações maiores  que métodos \emph{in silico}, assim como funções em
 genes mais similares podem gerar pontuações maiores.
 % Atualmente estamos escrevendo um artigo para apresentar este \emph{software} e
 % a sua aplicação no projeto genoma do organismo \emph{Acyrthosiphon
-% pisum}~\cite{cycads_in_preparation}.
+% pisum}~\cite{cycads_in_preparation}.
+
 
 
 \subsection{\emph{Motifs} e Redes metabólicas}
@@ -371,18 +386,22 @@ Desenvolvemos um algoritmo inédito para encontrar todos os \emph{motifs}
 coloridos de um tamanho fixo em uma rede metabólica e assim poder descobrir
 \emph{motifs} coloridos que ocorrem numa quantidade de vezes surpreendentes
 (muitas ou poucas ocorrências) na rede metabólica de um certo organismo. De
-forma similar, o algoritmo pode ser usado também em redes de interações entreproteínas (PPI).
+forma similar, o algoritmo pode ser usado também em redes de interações entre
+proteínas (PPI).
 
-Além dos \emph{motifs}
-muitos outros apectos são estudados nas redes metabólicas, como os modos elementares~\cite{SCHUSTER1994} e os conjuntos minimais de
-precursores de um conjunto de produtos alvo~\cite{1433585}.
+
+Além dos \emph{motifs} muitos outros aspectos são estudados nas redes
+metabólicas, como os modos elementares~\cite{SCHUSTER1994} e os conjuntos
+minimais de precursores de um conjunto de produtos alvo~\cite{1433585}.
+
 
 Outra análise que pode ser feita é a comparação da rede metabólica de dois
 organismos. Neste sentido, com a recente disponibilização da rede
 metabólica do inseto \emph{Acyrthosiphon pisum}~\cite{10.1371/journal.pbio.1000313} e da já
 conhecida rede metabólica da bactéria \emph{Buchnera
 aphidicola Aps}~\cite{Prickett03012006} podemos fazer de forma inédita a
-comparação das redes metabólicas de dois organismos que mantêm uma relação de simbiose .
+comparação das redes metabólicas de dois organismos que mantêm uma relação de simbiose .
+
 
 \section{Objetivos e atividades}
 
@@ -401,8 +420,7 @@ a comunidade científica.
  seção~\ref{secintro} da seguinte forma:\squishlist
   \item na elaboração de algoritmos e estruturas de dados eficientes que
   permitam tratar e extrair informações de \seqs\ biológicas; \item
-  no desenvolvimento de aplicativos que ajudem no
-    processo de anotação dos novos genomas sequenciados; \item
+  no desenvolvimento de aplicativos e bases de dados das anotações funcionais dos novos genomas sequenciados; \item
     no desenvolvimento de algoritmos para a análise e comparação de redes
     metabólicas.\squishend
  
@@ -430,7 +448,8 @@ graduação e pós-graduação interessados em realizar pesquisas. \squishend
 As implementações dos algoritmos desenvolvidos serão desenvolvidos em
 microcomputadores. No caso de algoritmos com foco em dados biológicos, os dados
 processados serão \seqs\ biológicas reais obtidas de bancos de dados
-pú\-bli\-cos ou através de algum biólogo com o qual haja contato.
+pú\-bli\-cos ou através de algum biólogo com o qual haja contato.
+
 
 Quaisquer informações e artigos a serem utilizados na pesquisa serão obtidos 
 preferencialmente através de meios eletrônicos e em formato digital. Caso isto 
@@ -440,14 +459,17 @@ na universidade.
 Os resultados obtidos com os algoritmos aqui propostos serão comparados com
 aqueles obtidos de eventuais programas já disponíveis.
 
-Também pretendo obter retorno da relevância e acuracidade dos 
+Também pretendo obter retorno da relevância e coerência dos 
 resultados obtidos a partir de diálogos com biólogos e pesquisadores com os
 quais eu tenha contato. 
 
-A orientação de alunos interessados em pesquisas será também utilizada paraauxiliar na execução das atividades a serem desenvolvidas no campo da pesquisa.
+A orientação de alunos interessados em pesquisas será também utilizada para
+auxiliar na execução das atividades a serem desenvolvidas no campo da pesquisa.
+
 
 % {\small
 \bibliographystyle{abbrv}
 \bibliography{projetos}
 % }
-\end{document}
+\end{document}
+
