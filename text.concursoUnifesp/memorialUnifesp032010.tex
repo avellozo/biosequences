@@ -1,0 +1,1021 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage[brazil]{babel} \usepackage[latin1]{inputenc}
+\usepackage[normalem]{ulem} \usepackage[portuguese]{alg}
+% \usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{pslatex}
+\usepackage[paper=a4paper,lmargin=3.0cm, rmargin=2.50cm, tmargin=2.50cm, bmargin=2.50cm]{geometry} 
+% \renewcommand{\baselinestretch}{2.0} % espaçamento duplo entre linhas
+
+\usepackage[final]{pdfpages}
+
+\usepackage{alg}
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{algorithm}{htbp}{loa}%[chapter]
+\newcommand{\listofalgorithms}{\listof{algorithm}{Lista de Algoritmos}}
+\floatname{algorithm}{Algoritmo} 
+ 
+% Teoremas, Lemas, etc.
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicao}[teorema]{Proposição}
+\newtheorem{observacao}[teorema]{Observação}
+\newtheorem{corolario}[teorema]{Corolário}
+\newtheorem{definicao}[teorema]{Definição}
+\newtheorem{exemplo}[teorema]{Exemplo}
+\newtheorem{problema}[teorema]{Problema}
+\newenvironment{prova}[1][Prova.]{\begin{trivlist}
+\item[\hskip \labelsep {\itshape #1}]}{\end{trivlist}}
+\newenvironment{comentario}[1][Comentário]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+\newcommand{\tq}{\mathrel{|}}
+\newcommand{\weightsym}{\phi}
+\newcommand{\weight}[1]{\function{\weightsym}{#1}}
+\newcommand{\invert}[1]{\mathord{\overline{{#1}}}}
+\newcommand{\invertsym}{\mathord{\overline{\ \ {\vspace{3 mm}}}}}
+\newcommand{\aplica}{\longrightarrow}              
+\newcommand{\implica}{\Longrightarrow}   
+\newcommand{\sse}{\Longleftrightarrow}   
+\newcommand{\seq}{sequência}
+\newcommand{\seqs}{se\-quên\-cias}
+\newcommand{\Seq}{Se\-quên\-cia}
+\newcommand{\Seqs}{Se\-quên\-cias}
+\newcommand{\inv}{in\-ver\-são}
+\newcommand{\invs}{in\-ver\-sões}
+\newcommand{\invnsob}{\inv\ não so\-bre\-pos\-ta}
+\newcommand{\invnsobs}{\invs\ não so\-bre\-pos\-tas}
+\newcommand{\oped}{o\-pe\-ra\-ção de e\-di\-ção}
+\newcommand{\opeds}{o\-pe\-ra\-ções de e\-di\-ção}
+\newcommand{\Oped}{O\-pe\-ra\-ção de e\-di\-ção}
+\newcommand{\Opeds}{O\-pe\-ra\-ções de e\-di\-ção}
+\newcommand{\bio}{bio\-ló\-gi\-co}
+\newcommand{\bioa}{bio\-ló\-gi\-ca}
+\newcommand{\bios}{bio\-ló\-gi\-cos}
+\newcommand{\bioas}{bio\-ló\-gi\-cas}
+\newcommand{\gred}{grafo de e\-di\-ção}
+\newcommand{\greds}{grafos de e\-di\-ção}
+\newcommand{\gredes}{grafo de e\-di\-ção estendido}
+\newcommand{\gredess}{grafos de e\-di\-ção estendido}
+\newcommand{\dup}{du\-pli\-ca\-ção}
+\newcommand{\dups}{du\-pli\-ca\-ções}
+\newcommand{\rep}{re\-pe\-ti\-ção}
+\newcommand{\reps}{re\-pe\-ti\-ções}
+\newcommand{\intrep}{intervalo de \rep}
+\newcommand{\intreps}{intervalos de \rep}
+           
+
+% \newcount\hour
+% \newcount\minute
+% \hour=\time \divide \hour by 60 \minute=\time \loop \ifnum \minute
+% > 59 \advance \minute by -60 \repeat
+% \def\now{%
+% \ifnum \hour<13 \ifnum \hour<1 12:\else\number\hour:\fi \ifnum
+% \minute<10 0\fi
+% \number\minute%
+% %\ifnum \hour<12 \ AM \else \ PM \fi
+% \else \advance \hour by -12 \number\hour:%
+% \ifnum \minute<10 0\fi
+% \number\minute%
+% %\ PM%
+% \fi%
+% }
+% \let\oldthepage=\thepage
+% \renewcommand{\thepage}{\today{} \now \qquad (\oldthepage)}
+
+\newcommand{\cqd}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+% \usepackage[small,compact]{titlesec}
+
+\newcommand{\squishlist}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}      \setlength{\parsep}{3pt}
+      \setlength{\topsep}{3pt}       \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishlisttwo}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}    \setlength{\parsep}{0pt}
+      \setlength{\topsep}{0pt}     \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{2em} \setlength{\labelwidth}{1.5em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishend}{ \end{list}  }
+
+\begin{document}
+
+% \hyphenation{a-li-nha-men-to pro-ba-bi-li-da-de se-qüên-cia}
+
+\title{Memorial e Currículo Lattes}
+\author{Augusto Fernandes Vellozo}
+% \date
+
+\maketitle
+
+
+% \begin{abstract}
+\begin{center}
+\emph{
+Memorial e Currículo Lattes apresentado como parte das exigências do
+Concurso Público de Provas e Títulos para o Magistério de Ensino Superior
+da Universidade Federal de São Paulo no campus de São José dos Campos.
+}
+
+\end{center}
+
+
+     Bacharel em Ciência da Computação na Unicamp e Doutor em Ciências na área
+     de concentração de Ciência da Computação na USP, atualmente no terceiro
+     ano de pós-doutorado na Universidade Lyon I - França na área de Biologia Computacional.
+
+    
+    \newpage
+    
+    \tableofcontents
+    
+    \newpage
+    
+\section{Informações pessoais}
+
+Nome: Augusto Fernandes Vellozo
+
+Nome em citações bibliográficas: Augusto F Vellozo, Augusto Vellozo
+
+Filiação: Esutáquio Fernandes Vellozo e Ignêz Dacal Vellozo
+
+Estado civil: casado
+
+Nascimento: 12/04/1967
+
+Naturalidade: Avaré/SP - Brasil
+
+Nacionalidade: Brasileira e Portuguesa
+
+RG: 16.187.494 - SSP - SP
+
+CPF: 074.309.138-81
+
+Endereço residencial: 10 Rue Paul Cambon - Villeurbanne - França
+
+CEP: 69100
+
+Telefone: (+33) 426766582
+
+Endereço para correspondência no Brasil: Rua Mato Grosso, 30 - Santa Terezinha
+
+CEP: 18040-020 - Sorocaba - SP
+
+Telefones para contato no Brasil: (15) 3221.6841 (Adriana) ou (11) 2092-8834
+(Luíza)
+
+E-mail: augusto@vellozo.org
+
+\newpage
+
+\section{Retrospectiva profissional e acadêmica}
+
+Nesta retrospectiva, tentarei relatar de forma narrativa os fatos que marcaram
+minha vida profissional e acadêmica.
+
+Desde o Segundo Grau tenho facilidade com a área de exatas. No primeiro ano do
+segundo grau participei das Olimpíadas de Matemática e, depois de passar pelas
+seletivas da escola e da cidade de Sorocaba, fui classificado entre os 10
+primeiros ($9^o_.$ lugar) no estado de São Paulo, o que foi um resultado
+surpreendente dado que eu estudava em uma escola pública cujo currículo era
+defasado em relação às escolas particulares.
+
+Lembro-me que no fim do segundo ano do segundo grau meu professor de matemática
+(Sr. Edimir) veio conversar comigo e com um outro aluno  (Carlos, que também ia
+bem em matemática) depois da aula. Ele queria nos orientar sobre os
+caminhos a seguir. Lembro dele dizer sobre o nosso potencial e que deveríamos
+fazer um terceiro ano preparatório num cursinho para entrarmos numa boa
+universidade. Meu colega Carlos disse que iria para o Objetivo e eu disse a ele
+que meu pai não tinha condição de pagar um terceiro ano num cursinho e que iria
+tentar continuar o terceiro ano no colégio público e caso não passasse numa boa
+universidade iria fazer um cursinho. Este professor conversou com os outros
+professores do colégio e dois outros professores (Dona Wanda de História e o Sr.
+Zé Eduardo de Química) meus que trabalhavam  também no Anglo e eles conseguiram
+uma bolsa para eu fazer o terceiro ano no Anglo.
+
+Dentre as opções da área de exatas, escolhi o curso de Ciência da Computação
+pois, depois de conversar com alguns professores, achei que era um curso onde a
+lógica era muito importante e que tinha um bom futuro profissional. Escolhi
+prestar o vestibular para a Unicamp pois este era indicado como o melhor curso
+de Computação naquela época.
+
+Prestei também o vestibular do Barro Branco, pois um vizinho da minha mãe que era
+Sargento da Polícia Militar, convenceu minha mãe que esta era a melhor opção para
+mim. Eu não queria ser militar, mas como o vestibular do Barro Branco era um mês
+antes da FUVEST (o vestibular da Unicamp era pela FUVEST naquela época) resolvi
+fazê-lo para agradar minha mãe (apesar de já ter dito a ela que minha preferência
+era pela Unicamp) e para me preparar para a FUVEST. Lembro-me inclusive que um
+dia antes de sair a lista de resultados do Barro Branco fui chamado a comparecer
+perante o comandante da polícia militar da região de Sorocaba, o qual me contou
+que eu havia sido um dos aprovados no Barro Branco e que gostaria de me dar os
+parabéns e boa sorte na minha carreira militar. Em seguida me deu algumas
+orientações de como eu deveria me comportar na academia. Depois daquela conversa
+tinha certeza que não iria para a carreira militar, mesmo que não passasse na
+Unicamp.
+
+Com 17 anos passei então no segundo curso mais concorrido do país na época:
+Ciência da Computação na Unicamp.
+
+Mudei-me para Campinas e lá fiz o curso de bacharelado em Ciência da Computação.
+Ao final do primeiro ano fui convidado a fazer a modalidade
+científico-industrial. Naquela época o curso tinha, a partir do segundo ano,
+duas modalidades: a comercial e a científico-industrial. A modalidade
+científico-industrial era limitada a 20 alunos qie tivessem um bom coeficiente
+de rendimento no fim do primeiro ano. Como minhas notas eram boas, fui convidado a fazer essa
+modalidade.
+
+Terminei a graduação sem qualquer reprovação e consegui terminar o curso em
+quatro anos e meio, sendo que o previsto pela currículo da Unicamp eram 5 anos.
+
+Depois de formado, um professor convidou-me para trabalhar numa empresa (Quantum
+Computadores) onde era gerente da área de pesquisa e desenvolvimento. Tabalhei lá
+durante dois anos no desenvolvimento e manutenção de BIOS para PCs 386 e 486. A
+área de pesquisa e desenvolvimento da empresa era em Campinas e tinha 6
+funcionários  (2 engenheiros elétricos para hardware, 3 bacharéis em Ciência da
+Computação para o software básico e 1 gerente). Naqueles anos a importação de
+computadores era proibida no Brasil e todos os computadores, assim como os
+softwares básicos, deveriam ser desenvolvidos e fabricados no Brasil. 
+
+Com o fim da reserva de mercado a empresa fechou a área de pesquisa e
+desenvolvimento e fui transferido para São Paulo e trabalhei quase dois meses lá
+dando suporte para a área comercial. Não gostei das novas funções nas quais vinha
+trabalhando e resolvi sair da Quantum, voltar para Sorocaba e abrir em sociedade
+com um colega uma empresa (ABR Sistemas) para a comercialização de computadores e
+desenvolvimento de softwares. A empresa prosperou e chegou a ter 12 funcionários,
+sendo uma das maiores e mais conhecidas na comercialização de computadores em
+Sorocaba.
+
+Sentindo falta do meio acadêmico e desejando diversificar um pouco mais meus
+conhecimentos, comecei a fazer uma pós-graduação lato-sensu em Administração de
+Marketing na UNISO (Universidade de Sorocaba).
+
+Depois de quatro anos competindo com o mercado paralelo de venda de
+computadores, resolvi vender a empresa para o meu sócio e abrir uma outra empresa
+(Vellozo Informática) só para o desenvolvimento de softwares. Consegui durante
+dois anos desenvolver softwares para pequenas empresas e prestar serviços para
+algumas grandes indústrias de Sorocaba.  Neste período também terminei minha
+pós-graduação em Administração de Marketing e comecei uma outra pós-graduação em
+Sistema de Informação na UNISO também.
+
+Nesta época já estava namorando e pretendendo me casar. Para isto achei que
+precisava de algum trabalho que me desse mais segurança para montar uma família.
+
+Mandei alguns currículos para verificar se conseguia algo que se adequasse mais
+aos meus planos de vida no momento.
+
+Consegui então um emprego na equipe de desenvolvimento do "Home Banking" do
+Finasa em São Paulo. Naquela época  (1997 e 1998) a internet ainda estava
+começando no Brasil  e as pessoas utilizavam os serviços do banco em casa através
+de um programa fornecido pelo banco (\emph{Home Banking}) e que se comunicava com os
+mainframes  do banco através do modem discado. Trabalhei lá durante quase dois
+anos no desenvolvimento e manutenção do \emph{Home Banking} do banco. Nesta
+época também finalizei a minha segunda pós-graduação na UNISO.
+
+Ainda trabalhando com bancos, consegui um emprego com um bom salário numa empresa
+de consultoria para o Bradesco em Alphaville onde trabalhei por 1 ano e meio.
+
+Com o mercado de internet num momento muito bom no Brasil, no ano de 2000, fui
+trabalhar no BOL/UOL em São Paulo. A princípio fui trabalhar no BOL, na equipe
+para desenvolvimento de aplicativos de email. O BOL foi montado por Victor
+Ribeiro que fez mestrado na UFMG. Victor montou a equipe técnica do Bol com
+muitas pessoas da UFMG, sendo muitas destas com mestrado. Logo Victor passou a
+ser também o diretor de tecnologia de todo o UOL que fica na Av. Faria Lima, não
+muito longe da USP. Fui transferido junto com a equipe do BOL para a Av Faria
+Lima. Como existiam muitas pessoas do meio acadêmico na equipe de desenvolvimento
+e como a USP era relativamente perto do UOL, começaram a surgir pessoas no nosso
+setor interessadas em fazer um mestrado na USP. Eu, já há 2 anos e meio longe da
+universidade, era um deles e junto com outros dois colegas do UOL fizemos a prova
+para entrar no mestrado (PosComp) do IME-USP em Ciência da Computação. Passei em
+quarto lugar no PosComp e assim comecei a fazer o mestrado no IME-USP.  Um dos
+colegas de trabalho não foi muito bem na prova e depois de entrar em contato com
+alguns professores conseguiu fazer algumas disciplinas de verão para habilitá-lo
+a começar o mestrado. Como fui muito bem na prova para entrar no mestrado, fui
+matriculado diretamente e me deram a opção de bolsa. Porém como era recém-casado
+e estava construindo minha casa, não podia sair do UOL para ficar somente com a
+bolsa de mestrado. Desta forma, comecei o mestrado sem bolsa e trabalhando no
+UOL. No fim do primeiro ano consegui terminar 6 disciplinas, o que é esperado
+para quem faz o mestrado sem trabalhar. Com o bom desempenho do primeiro ano,
+novamente foi-me oferecida a bolsa de mestrado e novamente a recusei, pois 
+optei em continuar no UOL.
+
+No fim do primeiro ano optei por fazer o meu mestrado na área de Biologia
+Computacional, pois era uma área em expansão e onde se usava bastante teoria da
+computação. Dentre os professores que trabalhavam com Biologia Computacional,
+escolhi trabalhar com Alair Pereira do Lago.
+
+No início do segundo ano de mestrado surgiu a oportunidade de dar aulas num
+Instituto de Gradução que estava começando em São Paulo (IBTA).
+Como já pensava em seguir a carreira acadêmica, resolvi experimentar para ver se iria me adaptar bem e
+gostar de dar aulas.  Desta forma, no segundo ano e início do terceiro de
+mestrado, dei aulas no IBTA.
+
+No terceiro ano de mestrado (2003), depois de verificar que gostava de dar aulas
+e ter um bom desempenho nas disciplinas do mestrado, resolvi que iria seguir na
+carreira acadêmica. Porém, neste ano nasceu o meu primeiro filho (Bruno) e optei
+por manter ainda naquele ano o emprego no UOL e parar com as aulas no IBTA.
+
+No mestrado estudava algoritmos em árvores de sufixos.
+
+Os dois colegas do UOL que começaram comigo o mestrado não conseguiram
+terminá-lo. Um deles desistiu no fim do segundo ano, após não conseguir ser
+aprovado em algumas disciplinas e ficar estressado com o acúmulo de trabalho (UOL
+e mestrado). O outro colega foi dispensado do UOL no início do segundo ano do
+mestrado e teve que refazer o PosComp e começar outra vez o mestrado após ser
+reprovado duas vezes seguidas na disciplina de Análise de Algoritmos, a qual é
+obrigatória.
+
+No fim daquele ano (terceiro ano de mestrado), já com o filho bem de saúde e a
+casa construída, resolvi me dedicar totalmente à carreira acadêmica e achei que
+era o momento de sair do UOL. Quando comuniquei ao meu orientador sobre as minhas
+decisões, ele me sugeriu que começasse um doutorado direto e pegasse uma bolsa
+institucional de doutorado. Segui o seu conselho e comecei em 2004 o meu
+doutorado. Foi um início de doutorado muito difícil, pois minha mãe e meu pai
+estavam doentes e faleceram no fim de 2003 e início de 2004 respectivamente.
+
+No doutorado comecei a trabalhar com alinhamento de sequências com inversões.
+Este trabalho continuava o trabalho~\cite{lago03:wob03} do meu orientador
+(Alair Pereira do Lago) no pós-doutorado que ele havia feito nos EUA. Trabalhei também com Carlos Eduardo
+Rodrigues Alves que foi o primeiro autor num artigo~\cite{MR2173809p} que
+fizemos sobre um algoritmo de alinhamento com inversões não sobrepostas em tempo $O(n^3 \log n)$.
+Neste ano de 2004 trabalhei na implementação e nos testes deste algoritmo.
+
+No ano seguinte (2005) consegui desenvolver um novo algoritmo com tempo de
+processamento melhor para o mesmo problema de alinhamento de sequências com
+inversões não sobrepostas~\cite{vellozo06:_align_with_non_overl_inver} e
+trabalhei nos testes deste algoritmo.
+
+Em 2006 fiz um trabalho novo para o alinhamento de sequências, desta vez
+considerando as duplicações. Com este trabalho ficou clara a evolução que tive no
+doutorado, pois comecei com um problema já existente (alinhamento de sequências
+com inversões não sobrepostas), aperfeiçoando o melhor método até então
+conhecido e depois comecei independentemente o estudo de um novo problema
+(alinhamento de sequências com duplicações).
+
+No fim de 2006 e início de 2007 escrevi e defendi minha tese: Alinhamento de
+sequências com rearranjos~\cite{tese_Vellozo}.
+
+Em Julho de 2007 comecei o meu pós-doutorado em Lyon-França com Marie-France
+Sagot na universidade Lyon I. Marie-France é uma pessoa excepcional e me ajudou
+bastante na difícil adaptação que tive com a esposa e os dois filhos num outro
+país. A experiência neste pós-doutorado está sendo muito gratificante, tanto na
+parte profissional como na parte pessoal.
+
+Neste pós-doutorado conheci muitos pesquisadores de vários países diferentes e
+pude participar de vários \emph{workshops} e conferências na Europa. Isto pôde
+alavancar bastante minha parte profissional no meio acadêmico, aumentando muito
+minha rede social de pesquisadores e com isto criando muitas possibilidades de
+colaboração para o futuro. Além disto, pude aprender sobre muitos assuntos
+diferentes, inclusive me adentrando um pouco mais na parte prática da
+Bioinformática, pois no meu doutorado estive muito restrito a parte teórica
+deste assunto. Ou seja, no meu doutorado estudei muito a teoria computacional
+dos problemas e no pós-doutorado aprendi e trabalhei mais com a parte prática de
+alguns problemas na área de Bioinformática.
+
+Nos primeiros 6 meses do meu pós-doutorado, além de todos os problemas de
+adaptação, trabalhei com a continuação da minha tese e na implementação dos
+algoritmos para o alinhamento de \seqs\ com duplicações.
+
+Depois disto entrei no projeto genoma do inseto Acyrthosiphon
+Pisum~\cite{10.1371/journal.pbio.1000313}. Neste projeto trabalhei com a parte da
+anotação e construção da rede metabólica deste organismo. Para isto desenvolvi o
+software CycADS~\cite{cycads_software}. CycADS foi desenvolvido para possibilitar a
+construção da rede metabólica de um organismo qualquer. A rede metabólica é construída a
+partir de várias fontes distintas das anotações ECs e/ou GOs das proteínas. Para
+a atribuição das reações relacionadas a cada EC e/ou GO e a visualização da rede
+metabólica do organismo, CycADS utiliza um outro software
+(PathwayTools~\cite{PeterKarp01012010}).
+
+Ainda no assunto de rede metabólicas, estou trabalhando atualmente num algoritmo
+para a inferência de motifs coloridos~\cite{1183307} numa rede metabólica. Como
+não conhecemos nenhum software que faça a inferência de motifs coloridos, atualmente estou
+fazendo alguns testes com outros softwares que fazem algo próximo a isto.
+
+\newpage
+\section{Formação acadêmica}
+\subsection{Pós-Doutorado - 07/2009 a atual} Université Claude Bernarde Lyon I,
+Lyon, França.
+
+Laboratoire Biométrie et Biologie Évolutive - UMR CNRS 5558 - LBBE
+
+Equipe BAOBAB - coordenadora: Marie-France Sagot
+
+\url{http://lbbe.univ-lyon1.fr/-Equipe-Baobab.html}
+
+Na tentativa de compreender melhor a rede metabólica de um organismo,
+muitos estudos e análises estão sendo realizados atualmente. Uma das maneiras de se
+realizar estes estudos e análises é através da procura e identificação de padrões
+(ou \emph{motifs})~\cite{1183307} na rede metabólica.
+
+Neste pós-doutorado estou trabalhando com análise de redes metabólicas e de
+interação pro\-teína\--pro\-teína (PPI) através de \emph{motifs}. 
+
+Além disto tive
+contato também com outras técnicas de análise de redes metabólicas, como modos
+elementares~\cite{SCHUSTER1994} e os conjuntos minimais de
+precursores de um conjunto de produtos alvo~\cite{1433585}.
+
+
+
+\subsection{Pós-Doutorado - 07/2008 a 07/2009} Institut National des Sciences
+Appliquees de Lyon, INSA-Lyon, Lyon, França.
+
+Laboratoire Biologie Fonctionnelle Insectes et Interactions - UMR203 - BF2I
+
+Equipe SymTrophique - coordenador: Hubert Charles
+
+\url{http://criport1.insa-lyon.fr/bf2i/index.php?Rub=31}
+
+Dentro do projeto do sequenciamento do genoma do inseto
+\emph{Acyrthosiphon pisum}~\cite{10.1371/journal.pbio.1000313}, desenvolvemos o
+aplicativo CycADS~\cite{cycads_software} que gera uma pontuação (ou
+número de evidências da anotação) para cada anotação funcional do organismo.
+
+Com este software conseguimos construir a base de dados
+\emph{Acypicyc}~\cite{acypicyc_url} e através dela a possibilidade da
+análise da rede metabólica do recém sequenciado organismo
+\emph{Acyrthosiphon pisum}.
+
+
+
+\subsection{Pós-Doutorado - 07/2007 a 07/2008} Universite Claude Bernarde Lyon I,
+Lyon, França.
+
+Laboratoire Biométrie et Biologie Évolutive - UMR CNRS 5558 - LBBE
+
+Equipe BAOBAB - coordenadora: Marie-France Sagot
+
+\url{http://lbbe.univ-lyon1.fr/-Equipe-Baobab.html}
+
+Neste pós-doutorado continuei os meus estudos e trabalhos do doutorado na área
+de alinhamento de \seqs\ com duplicações.
+
+Iniciei neste período no projeto do sequenciamento do genoma do inseto
+\emph{Acyrthosiphon pisum}~\cite{10.1371/journal.pbio.1000313}.
+
+\subsection{Doutorado  em Ciência da Computação- 03/2001 a 04/2007} Universidade de
+São Paulo, USP, Brasil.
+
+Orientador: Alair Pereira do Lago.
+
+Título da tese: Alinhamento de seqüências com rearranjos~\cite{tese_Vellozo}.
+
+Resumo da tese: Uma das tarefas mais básicas em bioinformática é a comparação de
+\seqs\ feita por algoritmos de alinhamento, que modelam as alterações evolutivas nas \seqs\
+\bioas\ através de mutações como inserção, remoção e substituições de símbolos.
+Este trabalho trata de generalizações nos algoritmos de alinhamento que levam em
+consi\-de\-ra\-ção outras mutações conhecidas como rearranjos, mais
+especificamente, inversões, \dups\ em \emph{tandem} e \dups\ por transposição.
+
+Alinhamento com inversões não tem um algoritmo polinomial conhecido e uma
+sim\-pli\-fi\-ca\-ção para o problema que considera somente \invnsobs\ foi
+proposta em 1992 por Schöniger e Waterman~\cite{pmid1591531}. Em 2003, trabalhos
+independentes propuseram algoritmos com tempo\footnote{Neste caso, $n$ denota o
+tamanho máximo dentre as duas \seqs\ a serem alinhadas.}
+$O(n^4)$~\cite{lago03:wob03,gao03:_space_effic_algor_sequen_align_inver,MR2132586}
+para alinhar duas \seqs\ com \invnsobs. Desenvolvemos dois algoritmos que
+resolvem este mesmo problema: um com tempo de execução $O(n^3 \log
+n)$~\cite{MR2173809} e
+ outro que, sob algumas condições no sistema de pontuação, tem tempo de execução
+ $O(n^3)$~\cite{vellozo06:_align_with_non_overl_inver}, ambos
+em memória $O(n^2)$.
+
+Em 1997, Benson propôs um modelo de alinhamento que reconhecesse também as \dups\
+em \emph{tandem}. Ele propôs dois algoritmos exatos para alinhar duas \seqs\ com
+\dups\ em \emph{tandem}: um em tempo $O(n^5)$ e memória $O(n^2)$, e outro em
+tempo $O(n^4)$ e memória $O(n^3)$. Propomos um algoritmo para alinhar duas \seqs\
+com \dups\ em \emph{tandem} em tempo $O(n^3)$ e memória $O(n^2)$. Propomos também
+um algoritmo para alinhar duas \seqs\ com \emph{transposons} (um tipo mais geral
+que a \dup\ em \emph{tandem}), em tempo $O(n^3)$ e memória $O(n^2)$.
+
+\subsection{Especialização em Informática e Sistemas de Informação - 03/1997 a
+07/1998} Universidade de Sorocaba, UNISO, Brasil.
+
+Carga Horária: 384h
+
+Esta especialização foi útil para retomar os estudos em computação e também o
+contato com os professores que faziam doutorado, pós-doutorado ou docência na USP
+ou UNICAMP.
+
+Pude também estabelecer contato com várias pessoas que trabalhavam na área de
+informática em várias empresas da região de Sorocaba e São Paulo.
+
+\subsection{Especialização em Administração de marketing - 03/1995 a 07/1996}
+Universidade de Sorocaba, UNISO, Brasil.
+
+Carga Horária: 362h
+
+Nesta especialização pude retomar o contato com o meio acadêmico, pois já faziam
+quase 6 anos que não fazia um curso numa Universidade.
+
+Também foi muito válido para aprender várias técnicas de administração e
+marketing, podendo com isto entender melhor o meio empresarial.
+
+\subsection{Graduação em Ciência da Computação - 03/1985 a 07/1989} Universidade
+Estadual de Campinas, UNICAMP, Brasil.
+
+Foi neste curso que tive o primeiro contato com o meio acadêmico e onde pude
+obter as bases para os meus estudos futuros.
+
+Foi certamente muito importante na minha carreira acadêmica. \newpage
+
+\section{Produção bibliográfica}
+
+\subsection{Genome Sequence of the Pea Aphid Acyrthosiphon pisum. PLoS Biology -
+2010}
+
+Abstract~\cite{10.1371/journal.pbio.1000313}:Aphids are important agricultural
+pests and also biological models for studies of insect-plant interactions,
+symbiosis, virus vectoring, and the developmental causes of extreme phenotypic
+plasticity. Here we present the 464 Mb draft genome assembly of the pea aphid
+Acyrthosiphon pisum. This first published whole genome sequence of a basal
+hemimetabolous insect provides an outgroup to the multiple published genomes of
+holometabolous insects. Pea aphids are host-plant specialists, they can reproduce
+both sexually and asexually, and they have coevolved with an obligate bacterial
+symbiont. Here we highlight findings from whole genome analysis that may be
+related to these unusual biological features. These findings include discovery of
+extensive gene duplication in more than 2000 gene families as well as loss of
+evolutionarily conserved genes. Gene family expansions relative to other
+published genomes include genes involved in chromatin modification, miRNA
+synthesis, and sugar transport. Gene losses include genes central to the IMD
+immune pathway, selenoprotein utilization, purine salvage, and the entire urea
+cycle. The pea aphid genome reveals that only a limited number of genes have been
+acquired from bacteria; thus the reduced gene count of Buchnera does not reflect
+gene transfer to the host genome. The inventory of metabolic genes in the pea
+aphid genome suggests that there is extensive metabolite exchange between the
+aphid and Buchnera, including sharing of amino acid biosynthesis between the
+aphid and Buchnera. The pea aphid genome provides a foundation for post-genomic
+studies of fundamental biological questions and applied agricultural problems.
+
+\subsection{Alignment with non-overlapping inversions in {$O(n^ 3)$}-time. WABI,
+2006}
+
+Abstract~\cite{vellozo06:_align_with_non_overl_inver}:Alignments of sequences are
+widely used for biological sequence
+  comparisons.  Only biological events like mutations, insertions and deletions
+  are usually modeled and other biological events like inversions are not
+  automatically detected by the usual alignment algorithms.
+  
+  Alignment with inversions does not have a known polynomial algorithm and a
+  simplification to the problem that considers only non-over\-lapping inversions
+  were proposed by Schöniger and Waterman~\cite{pmid1591531} in 1992 as well as a
+  corresponding $O(n^6)$ solution\footnote{In this case, $n$ denotes the maximal
+    length of the two aligned sequences.}.  An improvement to an
+  algorithm with $O(n^3 \log n)$-time complexity was announced in an extended
+  abstract~\cite{MR2173809} and, in this present paper, we give an algorithm that
+  solves this simplified problem in $O(n^3)$-time and $O(n^2)$-space in the more
+  general framework of an edit graph.
+
+  Inversions have
+  recently~\cite{pmid15746427,pmid10411506,pmid10794175,pmid15466707} been
+  discovered to be very important in Comparative Genomics and Scherer et al.\ in
+  2005~\cite{pmid16254605} experimentally verified inversions that were found to
+  be polymorphic in the human genome.  Moreover, 10\% of the 1,576 putative
+  inversions reported overlap RefSeq genes in the human genome.  We believe our
+  new algorithms may open the possibility to more detailed studies of inversions
+  on DNA sequences using exact optimization algorithms and we hope this may be
+  particularly interesting if applied to regions around known rearrangements
+  boundaries.  Scherer report 29 such cases and prioritize them as candidates for
+  biological and evolutionary studies.
+
+\subsection{Alignment with non-overlapping inversions in {$O(n\sp 3\log
+n)$}-time. \newline GRACO, 2005}
+
+Abstract~\cite{MR2173809p}:  Alignment of sequences is widely used for biological
+sequence
+  comparisons, and only biological events like mutations, insertions and
+  deletions are usually modeled.  Other biological events like inversions are not
+  automatically detected by the usual alignment algorithms.
+  
+  Alignment with inversions has not a known polinomial algorithm and a
+  simplification to the problem that considers only non-overlapping inversions
+  were proposed by Schöniger and Waterman~\cite{pmid1591531} in 1992 as well as
+  a corresponding $O(n^6)$ solution\footnote{In this paper, $n$ denotes the
+  maximal length of the two aligned sequences.}.  Recent
+  works~\cite{gao03:_space_effic_algor_sequen_align_inver,lago03:wob03,lago01:_compar,MR2132586}
+  improved these results to $O(n^4)$-time and $O(n^2)$-space complexity.  In this
+  present extended abstract, we announce an algorithm that solves this simplified
+  problem in $O(n^3 \log n)$-time and $O(n^2)$-space.
+
+
+
+\newpage
+
+\section{Produção técnica acadêmica}
+
+\subsection{\emph{Software} - Cycads - Cyc Annotation Database system. 2009.}
+\url{http://code.cycadsys.org/}
+Resumo obtido do artigo que está em preparação para ser publicado.
+
+Abstract:
+
+\begin{description}
+\item[Background]
+In recent years, more and more organisms are having their genome sequenced, but
+their annotation remains a lengthy and long lasting process. The BioCyc databases
+offer a framework for the integrated analysis of metabolic networks. The Pathway
+tool software suite offers automation to build a database starting from an
+annotated genome, but all annotations have to be integrated in a summary file
+and/or extracted from a GenBank file.
+
+\item[Results]To allow the easy creation and updates of a BioCyc database
+starting from multiple genome annotation resources available over time, we
+developed an \emph{ad hoc} data management system that we named CycADS (Cyc
+Annotation Database System). CycADS is centred on a specific database model and
+on a set of Java programs to import and export relevant information. Data from
+GenBank and other annotation sources (including for example:
+KAAS~\cite{pmid17526522}, PRIAM~\cite{ClotildeClaudel-Renard11152003},
+BLAST2GO~\cite{pmid16081474} and PhylomeDB~\cite{JaimeHuerta-Cepas10252007})
+are collected in the database and later extracted to generate a complete annotation file to build a BioCyc database using the PathoLogic program.
+The CycADS pipeline for annotation management was used to build the AcypiCyc
+database for the pea aphid (\emph{Acyrthosiphon pisum}) whose genome was recently
+sequenced. The AcypiCyc database page includes also, for comparative analysis,
+two other metabolic reconstruction BioCyc databases generated using CycADS:
+TricaCyc for \emph{Tribolium castaneum} and DromeCyc for \emph{Drosophila
+melanogaster}.
+
+\item[Conclusions]CycADS offers, thanks to its flexible design, a powerful software tool for the
+generation and regular update of metabolic BioCyc databases and it is
+particularly suited for newly sequenced genome metabolism gene annotation and
+network reconstruction.
+
+\end{description}
+
+
+\subsection{\emph{Base de dados} - AcypiCyc - Acyrthosiphon pisum Cyc database.
+2009.}
+
+Resumo obtido do \emph{site} da base de dados
+(\url{http://acypicyc.cycadsys.org}).
+
+Abstract: The AcypiCyc database has been generated at the Université de Lyon in a
+collaboration between the UMR203 INRA-INSA de Lyon, Biologie fonctionelle des
+insectes et interactions (BF2I) and the Baobab team at UMR5558 LBBE CNRS-UCBL1;
+both groups are member of the INRIA Bamboo team-project. The database is hosted
+at the Pôle Rhône-Alpes de Bioinformatique (PRABI). We are working on a version
+that includes KAAS~\cite{pmid17526522},
+PRIAM~\cite{ClotildeClaudel-Renard11152003}, BLAST2GO~\cite{pmid16081474} and
+PhylomeDB~\cite{JaimeHuerta-Cepas10252007} annotations. We will add more
+annotations soon. At present, you will be able to compare \emph{Acyrthosiphon
+pisum} metabolism to \emph{Buchnera aphidicola} APS REVISED (generated in Lyon
+inside the SymbioCyc database).
+
+\newpage
+
+\section{Projetos de pesquisa}
+
+\subsection{MetNet - Systems level analysis of the Pea Aphid - 2008 a atual}
+\url{http://www.metnet4sysbio.org/}
+
+Desenvolvido Université Claude Bernanrd - Lyon I em parceria com a University
+of York - Inglaterra.
+
+A seguir um resumo em inglês retirado da página do projeto.
+
+From a metabolic perspective, an animal comprises a set of metabolic
+compartments (including organs) connected by the inter-compartment transfer of
+metabolites. We seek to construct and analyse multi-compartment models of
+metabolism, by transforming a single global metabolic network into a set of
+compartment networks of overlapping composition using flux balance analysis. In
+parallel, we will develop and apply two computational approaches for network
+analysis: an exploration of metabolic network motifs, and elementary modes to
+characterize and compare networks. Large inter-compartment metabolic differences
+facilitating model development will be achieved in our system comprising two
+distinct genomes within a single animal: the pea aphid Acyrthosiphon pisum and
+its symbiotic bacteria Buchnera housed in a special organ, the bacteriome. The
+first model comprises two compartments, describing how the insect and bacterial
+networks mediate the transformation of precisely known diet components to yield
+biomass production (and waste); and subsequent models are of increasing
+complexity, involving the subdivision of the insect network into overlapping, but
+distinct, networks of the contributing compartments/organs. Model construction
+will be informed by empirical data collected on the aphid transcriptome, Buchnera
+proteome and embryo nutrient budgets within this project, and the model outputs
+will be validated against whole-insect metabolic and nutritional datasets
+obtained previously from the investigators' labs. Algorithms and models developed
+in this project will be maintained in a central Repository linked to pre-existing
+databases, suitable for data-sharing within the project and dissemination to the
+wider community. The outputs will include metabolic network data for a range of
+insects with well-developed genomic resources. 
+
+\subsection{NEMO - Network Motifs - 2009 a atual}
+\url{http://nemo.ssbgroup.fr/}
+
+Desenvolvido na Université Claude Bernanrd - Lyon I em parceria com a
+AgroParisTech/INRA, Paris e CNRS/Université d'Evry /INRA.
+
+A seguir um resumo em inglês retirado da página do projeto.
+
+Recent technical advances have allowed the collection of data which are
+structured like networks. Many scientific fields are concerned by this network
+revolution such as physics, sociology and biol-ogy. The mathematical analysis of
+such networks aims at uncovering structures which can help in the understanding
+of the system. Global and local strategies can be considered and our project
+focuses on the latter. Studying substructures, called network motifs, is of
+particular interest in biology, since these building blocks constitute functional
+units which combine to ensure cell regulatory processes.
+
+From a mathematical point of view, the first focus of this project is the study
+of the statistical distribu-tion of motif counts in random graphs to detect the
+most interesting motifs of a given network. We will propose relevant definitions
+of network motifs and efficient algorithms to enumerate their occur-rences. We
+will then propose random graph models fitting the global properties of observed
+biological networks and propose statistical methods to estimate their parameters.
+We will finally derive the ex-act or approximate distribution of the motif counts
+in these models. A public software will be devel-oped to make all these results
+available to biologists. As motifs can be considered as the building blocks of
+networks, we will develop, in a second phase, network comparison procedures based
+on motif counts. We will use motifs to confront networks to other sources, e.g.
+gene expression data: Gaussian graphical models will provide us a natural
+framework to achieve this confrontation.
+
+Members of the NeMo project are statisticians, discrete mathematicians and
+computer scientists whose task force will be gathered to answer theoretical
+questions in algorithmics, probability and sta-tistics and to develop efficient
+computer software for biologists. As many biological processes are governed by
+interacting elements, we will study different biological networks, such as
+protein-protein interaction networks, regulatory networks and metabolic networks.
+Appropriate mathematical tools will be required in each case.
+ 
+
+The project is organized into 5 tasks:
+\begin{enumerate}
+  \item 
+   Definition and enumeration of network motifs \item Realistic random graph
+   models for biological networks \item Assessing motif exceptionality \item Network
+   comparison \item From network motifs to data integration\end{enumerate}
+
+\subsection{Computational Biology, Algorithmics, Combinatorial Optimization -
+2006 a 2007} 
+Desenvolvido no departamento de Ciência da Computação-IME-USP em parceria com
+a Université Claude Bernard Lyon I.
+
+A seguir um resumo em inglês retirado do projeto de pesquisa enviado a CAPES
+(\url{http://servicos.capes.gov.br/arquivos/avaliacao/estudos/dados1/2006/33002010/002/2006_002_33002010176P0_ProjPesq.pdf}).
+
+The research proposed will focus mainly on computational biology. The
+technological advances in biological related areas of recent years has allowed a
+huge amount of information to be produced. It is one of the main current
+challenges for biologists to be able to extract knowledge from all this data, and
+a challenge also for the computer scientists and mathematicians to participate
+with the biologists in this process. The analysis of this data involves, among
+many other issues, the formalization of problems and the search for efficient
+algorithms to solve them. This is a continuous process in the sense that the
+solutions produced by the algorithms will usually lead to new research that has
+for objective refining the models, and will therefore result in new problems
+and/or the development of increasingly more sophisticated algorithms. The main
+goal of the association between the HELIX and USP teams is to work on such types
+of questions: the formalization of problems coming from biology and the search
+for efficient algorithms to solve these problems.
+
+\subsection{Algorithmic Questions on Molecular Biology -
+2004 a 2005} 
+\url{http://www.ime.usp.br/~cris/inria/}
+
+Desenvolvido no departamento de Ciência da Computação-IME-USP  em parceria com a
+Université Claude Bernard Lyon I.
+Foi através deste projeto que visitei pela primeira vez a Universidade Claude
+Bernard em Lyon-França em Dezembro de 2005.
+
+A seguir um resumo em inglês retirado da página do projeto. 
+
+The research proposed
+here will mainly focus on computational biology. The technological advances in
+biology related areas allowed a huge amount of information to be extracted. It is
+one of the main current challenges for biologists to be able to extract knowledge
+from all this data and a challenge also for the computer scientists to help the
+biologists in this process. The analysis of this data involves, among many other
+issues, the formalization of problems and the search for efficient algorithms to
+solve these problems. This is a continous process in the sense that the solutions
+produced by the algorithms will usually lead a refinement of the models and
+problem formulations, and will therefore require new algorithms. The main goal of
+this project is to work on these type of questions: the formalization fo problems
+coming from biology and the search for efficient algorithms for these problems.
+
+\newpage
+\section{Participação em eventos}
+
+\subsection{Metabolic Pathways Analysis-2009 - Leiden - Holanda}
+
+\url{http://www.lorentzcenter.nl/lc/web/2009/376/info.php3?wsid=376}
+
+Excelente congresso com vários renomados pesquisadores que trabalham na área de
+análise de redes metabólicas. 
+
+Participei como ouvinte das palestras.
+
+
+\subsection{6th ISS Congress-2009 - Madison - EUA}
+
+\url{http://www.union.wisc.edu/symbiosis}
+
+Poster: AcypiCyc (Acyrthosiphon pisum Cyc database): a model database to
+visualize and study the metabolic network underlying the pea aphid-Buchnera
+symbiosis.
+
+O poster foi apresentado por meu colega e co-autor Stefano Colella.
+
+
+\subsection{II Pea Aphid Genome Annotation Workshop-2009 - Barcelona - Espanha}
+
+\url{http://aphid.cgenomics.org}
+
+Poster: The Acyrthosiphon pisum Cyc database (AcypiCyc) created using a novel
+BioCyc Annotation Database System (CycADS): a useful tool to explore and study
+the pea aphid metabolism.
+O poster foi apresentado por mim e meu colega e co-autor Stefano Colella.
+
+
+\subsection{8th International Symposium on Aphids-2009 - Catania - Itália}
+
+\url{http://www.8isasicily.net}
+
+Poster: AcypiCyc (Acyrthosiphon pisum Cyc database) and CycADS (Cyc Annotation
+Database System): moving from genome sequence annotation to metabolic network
+analyses.
+
+O poster foi apresentado por meu colega e co-autor Yvan Rahbé.
+
+
+\subsection{Réseau Français de Biologie Adaptative des Pucerons-2009 - Paris -
+França}
+
+Poster: AcypiCyc (Acyrthosiphon pisum Cyc database) and CycADS (Cyc Annotation
+Database System): moving from genome sequence annotation to metabolic network
+analyses.
+
+O poster foi apresentado por meu colega e co-autor Stefano Colella.
+
+
+\subsection{I Pea Aphid Genome Annotation Workshop-2008 - Princeton - EUA}
+
+\url{http://www.as.miami.edu/AphidWorkshop/}
+
+Poster: Annotation of metabolism genes: towards the implementation of an
+Acyrthosiphon pisum Cyc database (ApsCyc) to perform metabolic network analyses.
+
+O poster foi apresentado por meu colega e co-autor Stefano Colella.
+
+
+\subsection{IPG (Integrative Post-Genomics)-2008 - Lyon - França}
+
+\url{http://bsmc.insa-lyon.fr/ipg/ipg08/contributed_abstracts.html}
+
+Poster: Development of the Acyrthosiphon pisum Cyc database (ApsCyc): from genome
+sequence to metabolic network analyses.
+
+O poster foi apresentado por mim e meu colega e co-autor Stefano Colella.
+
+
+\subsection{BioCyc and Pathway Tools tutorial-2008 - Londres - Inglaterra}
+
+\url{http://brg.ai.sri.com/ptools/tutorial/2008-09-London.html}
+
+Tutorial para entender melhor o funcionamento e utilização do aplicativo
+PathwayTools para a visualização de várias características da rede metabólica de um organismo.
+
+Participei como ouvinte das palestras.
+
+
+\subsection{Journées Ouvertes Biologie Informatique Mathématiques-JOBIM-2008 -
+Lille - França}
+
+\url{http://www2.lifl.fr/jobim2008/}
+
+Evento que reúne vários pesquisadores, principalmente da França, da área de
+bioinformática.
+
+Participei como ouvinte das palestras.
+
+
+
+
+\newpage
+\section{Experiência didática}
+\subsection{Instituto Brasileiro de Tecnologia Avançada, IBTA, Brasil - 01/2002
+a 07/2003}
+
+Como professor titular II (pois já tinha especialização) ministrei aulas de Fundamentos de Software (prática e teoria) e
+Programação orientada a objetos (prática e teoria) para as turmas do
+primeiro ano dos cursos de Banco de Dados e Administração de Redes, da seguinte
+forma:
+\begin{itemize}
+  \item Prática em Fundamentos de Software para a turma do 1o. semestre do curso
+  de Banco de dados
+  \item Teoria em Fundamentos de Software para a turma do 1o. semestre do curso
+  de Banco de dados
+  \item Prática em Fundamentos de Software para a turma do 1o. semestre do curso
+  de Administração de redes
+   \item Teoria em Fundamentos de Software para a turma do 1o. semestre do curso
+  de Admi\-nis\-tra\-ção de redes
+  \item Prática em Programação orientada a objetos para a turma do 2o. semestre do curso
+  de Banco de dados
+  \item Teoria em Programação orientada a objetos para a turma do 2o. semestre do curso
+  de Banco de dados
+  \item Prática em Programação orientada a objetos para a turma do 2o. semestre do curso
+  de Administração de redes
+   \item Teoria em Programação orientada a objetos para a turma do 2o. semestre do curso
+  de Administração de redes
+\end{itemize} 
+
+\newpage
+
+\section{Experiência profissional em empresas}
+
+\subsection{Universo OnLine Ltda.-UOL, Brasil - 04/2000 a 01/2004}
+Função: Analista programador e gerente de projetos
+
+Departamento: desenvolvimento de software. 
+
+No início (8 meses) trabalhei como consultor terceirizado da empresa. Depois
+fui contratado como funcionário CLT.
+
+Desenvolvi aplicativos para as áreas de Email e Cadastro de
+clientes da empresa. 
+
+Gerenciei projetos para a área de Atendimento ao Cliente (SAC).
+
+\subsection{GlobalSys-Bradesco, Brasil - 01/1999 a 04/2000}
+Função: Analista programador e suporte
+
+Departamento: empresa terceirizada (Globalsys). 
+
+Trabalhei como consultor terceirizado da empresa.
+
+Desenvolvi e dei suporte a aplicativos para uso em áreas internas do Bradesco.
+
+\subsection{Banco Finasa, Brasil - 06/1997 a 01/1999}
+Função: Analista programador
+
+Departamento: microinformática. 
+
+Desenvolvi e dei suporte para os aplicativos de \emph{Home Banking} do FINASA.
+
+\subsection{Vellozo Informática, Brasil - 09/1995 a 05/1997}
+Função: Consultor e sócio proprietário
+
+Desenvolvi aplicativos e dei suporte e consultoria para empresas em Sorocaba e
+região.
+
+\subsection{ABR Sistemas, Brasil - 03/1992 a 08/1995}
+Função: diretor e sócio proprietário
+
+Criei, gerenciei e administrei esta empresa para a comercialização de
+\emph{software} e computadores em Sorocaba e região.
+
+\subsection{Quantum Computadores, Brasil - 10/1989 a 10/1991}
+Função: Analista programador de software básico
+
+Departamento: Pesquisa e desenvolvimento. 
+
+Desenvolvimento da BIOS para um micro-computador PC 486. 
+
+Suporte e manutenção da BIOS de um micro-computador PC 386.
+
+\newpage
+
+\section{Considerações finais}
+
+Gostaria de finalizar dizendo que apesar de já estar há quase 3 anos no
+exterior, gostaria de fixar residência novamente no Brasil. Gostaria que meus
+filhos recebessem a cultura brasileira e fossem criados no Brasil. Acredito que
+estes anos no exterior foram muito gratificantes, mas já foram suficientes.
+
+Gostaria de ressaltar também que apesar de ter uma carreira acadêmica muito
+boa, com doutorado no IME-USP e pós-doutorado na França, tive também
+experiências profissionais em empresas por muito tempo no Brasil. Acredito que
+esta minha experiência profissional em várias empresas pode ajudar a
+propiciar uma boa visão deste ramo aos alunos.
+
+Além disto, devido a este meu passado profissional, tive contato com empresários
+e profissionais influentes (diretoria e vice-presidência) de empresas e indústrias no Brasil
+(UOL, Google e Andrews). Acredito que com isto possa ajudar a concretizar
+parcerias da universidade com empresas e alavancar projetos que podem se
+auto-sustentar através do financiamento destas empresas. Desta forma as empresas podem conseguir
+resultados expressivos e inovatórios, assim como a universidade pode conseguir aprimorar o
+conhecimento dos alunos e aproximá-los de problemas reais e do ambiente e
+estrutura das empresas.
+% \newpage
+\section{Currículo Lattes}
+\includepdf[pages=-]{cvLattes.pdf}
+
+\newpage
+% {\small
+\bibliographystyle{abbrv}
+\bibliography{projetos}
+% }
+
+\end{document}
+
+

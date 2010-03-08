@@ -1,0 +1,473 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage[brazil]{babel} \usepackage[latin1]{inputenc}
+\usepackage[normalem]{ulem} \usepackage[portuguese]{alg}
+% \usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{pslatex}
+\usepackage[paper=a4paper,lmargin=3.0cm, rmargin=2.50cm, tmargin=2.50cm, bmargin=2.50cm]{geometry} 
+% \renewcommand{\baselinestretch}{2.0} % espaçamento duplo entre linhas
+
+\usepackage[final]{pdfpages}
+
+\usepackage{alg}
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{algorithm}{htbp}{loa}%[chapter]
+\newcommand{\listofalgorithms}{\listof{algorithm}{Lista de Algoritmos}}
+\floatname{algorithm}{Algoritmo} 
+ 
+% Teoremas, Lemas, etc.
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicao}[teorema]{Proposição}
+\newtheorem{observacao}[teorema]{Observação}
+\newtheorem{corolario}[teorema]{Corolário}
+\newtheorem{definicao}[teorema]{Definição}
+\newtheorem{exemplo}[teorema]{Exemplo}
+\newtheorem{problema}[teorema]{Problema}
+\newenvironment{prova}[1][Prova.]{\begin{trivlist}
+\item[\hskip \labelsep {\itshape #1}]}{\end{trivlist}}
+\newenvironment{comentario}[1][Comentário]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+\newcommand{\tq}{\mathrel{|}}
+\newcommand{\weightsym}{\phi}
+\newcommand{\weight}[1]{\function{\weightsym}{#1}}
+\newcommand{\invert}[1]{\mathord{\overline{{#1}}}}
+\newcommand{\invertsym}{\mathord{\overline{\ \ {\vspace{3 mm}}}}}
+\newcommand{\aplica}{\longrightarrow}              
+\newcommand{\implica}{\Longrightarrow}   
+\newcommand{\sse}{\Longleftrightarrow}   
+\newcommand{\seq}{sequência}
+\newcommand{\seqs}{se\-quên\-cias}
+\newcommand{\Seq}{Se\-quên\-cia}
+\newcommand{\Seqs}{Se\-quên\-cias}
+\newcommand{\inv}{in\-ver\-são}
+\newcommand{\invs}{in\-ver\-sões}
+\newcommand{\invnsob}{\inv\ não so\-bre\-pos\-ta}
+\newcommand{\invnsobs}{\invs\ não so\-bre\-pos\-tas}
+\newcommand{\oped}{o\-pe\-ra\-ção de e\-di\-ção}
+\newcommand{\opeds}{o\-pe\-ra\-ções de e\-di\-ção}
+\newcommand{\Oped}{O\-pe\-ra\-ção de e\-di\-ção}
+\newcommand{\Opeds}{O\-pe\-ra\-ções de e\-di\-ção}
+\newcommand{\bio}{bio\-ló\-gi\-co}
+\newcommand{\bioa}{bio\-ló\-gi\-ca}
+\newcommand{\bios}{bio\-ló\-gi\-cos}
+\newcommand{\bioas}{bio\-ló\-gi\-cas}
+\newcommand{\gred}{grafo de e\-di\-ção}
+\newcommand{\greds}{grafos de e\-di\-ção}
+\newcommand{\gredes}{grafo de e\-di\-ção estendido}
+\newcommand{\gredess}{grafos de e\-di\-ção estendido}
+\newcommand{\dup}{du\-pli\-ca\-ção}
+\newcommand{\dups}{du\-pli\-ca\-ções}
+\newcommand{\rep}{re\-pe\-ti\-ção}
+\newcommand{\reps}{re\-pe\-ti\-ções}
+\newcommand{\intrep}{intervalo de \rep}
+\newcommand{\intreps}{intervalos de \rep}
+           
+
+% \newcount\hour
+% \newcount\minute
+% \hour=\time \divide \hour by 60 \minute=\time \loop \ifnum \minute
+% > 59 \advance \minute by -60 \repeat
+% \def\now{%
+% \ifnum \hour<13 \ifnum \hour<1 12:\else\number\hour:\fi \ifnum
+% \minute<10 0\fi
+% \number\minute%
+% %\ifnum \hour<12 \ AM \else \ PM \fi
+% \else \advance \hour by -12 \number\hour:%
+% \ifnum \minute<10 0\fi
+% \number\minute%
+% %\ PM%
+% \fi%
+% }
+% \let\oldthepage=\thepage
+% \renewcommand{\thepage}{\today{} \now \qquad (\oldthepage)}
+
+\newcommand{\cqd}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+% \usepackage[small,compact]{titlesec}
+
+\newcommand{\squishlist}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}      \setlength{\parsep}{3pt}
+      \setlength{\topsep}{3pt}       \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishlisttwo}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}    \setlength{\parsep}{0pt}
+      \setlength{\topsep}{0pt}     \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{2em} \setlength{\labelwidth}{1.5em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishend}{ \end{list}  }
+
+\begin{document}
+
+% \hyphenation{a-li-nha-men-to pro-ba-bi-li-da-de se-qüên-cia}
+
+\title{Documentação comprobatória do Memorial e Currículo Lattes}
+\author{Augusto Fernandes Vellozo}
+% \date
+
+\maketitle
+
+
+% \begin{abstract}
+\begin{center}
+\emph{
+Documentação comprobatória do Memorial e Currículo Lattes apresentado como
+parte das exigências do Concurso Público de Provas e Títulos para o Magistério de Ensino Superior
+da Universidade Federal de São Paulo no campus de São José dos Campos.
+}
+
+\end{center}
+
+
+     Bacharel em Ciência da Computação na Unicamp e Doutor em Ciências na área
+     de concentração de Ciência da Computação na USP, atualmente no terceiro
+     ano de pós-doutorado na Universidade Lyon I - França na área de Biologia Computacional.
+
+    
+    \newpage
+    
+    \tableofcontents
+       
+
+\newpage
+\section{Formação acadêmica}
+\subsection{Pós-Doutorado - 07/2009 a atual} Université Claude Bernarde Lyon I,
+Lyon, França.
+
+\url{http://lbbe.univ-lyon1.fr/-Equipe-Baobab.html}
+
+A comprovação da minha participação na equipe BAOBAB coordenada por
+Marie-France Sagot pode ser feita através do \emph{site} da equipe
+(página~\pageref{siteBAOBAB}).
+
+Além disto, forneço também uma cópia do meu contrato de trabalho  (em
+francês) com a universidade (página~\pageref{contratoUCBL2009}).
+
+\subsection{Pós-Doutorado - 07/2008 a 07/2009} Institut National des Sciences
+Appliquees de Lyon, INSA-Lyon, Lyon, França.
+
+\url{http://criport1.insa-lyon.fr/bf2i/index.php?Rub=31}
+
+A comprovação da minha participação na equipe SymTrophique coordenada por
+Hubert Charles pode ser feita através do \emph{site} do laboratório
+(página~\pageref{siteBF2I}).
+
+Além disto, forneço também uma cópia do meu contrato de trabalho  (em
+francês) com a universidade (página~\pageref{contratoBF2I}).
+
+\subsection{Pós-Doutorado - 07/2007 a 07/2008} Universite Claude Bernarde Lyon I,
+Lyon, França.
+
+\url{http://lbbe.univ-lyon1.fr/-Equipe-Baobab.html}
+
+A comprovação da minha participação na equipe BAOBAB coordenada por
+Marie-France Sagot pode ser feita através do \emph{site} da equipe
+(página~\pageref{siteBAOBAB}).
+
+Além disto, forneço também uma cópia do certificado  (em francês) de conclusão
+do pós-doutorado fornecido pela universidade
+(página~\pageref{certificadoUCBL2007}).
+
+\subsection{Doutorado  em Ciência da Computação- 03/2001 a 04/2007} Universidade de
+São Paulo, USP, Brasil.
+
+\url{http://www.teses.usp.br/teses/disponiveis/45/45134/tde-04052007-185842}
+
+A cópia do diploma está anexa (página~\pageref{diplomaDoutor}).
+
+\subsection{Especialização em Informática e Sistemas de Informação - 03/1997 a
+07/1998} Universidade de Sorocaba, UNISO, Brasil.
+
+A cópia do diploma está anexa (página~\pageref{diplomaLatoInformatica}).
+
+\subsection{Especialização em Administração de marketing - 03/1995 a 07/1996}
+Universidade de Sorocaba, UNISO, Brasil.
+
+A cópia do diploma está anexa (página~\pageref{diplomaLatoMarketing}).
+
+\subsection{Graduação em Ciência da Computação - 03/1985 a 07/1989} Universidade
+Estadual de Campinas, UNICAMP, Brasil.
+
+A cópia do diploma está anexa (página~\pageref{diplomaGraduacao}).
+
+\section{Produção bibliográfica}
+
+\subsection{Genome Sequence of the Pea Aphid Acyrthosiphon pisum. PLoS Biology -
+2010}
+
+\url{http://dx.doi.org/10.1371\%2Fjournal.pbio.1000313}
+
+doi:10.1371/journal.pbio.1000313
+
+Uma cópia do artigo está anexa (página~\pageref{artigoGenomaPisum}), assim como
+uma cópia da lista de autores e seus grupos de participações
+(página~\pageref{autoresGenomaPisum}).
+
+Além disto forneço também a cópia do email que recebi com as congratulações
+pela publicação (página~\pageref{emailpubliGenomaPisum}).
+
+
+ \subsection{Alignment with non-overlapping inversions in {$O(n^
+3)$}-time. WABI, 2006}
+
+\url{http://www.springerlink.com/content/w1gw8u371006g603/}
+
+doi:10.1007/11851561\_18
+
+Uma cópia do artigo está anexa (página~\pageref{artigoWABI2006}).
+
+
+\subsection{Alignment with non-overlapping inversions in {$O(n\sp 3\log
+n)$}-time. \newline GRACO, 2005}
+
+\url{http://www.sciencedirect.com/science/article/b75gv-4g8mt0t-1p/2/15ca35c3828cd2c20967326055dbf2f7}
+
+doi:10.1016/j.endm.2005.05.049
+
+Uma cópia do artigo está anexa (página~\pageref{artigoGRACO2005}).
+
+\section{Produção técnica acadêmica}
+
+\subsection{\emph{Software} - Cycads - Cyc Annotation Database system. 2009.}
+\url{http://code.cycadsys.org/}
+
+Uma cópia da página na internet onde está o código está anexa 
+(página~\pageref{pagCodeCycads}).
+
+\subsection{\emph{Base de dados} - AcypiCyc - Acyrthosiphon pisum Cyc database.
+2009.}
+
+\url{http://acypicyc.cycadsys.org}.
+
+Uma cópia da página na internet onde está a base de dados está anexa 
+(página~\pageref{pagAcypicyc}).
+
+\section{Projetos de pesquisa}
+
+\subsection{MetNet - Systems level analysis of the Pea Aphid - 2008 a atual}
+
+\url{http://www.metnet4sysbio.org/}
+
+
+\subsection{NEMO - Network Motifs - 2009 a atual}
+
+\url{http://nemo.ssbgroup.fr/}
+ 
+
+\subsection{Computational Biology, Algorithmics, Combinatorial Optimization -
+2006 a 2007} 
+
+Uma cópia da página do documento onde consta que sou membro do projeto está na
+página~\pageref{projUSP2006}.
+
+O documento inteiro pode ser encontrado em
+\url{http://servicos.capes.gov.br/arquivos/avaliacao/estudos/dados1/2006/33002010/002/2006_002_33002010176P0_ProjPesq.pdf}.
+
+
+\subsection{Algorithmic Questions on Molecular Biology -
+2004 a 2005} 
+
+\url{http://www.ime.usp.br/~cris/inria/}
+
+Uma cópia da página do documento onde consta que sou membro do projeto está na
+página~\pageref{projUSP2007}.
+
+O documento inteiro pode ser encontrado em
+\url{http://servicos.capes.gov.br/arquivos/avaliacao/estudos/dados1/2006/33002010/002/2006_002_33002010176P0_ProjPesq.pdf}.
+
+\newpage
+\section{Participação em eventos}
+
+\subsection{Metabolic Pathways Analysis-2009 - Leiden - Holanda}
+
+\url{http://www.lorentzcenter.nl/lc/web/2009/376/info.php3?wsid=376}
+
+Uma cópia da página internet onde consta os participantes está na
+página~\pageref{leiden}.
+
+
+\subsection{6th ISS Congress-2009 - Madison - EUA}
+
+\url{http://www.union.wisc.edu/symbiosis/poster.html}
+
+O endereço acima contém a lista dos posters onde consta a presentação do
+nosso poster no dia 13/08/2009 por Stefano Colella.
+
+
+\subsection{II Pea Aphid Genome Annotation Workshop-2009 - Barcelona - Espanha}
+
+\url{http://aphid.cgenomics.org}
+
+Uma cópia do certificado de participação segue anexa na
+página~\pageref{certificadoBarcelona}.
+
+Uma cópia da página 15 do programa do \emph{workshop} onde consta a apresentação
+do nosso poster por Stefano Colella está na
+página~\pageref{programaBarcelona}.
+
+
+\subsection{8th International Symposium on Aphids-2009 - Catania - Itália}
+
+\url{http://www.8isasicily.net}
+
+Uma cópia da página 48 do programa do simpósio onde consta o resumo do nosso
+poster está na página~\pageref{posterCatania}
+
+\subsection{Réseau Français de Biologie Adaptative des Pucerons-2009 - Paris -
+França}
+
+\subsection{I Pea Aphid Genome Annotation Workshop-2008 - Princeton - EUA}
+
+\url{http://www.as.miami.edu/AphidWorkshop/}
+
+
+\subsection{IPG (Integrative Post-Genomics)-2008 - Lyon - França}
+
+\url{http://bsmc.insa-lyon.fr/ipg/ipg08/contributed_abstracts.html}
+
+
+\subsection{BioCyc and Pathway Tools tutorial-2008 - Londres - Inglaterra}
+
+\url{http://brg.ai.sri.com/ptools/tutorial/2008-09-London.html}
+
+
+\subsection{Journées Ouvertes Biologie Informatique Mathématiques-JOBIM-2008 -
+Lille - França}
+
+\url{http://www2.lifl.fr/jobim2008/}
+
+
+
+\section{Experiência didática e profissional}
+\subsection{Instituto Brasileiro de Tecnologia Avançada, IBTA, Brasil - 02/2002
+a 06/2003}
+
+Cópia da carteira de trabalho está na página~\pageref{carteiraTrabIBTA}
+
+\subsection{Universo OnLine Ltda.-UOL, Brasil - 04/2000 a 01/2004}
+
+Cópia da carteira de trabalho está na página~\pageref{carteiraTrabUOL}
+
+\subsection{GlobalSys-Bradesco, Brasil - 01/1999 a 04/2000}
+
+\subsection{Banco Finasa, Brasil - 06/1997 a 01/1999}
+
+Cópia da carteira de trabalho está na página~\pageref{carteiraTrabFinasa}
+
+\subsection{Vellozo Informática, Brasil - 09/1995 a 05/1997}
+
+
+\subsection{ABR Sistemas, Brasil - 03/1992 a 08/1995}
+
+
+\subsection{Quantum Computadores, Brasil - 10/1989 a 10/1991}
+
+Cópia da carteira de trabalho está na página~\pageref{carteiraTrabQuantum}
+
+\newpage
+
+
+\label{siteBAOBAB}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/equipebaobab.pdf}
+
+
+\label{contratoUCBL2009}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/contratoUCBL2009pag1.pdf}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/contratoUCBL2009pag2.pdf}
+
+\label{siteBF2I}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/bf2i.pdf}
+
+
+
+\label{contratoBF2I}
+\includepdf[pages=-,angle=180,pagecommand={\thispagestyle{plain}}]{docs/contratoBF2Ipag1.pdf}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/contratoBF2Ipag2.pdf}
+
+
+
+\label{certificadoUCBL2007}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/certificadoUCBL2007.pdf}
+
+
+\label{diplomaDoutor}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/diplomaDoutorado.pdf}
+\includepdf[pages=-]{docs/diplomaDoutoradoVerso.pdf}
+
+
+
+\label{diplomaLatoInformatica}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/diplomaLatoInformatica.pdf}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/diplomaLatoInformaticaVerso.pdf}
+
+
+\label{diplomaLatoMarketing}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/diplomaLatoMarketing.pdf}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/diplomaLatoMarketingVerso.pdf}
+
+
+
+\label{diplomaGraduacao}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/diplomaGraduacao.pdf}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/diplomaGraduacaoVerso.pdf}
+
+
+
+\label{autoresGenomaPisum}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/authors_affiliations_aphidmainpaper.pdf}
+
+
+\label{emailpubliGenomaPisum}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/emailPubliPlos.pdf}
+
+
+\label{pagCodeCycads}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/codeCycads.pdf}
+
+
+\label{pagAcypicyc}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/acypicyc.pdf}
+
+
+\label{projUSP2006}
+\includepdf[pages=2,pagecommand={\thispagestyle{plain}}]{docs/2006_002_33002010176P0_ProjPesq.pdf}
+\label{projUSP2007}
+\includepdf[pages=5,pagecommand={\thispagestyle{plain}}]{docs/2006_002_33002010176P0_ProjPesq.pdf}
+\label{leiden}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/leiden2009.pdf}
+\label{posterCatania}
+\includepdf[pages=48,pagecommand={\thispagestyle{plain}}]{docs/Catania.pdf}
+\label{programaBarcelona}
+\includepdf[pages=15,pagecommand={\thispagestyle{plain}}]{docs/AphidgenomicsWorkshop2009.pdf}
+\label{certificadoBarcelona}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/workshoppisumbarcelona2009.pdf}
+\label{carteiraTrabUOL}
+\label{carteiraTrabIBTA}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/carttrabpag14-15.pdf}
+\label{carteiraTrabQuantum}
+\label{carteiraTrabFinasa}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/carttrabpag12-13.pdf}
+\label{artigoGenomaPisum}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/journalpbio1000313.pdf}
+\label{artigoWABI2006}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/wabifinal.pdf}
+\label{artigoGRACO2005}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{docs/graco05.pdf}
+
+\end{document}
+
+
