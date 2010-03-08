@@ -1,0 +1,488 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage[brazil]{babel} \usepackage[latin1]{inputenc}
+\usepackage[normalem]{ulem} \usepackage[portuguese]{alg}
+% \usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{pslatex}
+\usepackage[paper=a4paper,lmargin=3.0cm, rmargin=2.50cm, tmargin=2.50cm, bmargin=2.50cm]{geometry} 
+% \renewcommand{\baselinestretch}{2.0} % espaçamento duplo entre linhas
+
+\usepackage[final]{pdfpages}
+
+\usepackage{alg}
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{algorithm}{htbp}{loa}%[chapter]
+\newcommand{\listofalgorithms}{\listof{algorithm}{Lista de Algoritmos}}
+\floatname{algorithm}{Algoritmo} 
+ 
+% Teoremas, Lemas, etc.
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicao}[teorema]{Proposição}
+\newtheorem{observacao}[teorema]{Observação}
+\newtheorem{corolario}[teorema]{Corolário}
+\newtheorem{definicao}[teorema]{Definição}
+\newtheorem{exemplo}[teorema]{Exemplo}
+\newtheorem{problema}[teorema]{Problema}
+\newenvironment{prova}[1][Prova.]{\begin{trivlist}
+\item[\hskip \labelsep {\itshape #1}]}{\end{trivlist}}
+\newenvironment{comentario}[1][Comentário]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+\newcommand{\tq}{\mathrel{|}}
+\newcommand{\weightsym}{\phi}
+\newcommand{\weight}[1]{\function{\weightsym}{#1}}
+\newcommand{\invert}[1]{\mathord{\overline{{#1}}}}
+\newcommand{\invertsym}{\mathord{\overline{\ \ {\vspace{3 mm}}}}}
+\newcommand{\aplica}{\longrightarrow}              
+\newcommand{\implica}{\Longrightarrow}   
+\newcommand{\sse}{\Longleftrightarrow}   
+\newcommand{\seq}{sequência}
+\newcommand{\seqs}{se\-quên\-cias}
+\newcommand{\Seq}{Se\-quên\-cia}
+\newcommand{\Seqs}{Se\-quên\-cias}
+\newcommand{\inv}{in\-ver\-são}
+\newcommand{\invs}{in\-ver\-sões}
+\newcommand{\invnsob}{\inv\ não so\-bre\-pos\-ta}
+\newcommand{\invnsobs}{\invs\ não so\-bre\-pos\-tas}
+\newcommand{\oped}{o\-pe\-ra\-ção de e\-di\-ção}
+\newcommand{\opeds}{o\-pe\-ra\-ções de e\-di\-ção}
+\newcommand{\Oped}{O\-pe\-ra\-ção de e\-di\-ção}
+\newcommand{\Opeds}{O\-pe\-ra\-ções de e\-di\-ção}
+\newcommand{\bio}{bio\-ló\-gi\-co}
+\newcommand{\bioa}{bio\-ló\-gi\-ca}
+\newcommand{\bios}{bio\-ló\-gi\-cos}
+\newcommand{\bioas}{bio\-ló\-gi\-cas}
+\newcommand{\gred}{grafo de e\-di\-ção}
+\newcommand{\greds}{grafos de e\-di\-ção}
+\newcommand{\gredes}{grafo de e\-di\-ção estendido}
+\newcommand{\gredess}{grafos de e\-di\-ção estendido}
+\newcommand{\dup}{du\-pli\-ca\-ção}
+\newcommand{\dups}{du\-pli\-ca\-ções}
+\newcommand{\rep}{re\-pe\-ti\-ção}
+\newcommand{\reps}{re\-pe\-ti\-ções}
+\newcommand{\intrep}{intervalo de \rep}
+\newcommand{\intreps}{intervalos de \rep}
+           
+
+% \newcount\hour
+% \newcount\minute
+% \hour=\time \divide \hour by 60 \minute=\time \loop \ifnum \minute
+% > 59 \advance \minute by -60 \repeat
+% \def\now{%
+% \ifnum \hour<13 \ifnum \hour<1 12:\else\number\hour:\fi \ifnum
+% \minute<10 0\fi
+% \number\minute%
+% %\ifnum \hour<12 \ AM \else \ PM \fi
+% \else \advance \hour by -12 \number\hour:%
+% \ifnum \minute<10 0\fi
+% \number\minute%
+% %\ PM%
+% \fi%
+% }
+% \let\oldthepage=\thepage
+% \renewcommand{\thepage}{\today{} \now \qquad (\oldthepage)}
+
+\newcommand{\cqd}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+% \usepackage[small,compact]{titlesec}
+
+\newcommand{\squishlist}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}      \setlength{\parsep}{3pt}
+      \setlength{\topsep}{3pt}       \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{1.5em} \setlength{\labelwidth}{1em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishlisttwo}{
+   \begin{list}{$\bullet$}
+    { \setlength{\itemsep}{0pt}    \setlength{\parsep}{0pt}
+      \setlength{\topsep}{0pt}     \setlength{\partopsep}{0pt}
+      \setlength{\leftmargin}{2em} \setlength{\labelwidth}{1.5em}
+      \setlength{\labelsep}{0.5em} } }
+
+\newcommand{\squishend}{ \end{list}  }
+
+\begin{document}
+
+% \hyphenation{a-li-nha-men-to pro-ba-bi-li-da-de se-qüên-cia}
+
+\title{Documentação comprobatória do Memorial e Currículo Lattes}
+\author{Augusto Fernandes Vellozo}
+% \date
+
+\maketitle
+
+
+% \begin{abstract}
+\begin{center}
+\emph{
+Documentação comprobatória do Memorial e Currículo Lattes apresentado como
+parte das exigências do Concurso Público de Provas e Títulos para o Magistério de Ensino Superior
+da Universidade Federal de São Paulo no campus de São José dos Campos.
+}
+
+\end{center}
+
+
+     Bacharel em Ciência da Computação na Unicamp e Doutor em Ciências na área
+     de concentração de Ciência da Computação na USP, atualmente no terceiro
+     ano de pós-doutorado na Universidade Lyon I - França na área de Biologia Computacional.
+
+    
+    \newpage
+    
+    \tableofcontents
+       
+
+\newpage
+\section{Formação acadêmica}
+\subsection{Pós-Doutorado - 07/2009 a atual} Université Claude Bernarde Lyon I,
+Lyon, França.
+
+\url{http://lbbe.univ-lyon1.fr/-Equipe-Baobab.html}
+
+A comprovação da minha participação na equipe BAOBAB coordenada por
+Marie-France Sagot pode ser feita através do \emph{site} da equipe
+(página~\pageref{siteBAOBAB}).
+
+Além disto, forneço também uma cópia do meu contrato de trabalho  (em
+francês) com a universidade (página~\pageref{contratoUCBL2009}).
+
+\subsection{Pós-Doutorado - 07/2008 a 07/2009} Institut National des Sciences
+Appliquees de Lyon, INSA-Lyon, Lyon, França.
+
+\url{http://criport1.insa-lyon.fr/bf2i/index.php?Rub=31}
+
+A comprovação da minha participação na equipe SymTrophique coordenada por
+Hubert Charles pode ser feita através do \emph{site} do laboratório
+(página~\pageref{siteBF2I}).
+
+Além disto, forneço também uma cópia do meu contrato de trabalho  (em
+francês) com a universidade (página~\pageref{contratoBF2I}).
+
+\subsection{Pós-Doutorado - 07/2007 a 07/2008} Universite Claude Bernarde Lyon I,
+Lyon, França.
+
+\url{http://lbbe.univ-lyon1.fr/-Equipe-Baobab.html}
+
+A comprovação da minha participação na equipe BAOBAB coordenada por
+Marie-France Sagot pode ser feita através do \emph{site} da equipe
+(página~\pageref{siteBAOBAB}).
+
+Além disto, forneço também uma cópia do certificado  (em francês) de conclusão
+do pós-doutorado fornecido pela universidade
+(página~\pageref{certificadoUCBL2007}).
+
+\subsection{Doutorado  em Ciência da Computação- 03/2001 a 04/2007} Universidade de
+São Paulo, USP, Brasil.
+
+\url{http://www.teses.usp.br/teses/disponiveis/45/45134/tde-04052007-185842}
+
+A cópia do diploma está anexa (página~\pageref{diplomaDoutor}).
+
+\subsection{Especialização em Informática e Sistemas de Informação - 03/1997 a
+07/1998} Universidade de Sorocaba, UNISO, Brasil.
+
+A cópia do diploma está anexa (página~\pageref{diplomaLatoInformatica}).
+
+\subsection{Especialização em Administração de marketing - 03/1995 a 07/1996}
+Universidade de Sorocaba, UNISO, Brasil.
+
+A cópia do diploma está anexa (página~\pageref{diplomaLatoMarketing}).
+
+\subsection{Graduação em Ciência da Computação - 03/1985 a 07/1989} Universidade
+Estadual de Campinas, UNICAMP, Brasil.
+
+A cópia do diploma está anexa (página~\pageref{diplomaGraduacao}).
+
+\section{Produção bibliográfica}
+
+\subsection{Genome Sequence of the Pea Aphid Acyrthosiphon pisum. PLoS Biology -
+2010}
+
+\url{http://dx.doi.org/10.1371\%2Fjournal.pbio.1000313}
+
+doi:10.1371/journal.pbio.1000313
+
+Uma cópia do artigo está anexa (página~\pageref{artigoGenomaPisum}), assim como
+uma cópia da lista de autores e seus grupos de participações
+(página~\pageref{autoresGenomaPisum}).
+
+Além disto forneço também a cópia do email que recebi com as congratulações
+pela publicação (página~\pageref{emailpubliGenomaPisum}).
+
+
+ \subsection{Alignment with non-overlapping inversions in {$O(n^
+3)$}-time. WABI, 2006}
+
+\url{http://www.springerlink.com/content/w1gw8u371006g603/}
+
+doi:10.1007/11851561\_18
+
+Uma cópia do artigo está anexa (página~\pageref{artigoWABI2006}).
+
+
+\subsection{Alignment with non-overlapping inversions in {$O(n\sp 3\log
+n)$}-time. \newline GRACO, 2005}
+
+\url{http://www.sciencedirect.com/science/article/b75gv-4g8mt0t-1p/2/15ca35c3828cd2c20967326055dbf2f7}
+
+doi:10.1016/j.endm.2005.05.049
+
+Uma cópia do artigo está anexa (página~\pageref{artigoGRACO2005}).
+
+\section{Produção técnica acadêmica}
+
+\subsection{\emph{Software} - Cycads - Cyc Annotation Database system. 2009.}
+\url{http://code.cycadsys.org/}
+
+Uma cópia da página na internet onde está o código está anexa 
+(página~\pageref{pagCodeCycads}).
+
+\subsection{\emph{Base de dados} - AcypiCyc - Acyrthosiphon pisum Cyc database.
+2009.}
+
+\url{http://acypicyc.cycadsys.org}.
+
+Uma cópia da página na internet onde está a base de dados está anexa 
+(página~\pageref{pagAcypicyc}).
+
+\section{Projetos de pesquisa}
+
+\subsection{MetNet - Systems level analysis of the Pea Aphid - 2008 a atual}
+
+\url{http://www.metnet4sysbio.org/}
+
+Uma cópia da página onde somente os membros do projeto têm
+acesso está anexa (página~\pageref{projMetnet}).
+
+\subsection{NEMO - Network Motifs - 2009 a atual}
+
+\url{http://nemo.ssbgroup.fr/}
+ 
+
+\subsection{Computational Biology, Algorithmics, Combinatorial Optimization -
+2006 a 2007} 
+
+Uma cópia da página do documento onde consta que sou membro do projeto está na
+página~\pageref{projUSP2006}.
+
+O documento inteiro pode ser encontrado em
+\url{http://servicos.capes.gov.br/arquivos/avaliacao/estudos/dados1/2006/33002010/002/2006_002_33002010176P0_ProjPesq.pdf}.
+
+
+\subsection{Algorithmic Questions on Molecular Biology -
+2004 a 2005} 
+
+\url{http://www.ime.usp.br/~cris/inria/}
+
+Uma cópia da página internet do projeto está na
+página~\pageref{projUSP2007}.
+
+\newpage
+\section{Participação em eventos}
+
+\subsection{Metabolic Pathways Analysis-2009 - Leiden - Holanda}
+
+\url{http://www.lorentzcenter.nl/lc/web/2009/376/info.php3?wsid=376}
+
+Uma cópia da página internet onde consta os participantes está na
+página~\pageref{leiden}.
+
+
+\subsection{6th ISS Congress-2009 - Madison - EUA}
+
+\url{http://www.union.wisc.edu/symbiosis}
+
+Uma cópia da página internet onde consta a a presentação do nosso poster no dia
+13/08/2009 por Stefano Colella está na página~\pageref{madison}.
+
+
+\subsection{II Pea Aphid Genome Annotation Workshop-2009 - Barcelona - Espanha}
+
+\url{http://aphid.cgenomics.org}
+
+Uma cópia do certificado de participação segue anexa na
+página~\pageref{certificadoBarcelona}.
+
+
+\subsection{8th International Symposium on Aphids-2009 - Catania - Itália}
+
+\url{http://www.8isasicily.net}
+
+Poster: AcypiCyc (Acyrthosiphon pisum Cyc database) and CycADS (Cyc Annotation
+Database System): moving from genome sequence annotation to metabolic network
+analyses.
+
+O poster foi apresentado por meu colega e co-autor Yvan Rahbé.
+
+
+\subsection{Réseau Français de Biologie Adaptative des Pucerons-2009 - Paris -
+França}
+
+Poster: AcypiCyc (Acyrthosiphon pisum Cyc database) and CycADS (Cyc Annotation
+Database System): moving from genome sequence annotation to metabolic network
+analyses.
+
+O poster foi apresentado por meu colega e co-autor Stefano Colella.
+
+
+\subsection{I Pea Aphid Genome Annotation Workshop-2008 - Princeton - EUA}
+
+\url{http://www.as.miami.edu/AphidWorkshop/}
+
+Poster: Annotation of metabolism genes: towards the implementation of an
+Acyrthosiphon pisum Cyc database (ApsCyc) to perform metabolic network analyses.
+
+O poster foi apresentado por meu colega e co-autor Stefano Colella.
+
+
+\subsection{IPG (Integrative Post-Genomics)-2008 - Lyon - França}
+
+\url{http://bsmc.insa-lyon.fr/ipg/ipg08/contributed_abstracts.html}
+
+Poster: Development of the Acyrthosiphon pisum Cyc database (ApsCyc): from genome
+sequence to metabolic network analyses.
+
+O poster foi apresentado por mim e meu colega e co-autor Stefano Colella.
+
+
+\subsection{BioCyc and Pathway Tools tutorial-2008 - Londres - Inglaterra}
+
+\url{http://brg.ai.sri.com/ptools/tutorial/2008-09-London.html}
+
+
+\subsection{Journées Ouvertes Biologie Informatique Mathématiques-JOBIM-2008 -
+Lille - França}
+
+\url{http://www2.lifl.fr/jobim2008/}
+
+
+
+\newpage
+\section{Experiência didática}
+\subsection{Instituto Brasileiro de Tecnologia Avançada, IBTA, Brasil - 01/2002
+a 07/2003}
+
+Como professor titular II (pois já tinha especialização) ministrei aulas de Fundamentos de Software (prática e teoria) e
+Programação orientada a objetos (prática e teoria) para as turmas do
+primeiro ano dos cursos de Banco de Dados e Administração de Redes, da seguinte
+forma:
+\begin{itemize}
+  \item Prática em Fundamentos de Software para a turma do 1o. semestre do curso
+  de Banco de dados
+  \item Teoria em Fundamentos de Software para a turma do 1o. semestre do curso
+  de Banco de dados
+  \item Prática em Fundamentos de Software para a turma do 1o. semestre do curso
+  de Administração de redes
+   \item Teoria em Fundamentos de Software para a turma do 1o. semestre do curso
+  de Admi\-nis\-tra\-ção de redes
+  \item Prática em Programação orientada a objetos para a turma do 2o. semestre do curso
+  de Banco de dados
+  \item Teoria em Programação orientada a objetos para a turma do 2o. semestre do curso
+  de Banco de dados
+  \item Prática em Programação orientada a objetos para a turma do 2o. semestre do curso
+  de Administração de redes
+   \item Teoria em Programação orientada a objetos para a turma do 2o. semestre do curso
+  de Administração de redes
+\end{itemize} 
+
+\newpage
+
+\section{Experiência profissional em empresas}
+
+\subsection{Universo OnLine Ltda.-UOL, Brasil - 04/2000 a 01/2004}
+Função: Analista programador e gerente de projetos
+
+Departamento: desenvolvimento de software. 
+
+No início (8 meses) trabalhei como consultor terceirizado da empresa. Depois
+fui contratado como funcionário CLT.
+
+Desenvolvi aplicativos para as áreas de Email e Cadastro de
+clientes da empresa. 
+
+Gerenciei projetos para a área de Atendimento ao Cliente (SAC).
+
+\subsection{GlobalSys-Bradesco, Brasil - 01/1999 a 04/2000}
+Função: Analista programador e suporte
+
+Departamento: empresa terceirizada (Globalsys). 
+
+Trabalhei como consultor terceirizado da empresa.
+
+Desenvolvi e dei suporte a aplicativos para uso em áreas internas do Bradesco.
+
+\subsection{Banco Finasa, Brasil - 06/1997 a 01/1999}
+Função: Analista programador
+
+Departamento: microinformática. 
+
+Desenvolvi e dei suporte para os aplicativos de \emph{Home Banking} do FINASA.
+
+\subsection{Vellozo Informática, Brasil - 09/1995 a 05/1997}
+Função: Consultor e sócio proprietário
+
+Desenvolvi aplicativos e dei suporte e consultoria para empresas em Sorocaba e
+região.
+
+\subsection{ABR Sistemas, Brasil - 03/1992 a 08/1995}
+Função: diretor e sócio proprietário
+
+Criei, gerenciei e administrei esta empresa para a comercialização de
+\emph{software} e computadores em Sorocaba e região.
+
+\subsection{Quantum Computadores, Brasil - 10/1989 a 10/1991}
+Função: Analista programador de software básico
+
+Departamento: Pesquisa e desenvolvimento. 
+
+Desenvolvimento da BIOS para um micro-computador PC 486. 
+
+Suporte e manutenção da BIOS de um micro-computador PC 386.
+
+\newpage
+
+\section{Considerações finais}
+
+Gostaria de finalizar dizendo que apesar de já estar há quase 3 anos no
+exterior, gostaria de fixar residência novamente no Brasil. Gostaria que meus
+filhos recebessem a cultura brasileira e fossem criados no Brasil. Acredito que
+estes anos no exterior foram muito gratificantes, mas já foram suficientes.
+
+Gostaria de ressaltar também que apesar de ter uma carreira acadêmica muito
+boa, com doutorado no IME-USP e pós-doutorado na França, tive também
+experiências profissionais em empresas por muito tempo no Brasil. Acredito que
+esta minha experiência profissional em várias empresas pode ajudar a
+propiciar uma boa visão deste ramo aos alunos.
+
+Além disto, devido a este meu passado profissional, tive contato com empresários
+e profissionais influentes (diretoria e vice-presidência) de empresas e indústrias no Brasil
+(UOL, Google e Andrews). Acredito que com isto possa ajudar a concretizar
+parcerias da universidade com empresas e alavancar projetos que podem se
+auto-sustentar através do financiamento destas empresas. Desta forma as empresas podem conseguir
+resultados expressivos e inovatórios, assim como a universidade pode conseguir aprimorar o
+conhecimento dos alunos e aproximá-los de problemas reais e do ambiente e
+estrutura das empresas.
+% \newpage
+\section{Currículo Lattes}
+\includepdf[pages=-]{cvLattes.pdf}
+
+\newpage
+% {\small
+\bibliographystyle{abbrv}
+\bibliography{projetos}
+% }
+
+\end{document}
+
+
