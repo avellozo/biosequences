@@ -110,8 +110,8 @@ da Universidade Federal de São Paulo no campus de São José dos Campos.
      Algoritmos eficientes são essenciais em muitas atividades na área de
      bio\-informática, principalmente devido à grande quantidade de dados
      envolvida. Sendo assim, muitos aspectos teóricos da Ciência da Computação
-     são muito importantes, e alguns casos até imprescindíveis, para resolverem
-     vários problemas nesta área com tempo e memória viáveis para o trabalho de um
+     são muito importantes e, em alguns casos, até imprescindíveis para
+     resolverem vários problemas nesta área com tempo e memória viáveis para o trabalho de um
      biólogo ou bioinformata.
 
     
@@ -230,7 +230,7 @@ para esse problema.
 
 Em 2003, Lago~\cite{MR2132586} propôs um algoritmo exato para o problema do
 alinhamento com inversões sem sobreposições que executa em tempo $O(n^4)$ e que
-usa espaço $O(n^2)$. Em 2005, Alves, Lago, e Vellozo~\cite{MR2173809} propuseram
+usa espaço $O(n^2)$. Em 2005, Alves, Lago, e Vellozo~\cite{MR2173809p} propuseram
 um algoritmo exato para este mesmo problema que executa em tempo $O(n^3\log n)$ e
 que usa espaço $O(n^2)$. Em 2006, Vellozo, Alves, e
 Lago~\cite{vellozo06:_align_with_non_overl_inver} propuseram um algoritmo exato
@@ -322,12 +322,13 @@ pontuação de cada anotação varia somente de acordo com a quantidade de métodos
 que concordam com a anotação. 
 
 Existem ainda muitas outras características que podem ser consideradas em
-projetos futuros para gerar uma pontuação mais precisa de cada anotação
-funcional. Por exemplo, o sistema CycADS já está preparado para considerar no
-valor da pontuação de cada anotação o grau de similaridade e os métodos
+projetos futuros para gerar uma pontuação mais precisa da confiabilidade de cada
+anotação funcional. Por exemplo, o sistema CycADS já está preparado para considerar no
+valor da pontuação de cada anotação, o grau de similaridade e os métodos
 utilizados na anotação funcional. Métodos com experimentos \emph{in vitro} podem
 gerar pontuações maiores  que métodos \emph{in silico}, assim como funções em
-genes mais similares podem gerar pontuações maiores.
+genes mais similares podem gerar pontuações maiores e com isto, dar maior
+confiabilidade a estas anotações.
 % Atualmente estamos escrevendo um artigo para apresentar este \emph{software} e
 % a sua aplicação no projeto genoma do organismo \emph{Acyrthosiphon
 % pisum}~\cite{cycads_in_preparation}.
@@ -352,8 +353,8 @@ realizar estes estudos e análises é através da procura e identificação de padrõe
 
 Podemos representar uma rede metabólica $R$ como um grafo
 $G_R=(V,E)$ tal que $V=\{r|\forall r \mbox{ tal que } r \mbox{ é uma reação
-metabólica em }R\}$ e $E=\{(r_1,r_2)|\forall r_1 \in V \mbox{ e } r_2 \in V $
-tal que existe pelo menos um composto (substrato ou produto) em $r_1$ que
+metabólica em }R\}$ e $E=\{(r_1,r_2)|\forall r_1 \in V \mbox{ e } \forall r_2
+\in V $ tal que existe pelo menos um composto (substrato ou produto) em $r_1$ que
 também é composto (substrato ou produto) em $r_2\}$. Podemos com isto
 procurar padrões (ou \emph{motifs}) em $G_R$, como por exemplo buscar os 
 subgrafos isomorfos a um dado subgrafo (padrão).
