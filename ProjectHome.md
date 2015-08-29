@@ -1,0 +1,1 @@
+This software calculates the alignment of two sequences considering non overlapping inversions.
